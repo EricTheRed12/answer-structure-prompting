@@ -1,0 +1,156 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{A framework for generative contextual reasoning prompts to improve generalization and accuracy of few parameter LLMs}
+\author{Eric Redman}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+TBD
+\end{abstract}
+
+\section{Introduction}
+
+% Introduces the topic, provides context, and outlines the research problem and thesis statement.
+
+% how can we make llms smarter eg reduce the complexity and size, but increase the accuracy.
+
+\subsection{Hook about why language models are great}
+
+With the rise models like ChatGpt and Gemini, large language models (LLMs) have 
+shown effectiveness at a variety of natural language tasks. Task that range from solving difficult problems and answering questions on wide range of topics to composing novels. In some cases, LLMs have been so effective it is believed larger models have surpassed humans in certain areas of reasoning and thought.
+
+\subsection{The Problem Statement}
+
+The capabilities demonstrated by large language models are not free. There is a well-documented relationship between the number of model parameters and performance across general tasks --- commonly referred to as scaling laws \cite{kaplan2020scaling}. As model size increases, so does performance on reasoning, question answering, and language generation benchmarks. The result is an industry-wide arms race toward ever-larger models: systems with hundreds of billions of parameters that require significant computational infrastructure to train and deploy \cite{strubell2019energy, patterson2021carbon}.
+
+This creates a fundamental access problem. The models that perform best are available only to organizations with the resources to run them, leaving smaller models as the practical option for the majority of researchers, developers, and end users. However, smaller models carry a well-known trade-off: reduced generalization. A model with fewer parameters has less capacity to encode the breadth of knowledge and reasoning patterns required to perform well across a wide range of tasks \cite{kaplan2020scaling, hoffmann2022chinchilla}.
+
+Compounding this is the problem of hallucinations --- outputs that are factually incorrect or logically inconsistent, produced with apparent confidence \cite{ji2023hallucination, zhang2023hallucination}. Hallucinations are not limited to small models; they affect state-of-the-art systems as well. But they are more pronounced in models with limited parameters, where the probability space over possible responses is less constrained by robust world knowledge. The core issue is that a language model, regardless of size, operates as a probability engine: it generates the most likely next token given its inputs and its learned distributions \cite{vaswani2017attention}. Without sufficient context or capacity, that probability estimate is more easily led astray.
+
+The question this paper is concerned with is whether it is possible to improve the accuracy and generalization of small language models without simply adding more parameters. Specifically: can a structured, generative approach to prompt context --- one that guides a model to identify the type and shape of an answer before generating it --- reduce hallucinations and improve task performance in low-parameter settings?
+
+\subsection{Existing Solutions}
+
+Several techniques have been proposed to improve LLM accuracy and reduce hallucinations without scaling the model itself. Chain-of-Thought (CoT) prompting \cite{wei2022cot} encourages models to produce intermediate reasoning steps before arriving at an answer, which has been shown to improve performance on multi-step reasoning tasks. Extensions of this idea --- such as Tree of Thoughts \cite{yao2023tot} and Self-Consistency \cite{wang2023selfconsistency} --- further improve outcomes by exploring multiple reasoning paths and selecting the most consistent result.
+
+Few-shot and multi-shot prompting \cite{brown2020gpt3} improve model performance by providing representative examples alongside the query, effectively conditioning the model's output distribution on relevant patterns without modifying its weights. Retrieval-Augmented Generation (RAG) \cite{lewis2020rag} takes a different approach, augmenting a model's parametric knowledge with dynamically retrieved external information to ground its responses in verifiable context.
+
+At the architecture level, Mixture of Experts (MoE) \cite{shazeer2017moe, fedus2022switchtransformer} improves effective model capacity by routing inputs to specialized sub-networks, allowing a model to develop targeted competencies across different domains.
+
+Each of these methods addresses a different facet of the problem. CoT and its variants improve the reasoning process but depend on the model already having the relevant knowledge encoded in its parameters. RAG supplies missing knowledge but does not inherently guide the model on how to structure its retrieval or use the retrieved information. MoE improves specialization but operates at training time and requires substantial infrastructure investment.
+
+Critically, what these methods share is a focus on \textit{what} the model knows. They improve accuracy by enriching the model's knowledge, broadening its reasoning paths, or specializing its parameters. What they do not address is \textit{how} the model structures its approach to a problem before generating an answer --- that is, whether the model identifies the type of reasoning required and the shape of the expected response before committing to a generation path. This gap is the central motivation for the framework proposed in this paper.
+
+\subsection{The purpose of the paper}
+
+The purpose of this paper is to present the foundations of a framework that improves the efficacy of small parameter large language modes on a general set of tasks by training the model to identify the correct structure of a response before generating said response. The proposed technique aims to reduce the total set of probable responses while simultaneously providing a structure for the retrieval augmented n-shot prompting of an LLM. As this paper is foundational, the problem set will only cover certain tasks, multiple choice problem solving (fact finding), and analogical reasoning tasks. We will explore the application of this technique on various models and sizes, including both unbiased and pretrained for each task. 
+
+\section{Literature Review}
+
+% Discusses existing research on the subject to provide context for the current study.
+
+\subsection{Large Language Models}
+
+What is a large language model? At their core they are a predictive engine. (Need Paper) When offered a prompt, the model uses an inner attention mechanism to predict the next most probable token(word), and simultaneously the next best set of probable tokens. The result of this prediction is a string of tokens that is the most probable output to the given response. (Need Paper) This probability is based on the features of the model’s training corpus like sentence structures, semantic relationships, factual information, etc. (Need Paper) Additional factors like architectures (Mixture of experts Add Paper link) or hyperparameters (Temperature Add Paper link) can affect the prediction, but the core of the prediction is based on the training corpus. (PAPER?)
+
+\subsection{Hallucinations}
+
+While there is no generally accepted definition of hallucinations, (PAPER) a hallucination can generally be understood as a fault in the prediction of a LLM. The cause of hallucinations is a widely debated topic, with various theories at the time of writing this paper that range from poor training to bad data, to over alignment to human preferences (PAPER) Regardless, they remain one of the largest challenges to the operation of LLMs, reducing the accuracy of even the top of the line multi trillion parameter models. (PAPER)
+
+% (https://aclanthology.org/2025.findings-acl.1199.pdf),
+% https://arxiv.org/pdf/2602.06176
+% https://aclanthology.org/2025.acl-long.1176/
+% https://aclanthology.org/2025.acl-long.1176/
+% Does not seem to be a paper clearly defining what halucinations are
+% Maybe(https://aclanthology.org/2025.findings-acl.1199/)
+
+
+\subsection{Generalization at scale}
+
+Large language models with more parameters perform better on most tasks than their smaller counterparts. (PAPERS a few that show larger models perform better) Larger context windows, bigger and better training corpuses and significantly more parameters are a few of the factors that allow larger models to be more effective at a wider range of tasks. (PAPERS?) 
+
+% Expand upon these ideas maybe?
+
+
+\subsection{The Problem with Scale}
+
+This success of large models comes with several costs notably Computing power, training time, raw energy requirements, accessibility to the average user amongst other. (PAPERS?) In addition, smaller LLMs do show performance increases over their larger counterparts when trained on specific topics. (PAPER) Larger models are not always betters
+
+\subsection{Mixture of experts}
+
+Mixture of experts is technique where a LLM is divided into sub networks during training where each network specializes in one or more homogenous subjects. (PAPER) By specializing sub networks the overall model better generalizes to the trained set of tasks.  Modern implementations use a technique called gating where a router determines the correct sub model or models to train at any given time. (PAPER)
+
+% Expand upon these ideas maybe?
+
+
+\subsection{Context (MAYBE)}
+
+% Context window, providing context before prompting
+% Bigger window better understanding
+% Providing locations for the model to look up info
+% Precomputing structures for solving questions
+
+TBD
+
+\subsection{Prompt Engineering}
+
+% i want a lot of papers on this, It is the core concept and i want to make sure i am doing something new.
+
+Prompt engineering is another set of methods that are shown to increase the accuracy of LLMs. (PAPER) The relevant techniques to this paper include Chain of Thought (CoT) prompting and Multi shot prompting. Chain of though prompting involves creating specified prompts like “Tell Me Your thoughts” to trigger internal the internal mechanisms of an LLM to reflect upon the answer. (PAPER) While the core idea behind CoT prompting has not been confirmed to work, methods based off CoT, like Tree of Thoughts (PAPER) or Self Consistency (PAPER) do show effectiveness at improving model performance.
+The second method, multi-shot prompting involves providing examples of information (shots) relevant to the overall prompt to increase model performance. (Paper) Multi-shot prompting has been shown to improve consistency, accuracy, and performance. (PAPERS?)
+
+
+\subsection{The structures of questions (better section name)}
+
+% Every type of question has a specific type of structure required to understand
+% need papers related to human though and problem solving
+% The types of reasoning and the structure of reasoning
+
+TBD
+
+
+\subsection{Retrieval augmented generation }
+
+Retrieval augmented Generation (RAG) is a technique used to augment a trained model’s knowledge by retrieving relevant information form external sources. (PAPER) These sources can include real time data, searches on the internet or even other trained models. There is a variety of rag methods like Modular RAG (PAPER) or Speculative RAG. (PAPER)
+
+% Not the point of this paper but the technique is usefull for filling out prompts
+
+\section{Architecture}
+
+% Why all the above points are useful and relevant
+
+\section{Methodology}
+
+% Explains how the study was conducted, including data collection and analysis methods
+
+\section{Results}
+
+% Presents the data and findings, often using figures and tables.
+
+\section{Discussion}
+
+% Interprets the results, explains their significance, and discusses limitations
+
+\section{Conclusion}
+
+% Summarizes the findings and restates the thesis
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}
