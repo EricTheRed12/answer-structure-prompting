@@ -1,9 +1,445 @@
-@article{greenwade93,
-    author  = "George D. Greenwade",
-    title   = "The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN})",
-    year    = "1993",
-    journal = "TUGBoat",
-    volume  = "14",
-    number  = "3",
-    pages   = "342--351"
+% ============================================================
+% FOUNDATIONAL ARCHITECTURE
+% ============================================================
+
+@inproceedings{vaswani2017attention,
+    author    = "Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin",
+    title     = "Attention Is All You Need",
+    booktitle = "Advances in Neural Information Processing Systems",
+    year      = "2017",
+    volume    = "30"
 }
+
+@inproceedings{devlin2019bert,
+    author    = "Jacob Devlin and Ming-Wei Chang and Kenton Lee and Kristina Toutanova",
+    title     = "{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics",
+    year      = "2019",
+    pages     = "4171--4186"
+}
+
+@article{liu2019roberta,
+    author  = "Yinhan Liu and Myle Ott and Naman Goyal and Jingfei Du and Mandar Joshi and Danqi Chen and Omer Levy and Mike Lewis and Luke Zettlemoyer and Veselin Stoyanov",
+    title   = "{RoBERTa}: A Robustly Optimized {BERT} Pretraining Approach",
+    year    = "2019",
+    journal = "arXiv preprint arXiv:1907.11692"
+}
+
+% ============================================================
+% SCALING LAWS AND MODEL SIZE
+% ============================================================
+
+@article{kaplan2020scaling,
+    author  = "Jared Kaplan and Sam McCandlish and Tom Henighan and Tom B. Brown and Chess Chess and Rewon Child and Scott Gray and Alec Radford and Jeffrey Wu and Dario Amodei",
+    title   = "Scaling Laws for Neural Language Models",
+    year    = "2020",
+    journal = "arXiv preprint arXiv:2001.08361"
+}
+
+@article{hoffmann2022chinchilla,
+    author  = "Jordan Hoffmann and Sebastian Borgeaud and Arthur Mensch and Elena Buchatskaya and Trevor Cai and Eliza Rutherford and Diego de Las Casas and Lisa Anne Hendricks and Johannes Welbl and Aidan Clark and others",
+    title   = "Training Compute-Optimal Large Language Models",
+    year    = "2022",
+    journal = "arXiv preprint arXiv:2203.15556"
+}
+
+@article{modelsizematters2024,
+    author  = "Waad Alshammari and others",
+    title   = "Does Model Size Matter? {A} Comparison of Small and Large Language Models for Requirements Classification",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2510.21443"
+}
+
+@article{smalllmsready2024,
+    author  = "Raghav Gaggar and others",
+    title   = "Are Small Language Models Ready to Compete with Large Language Models for Practical Applications?",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2406.11402"
+}
+
+@article{costofdownscaling2023,
+    author  = "Tyll Krueger and others",
+    title   = "The Cost of Down-Scaling Language Models: Fact Recall Deteriorates before In-Context Learning",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2310.04680"
+}
+
+@article{linguistic_competence_scale2025,
+    author  = "various",
+    title   = "Does Linguistic Competence Scale with Model Size?",
+    year    = "2025",
+    journal = "arXiv preprint arXiv:2509.02225"
+}
+
+@inproceedings{emergent_reducedscale2024,
+    author    = "Sherin Muckatira and Vijeta Deshpande and Vladislav Lialin and Anna Rumshisky",
+    title     = "Emergent Abilities in Reduced-Scale Generative Language Models",
+    booktitle = "Findings of the Association for Computational Linguistics: NAACL 2024",
+    year      = "2024",
+    pages     = "1242--1257"
+}
+
+@article{slm_survey2024,
+    author  = "Fali Wang and Zhiwei Zhang and Xianren Zhang and Zongyu Wu and Tzuhao Mo and Qiuhao Lu and Wanjing Wang and Rui Li and Junjie Xu and Xianfeng Tang and Qi He and Yao Ma and Ming Huang and Suhang Wang",
+    title   = "A Comprehensive Survey of Small Language Models in the Era of Large Language Models: Techniques, Enhancements, Applications, Collaboration with {LLMs}, and Trustworthiness",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2411.03350"
+}
+
+@article{domain_expert_smalllm2024,
+    author  = "various",
+    title   = "Matching Domain Experts by Training from Scratch on Domain Knowledge",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2405.09395"
+}
+
+@article{catastrophic_forgetting2023,
+    author  = "various",
+    title   = "Understanding Catastrophic Forgetting in Language Models via Implicit Inference",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2309.10105"
+}
+
+@article{llmoverview2023,
+    author  = "Humza Naveed and others",
+    title   = "A Comprehensive Overview of Large Language Models",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2307.06435"
+}
+
+% ============================================================
+% LLM SOCIETAL IMPACT AND TRANSFORMATIVE POTENTIAL
+% ============================================================
+
+@article{eloundou2023gpts,
+    author  = "Tyna Eloundou and Sam Manning and Pamela Mishkin and Daniel Rock",
+    title   = "{GPTs} are {GPTs}: An Early Look at the Labor Market Impact Potential of Large Language Models",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2303.10130"
+}
+
+@article{llm_critical_societal2024,
+    author  = "Zhijun Chen and others",
+    title   = "A Survey on Large Language Models for Critical Societal Domains: Finance, Healthcare, and Law",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2405.01769"
+}
+
+% ============================================================
+% AI OPENNESS, GOVERNANCE, AND TRANSPARENCY
+% ============================================================
+
+@article{liesenfeld2024closed,
+    author  = "Andreas Liesenfeld and Mark Dingemanse",
+    title   = "Why `open' {AI} systems are actually closed, and why this matters",
+    year    = "2024",
+    journal = "Nature",
+    volume  = "636",
+    pages   = "30--33"
+}
+
+@inproceedings{liesenfeld2024openwashing,
+    author    = "Andreas Liesenfeld and Mark Dingemanse",
+    title     = "Rethinking open source generative {AI}: open-washing and the {EU AI Act}",
+    booktitle = "Proceedings of the 2024 ACM Conference on Fairness, Accountability, and Transparency (FAccT '24)",
+    year      = "2024",
+    publisher = "ACM"
+}
+
+@article{kapoor2024societal,
+    author  = "Sayash Kapoor and Rishi Bommasani and Kevin Klyman and Shayne Longpre and Ashwin Ramaswami and Peter Cihon and Aspen Hopkins and Kevin Bankston and Stella Biderman and Miranda Bogen and others",
+    title   = "On the Societal Impact of Open Foundation Models",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2403.07918"
+}
+
+@article{bommasani2023fmti,
+    author  = "Rishi Bommasani and Kevin Klyman and Shayne Longpre and Sayash Kapoor and Betty Xiong and Daniel Zhang and Percy Liang",
+    title   = "The Foundation Model Transparency Index",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2310.12941"
+}
+
+% ============================================================
+% COST AND ENVIRONMENTAL IMPACT OF LARGE MODELS
+% ============================================================
+
+@inproceedings{strubell2019energy,
+    author    = "Emma Strubell and Ananya Ganesh and Andrew McCallum",
+    title     = "Energy and Policy Considerations for Deep Learning in {NLP}",
+    booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+    year      = "2019",
+    pages     = "3645--3650"
+}
+
+@article{patterson2021carbon,
+    author  = "David Patterson and Joseph Gonzalez and Quoc Le and Chen Liang and Lluis-Miquel Munguia and Daniel Rothchild and David So and Maud Texier and Jeff Dean",
+    title   = "Carbon Emissions and Large Neural Network Training",
+    year    = "2021",
+    journal = "arXiv preprint arXiv:2104.10350"
+}
+
+% ============================================================
+% HALLUCINATIONS
+% ============================================================
+
+@article{hallucination_unified2024,
+    author  = "various",
+    title   = "A Unified Definition of Hallucination",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2512.21577"
+}
+
+@article{ji2023hallucination,
+    author  = "Ziwei Ji and Nayeon Lee and Rita Frieske and Tiezheng Yu and Dan Su and Yan Xu and Etsuko Ishii and Ye Jin Bang and Andrea Madotto and Pascale Fung",
+    title   = "Survey of Hallucination in Natural Language Generation",
+    year    = "2023",
+    journal = "ACM Computing Surveys",
+    volume  = "55",
+    number  = "12",
+    pages   = "1--38"
+}
+
+@article{zhang2023hallucination,
+    author  = "Yue Zhang and Yafu Li and Leyang Cui and Deng Cai and Lemao Liu and Tingchen Fu and Xinting Huang and Enbo Zhao and Yu Zhang and Yulong Chen and others",
+    title   = "Siren's Song in the {AI} Ocean: A Survey on Hallucination in Large Language Models",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2309.01219"
+}
+
+@article{hallucination_survey2024,
+    author  = "various",
+    title   = "Large Language Models Hallucination: A Survey",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2510.06265"
+}
+
+@article{whyllmshallucinate2024,
+    author  = "various",
+    title   = "Why Language Models Hallucinate",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2509.04664"
+}
+
+% ============================================================
+% LLM REASONING — CAPABILITIES AND LIMITS
+% ============================================================
+
+@article{llmreasoning_stochastic2024,
+    author  = "various",
+    title   = "What Kind of Reasoning (if any) is an {LLM} Actually Doing? On the Stochastic Nature and Abductive Appearance of Large Language Models",
+    year    = "2025",
+    journal = "arXiv preprint arXiv:2512.10080"
+}
+
+@article{implicit_reasoning2024,
+    author  = "various",
+    title   = "Implicit Reasoning in Large Language Models",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2509.02350"
+}
+
+@article{math_reasoning_limits2024,
+    author  = "various",
+    title   = "Understanding the Limitations of Mathematical Reasoning in Large Language Models",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2410.05229"
+}
+
+@article{lrm_complexity2025,
+    author  = "various",
+    title   = "Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity",
+    year    = "2025",
+    journal = "arXiv preprint arXiv:2506.06941"
+}
+
+@article{analogical_reasoning2022,
+    author  = "Taylor Webb and Keith J. Holyoak and Hongjing Lu",
+    title   = "Emergent Analogical Reasoning in Large Language Models",
+    year    = "2022",
+    journal = "arXiv preprint arXiv:2212.09196"
+}
+
+@article{theory_of_mind2023,
+    author  = "Michal Kosinski",
+    title   = "Theory of Mind May Have Spontaneously Emerged in Large Language Models",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2302.02083"
+}
+
+% ============================================================
+% PROMPT ENGINEERING
+% ============================================================
+
+@article{brown2020gpt3,
+    author  = "Tom B. Brown and Benjamin Mann and Nick Ryder and Melanie Subbiah and Jared Kaplan and Prafulla Dhariwal and Arvind Neelakantan and Pranav Shyam and Girish Sastry and Amanda Askell and others",
+    title   = "Language Models are Few-Shot Learners",
+    year    = "2020",
+    journal = "arXiv preprint arXiv:2005.14165"
+}
+
+@article{wei2022cot,
+    author  = "Jason Wei and Xuezhi Wang and Dale Schuurmans and Maarten Bosma and Brian Ichter and Fei Xia and Ed Chi and Quoc Le and Denny Zhou",
+    title   = "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    year    = "2022",
+    journal = "arXiv preprint arXiv:2201.11903"
+}
+
+@article{cot_factors2024,
+    author  = "various",
+    title   = "Deciphering the Factors Influencing the Efficacy of Chain-of-Thought Prompting",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2407.01687"
+}
+
+@article{cot_limitations2025,
+    author  = "various",
+    title   = "On the Limitations of Chain-of-Thought in In-Context Learning",
+    year    = "2025",
+    journal = "arXiv preprint arXiv:2504.05081"
+}
+
+@article{cot_mirage2025,
+    author  = "various",
+    title   = "Is Chain-of-Thought Reasoning of {LLMs} a Mirage? {A} Data Distribution Lens",
+    year    = "2025",
+    journal = "arXiv preprint arXiv:2508.01191"
+}
+
+@article{yao2023tot,
+    author  = "Shunyu Yao and Dian Yu and Jeffrey Zhao and Izhak Shafran and Thomas L. Griffiths and Yuan Cao and Karthik Narasimhan",
+    title   = "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2305.10601"
+}
+
+@article{wang2023selfconsistency,
+    author  = "Xuezhi Wang and Jason Wei and Dale Schuurmans and Quoc Le and Ed Chi and Sharan Narang and Aakanksha Chowdhery and Denny Zhou",
+    title   = "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2203.11171"
+}
+
+@article{manyshot2024,
+    author  = "Rishabh Agarwal and others",
+    title   = "Many-Shot In-Context Learning",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2404.11018"
+}
+
+@inproceedings{xie2022icl,
+    author    = "Sang Michael Xie and Aditi Raghunathan and Percy Liang and Tengyu Ma",
+    title     = "An Explanation of In-context Learning as Implicit Bayesian Inference",
+    booktitle = "International Conference on Learning Representations (ICLR)",
+    year      = "2022"
+}
+
+@article{instructiontuning2023,
+    author  = "various",
+    title   = "A Preliminary Exploration of Low Training Data Instruction Tuning",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2305.09246"
+}
+
+% ============================================================
+% RETRIEVAL AUGMENTED GENERATION (RAG)
+% ============================================================
+
+@inproceedings{lewis2020rag,
+    author    = "Patrick Lewis and Ethan Perez and Aleksandra Piktus and Fabio Petroni and Vladimir Karpukhin and Naman Goyal and Heinrich K{\"u}ttler and Mike Lewis and Wen-tau Yih and Tim Rockt{\"a}schel and others",
+    title     = "Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks",
+    booktitle = "Advances in Neural Information Processing Systems",
+    year      = "2020",
+    volume    = "33",
+    pages     = "9459--9474"
+}
+
+@article{rag_survey2023,
+    author  = "Yunfan Gao and others",
+    title   = "Retrieval-Augmented Generation for Large Language Models: {A} Survey",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2312.10997"
+}
+
+@article{speculative_rag2024,
+    author  = "Zilong Wang and others",
+    title   = "Speculative {RAG}: Enhancing Retrieval Augmented Generation through Drafting",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2407.08223"
+}
+
+@inproceedings{question_decomp_rag2025,
+    author    = "various",
+    title     = "Question Decomposition for Retrieval-Augmented Generation",
+    booktitle = "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Student Research Workshop)",
+    year      = "2025",
+    pages     = "497--507"
+}
+
+% ============================================================
+% MIXTURE OF EXPERTS
+% ============================================================
+
+@inproceedings{shazeer2017moe,
+    author    = "Noam Shazeer and Azalia Mirhoseini and Krzysztof Maziarz and Andy Davis and Quoc Le and Geoffrey Hinton and Jeff Dean",
+    title     = "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+    booktitle = "International Conference on Learning Representations",
+    year      = "2017"
+}
+
+@article{fedus2022switchtransformer,
+    author  = "William Fedus and Barret Zoph and Noam Shazeer",
+    title   = "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+    year    = "2022",
+    journal = "Journal of Machine Learning Research",
+    volume  = "23",
+    number  = "120",
+    pages   = "1--39"
+}
+
+@article{moe_survey2024,
+    author  = "various",
+    title   = "A Survey on Mixture of Experts in Large Language Models",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2407.06204"
+}
+
+% ============================================================
+% QUESTION TAXONOMIES AND ANSWER TYPE CLASSIFICATION
+% (Core prior art for the taxonomy hypothesis)
+% ============================================================
+
+@inproceedings{nonfactoid_taxonomy2022,
+    author    = "Valeriia Bolotova and Vladislav Blinov and Falk Scholer and W. Bruce Croft and Mark Sanderson",
+    title     = "A Non-Factoid Question-Answering Taxonomy",
+    booktitle = "Proceedings of the 45th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+    year      = "2022"
+}
+
+@inproceedings{liroth2002questions,
+    author    = "Xin Li and Dan Roth",
+    title     = "Learning Question Classifiers",
+    booktitle = "COLING 2002: The 19th International Conference on Computational Linguistics",
+    year      = "2002"
+}
+
+@article{datasets_survey2024,
+    author  = "various",
+    title   = "Datasets for Large Language Models: {A} Comprehensive Survey",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2402.18041"
+}
+
+% ============================================================
+% COGNITIVE SCIENCE: REASONING STRUCTURE
+% (Theoretical grounding for the "structures of questions" section)
+% ============================================================
+
+@article{pnas_analogy2010,
+    author  = "Dedre Gentner and others",
+    title   = "Analogical reasoning and conceptual change",
+    year    = "2010",
+    journal = "Proceedings of the National Academy of Sciences",
+    note    = "https://doi.org/10.1073/pnas.1012933107"
+}
+
