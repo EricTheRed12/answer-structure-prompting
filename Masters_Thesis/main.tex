@@ -10,7 +10,7 @@
 
 \newcommand{\needpaper}{\textbf{[NEED PAPER]}}
 
-\title{A Framework for Generative Contextual Reasoning Prompts to Improve
+\title{A Framework for Answer-Structure Prompting to Improve
 Generalization and Accuracy of Few-Parameter LLMs}
 \author{Eric Redman}
 
@@ -23,7 +23,7 @@ Generalization and Accuracy of Few-Parameter LLMs}
   \item Small LLMs are capable but underutilized due to unguided generation
   \item Existing prompting techniques address \textit{what} the model knows, not \textit{how} it structures its approach
   \item We propose a two-component pipeline: encoder classifier $\rightarrow$ few-shot scaffold $\rightarrow$ small LLM
-  \item Central hypothesis: supplying a small LLM with the correct answer structure improves its accuracy, narrowing the gap with larger models
+  \item Central hypothesis: supplying a small LLM with an answer structure matched to the question improves its accuracy, narrowing the gap with larger models
   \item Enabling assumption: a finite taxonomy of answer structure types exists and is learnable by a classifier
   \item Experimental scope: multiple choice QA; evaluated across model sizes and configurations
   \item Result preview: \textbf{TBD after experiments}
@@ -37,11 +37,10 @@ Generalization and Accuracy of Few-Parameter LLMs}
 \subsection{Hook}
 
 \begin{itemize}
-  \item Large language models are generally considered superior at problem solving across diverse domains, but come with significant resource constraints that limit their practical applicability \cite{kaplan2020scaling, strubell2019energy, patterson2021carbon}
-  \item Small language models have been shown to perform competitively with --- or in some cases outperform --- their larger counterparts on specific tasks \cite{smalllmsready2024, modelsizematters2024}. Methods such as RAG and Chain-of-Thought can improve small model performance, but are not without shortcomings \cite{wei2022cot, cot_limitations2025, cot_mirage2025, lewis2020rag, rag_survey2023}
-  \item Small models do not lack the ability to comprehend language --- what they lack is the depth of associative knowledge that large models encode through scale \cite{devlin2019bert, liu2019roberta, costofdownscaling2023}. Given the right peripherals, their linguistic competence may be sufficient \cite{lewis2020rag}. This paper provides one such peripheral for reasoning.
-  \item We hypothesize that for any given set of problems, there exists a finite set of answer structures sufficient to cover them \cite{liroth2002questions, nonfactoid_taxonomy2022}. By classifying the appropriate structure for a given question, a non-finetuned small language model can generalize effectively --- producing correct answers it could not otherwise generate.
-  \item This paper demonstrates the framework on a subset of those structures (multiple choice QA), but the approach is designed to generalize to any portion of the overall set.
+  \item Large language models have transformed how we solve problems across domains, but their capabilities are bound to scale --- the strongest models are enormous, costly to run, and out of reach for most \cite{eloundou2023gpts, strubell2019energy}
+  \item Small, open models are accessible to nearly anyone, yet they trail their larger counterparts on general tasks, leaving much of their promise unrealized \cite{smalllmsready2024, slm_survey2024}
+  \item The usual explanation is scale --- with fewer parameters, they retain less of what they learn \cite{kaplan2020scaling, costofdownscaling2023}
+  \item Yet their language ability is largely preserved \cite{linguistic_competence_scale2025} --- so is limited capacity really the whole story?
 \end{itemize}
 
 \subsection{The Problem Statement}
@@ -67,8 +66,8 @@ Generalization and Accuracy of Few-Parameter LLMs}
   \item Small models can be trained effectively on specific domains, but this specialization comes at the cost of general capability --- a model trained for one domain cannot easily transfer to another \cite{domain_expert_smalllm2024, catastrophic_forgetting2023}
   \item Even so, small models still underperform on general tasks --- numerous approaches exist to address this, including prompt engineering, retrieval augmentation, and architectural specialization; we review them in detail in Section 2
   \item These approaches address knowledge, reasoning paths, or weight adaptation --- expanding what the model knows through retrieval, exploring multiple reasoning paths, or reshaping the weights through specific training --- but none provide a framework for how to structure the response
-  \item We hypothesize that external reasoning structure may allow small models to approach the effectiveness of their larger counterparts
-  \item \textbf{Research question:} can external reasoning structure compensate for limited capacity, making small open-source models effective enough to close the gap?
+  \item We hypothesize that external answer structure may allow small models to approach the effectiveness of their larger counterparts
+  \item \textbf{Research question:} can external answer structure compensate for limited capacity, making small open-source models effective enough to narrow the gap?
 \end{itemize}
 
 \subsection{The Purpose of the Paper}

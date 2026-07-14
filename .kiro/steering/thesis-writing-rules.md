@@ -41,6 +41,10 @@ The answer structure does not provide the answer itself — it provides the *dim
 
 This is the core mechanism: small models have relational fragments scattered in parameter space. They lack the organizational structure to know what to do with those fragments when asked a question. The answer structure provides that organization.
 
+### ⭐ THE novel contribution = the ANSWER STRUCTURE itself
+Author emphasis (keep in mind everywhere): the single novel solution of this paper is **the answer structure** — the idea of supplying the model with the structure a correct answer must take. Everything else (the classifier, the taxonomy routing, the encoder, the scaffold delivery) is supporting machinery, NOT the contribution. When framing novelty anywhere in the paper, foreground the answer structure; treat the classifier/pipeline as how we operationalize it.
+- Corollary for hooks/intros: do NOT frame the contribution as "structure helps small models" — that is ALREADY WELL KNOWN (few-shot, templates, CoT, structured prompts). The novelty is the SPECIFIC kind of structure (the answer's structure), not structure in general. Any claim that could be read as "we show structure helps" is too weak / not novel.
+
 ### ⚠️ CRITICAL: The definition of "answer structure" is load-bearing for the entire paper
 **This is the single most important definition in the thesis. Get it right before anything downstream depends on it.**
 
@@ -251,12 +255,31 @@ Net: 5 dense claims → ~4 light claims; ~10 citations pushed down into §1.2/§
 - All new citations added to bib and logged in the Citation Verification Tracker with confidence ratings
 - Key citations added this session: liesenfeld2024closed (Nature), kapoor2024societal, bommasani2023fmti, liesenfeld2024openwashing, eloundou2023gpts, llm_critical_societal2024, slm_survey2024, domain_expert_smalllm2024, linguistic_competence_scale2025, emergent_reducedscale2024 (NAACL), catastrophic_forgetting2023
 
+### ⏭️ NEXT SESSION = LITERATURE REVIEW (§2)
+Intro (Hook §1.1, Problem Statement §1.2, Purpose §1.4) is DONE and reviewed. Next time: start the Literature Review §2 claims+citations pass (all subsections), same workflow. See MASTER REWRITE / WRITE LIST below for §2-specific flagged items (relocated claims into §2.1, CoT argument in §2.6, [NEED PAPER] fills, and the ⚠️ load-bearing "answer structure" definition that must land in §2.7/§3).
+
+### 🔖 REVISIT: Title (deferred, author's call)
+Current title (interim): "A Framework for Answer-Structure Prompting to Improve Generalization and Accuracy of Few-Parameter LLMs" (changed from "...Generative Contextual Reasoning Prompts..." to drop "reasoning" per terminology decision).
+TWO things to settle later:
+1. TERMINOLOGY MISMATCH: title says "Few-Parameter LLMs" but the entire body uses "small language models / small LLMs". Align — recommend "Small LLMs" (or "Small Language Models").
+2. Confirm the title phrasing itself. Options on the table: (a) "A Framework for Answer-Structure Prompting to Improve Generalization and Accuracy of Small LLMs" [recommended]; (b) "Answer-Structure Prompting: Improving Generalization and Accuracy in Small Language Models"; (c) minimal swap keeping author's original phrasing.
+
+### Minor intro polish (optional, deferred):
+- Abstract bullet 2 "how it structures its approach" → consider "how it structures the answer" (terminology consistency).
+- Abstract "Enabling assumption ... learnable by a classifier" — learnability is actually TESTED (RQ3), not assumed; fine at abstract altitude, leave unless precision wanted.
+- §1.2: two consecutive claims both assert SLMs understand language (build, not pure repeat) — §1.2 is finalized, left as-is.
+
 ### AUTHOR PLAN (stated): draft claims + citations for the REST of the paper
 Before/instead of doing the Hook next, the author wants to write the claim bullets + citations for the remaining undrafted/outline sections — Literature Review (§2), Architecture (§3), Methodology (§4), Discussion (§5), Limitations (§6), Conclusion (§7) — using the SAME workflow used for Problem Statement and Purpose (identify claims → refine wording → review/verify citations). Hook rewrite + full-text citation verification come AFTER claims across the paper are drafted.
 
 ### MASTER REWRITE / WRITE LIST (as of end of Purpose session)
 **A. Claims that need REWRITING (content exists, must change):**
-1. **Hook §1.1** — full rewrite (detailed plan logged above). Includes swapping encoder cites (devlin/roberta) off the "comprehension" claim.
+1. **Hook §1.1** — ✅ DONE (this session). Cut from 5 dense claims (~15 cites) to 3 light claims (4 cites). Removed duplication of §1.2 (transformative/cost, comprehend-vs-depth) and §1.4 (finite structures, classify, MCQA scope), and RAG/CoT naming (→ §2). New Hook: (1) LLMs transformative but bound to scale/cost \cite{eloundou2023gpts, strubell2019energy}; (2) small open models accessible but lag on general tasks \cite{smalllmsready2024, slm_survey2024}; (3) open question (final wording): "is that gap inherent to their smaller size, or can it be narrowed by supplying external structure?" (no cite). Encoder-cite issue (devlin/roberta) resolved by removing the claim. No "reasoning" language. Verified nothing lost — cut content lives in §1.2/§1.4/§2.
+   - Claim 3 FINAL (now TWO beats, Hook = 4 claims): (3) "The usual explanation is scale --- with fewer parameters, they retain less of what they learn \cite{kaplan2020scaling, costofdownscaling2023}"; (4) "Yet their language ability is largely preserved \cite{linguistic_competence_scale2025} --- so is limited capacity really the whole story?" (Tightened to remove redundancy: dropped repeated "larger counterparts", made 3→4 a clean "retention drops / language preserved" contrast. Citations re-checked — all still fit; claim 4 fit IMPROVED, linguistic_competence_scale2025 matches "language ability preserved" better than the old comparison phrasing.)
+   - Rationale: names the commonly-known "fewer parameters" answer (so it doesn't look naive), corrects a misconception (deficit = RETENTION capacity, NOT less training data — modern SLMs often over-trained on same/more data; capacity to encode/organize is the real limiter), grants comprehension, ends on genuine open question. Long iteration before this: rejected "structure for the answer" (clunky), "lack the structure to bring together what they know" (worse), bare "why do they fall short?" (too vague).
+   - DATA-VS-CAPACITY fact (keep straight everywhere): small models don't necessarily train on less data; the binding constraint is PARAMETER CAPACITY (can't retain/organize all it saw), per costofdownscaling2023. Do NOT claim SLMs "see less data" as the cause.
+   - WATCH: beat 4 teases §1.2's core insight (comprehension survives) — §1.2 pass must DEVELOP it with evidence, not just restate. Note linguistic_competence_scale2025 now used in BOTH hook and §1.2 for the comprehension claim. Poses a genuinely OPEN either/or (knowledge vs answer-shape), not the trivially-known "does structure help?" (few-shot/CoT/templates already prove structure helps — that framing is too weak/non-novel). Hints the answer-structure angle without naming mechanism. Connects to claims 1–2 (why do small models lag?).
+   - PRINCIPLES established for hooks/intros: (a) soft directional hint = good, mechanism spoilers (taxonomy, classifier, scaffold, MCQA) stay in §1.4; (b) never frame the contribution as "structure helps" — that's known; the novelty is the ANSWER structure specifically; (c) claim 3 poses the MOTIVATING question, not the precise RQ (that stays in §1.2).
 2. **§1.2 research question** — "external *reasoning* structure" → "external *answer* structure" (terminology decision).
 3. **Title** — "Generative Contextual *Reasoning* Prompts" → reconsider to drop "reasoning" (terminology decision).
 4. **§2.1 Large Language Models** — un-comment and place the "Relocated claims from earlier Problem Statement draft" block (lines ~102–109).
