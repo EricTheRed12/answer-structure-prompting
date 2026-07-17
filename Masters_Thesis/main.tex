@@ -98,81 +98,112 @@ Generalization and Accuracy of Few-Parameter LLMs}
 
 \subsection{Large Language Models}
 
-% --- Relocated claims from earlier Problem Statement draft (place where relevant) ---
-% \item The dominant assumption: more parameters = better performance (scaling laws)
-% \item This drives an arms race toward huge models that are expensive to train and run
-% \item Small models already understand language well
-% \item The real gap is not knowledge --- it is unguided generation: small models start generating before they identify what kind of answer is needed
-% \item Large models compensate implicitly through parametric capacity; small models need an explicit structural entry point
-% \item Smaller models have less capacity to encode relationships between concepts, but retain enough linguistic competence to operate within an externally provided reasoning framework
-% --- End relocated claims ---
-
 \begin{itemize}
-  \item Definition: LLMs are probabilistic token predictors, not knowledge retrievers \cite{llmoverview2023, vaswani2017attention}
-  \item The transformer attention mechanism is the core of modern LLMs --- self-attention weights token relationships across the full sequence \cite{vaswani2017attention}
-  \item Predictions are conditioned on the training corpus: syntactic patterns, semantic relationships, factual associations \cite{brown2020gpt3}
-  \item Encoder vs.\ decoder architectures serve different purposes:
+  \item Large language models are deep neural networks built on the transformer architecture, trained on massive text corpora \cite{vaswani2017attention, llmoverview2023}
     \begin{itemize}
-      \item Encoders (BERT-style): bidirectional representations --- good for classification \cite{devlin2019bert}
-      \item Decoders (GPT-style): autoregressive token generation --- good for generation \cite{brown2020gpt3}
+      \item Self-attention allows every token to attend to every other token in the sequence --- this is what enables the model to condition on provided context (including prompts and scaffolds) \cite{vaswani2017attention}
+      \item ``Large'' refers to parameter count: the learned weights that encode statistical patterns from training, typically hundreds of millions to hundreds of billions
+      \item The model learns by adjusting parameters to minimize prediction error across the training corpus --- what it encodes is bounded by its capacity to fit that corpus
     \end{itemize}
-  \item Performance scales with parameters, data, and compute \cite{kaplan2020scaling, hoffmann2022chinchilla}
-  \item \textbf{Key implication:} the model is a probability engine --- everything that improves output quality works by shaping that probability distribution \cite{llmreasoning_stochastic2024}
-\end{itemize}
-
-\subsection{Hallucinations}
-
-\begin{itemize}
-  \item No universally agreed definition exists --- this is itself a research problem \cite{hallucination_unified2024}
-  \item Working definition: output that is factually incorrect or logically inconsistent, produced with apparent confidence \cite{ji2023hallucination}
-  \item Hallucinations affect all models but are more severe in small models due to less constrained probability distributions \cite{hallucination_survey2024, zhang2023hallucination}
-  \item Proposed causes (debated):
+  \item Their function is probabilistic token prediction: given a sequence, the model outputs a probability distribution over the next token --- they are prediction engines, not knowledge databases \cite{brown2020gpt3, llmoverview2023}
     \begin{itemize}
-      \item Insufficient or biased training data
-      \item Over-alignment to human preferences (RLHF artifacts)
-      \item Fundamental stochastic nature of token prediction
+      \item The final layer produces a probability distribution over the full vocabulary --- every possible next token gets a likelihood
+      \item The model does not ``decide'' an answer --- it assigns likelihoods to all possible continuations based on patterns absorbed during training
+      \item Output is inherently stochastic: the same input can produce different outputs, and nothing in the architecture guarantees correctness or consistency
     \end{itemize}
-    \cite{whyllmshallucinate2024}
-  \item \textbf{Connection to this paper:} hallucination is a symptom of unconstrained generation --- the model commits to a direction before identifying what a valid answer looks like. Structural scaffolding reduces the probability space, which reduces hallucination risk \cite{llmreasoning_stochastic2024, ji2023hallucination}
-\end{itemize}
-
-\subsection{Generalization at Scale}
-
-\begin{itemize}
-  \item Larger models consistently outperform smaller ones on general benchmarks \cite{kaplan2020scaling, hoffmann2022chinchilla}
-  \item Why: more parameters encode more knowledge, broader reasoning patterns, larger context windows \cite{llmoverview2023}
-  \item Emergent capabilities: some abilities appear only above a parameter threshold (e.g.\ analogical reasoning, multi-step math) \cite{analogical_reasoning2022} --- \needpaper{} Wei et al.\ 2022 ``Emergent Abilities of LLMs''
-  \item But larger models also fail in systematic ways, especially on structured reasoning tasks \cite{math_reasoning_limits2024, lrm_complexity2025}
-  \item \textbf{Key nuance:} generalization at scale is real, but does not mean small models are useless --- it means small models need a different approach to unlock their capability
-\end{itemize}
-
-\subsection{The Problem with Scale}
-
-\begin{itemize}
-  \item Training and running large models is expensive in compute, time, and energy \cite{strubell2019energy, patterson2021carbon}
-  \item This creates an access problem: only well-resourced organizations can use the best models \cite{modelsizematters2024}
-  \item Empirical evidence that small models can compete:
+  \item The pre-training objective determines what the model learns to do --- and separates the two architectures relevant to this paper \cite{devlin2019bert, brown2020gpt3}
     \begin{itemize}
-      \item On specific tasks and domains, small models match or beat large ones \cite{smalllmsready2024, modelsizematters2024}
-      \item In some conditions, large models underperform small ones --- \needpaper{} brevity/constraint paper arXiv:2604.00025
+      \item Decoders (GPT-style): trained via next-token prediction --- see only left context, learn to generate \cite{brown2020gpt3}
+      \item Encoders (BERT-style): trained via masked language modeling --- see full context bidirectionally, learn to represent \cite{devlin2019bert}
+      \item This paper uses both: a decoder as the generator (small LLM) and an encoder as the classifier (answer structure type prediction)
     \end{itemize}
-  \item The field's focus on large models may be misdirected: the question is not only ``how big can we go'' but ``how efficiently can we prompt'' \cite{llmreasoning_stochastic2024}
+  \item Decoder LLMs generate via autoregressive decoding: one token at a time, each conditioned only on what came before --- no lookahead, no backtracking, no revision \cite{brown2020gpt3, exposure_bias_ilp2022}
+    \begin{itemize}
+      \item Once a token is emitted, it becomes part of the context for all subsequent tokens --- early commitments propagate forward
+      \item If the model begins generating in the wrong direction, it has limited mechanism for self-correction under standard decoding
+      \item This is confirmed architecture for all open models\footnote{Closed-source models may employ internal techniques (e.g.\ beam search, speculative decoding, hidden chain-of-thought) that partially mitigate this. However, the small open models this paper targets are confirmed autoregressive decoders \cite{llama3_2024, liesenfeld2024closed}.}
+      \item This is the core vulnerability of autoregressive generation: early token commitments constrain all subsequent generation with no opportunity to revise
+    \end{itemize}
+  \item \textbf{Key implication:} the model is a probability engine --- anything that improves output quality does so by shaping the probability distribution over next tokens \cite{prompt_control_theory2023, llmreasoning_stochastic2024}
 \end{itemize}
 
-\subsection{Mixture of Experts}
+\subsection{Scale and Structure}
 
 \begin{itemize}
-  \item MoE divides a model into specialized sub-networks (experts) at training time \cite{shazeer2017moe}
-  \item A learned gating mechanism routes each input to the relevant expert(s) \cite{fedus2022switchtransformer}
-  \item Effect: better effective capacity without proportionally scaling active parameters \cite{moe_survey2024}
-  \item \textbf{Relevance to this paper:} MoE is conceptually similar --- both systems route inputs to a specialized handler based on input type
-  \item \textbf{Key difference:} MoE operates at training time and requires massive infrastructure; our classifier operates at inference time with no retraining of the generator \cite{moe_survey2024}
+  \item Scale, as used in the literature, refers primarily to the number of learnable parameters in the model. It is the dominant variable in scaling law research and the conventional predictor of general performance \cite{kaplan2020scaling}
+  \item Larger models consistently outperform smaller ones on general tasks. This is well-established in the literature, formalized as scaling laws, and confirmed in industry deployment \cite{kaplan2020scaling, hoffmann2022chinchilla}
+  \item The conventional explanation for this advantage is capacity \cite{kaplan2020scaling}. More parameters allow more connections between concepts to be encoded, and with more connections, more ideas can be held together during generation\footnote{Other factors contribute to the performance gap between model sizes, including training data distribution, optimization procedure, and architectural improvements. Training data can be identical across model sizes, so data alone does not explain the gap. Architectural improvements may also contribute, but since many frontier models are closed-source, their internal mechanisms cannot be verified externally \cite{liesenfeld2024closed}. The capacity argument remains central in the literature and is the focus of this section.} \cite{llmoverview2023}
+  \item The jump from GPT-2 (1.5B parameters) to GPT-3 (175B parameters) demonstrated this dramatically: GPT-3 performed few-shot tasks that GPT-2 could not perform at all, without any change to architecture or training objective \cite{brown2020gpt3}
+  \item Despite this, even at large scale, models produce unexpected output on tasks requiring multi-step logic or structured responses. This is well-documented and systematic \cite{math_reasoning_limits2024, lrm_complexity2025}
+  \item More parameters does not mean every valid connection or context is encoded. Scale increases coverage but cannot guarantee completeness for an arbitrary task \cite{kaplan2020scaling, costofdownscaling2023}
+  \item If the gap were purely a matter of capacity, external context should not close it. Yet on specific tasks and domains, small models match or exceed large ones when given appropriate context or specialization. The gap is conditional, not absolute \cite{smalllmsready2024, modelsizematters2024}
+  \item Small models are not architecturally distinct from large models. They share the same training objective, generation mechanism, and target distributions. What differs is the dimensionality available to represent those distributions; scale determines the resolution of the approximation, not its kind \cite{godey2024softmax, costofdownscaling2023}
+  % NOTE: REVISIT — review wording on next pass. This claim establishes architectural equivalence so §2.3 can reference it. Verify godey2024softmax supports "same distributions, fewer dimensions" framing specifically.
+  \item We argue that part of the large-model advantage is structural. Larger models have the capacity to encode patterns for how answers should be structured, not just what they should contain. They have seen enough training examples to statistically represent answer structure within their parameters
+  % NOTE: REVISIT — need supporting citations for the claim that large models encode answer structure specifically. Current argument is author synthesis only. Find papers showing format/structure sensitivity in large models or evidence of structural priors in pretrained weights.
+  \item Because this structure is statistically encoded, it is never deterministic. There is no guarantee the correct structural pattern activates for a given input, even in large models \cite{math_reasoning_limits2024, lrm_complexity2025}
+  \item External structure in the input partially compensates for what is not reliably encoded in parameters. Chain of Thought prompting imposes step-by-step structure in the input and measurably improves reasoning performance \cite{wei2022cot}
+  \item Brevity constraints demonstrate it more directly: when output form is constrained, small models outperform large ones on mathematical reasoning and scientific knowledge by 7--16 percentage points \cite{brevity_constraints2025}
+  \item Neither CoT nor brevity constraints are matched to the specific question. The gap remains: no existing technique classifies the question and provides answer structure matched to it
 \end{itemize}
 
-\subsection{Prompt Engineering}
+\subsection{Unconstrained Prediction}
+
+\begin{itemize}
+  \item What is commonly called ``hallucination'' is output that does not match the expected or correct answer for a given task \cite{ji2023hallucination, hallucination_unified2024}
+  \item However, at the architectural level, the model's generation process is autoregressive next-token prediction: regardless of internal complexity, every forward pass produces a probability distribution over the next token (see \S2.1). This operation is the same whether the output is task-correct or task-incorrect. We argue that any token the model produces is a statistically probable continuation given its parameters and context, and that there is no separate failure mode that produces hallucinations \cite{brown2020gpt3, llmreasoning_stochastic2024}
+  \item The model's parameters determine the baseline distribution over possible outputs. In small models, this baseline is less precise: as established in \S2.2, they approximate the same target distributions as large models but with fewer dimensions. The mechanistic basis for this is a dimensional bottleneck; the target distribution is high-rank, and when a model's hidden dimension falls below what is required to express it, the approximation degrades \cite{godey2024softmax, costofdownscaling2023}
+  % NOTE: REVISIT — review wording on next pass. Depends on §2.2 architectural equivalence addition. Verify godey2024softmax supports this framing.
+  \item This approximation compounds during autoregressive generation: each token is produced from an imprecise representation of what should come next, and that imprecision propagates forward through the sequence with limited mechanism for self-correction under standard decoding \cite{lpsr2026, exposure_bias_ilp2022}
+  \item We argue that this compounding cannot be eliminated from autoregressive systems, but its scope can be reduced by narrowing the space of probable outputs before generation begins. Empirical evidence supports this: constraining output form alone inverts model-size performance rankings on reasoning tasks (see \S2.2) \cite{prompt_control_theory2023, brevity_constraints2025}
+  \item Existing approaches reduce the prediction space through two mechanisms. Modifying parameters (training, fine-tuning) reshapes the baseline distribution itself, making some outputs permanently more or less likely. Enriching context (retrieved knowledge, reasoning processes, topic-similar examples) constrains the distribution at inference time by providing additional signal the model conditions on (see \S2.5, \S2.6)
+  \item Answer structure (defined in \S2.8) reduces the prediction space by providing the output form before generation begins, so that the model's remaining task is to populate it with relevant content. This reduces the probability mass on structurally incorrect continuations regardless of the model's parametric coverage \cite{llmreasoning_stochastic2024}
+  % NOTE: May need workshopping later.
+\end{itemize}
+
+\subsection{Small Language Models}
+
+\begin{itemize}
+  \item Small LLMs (roughly 1B--7B parameters) share the same autoregressive decoder architecture as large models but with fewer parameters \cite{slm_survey2024}
+  \item They are accessible to individual researchers and organizations without large compute budgets \cite{slm_survey2024, smalllmsready2024}
+  \item Small models retain core linguistic competence --- language understanding does not degrade proportionally with parameter count \cite{linguistic_competence_scale2025, emergent_reducedscale2024, costofdownscaling2023}
+  \item What degrades is parametric fact recall and associative depth, not the ability to process and follow in-context information \cite{costofdownscaling2023}
+  \item Domain specialization: small models can be trained effectively on specific domains, matching expert-level performance \cite{domain_expert_smalllm2024}
+  \item But specialization comes at a cost --- a model trained for one domain cannot easily transfer to another without catastrophic forgetting \cite{domain_expert_smalllm2024, catastrophic_forgetting2023}
+  \item On general tasks, small models still underperform their larger counterparts \cite{modelsizematters2024, kaplan2020scaling}
+  \item \textbf{Key implication:} the deficit in small models is not linguistic competence but organizational structure --- they understand language but lack the capacity to independently organize what they retain into correct answers for arbitrary questions
+\end{itemize}
+
+\subsection{Fine-Tuning and Parameter-Efficient Adaptation}
+
+\begin{itemize}
+  \item Full fine-tuning: update all model weights on task-specific data --- effective but computationally expensive and requires large labeled datasets \needpaper{} (general fine-tuning survey)
+  \item Catastrophic forgetting: fine-tuning on a new task degrades performance on previously learned tasks \cite{catastrophic_forgetting2023}
+  \item Parameter-Efficient Fine-Tuning (PEFT): update only a small subset of parameters to reduce cost
+    \begin{itemize}
+      \item LoRA: inject low-rank trainable matrices into frozen layers \needpaper{} Hu et al.\ 2022 ``LoRA''
+      \item Adapters: insert small trainable modules between frozen layers \needpaper{} Houlsby et al.\ 2019
+      \item Prefix tuning: prepend trainable continuous vectors to the input \needpaper{} Li \& Liang 2021
+    \end{itemize}
+  \item PEFT reduces compute and storage costs but still requires task-specific training data and a training loop per task \needpaper{} (PEFT survey)
+  \item Instruction tuning: fine-tune on instruction-following data to improve zero-shot generalization \cite{instructiontuning2023}
+    \begin{itemize}
+      \item Improves usability but still requires a training phase; cannot be applied to arbitrary untrained models at inference time
+    \end{itemize}
+  \item \textbf{Shared limitation:} all weight-modification approaches are task-specific --- they improve the model for one distribution but require retraining for each new task or domain, and risk forgetting previous capabilities
+  \item \textbf{Distinction from this paper:} our framework requires \textit{no weight updates} --- it operates entirely at inference time and works with any small LLM as-is, whether base or instruction-tuned
+\end{itemize}
+
+\subsection{Prompt Engineering and In-Context Learning}
 
 \begin{itemize}
   \item Prompt engineering: shaping model output at inference time via input construction, without modifying weights \cite{brown2020gpt3}
+  \item \textbf{In-Context Learning (ICL):} models learn tasks from examples provided in the prompt, without weight updates \cite{brown2020gpt3}
+    \begin{itemize}
+      \item ICL can be understood as implicit Bayesian inference --- few examples sharply reduce the model's uncertainty over the latent task \cite{xie2022icl}
+      \item Critically, ICL ability survives aggressive down-scaling even as parametric fact recall degrades \cite{costofdownscaling2023}
+      \item This is the mechanism our framework exploits: the scaffold works because small models can still \textit{use} provided structure via ICL
+    \end{itemize}
   \item \textbf{Chain-of-Thought (CoT):} elicit step-by-step reasoning before the final answer \cite{wei2022cot}
     \begin{itemize}
       \item Works well on multi-step reasoning for large models
@@ -190,29 +221,8 @@ Generalization and Accuracy of Few-Parameter LLMs}
     \begin{itemize}
       \item Examples are selected by semantic similarity to the query topic, \textbf{not} by answer structure type --- this is the gap our work fills
     \end{itemize}
-  \item \textbf{Instruction tuning:} fine-tune on instruction-following data \cite{instructiontuning2023}
-    \begin{itemize}
-      \item Limitation: requires training; not applicable to arbitrary untrained models
-    \end{itemize}
+  \item \textbf{Mixture of Experts (MoE) as a related routing concept:} MoE divides a model into specialized sub-networks routed by a learned gate \cite{shazeer2017moe, fedus2022switchtransformer}. Conceptually similar to our classifier-based routing, but MoE operates at training time and requires massive infrastructure; our classifier operates at inference time with no retraining of the generator \cite{moe_survey2024}
   \item \textbf{Summary of gap:} all existing prompt engineering techniques construct prompts based on content or reasoning paths. None classify the \textit{structural type of answer required} before generating. This is the novel contribution of the present framework.
-\end{itemize}
-
-\subsection{Answer Structure Types: A Taxonomy Hypothesis}
-
-\begin{itemize}
-  \item Not all questions require the same type of answer --- a factual recall question requires a different response structure than an analogical reasoning or multi-step problem
-  \item \needpaper{} Cognitive science / human reasoning taxonomy (Bloom's Taxonomy or Kahneman dual-process theory)
-  \item Classical QA research has long recognized question type classification as a necessary preprocessing step in information retrieval systems \cite{nonfactoid_taxonomy2022} --- \needpaper{} TREC question classification (Li \& Roth 2002)
-  \item Different question types require structurally different reasoning processes:
-    \begin{itemize}
-      \item \textbf{Factual:} retrieve and state a known fact
-      \item \textbf{Analogical:} map relational structure from one domain to another \cite{analogical_reasoning2022}
-      \item \textbf{Multi-step:} chain intermediate conclusions
-      \item \textbf{Opinion / non-factoid:} construct a structured argument \cite{nonfactoid_taxonomy2022}
-    \end{itemize}
-  \item \textbf{Hypothesis of this paper:} these structural types are finite, enumerable, and classifiable from question text alone (no answer required); a BERT-style encoder can be trained to classify them reliably \cite{devlin2019bert}
-  \item \textbf{Cognitive science grounding:} expert human problem-solvers categorize a problem type before attempting a solution (dual-process theory: System 2 reasoning begins with problem classification) \cite{pnas_analogy2010} --- \needpaper{} Kahneman dual-process review
-  \item \textbf{Implication:} if structure classification is natural for humans and classical QA systems, a trained encoder can replicate it --- and the resulting scaffold can guide a small LLM to the correct answer type
 \end{itemize}
 
 \subsection{Retrieval-Augmented Generation}
@@ -233,6 +243,31 @@ Generalization and Accuracy of Few-Parameter LLMs}
       \item These are three distinct problems --- our approach is orthogonal to RAG and could be combined with it
     \end{itemize}
   \item The few-shot scaffold in our framework is conceptually similar to RAG's retrieved context: both prepend information to the prompt at inference time. Key difference: RAG retrieves factual content; we retrieve structural templates.
+\end{itemize}
+
+\subsection{Question Classification in QA}
+
+\begin{itemize}
+  \item Classical QA research has long recognized question type classification as a necessary preprocessing step in information retrieval systems \cite{nonfactoid_taxonomy2022} --- \needpaper{} TREC question classification (Li \& Roth 2002)
+  \item \needpaper{} Cognitive science / human reasoning taxonomy (Bloom's Taxonomy or Kahneman dual-process theory)
+  \item \textbf{Cognitive science grounding:} expert human problem-solvers categorize a problem type before attempting a solution (dual-process theory: System 2 reasoning begins with problem classification) \cite{pnas_analogy2010} --- \needpaper{} Kahneman dual-process review
+  \item Different question types require structurally different reasoning processes:
+    \begin{itemize}
+      \item \textbf{Factual:} retrieve and state a known fact
+      \item \textbf{Analogical:} map relational structure from one domain to another \cite{analogical_reasoning2022}
+      \item \textbf{Multi-step:} chain intermediate conclusions
+      \item \textbf{Opinion / non-factoid:} construct a structured argument \cite{nonfactoid_taxonomy2022}
+    \end{itemize}
+  \item Prior work classifies \textit{question types} --- but does not define or classify the \textit{structure that a valid answer must take} for each type \cite{liroth2002questions, nonfactoid_taxonomy2022}
+\end{itemize}
+
+\subsection{Answer Structure Types: A Taxonomy Hypothesis}
+
+\begin{itemize}
+  \item Not all questions require the same type of answer --- a factual recall question requires a different response structure than an analogical reasoning or multi-step problem
+  \item \textbf{Hypothesis of this paper:} these structural types are finite, enumerable, and classifiable from question text alone (no answer required); a BERT-style encoder can be trained to classify them reliably \cite{devlin2019bert}
+  \item An answer structure defines the \textit{dimensions/components} a valid answer must contain --- not the answer content itself
+  \item \textbf{Implication:} if structure classification is natural for humans and classical QA systems, a trained encoder can replicate it --- and the resulting scaffold can guide a small LLM to the correct answer type
 \end{itemize}
 
 % ============================================================

@@ -43,6 +43,21 @@
     journal = "arXiv preprint arXiv:2203.15556"
 }
 
+@article{wei2022emergent,
+    author  = "Jason Wei and Yi Tay and Rishi Bommasani and Colin Raffel and Barret Zoph and Sebastian Borgeaud and Dani Yogatama and Maarten Bosma and Denny Zhou and Donald Metzler and Ed H. Chi and Tatsunori Hashimoto and Oriol Vinyals and Percy Liang and Jeff Dean and William Fedus",
+    title   = "Emergent Abilities of Large Language Models",
+    year    = "2022",
+    journal = "arXiv preprint arXiv:2206.07682"
+}
+
+@article{brevity_constraints2025,
+    author  = "various",
+    title   = "Brevity Constraints Reverse Performance Hierarchies in Language Models",
+    year    = "2025",
+    journal = "arXiv preprint arXiv:2604.00025",
+    note    = "Unreviewed — shows that output constraints can invert large-vs-small model rankings"
+}
+
 @article{modelsizematters2024,
     author  = "Waad Alshammari and others",
     title   = "Does Model Size Matter? {A} Comparison of Small and Large Language Models for Requirements Classification",
@@ -105,6 +120,46 @@
     title   = "A Comprehensive Overview of Large Language Models",
     year    = "2023",
     journal = "arXiv preprint arXiv:2307.06435"
+}
+
+% ============================================================
+% SOFTMAX BOTTLENECK AND REPRESENTATIONAL CAPACITY
+% ============================================================
+
+@article{godey2024softmax,
+    author  = "Nathan Godey and {\'E}ric de la Clergerie and Beno{\^i}t Sagot",
+    title   = "Why Do Small Language Models Underperform? {S}tudying Language Model Saturation via the Softmax Bottleneck",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2404.07647",
+    note    = "Inria Paris / Sorbonne — shows hidden dimension < 1000 creates performance bottleneck via rank mismatch with target distribution"
+}
+
+% ============================================================
+% AUTOREGRESSIVE DECODING AND EXPOSURE BIAS
+% ============================================================
+
+@article{llama3_2024,
+    author  = "Meta AI",
+    title   = "The Llama 3 Herd of Models",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2407.21783",
+    note    = "Unreviewed — confirms autoregressive decoder architecture for open models"
+}
+
+@article{lpsr2026,
+    author  = "Manan Gupta and others",
+    title   = "Latent Phase-Shift Rollback: Inference-Time Error Correction via Residual Stream Monitoring and {KV}-Cache Steering",
+    year    = "2026",
+    journal = "arXiv preprint arXiv:2604.18567",
+    note    = "Under review — directly states inference-time error compounding in autoregressive models"
+}
+
+@article{exposure_bias_ilp2022,
+    author  = "Kushal Arora and Layla El Asri and Hareesh Bahuleyan and Jackie Chi Kit Cheung",
+    title   = "An Imitation Learning Perspective of Error Accumulation in Language Generation",
+    year    = "2022",
+    journal = "arXiv preprint arXiv:2204.01171",
+    note    = "Unreviewed — connects exposure bias to hallucination and incoherence in autoregressive generation"
 }
 
 % ============================================================
@@ -224,6 +279,14 @@
 % ============================================================
 % LLM REASONING — CAPABILITIES AND LIMITS
 % ============================================================
+
+@article{prompt_control_theory2023,
+    author  = "Aman Bhargava and Cameron Witkowski and Shi-Zhuo Looi and Matt Thomson",
+    title   = "What's the Magic Word? {A} Control Theory of {LLM} Prompting",
+    year    = "2023",
+    journal = "arXiv preprint arXiv:2310.04444",
+    note    = "Unreviewed — empirically demonstrates prompts steer output probability distributions in LLMs"
+}
 
 @article{llmreasoning_stochastic2024,
     author  = "various",
