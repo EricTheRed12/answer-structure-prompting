@@ -109,10 +109,11 @@
 }
 
 @article{catastrophic_forgetting2023,
-    author  = "various",
+    author  = "Suhas Kotha and Jacob Mitchell Springer and Aditi Raghunathan",
     title   = "Understanding Catastrophic Forgetting in Language Models via Implicit Inference",
-    year    = "2023",
-    journal = "arXiv preprint arXiv:2309.10105"
+    year    = "2024",
+    journal = "International Conference on Learning Representations (ICLR)",
+    note    = "Demonstrates that fine-tuning skews implicit task inference toward the fine-tuning distribution, improving in-distribution performance at the expense of other tasks"
 }
 
 @article{llmoverview2023,
@@ -390,6 +391,13 @@
     journal = "arXiv preprint arXiv:2404.11018"
 }
 
+@article{sahoo2024promptsurvey,
+    author  = "Pranab Sahoo and Ayush Kumar Singh and Sriparna Saha and Vinija Jain and Samrat Mondal and Aman Chadha",
+    title   = "A Systematic Survey of Prompt Engineering in Large Language Models: Techniques and Applications",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2402.07927"
+}
+
 @inproceedings{xie2022icl,
     author    = "Sang Michael Xie and Aditi Raghunathan and Percy Liang and Tengyu Ma",
     title     = "An Explanation of In-context Learning as Implicit Bayesian Inference",
@@ -397,11 +405,62 @@
     year      = "2022"
 }
 
-@article{instructiontuning2023,
-    author  = "various",
-    title   = "A Preliminary Exploration of Low Training Data Instruction Tuning",
-    year    = "2023",
-    journal = "arXiv preprint arXiv:2305.09246"
+@article{instructiontuning2022,
+    author  = "Hyung Won Chung and Le Hou and Shayne Longpre and Barret Zoph and Yi Tay and William Fedus and Yunxuan Li and Xuezhi Wang and Mostafa Dehghani and Siddhartha Brahma and others",
+    title   = "Scaling Instruction-Finetuned Language Models",
+    year    = "2022",
+    journal = "arXiv preprint arXiv:2210.11416",
+    note    = "Google/DeepMind — Flan-2 paper; demonstrates instruction finetuning improves zero-shot and few-shot generalization across model classes"
+}
+
+% ============================================================
+% FINE-TUNING AND PARAMETER-EFFICIENT METHODS
+% ============================================================
+
+@article{peft_survey2024,
+    author  = "Lingling Xu and Haoran Xie and Si-Zhao Joe Qin and Xiaohui Tao and Fu Lee Wang",
+    title   = "Parameter-Efficient Fine-Tuning Methods for Pretrained Language Models: {A} Critical Review and Assessment",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2312.12148"
+}
+
+@inproceedings{hu2022lora,
+    author    = "Edward J. Hu and Yelong Shen and Phillip Wallis and Zeyuan Allen-Zhu and Yuanzhi Li and Shean Wang and Lu Wang and Weizhu Chen",
+    title     = "{LoRA}: Low-Rank Adaptation of Large Language Models",
+    booktitle = "International Conference on Learning Representations (ICLR)",
+    year      = "2022"
+}
+
+@inproceedings{houlsby2019adapters,
+    author    = "Neil Houlsby and Andrei Giurgiu and Stanislaw Jastrzebski and Bruna Morrone and Quentin de Laroussilhe and Andrea Gesmundo and Mona Attariyan and Sylvain Gelly",
+    title     = "Parameter-Efficient Transfer Learning for {NLP}",
+    booktitle = "Proceedings of the 36th International Conference on Machine Learning (ICML)",
+    year      = "2019",
+    pages     = "2790--2799"
+}
+
+@inproceedings{li2021prefixtuning,
+    author    = "Xiang Lisa Li and Percy Liang",
+    title     = "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics (ACL)",
+    year      = "2021",
+    pages     = "4582--4597"
+}
+
+@article{alignment_tax2024,
+    author  = "Yongchao Chen and others",
+    title   = "Pushing the Limits of Instruction Tuning via Alignment Tax Reduction",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2405.13432",
+    note    = "Documents performance degradation on knowledge and reasoning benchmarks during SFT; directly supports distribution-narrowing framing"
+}
+
+@article{hinton2015distilling,
+    author  = "Geoffrey Hinton and Oriol Vinyals and Jeff Dean",
+    title   = "Distilling the Knowledge in a Neural Network",
+    year    = "2015",
+    journal = "arXiv preprint arXiv:1503.02531",
+    note    = "Foundational knowledge distillation paper — compresses ensemble/large model into smaller model via soft targets"
 }
 
 % ============================================================

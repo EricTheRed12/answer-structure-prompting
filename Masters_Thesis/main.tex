@@ -138,14 +138,62 @@ Generalization and Accuracy of Few-Parameter LLMs}
   \item More parameters does not mean every valid connection or context is encoded. Scale increases coverage but cannot guarantee completeness for an arbitrary task \cite{kaplan2020scaling, costofdownscaling2023}
   \item If the gap were purely a matter of capacity, external context should not close it. Yet on specific tasks and domains, small models match or exceed large ones when given appropriate context or specialization. The gap is conditional, not absolute \cite{smalllmsready2024, modelsizematters2024}
   \item Small models are not architecturally distinct from large models. They share the same training objective, generation mechanism, and target distributions. What differs is the dimensionality available to represent those distributions; scale determines the resolution of the approximation, not its kind \cite{godey2024softmax, costofdownscaling2023}
-  % NOTE: REVISIT — review wording on next pass. This claim establishes architectural equivalence so §2.3 can reference it. Verify godey2024softmax supports "same distributions, fewer dimensions" framing specifically.
+  % NOTE: REVISIT — review wording on next pass. This claim establishes architectural equivalence so §2.6 can reference it. Verify godey2024softmax supports "same distributions, fewer dimensions" framing specifically.
   \item We argue that part of the large-model advantage is structural. Larger models have the capacity to encode patterns for how answers should be structured, not just what they should contain. They have seen enough training examples to statistically represent answer structure within their parameters
   % NOTE: REVISIT — need supporting citations for the claim that large models encode answer structure specifically. Current argument is author synthesis only. Find papers showing format/structure sensitivity in large models or evidence of structural priors in pretrained weights.
   \item Because this structure is statistically encoded, it is never deterministic. There is no guarantee the correct structural pattern activates for a given input, even in large models \cite{math_reasoning_limits2024, lrm_complexity2025}
   \item External structure in the input partially compensates for what is not reliably encoded in parameters. Chain of Thought prompting imposes step-by-step structure in the input and measurably improves reasoning performance \cite{wei2022cot}
   \item Brevity constraints demonstrate it more directly: when output form is constrained, small models outperform large ones on mathematical reasoning and scientific knowledge by 7--16 percentage points \cite{brevity_constraints2025}
-  \item Neither CoT nor brevity constraints are matched to the specific question. The gap remains: no existing technique classifies the question and provides answer structure matched to it
+  \item Neither CoT nor brevity constraints are matched to the specific question. The gap remains: no existing technique classifies the question and provides answer structure matched to it. The following sections review the major approaches that have been tried --- weight modification (\S2.3), prompt engineering (\S2.4), and retrieval augmentation (\S2.5) --- before returning to the mechanistic argument for why structure specifically is what is missing (\S2.6)
 \end{itemize}
+
+\subsection{Fine-Tuning and Parameter-Efficient Adaptation}
+
+\begin{itemize}
+  \item The most established approach to improving model performance is weight modification: update parameters so the model's baseline distribution better fits the desired output \cite{peft_survey2024}
+  \item Full fine-tuning updates all weights on task-specific data; parameter-efficient methods (LoRA, adapters, prefix tuning) update a small subset of parameters \cite{hu2022lora, houlsby2019adapters, li2021prefixtuning}. All modify the model's learned distribution
+  \item Instruction tuning deserves particular attention: it fine-tunes on instruction-following data and is often framed as improving generalization \cite{instructiontuning2022}. However, instruction-following is itself a task distribution. The model narrows its prediction space toward instruction-formatted responses; this is interpreted as generalization only because the target distribution spans many topics. The mechanism is the same as any fine-tuning: parameters shift to favor one distribution \cite{alignment_tax2024}
+  \item A related but distinct approach is knowledge distillation, which trains a smaller model on a larger model's outputs rather than modifying an existing model's weights \cite{hinton2015distilling}. The teacher produces higher-quality outputs because it has more capacity, and the student learns from those outputs rather than raw training data. However, the student still operates within its own parametric capacity: the same dimensional bottleneck (see \S2.2) limits how much can be retained at full resolution. Distillation may improve the student relative to its baseline, but it cannot overcome the fundamental capacity constraint; the student holds a lower-resolution approximation of what the teacher provides
+  \item Whether modifying existing parameters or distilling new ones, all these approaches narrow the model's probability distribution toward the training task. This results in degraded performance on tasks outside that distribution \cite{catastrophic_forgetting2023, alignment_tax2024}. This is not a side effect but the mechanism itself. For a paper whose goal is to improve general-task performance without sacrificing generality, weight modification is not just insufficient but counterproductive
+  \item Moreover, weight modification addresses a problem this paper argues is not the bottleneck. As established in \S2.2, the abilities required for our framework (language understanding, in-context learning) already survive down-scaling \cite{costofdownscaling2023, linguistic_competence_scale2025}
+  \item The deficit is parametric: small models lack the capacity to encode answer structure reliably (see \S2.2). However, the solution is not to modify those parameters. Fine-tuning cannot add capacity that is not there, and it narrows what capacity exists. The alternative is to supply externally what the parameters cannot encode. Provide the structure in the input rather than relying on it to emerge from the weights
+  % NOTE: "Fine-tuning cannot add capacity" — this is definitionally true: fine-tuning reshapes existing parameters but does not increase hidden dimension or total parameter count. PEFT methods (LoRA etc.) add small auxiliary parameters but do not expand the model's representational bottleneck (the hidden dimension that Godey et al. identify as the constraint). If a reviewer pushes on this, the response is architectural: the softmax bottleneck is a function of hidden dimension, which no fine-tuning method changes.
+  % NOTE: §3 should clarify that the framework is compatible with instruction-tuned models — it operates on top of whatever model you have (base or instruction-tuned). The argument here is that fine-tuning alone doesn't solve the problem, not that it's incompatible with our approach.
+\end{itemize}
+
+\subsection{Prompt Engineering and In-Context Learning}
+
+\begin{itemize}
+  \item Prompt engineering is the category of techniques that shape model output at inference time through input construction, rather than weight modification \cite{brown2020gpt3}
+  \item Zero-shot prompting provides only the question and task framing, relying on the model's parametric knowledge with minimal contextual constraint. System and instruction prompting (``You are a medical expert,'' ``Answer the following multiple choice question:'') add task-level context \cite{brown2020gpt3, sahoo2024promptsurvey}. Both operate at the task level: the same instruction applies uniformly to all questions regardless of their structural requirements
+  \item Few-shot and many-shot prompting provide example input-output pairs in the prompt to condition generation \cite{brown2020gpt3, manyshot2024}
+  \item Chain-of-Thought prompting elicits intermediate generation from the model before the final answer \cite{wei2022cot}. CoT provides generic process structure (``think step by step'') that measurably improves multi-step performance in large models, demonstrating that structuring the generation process improves output quality. Variations include Tree of Thoughts, which explores multiple reasoning paths as a branching search \cite{yao2023tot}, and Self-Consistency, which samples multiple chains and selects the most frequent answer \cite{wang2023selfconsistency}
+  \item These techniques share a common principle: additional context in the input narrows the prediction space \cite{brown2020gpt3, prompt_control_theory2023}. Zero-shot provides minimal constraint; system prompts add task-level constraint; few-shot examples add example-level constraint; CoT adds self-generated intermediate constraint. Each narrows the space of probable outputs in different ways, and each demonstrably improves model performance
+  \item This mechanism is called in-context learning (ICL). The model uses examples or instructions provided in the context window as input that directly influences its output distribution, requiring no weight updates \cite{brown2020gpt3}. Even a few examples sharply reduce uncertainty over what the model should produce \cite{xie2022icl}
+  % NOTE: REVISIT — Xie et al. frame ICL as implicit Bayesian inference over the latent task. May want to reintroduce that framing when defining "prediction space" in §2.6 or §2.8.
+  \item For small models, where parametric capacity is limited, ICL remains effective because it operates through attention over the context window rather than retrieval from stored parameters \cite{costofdownscaling2023}. Attention is architectural rather than capacity-dependent, making input-side interventions viable regardless of model size
+\end{itemize}
+% NOTE: MoE routing concept moved to §3 (Architecture).
+% NOTE: CoT deep-dive (large vs small, extensions, "more defined structure helps") moved to §2.8 (Answer Structure Types) where it argues for why matched answer structure matters.
+% NOTE: Structured prompting (providing explicit output format/structure) is discussed in §2.8 where it is distinguished from answer structure.
+
+\subsection{Retrieval-Augmented Generation}
+
+Retrieval-Augmented Generation (RAG) addresses the parametric knowledge limitation by retrieving relevant documents at inference time and prepending them to the prompt, so the model can condition its generation on information it was never trained on \cite{lewis2020rag}. The core insight is simple: rather than expecting the model to recall everything from its parameters, supply the missing facts externally.
+
+The approach has evolved considerably since its introduction. Gao et al.\ identify three architectural stages --- naive RAG (retrieve-then-read), advanced RAG (with query rewriting, re-ranking, and iterative retrieval), and modular RAG (composable pipelines that mix retrieval with other components) \cite{rag_survey2023}. More recent variants push the paradigm further. Speculative RAG uses a small model to draft candidate answers and a larger model to verify them, distributing compute across the pipeline \cite{speculative_rag2024}. Question-decomposition RAG breaks a complex query into sub-questions, retrieves separately for each, and synthesizes the results \cite{question_decomp_rag2025}. Each variant refines the retrieval or synthesis stage, but all share the same underlying principle: augment the model's knowledge by providing relevant content in the input.
+
+What RAG does not address is the structural organization of the response. RAG targets \textit{what information} the model receives; question-decomposition RAG targets how the query is broken into sub-queries for retrieval. Neither specifies \textit{what structural type} the answer requires or how the retrieved information should be organized in the output. A model augmented with perfect retrieval still faces the same generation problem: it must decide, token by token, how to structure its response from the available material.
+% NOTE: Find citation specifically about retrieval relevance being query-dependent / retrieval failures when query intent is unclear. rag_survey2023 likely covers this but verify.
+
+A related limitation is that retrieval quality depends on the query itself. If the system does not know what kind of answer is needed, it cannot direct retrieval toward the specific dimensions that matter for that answer type \cite{rag_survey2023}. A broad topic-similarity search may return relevant documents without returning the \textit{right kind} of relevant documents. Consider a comparison question: the system needs criteria, values for entity A, and values for entity B. Without knowing the answer requires a comparison structure, retrieval operates on topical relevance alone and may return information about only one entity, or about both entities but along dimensions that do not align.
+% NOTE: This is author's argument (no citation needed for the synthesis). The claim is: structure doesn't just help generation, it can improve retrieval by making the information need explicit before the retrieval step.
+
+This observation suggests that answer structure could serve as a retrieval guide. If the system first identifies what structural dimensions the answer must contain, retrieval can be directed toward each dimension specifically rather than searching broadly on topic similarity. Structure-aware retrieval would not replace existing RAG techniques but layer on top of them, converting an undirected information need into a set of targeted queries.
+
+The framework proposed in this paper is orthogonal to RAG and designed to be combined with it. Both operate at inference time by prepending information to the prompt; the difference is what they prepend. RAG retrieves factual content --- documents, passages, or knowledge graph triples that supply the model with information it lacks. Our framework retrieves structural templates --- few-shot scaffolds that supply the model with an organizational pattern matched to the question type. In a combined system, answer structure could serve dual roles: guiding the generator's output organization (this paper's primary contribution) and directing the retriever toward structure-relevant content.
+
+We test this complementarity directly. The experimental evaluation (see \S4) uses a 2$\times$2 design crossing the presence or absence of answer structure with the presence or absence of retrieval augmentation. If structure improves performance in both the with-RAG and without-RAG conditions, it validates that the structural intervention is independently beneficial regardless of knowledge augmentation. If the combined condition outperforms both individual interventions, it validates that the two approaches are complementary rather than redundant.
 
 \subsection{Unconstrained Prediction}
 
@@ -156,93 +204,9 @@ Generalization and Accuracy of Few-Parameter LLMs}
   % NOTE: REVISIT — review wording on next pass. Depends on §2.2 architectural equivalence addition. Verify godey2024softmax supports this framing.
   \item This approximation compounds during autoregressive generation: each token is produced from an imprecise representation of what should come next, and that imprecision propagates forward through the sequence with limited mechanism for self-correction under standard decoding \cite{lpsr2026, exposure_bias_ilp2022}
   \item We argue that this compounding cannot be eliminated from autoregressive systems, but its scope can be reduced by narrowing the space of probable outputs before generation begins. Empirical evidence supports this: constraining output form alone inverts model-size performance rankings on reasoning tasks (see \S2.2) \cite{prompt_control_theory2023, brevity_constraints2025}
-  \item Existing approaches reduce the prediction space through two mechanisms. Modifying parameters (training, fine-tuning) reshapes the baseline distribution itself, making some outputs permanently more or less likely. Enriching context (retrieved knowledge, reasoning processes, topic-similar examples) constrains the distribution at inference time by providing additional signal the model conditions on (see \S2.5, \S2.6)
+  \item The preceding sections reviewed approaches that reduce the prediction space: modifying parameters reshapes the baseline distribution itself (\S2.3), while enriching context through prompting (\S2.4) or retrieval (\S2.5) constrains the distribution at inference time by providing additional signal the model conditions on
   \item Answer structure (defined in \S2.8) reduces the prediction space by providing the output form before generation begins, so that the model's remaining task is to populate it with relevant content. This reduces the probability mass on structurally incorrect continuations regardless of the model's parametric coverage \cite{llmreasoning_stochastic2024}
   % NOTE: May need workshopping later.
-\end{itemize}
-
-\subsection{Small Language Models}
-
-\begin{itemize}
-  \item Small LLMs (roughly 1B--7B parameters) share the same autoregressive decoder architecture as large models but with fewer parameters \cite{slm_survey2024}
-  \item They are accessible to individual researchers and organizations without large compute budgets \cite{slm_survey2024, smalllmsready2024}
-  \item Small models retain core linguistic competence --- language understanding does not degrade proportionally with parameter count \cite{linguistic_competence_scale2025, emergent_reducedscale2024, costofdownscaling2023}
-  \item What degrades is parametric fact recall and associative depth, not the ability to process and follow in-context information \cite{costofdownscaling2023}
-  \item Domain specialization: small models can be trained effectively on specific domains, matching expert-level performance \cite{domain_expert_smalllm2024}
-  \item But specialization comes at a cost --- a model trained for one domain cannot easily transfer to another without catastrophic forgetting \cite{domain_expert_smalllm2024, catastrophic_forgetting2023}
-  \item On general tasks, small models still underperform their larger counterparts \cite{modelsizematters2024, kaplan2020scaling}
-  \item \textbf{Key implication:} the deficit in small models is not linguistic competence but organizational structure --- they understand language but lack the capacity to independently organize what they retain into correct answers for arbitrary questions
-\end{itemize}
-
-\subsection{Fine-Tuning and Parameter-Efficient Adaptation}
-
-\begin{itemize}
-  \item Full fine-tuning: update all model weights on task-specific data --- effective but computationally expensive and requires large labeled datasets \needpaper{} (general fine-tuning survey)
-  \item Catastrophic forgetting: fine-tuning on a new task degrades performance on previously learned tasks \cite{catastrophic_forgetting2023}
-  \item Parameter-Efficient Fine-Tuning (PEFT): update only a small subset of parameters to reduce cost
-    \begin{itemize}
-      \item LoRA: inject low-rank trainable matrices into frozen layers \needpaper{} Hu et al.\ 2022 ``LoRA''
-      \item Adapters: insert small trainable modules between frozen layers \needpaper{} Houlsby et al.\ 2019
-      \item Prefix tuning: prepend trainable continuous vectors to the input \needpaper{} Li \& Liang 2021
-    \end{itemize}
-  \item PEFT reduces compute and storage costs but still requires task-specific training data and a training loop per task \needpaper{} (PEFT survey)
-  \item Instruction tuning: fine-tune on instruction-following data to improve zero-shot generalization \cite{instructiontuning2023}
-    \begin{itemize}
-      \item Improves usability but still requires a training phase; cannot be applied to arbitrary untrained models at inference time
-    \end{itemize}
-  \item \textbf{Shared limitation:} all weight-modification approaches are task-specific --- they improve the model for one distribution but require retraining for each new task or domain, and risk forgetting previous capabilities
-  \item \textbf{Distinction from this paper:} our framework requires \textit{no weight updates} --- it operates entirely at inference time and works with any small LLM as-is, whether base or instruction-tuned
-\end{itemize}
-
-\subsection{Prompt Engineering and In-Context Learning}
-
-\begin{itemize}
-  \item Prompt engineering: shaping model output at inference time via input construction, without modifying weights \cite{brown2020gpt3}
-  \item \textbf{In-Context Learning (ICL):} models learn tasks from examples provided in the prompt, without weight updates \cite{brown2020gpt3}
-    \begin{itemize}
-      \item ICL can be understood as implicit Bayesian inference --- few examples sharply reduce the model's uncertainty over the latent task \cite{xie2022icl}
-      \item Critically, ICL ability survives aggressive down-scaling even as parametric fact recall degrades \cite{costofdownscaling2023}
-      \item This is the mechanism our framework exploits: the scaffold works because small models can still \textit{use} provided structure via ICL
-    \end{itemize}
-  \item \textbf{Chain-of-Thought (CoT):} elicit step-by-step reasoning before the final answer \cite{wei2022cot}
-    \begin{itemize}
-      \item Works well on multi-step reasoning for large models
-      \item Unreliable on small models; the underlying mechanism is debated \cite{cot_factors2024, cot_limitations2025}
-      \item Recent evidence: CoT may mimic reasoning patterns without performing genuine abstract reasoning \cite{cot_mirage2025}
-      % NOTE: Argument to develop here — CoT does not provide external structure; it lets the model generate its own reasoning, which is just autoregressive generation biased toward reasoning-sounding language. Gains come from additional context each iteration provides, not from genuine structural guidance. Frame as "we argue" and cite cot_mirage2025 + cot_limitations2025 as supporting evidence. Be careful not to overstate — CoT does measurably improve large model performance; the argument is about mechanism and about failure on small models.
-    \end{itemize}
-  \item \textbf{CoT extensions:}
-    \begin{itemize}
-      \item Tree of Thoughts: explore multiple reasoning paths as a tree search \cite{yao2023tot}
-      \item Self-Consistency: sample multiple CoT chains, select most consistent answer \cite{wang2023selfconsistency}
-      \item Limitation: computationally expensive; still knowledge-dependent
-    \end{itemize}
-  \item \textbf{Few-shot / many-shot prompting:} provide example input-output pairs to condition generation \cite{brown2020gpt3, manyshot2024}
-    \begin{itemize}
-      \item Examples are selected by semantic similarity to the query topic, \textbf{not} by answer structure type --- this is the gap our work fills
-    \end{itemize}
-  \item \textbf{Mixture of Experts (MoE) as a related routing concept:} MoE divides a model into specialized sub-networks routed by a learned gate \cite{shazeer2017moe, fedus2022switchtransformer}. Conceptually similar to our classifier-based routing, but MoE operates at training time and requires massive infrastructure; our classifier operates at inference time with no retraining of the generator \cite{moe_survey2024}
-  \item \textbf{Summary of gap:} all existing prompt engineering techniques construct prompts based on content or reasoning paths. None classify the \textit{structural type of answer required} before generating. This is the novel contribution of the present framework.
-\end{itemize}
-
-\subsection{Retrieval-Augmented Generation}
-
-\begin{itemize}
-  \item RAG: augment a model's parametric knowledge by retrieving relevant documents at inference time, then conditioning generation on the retrieved context \cite{lewis2020rag}
-  \item RAG variants:
-    \begin{itemize}
-      \item Naive, Advanced, Modular RAG (architectural taxonomy) \cite{rag_survey2023}
-      \item Speculative RAG: small model drafts, large model verifies \cite{speculative_rag2024}
-      \item Question-decomposition RAG: decompose the question into sub-questions for retrieval \cite{question_decomp_rag2025}
-    \end{itemize}
-  \item \textbf{Critical differentiation from the present work:}
-    \begin{itemize}
-      \item RAG addresses \textit{what information} the model receives (knowledge augmentation)
-      \item Question-decomposition RAG addresses how the question is broken into sub-questions (content decomposition)
-      \item This paper addresses \textit{what structural type} the answer requires (answer structure classification)
-      \item These are three distinct problems --- our approach is orthogonal to RAG and could be combined with it
-    \end{itemize}
-  \item The few-shot scaffold in our framework is conceptually similar to RAG's retrieved context: both prepend information to the prompt at inference time. Key difference: RAG retrieves factual content; we retrieve structural templates.
 \end{itemize}
 
 \subsection{Question Classification in QA}
@@ -311,6 +275,7 @@ Generalization and Accuracy of Few-Parameter LLMs}
       \item LLMs are probability engines; the scaffold shifts the prior toward valid response structures
       \item This is analogous to how few-shot prompting works, but at the structural level rather than the topical level \cite{llmreasoning_stochastic2024, brown2020gpt3}
     \end{itemize}
+  \item \textbf{Related routing concept --- Mixture of Experts (MoE):} MoE divides a model into specialized sub-networks routed by a learned gate \cite{shazeer2017moe, fedus2022switchtransformer}. Conceptually similar to our classifier-based routing: both select a specialized pathway based on the input. However, MoE operates at training time within the model architecture and requires massive infrastructure; our classifier operates at inference time with no retraining of the generator \cite{moe_survey2024}
 \end{itemize}
 
 % ============================================================
@@ -337,10 +302,19 @@ Generalization and Accuracy of Few-Parameter LLMs}
     \end{itemize}
   \item \textbf{Experimental conditions}
     \begin{itemize}
-      \item \textbf{Baseline:} small LLM, zero-shot, no scaffold
-      \item \textbf{Treatment:} small LLM + classifier-generated structural scaffold
-      \item \textbf{Ablation:} small LLM + random scaffold (wrong structure type) --- tests whether classification quality matters or scaffolding volume alone drives improvement
+      \item \textbf{Baseline:} small LLM, zero-shot, no scaffold, no retrieval
+      \item \textbf{Structure only:} small LLM + classifier-generated structural scaffold, no retrieval
+      \item \textbf{RAG only:} small LLM + retrieved context, no structural scaffold
+      \item \textbf{Structure + RAG:} small LLM + classifier-generated structural scaffold + retrieved context (structure guides both generation and retrieval)
+      \item \textbf{Ablation --- random scaffold:} small LLM + random scaffold (wrong structure type) --- tests whether classification quality matters or scaffolding volume alone drives improvement
       \item \textbf{Oracle upper bound:} small LLM + correct scaffold manually assigned --- sets the ceiling for a perfect classifier
+    \end{itemize}
+  \item \textbf{What the 2$\times$2 design tests:}
+    \begin{itemize}
+      \item Structure-only vs.\ baseline: does structure alone improve performance?
+      \item Structure+RAG vs.\ RAG-only: does structure improve RAG-augmented generation?
+      \item Structure+RAG vs.\ structure-only: does RAG add value on top of structure?
+      \item If structure improves performance in both the with-RAG and without-RAG conditions, it validates that the structural intervention is independently beneficial regardless of knowledge augmentation
     \end{itemize}
   \item \textbf{Classifier training}
     \begin{itemize}

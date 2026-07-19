@@ -62,7 +62,7 @@ Priorities flagged:
 | `domain_expert_smalllm2024` | Small models match domain experts | MEDIUM | arXiv | Unverified |
 | `catastrophic_forgetting2023` | Specialization costs generality | MEDIUM | arXiv | Unverified |
 
-## Purpose of the Paper (§1.4) — reviewed via web search
+## Purpose of the Paper (§1.3) — reviewed via web search
 
 | Citation | Claim it supports | Confidence | Venue | Status |
 |----------|-------------------|------------|-------|--------|
@@ -74,7 +74,46 @@ Priorities flagged:
 | `smalllmsready2024` | Generator can be any small model | MEDIUM | arXiv | ✅ Keep |
 | `slm_survey2024` | Generator can be any small model | MEDIUM | arXiv (Penn State) | ✅ NEW here |
 
-## Lit Review §2.3 — Unconstrained Prediction
+## Lit Review §2.3 — Fine-Tuning and Parameter-Efficient Adaptation
+
+| Citation | Claim it supports | Confidence | Venue | Status |
+|----------|-------------------|------------|-------|--------|
+| `peft_survey2024` | Weight modification is the established approach (claim 1) | HIGH | arXiv (comprehensive PEFT survey, Dec 2023) | Unverified — abstract confirms it's a systematic review of PEFT methods framing weight modification as standard |
+| `hu2022lora` | LoRA: low-rank adaptation method (claim 2) | HIGH | ICLR 2022 | Unverified — canonical, thousands of citations |
+| `houlsby2019adapters` | Adapters: parameter-efficient transfer (claim 2) | HIGH | ICML 2019 | Unverified — canonical, introduced the concept |
+| `li2021prefixtuning` | Prefix tuning: continuous prompt optimization (claim 2) | HIGH | ACL 2021 | Unverified — canonical, well-known |
+| `instructiontuning2022` | Instruction tuning improves zero-shot generalization (claim 2) | HIGH | arXiv (Google/DeepMind, Flan-2 paper) | Unverified — canonical instruction tuning paper; directly demonstrates generalization improvements across model classes. **REPLACED** `instructiontuning2023` (too narrow). |
+| `catastrophic_forgetting2023` | Task-specific limitation; fine-tuning skews distribution toward fine-tuning tasks (claims 3, 4) | HIGH | ICLR 2024 | Unverified — abstract directly states "improving performance on tasks within the fine-tuning data distribution comes at the expense of capabilities on other tasks" and frames it as distribution skewing, not just forgetting. **Strong fit for claim 4's distribution-narrowing framing.** |
+| `alignment_tax2024` | Fine-tuning degrades performance on knowledge/reasoning benchmarks (claim 4) | MEDIUM-HIGH | arXiv | Unverified — abstract directly states benchmark degradation during SFT; full text not read |
+| `costofdownscaling2023` | ICL survives downscaling (claim 6) | MEDIUM | ICLR 2024 / arXiv | Unverified for §2.3 use specifically — verified for other sections in earlier passes |
+| `linguistic_competence_scale2025` | Language understanding survives downscaling (claim 6) | MEDIUM | arXiv | Unverified for §2.3 use specifically |
+
+### §2.3 Action Items (UPDATED)
+- [x] ~~Replace `instructiontuning2023` with canonical instruction tuning citation~~ → replaced with Flan-2 paper (`instructiontuning2022`)
+- [x] ~~Verify `catastrophic_forgetting2023` supports distribution-narrowing framing~~ → confirmed from abstract; ICLR 2024 publication
+- [x] ~~Verify `peft_survey2024` provides general framing~~ → confirmed from abstract; comprehensive survey
+- [ ] Full-text verification pass (deferred milestone)
+
+## Lit Review §2.4 — Prompt Engineering and In-Context Learning
+
+| Citation | Claim it supports | Confidence | Venue | Status |
+|----------|-------------------|------------|-------|--------|
+| `brown2020gpt3` | Prompt engineering definition; ICL mechanism; few-shot; zero-shot (claims 1, 2, 3, 6) | HIGH | NeurIPS 2020 | Unverified for §2.4 specifically — canonical |
+| `sahoo2024promptsurvey` | System/instruction prompting as established categories (claim 2) | HIGH | arXiv 2024 (IIT Patna / Stanford / Amazon) | Unverified — comprehensive survey covering prompt engineering techniques systematically |
+| `manyshot2024` | Many-shot prompting (claim 3) | HIGH | NeurIPS 2024 (Google DeepMind) | Unverified — canonical many-shot paper |
+| `wei2022cot` | Chain-of-Thought prompting (claim 4) | HIGH | NeurIPS 2022 | Unverified for §2.4 — canonical |
+| `yao2023tot` | Tree of Thoughts (claim 4) | HIGH | NeurIPS 2023 | Unverified for §2.4 — canonical |
+| `wang2023selfconsistency` | Self-Consistency (claim 4) | HIGH | ICLR 2023 | Unverified for §2.4 — canonical |
+| `prompt_control_theory2023` | Additional context narrows prediction space / prompts steer distributions (claim 5) | MEDIUM | arXiv (unreviewed) | Unverified — abstract directly supports "prompts steer output probability distributions" |
+| `xie2022icl` | Few examples sharply reduce uncertainty over latent task (claim 6) | HIGH | ICLR 2022 | ✅ Verified in earlier passes |
+| `costofdownscaling2023` | ICL survives downscaling (claim 7) | HIGH | ICLR 2024 | ✅ Verified — TL;DR directly states ICL withstands aggressive down-scaling |
+
+### §2.4 Action Items
+- [ ] Full-text verification pass (deferred milestone)
+- [ ] Verify `sahoo2024promptsurvey` covers system/instruction prompting specifically (abstract confirms comprehensive survey, details TBD)
+- [ ] Consider whether `prompt_control_theory2023` (unreviewed) needs replacement with a stronger venue citation
+
+## Lit Review §2.6 — Unconstrained Prediction
 
 | Citation | Claim it supports | Confidence | Venue | Status |
 |----------|-------------------|------------|-------|--------|
@@ -132,11 +171,11 @@ The following papers could replace or supplement `hallucination_unified2024` if 
 | `liesenfeld2024closed` | Closed models don't disclose internals (footnote) | HIGH | Nature 2024 | Unverified |
 | `llmreasoning_stochastic2024` | LLMs as probability engines; stochastic nature | MEDIUM | arXiv | Unverified |
 
-## §1.4 Applied Changes (from previous sessions)
+## §1.3 Applied Changes (from previous sessions)
 
 - Generator claim: dropped `modelsizematters2024` (wrong support), added `slm_survey2024`
 - Core-mechanism claim: kept `costofdownscaling2023`, REWORDED to credit surviving ICL ability
-- Probability-space claim: replaced `llmreasoning_stochastic2024` with `xie2022icl` for §1.4 specifically
+- Probability-space claim: replaced `llmreasoning_stochastic2024` with `xie2022icl` for §1.3 specifically
 - Metadata bug FIXED: `llmreasoning_stochastic2024` bib year corrected 2024 → 2025
 
 ## Legacy Review Items
