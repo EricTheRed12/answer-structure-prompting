@@ -405,6 +405,30 @@
     year      = "2022"
 }
 
+@article{olsson2022inductionheads,
+    author  = "Catherine Olsson and Nelson Elhage and Neel Nanda and Nicholas Joseph and Nova DasSarma and Tom Henighan and Ben Mann and Amanda Askell and Yuntao Bai and Anna Chen and others",
+    title   = "In-context Learning and Induction Heads",
+    year    = "2022",
+    journal = "Transformer Circuits Thread",
+    note    = "Unreviewed — arXiv:2209.11895; accepted ACL 2023. Shows ICL is mechanistically driven by induction heads (specific attention heads), making it architectural rather than capacity-dependent. Supports claim that ICL operates through attention."
+}
+
+@inproceedings{taskspecific_prompts2025,
+    author    = "Xiangyu Chang and Ruiqi Zhang and Zhanxin Zhu and Jian Pei and Akshay Soni",
+    title     = "Provable Benefits of Task-Specific Prompts for In-context Learning",
+    booktitle = "Proceedings of the 28th International Conference on Artificial Intelligence and Statistics (AISTATS)",
+    year      = "2025",
+    note      = "Unreviewed — arXiv:2503.02102. Mathematically proves task-specific prompts partition the task distribution and explain the conditional mean, improving ICL effectiveness over generic prompts."
+}
+
+@inproceedings{blueprints_slm2025,
+    author    = "Menglin Xia and Daniel Madrigal Diaz and Samuel Kessler and Ankur Mallick and Xuchao Zhang and Mirian Del Carmen Hipolito Garcia and Jin Xu and Victor R{\"u}hle and Saravan Rajmohan",
+    title     = "Enhancing Reasoning Capabilities of Small Language Models with Blueprints and Prompt Template Search",
+    booktitle = "TTODLer-FM Workshop at ICML 2025",
+    year      = "2025",
+    note      = "Unreviewed — arXiv:2506.08669. Empirically shows structured task-category-matched reasoning guides improve SLM performance (up to 20\\%) without training; tested on Phi3-mini (3.8B) and Mistral-7B."
+}
+
 @article{instructiontuning2022,
     author  = "Hyung Won Chung and Le Hou and Shayne Longpre and Barret Zoph and Yi Tay and William Fedus and Yunxuan Li and Xuezhi Wang and Mostafa Dehghani and Siddhartha Brahma and others",
     title   = "Scaling Instruction-Finetuned Language Models",
@@ -491,11 +515,20 @@
 }
 
 @inproceedings{question_decomp_rag2025,
-    author    = "various",
+    author    = "Jonas Golde and others",
     title     = "Question Decomposition for Retrieval-Augmented Generation",
     booktitle = "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Student Research Workshop)",
     year      = "2025",
-    pages     = "497--507"
+    pages     = "497--507",
+    note      = "Unreviewed — arXiv:2507.00355"
+}
+
+@article{corrective_rag2024,
+    author  = "Shi-Qi Yan and Jia-Chen Gu and Yun Zhu and Zhen-Hua Ling",
+    title   = "Corrective Retrieval Augmented Generation",
+    year    = "2024",
+    journal = "arXiv preprint arXiv:2401.15884",
+    note    = "Unreviewed — lightweight retrieval evaluator assesses document quality; triggers corrective actions (reject/revise/web search) based on confidence"
 }
 
 % ============================================================

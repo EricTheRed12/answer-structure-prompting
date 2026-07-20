@@ -6,9 +6,9 @@ inclusion: auto
 
 ## Format
 
-- All thesis sections should be written as **bullet-point claims only** — no prose paragraphs.
-- Each bullet point represents a single claim made in the paragraph it will eventually become.
-- Do not write out full paragraphs unless explicitly asked.
+- All thesis sections should be written as **bullet-point claims** — each claim is an independent bullet written in prose (a complete, well-formed sentence or short paragraph).
+- Each bullet point represents a single claim that will become one paragraph in the final draft.
+- Do not write out multi-paragraph flowing sections unless explicitly asked. Each claim stands alone.
 
 ## Citations
 

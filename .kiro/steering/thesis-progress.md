@@ -8,17 +8,22 @@ inclusion: auto
 
 **Currently working on:** Section 2 — Literature Review (subsection by subsection)
 
+**⚠️ IMPORTANT: All sections written as bullet-point claims are DRAFTS.** Claims can be written/reviewed with Kiro but the final prose must be written by the author. No section is truly "done" until it has been rewritten in the author's voice as flowing paragraphs. "Initially reviewed" means claims are structured and reviewed — NOT that the section is publication-ready.
+
 ## Section Order (Lit Review)
 
-1. [x] Large Language Models (§2.1) — claims finalized and written
-2. [x] Scale and Structure (§2.2) — claims finalized, quick-pass edits done
-3. [x] Unconstrained Prediction (§2.3) — claims finalized, citations first-passed
-4. [ ] Small Language Models (§2.4)
-5. [ ] Fine-Tuning and Parameter-Efficient Adaptation (§2.5)
-6. [ ] Prompt Engineering and In-Context Learning (§2.6)
-7. [ ] Retrieval-Augmented Generation (§2.7)
-8. [ ] Question Classification in QA (§2.8)
-9. [ ] Answer Structure Types: A Taxonomy Hypothesis (§2.9)
+1. [x] Large Language Models (§2.1) — initially reviewed
+2. [x] Scale and Structure (§2.2) — initially reviewed
+3. [x] Fine-Tuning and Parameter-Efficient Adaptation (§2.3) — initially reviewed
+4. [x] Prompt Engineering and In-Context Learning (§2.4) — initially reviewed
+5. [x] Retrieval-Augmented Generation (§2.5) — initially reviewed
+6. [x] Unconstrained Prediction (§2.6) — reviewed and finalized
+7. [ ] Question Classification in QA (§2.7) — unreviewed
+8. [ ] Answer Structure Types: A Taxonomy Hypothesis (§2.8) — unreviewed
+
+## Re-Review Notes
+
+- **§2.2 (end):** The roadmap sentence at the end of §2.2 describes what §2.3–§2.6 will do. Needs re-review against the new flow (§2.3 = rules out fine-tuning, §2.4 = structure helps, §2.5 = specificity matters, §2.6 = constraining the problem space). Current wording may still fit but verify.
 
 ## Completed Work (All Sessions)
 
@@ -38,14 +43,25 @@ inclusion: auto
   - Merged "Existing techniques demonstrate this principle" into CoT bullet
   - Added architectural equivalence claim (small models = same system, lower resolution) with REVISIT note
   - Self-correction language updated to match §2.3
-- [x] §2.3 Unconstrained Prediction (renamed from "Reframing Model Errors") — 7 claims finalized
+- [x] §2.5 Retrieval-Augmented Generation — 5 claims initially reviewed and written to main.tex
+  - RAG defined (inference-time automated prompt construction via retrieval)
+  - Distinction from prompt engineering (same principle, different context origin)
+  - Question-decomposition RAG (organization of retrieval improves content precision)
+  - Corrective RAG (filtering prevents low-quality content from degrading output)
+  - Synthesis: organization + specificity together outperform either in isolation
+  - Section's job in through-line: advances "structure helps" (§2.4) to "structure + specificity is better"
+  - Does NOT make gap claims (that's §2.6) or position the framework (that's §3)
+  - Citation needed: `corrective_rag2024` added to bib (unreviewed)
+  - All citations flagged as unreviewed: `lewis2020rag`, `rag_survey2023`, `sahoo2024promptsurvey`, `question_decomp_rag2025`, `corrective_rag2024`
+- [x] §2.6 Unconstrained Prediction — 7 claims reviewed and finalized
   - Define hallucination → reframe as unconstrained prediction (no separate failure mode)
   - Parameters set baseline distribution; small models approximate at lower resolution (Godey et al.)
   - Approximation compounds during generation (LPSR 2026 + exposure bias)
   - "We argue" scope reduced by narrowing output space (empirical: brevity constraints)
-  - Existing approaches reduce via parameters or context
-  - Answer structure reduces by providing output form (model populates content)
-  - Citations first-passed; hallucination_unified2024 flagged for full-text review
+  - Synthesis: existing approaches narrow space via weight modification, generic context, and targeted content respectively
+  - General principle: matched structure + specific context especially effective for small models (ICL is architectural)
+  - Dropped hallucination_unified2024 (definition conflict). Added olsson2022inductionheads, taskspecific_prompts2025, blueprints_slm2025 (all unverified)
+  - Section does NOT name answer structure as the solution — leaves that to §2.8
 
 ### Structural Decisions Made
 - Merged old §2.3 (Generalization at Scale) + §2.4 (Problem with Scale) → §2.2 (Scale and Structure)

@@ -17,8 +17,8 @@ These are load-bearing conceptual decisions for the paper. Apply them everywhere
 | §2.2 Scale and Structure | Initially reviewed | Revisit: add architectural equivalence claim |
 | §2.3 Fine-Tuning | Initially reviewed and finalized | |
 | §2.4 Prompt Engineering and ICL | Initially reviewed | |
-| §2.5 RAG | **UNREVIEWED — KNOWN STALE** | Contains outdated 2×2 RAG experimental design; revised design is SQuAD, no RAG (see Experimental Design below) |
-| §2.6 Unconstrained Prediction | **UNREVIEWED** | Claim 6 needs revision to thread structural argument through §2.3–§2.5 |
+| §2.5 RAG | Initially reviewed | 5 claims written; old prose/gap claims/2×2 design removed |
+| §2.6 Unconstrained Prediction | **REVIEWED AND FINALIZED** | Dropped hallucination_unified2024; added 3 new citations; claim 7 rewritten as general principle (no answer structure) |
 | §2.7 Question Classification | **UNREVIEWED** | Has \\needpaper{} placeholders |
 | §2.8 Answer Structure Types | **UNREVIEWED** | Needs CoT deep-dive and format-constrained decoding distinction added |
 | §3 Architecture | **UNREVIEWED** | MoE routing added but section not reviewed |
@@ -129,13 +129,35 @@ Requirements for the definition (to be written crisply in §2.8 and §3):
   - Revisit: ordering of §2.7 (Question Classification) and §2.8 (Answer Structure Taxonomy) — consider swapping so flow becomes: unconstrained prediction → answer structure (the solution) → question classification (how to identify it)
   - §2.6 claim 6 to be revised to thread structural argument through §2.4 specifically: CoT shows structure helps, but process-level structure that is self-generated doesn't address the matched-structure gap
 
-## §2.5 (formerly §2.7) RAG — EXPANDED
+## §2.5 Retrieval-Augmented Generation — INITIALLY REVIEWED
 
-- **Section job (updated):** Establish RAG as knowledge augmentation (what information the model receives), distinguish from answer structure (what structural type the answer requires), AND argue that structure could improve retrieval by directing it toward specific dimensions rather than broad topic similarity.
-- **Two-directional argument:**
-  1. Standard RAG provides knowledge but no structure for how to use it
-  2. Answer structure could serve as a retrieval guide — telling the system what to look for, not just what topic to search
-- **Future work angle:** In a combined system, answer structure serves dual roles: guiding generation (this paper) and directing retrieval (future work).
+- **Section title:** "Retrieval-Augmented Generation"
+- **Section job:** Advance the escalation one step beyond §2.4. §2.4 shows prompt engineering works and structure helps. §2.5 shows RAG demonstrates that structure with *specific, relevant information* is even better. Organization and specificity together outperform either in isolation. Does NOT make gap claims or forward-sell the framework — that's §2.6's job.
+- **Position in the through-line:**
+  - §2.3: Fine-tuning is not the answer (rules out weight modification)
+  - §2.4: Prompt engineering works at any scale, and structure helps (establishes viability)
+  - **§2.5: RAG shows that structure with specific relevant information is better (specificity matters)**
+  - §2.6: Errors are a failure of constraining the problem space (mechanistic why)
+- **Claims (5 claims, initially reviewed):**
+  1. RAG defined: inference-time system that automates prompt construction by retrieving relevant information from an external corpus and injecting it into the model's input before generation
+  2. Distinction from prompt engineering: both input-side, no weight modification. Difference is where context originates (prompt author's design vs external knowledge source indexed at runtime)
+  3. Question-decomposition RAG: breaks complex queries into sub-questions, retrieves separately for each. Provides more precise and relevant content by simplifying information needs into focused retrieval targets
+  4. Corrective RAG: evaluates retrieval quality before passing to model, rejecting/revising documents below relevance thresholds. Prevents low-quality retrievals from degrading output
+  5. Synthesis: RAG demonstrates that the §2.4 principle extends further — structuring the input process improves quality, and doing so with specific relevant information produces better results than generic structure alone. Organization and specificity together outperform either in isolation
+- **Citations:** `lewis2020rag`, `rag_survey2023`, `question_decomp_rag2025`, `corrective_rag2024` — ALL NEED VERIFICATION (see citation review below)
+- **Decisions made:**
+  - Dropped naive RAG (just prompt engineering with automated retrieval)
+  - Dropped Self-RAG / output-structuring RAG discussion (not needed for argument; can be steelmanned later if committee raises it)
+  - Dropped "prediction space" / "generation space" language (belongs to §2.6)
+  - Dropped 2×2 experimental design (experiment is now SQuAD, 3 conditions, no RAG)
+  - RAG as retrieval guide for answer structure moved to future work (§8) — out of scope for this section
+  - Softer landing preferred: section ends on "specificity matters" not "here's the gap" — don't give away the solution too early
+- **NOTE for §2.8:** Must explicitly differentiate "answer structure" (output-side: what form the answer takes) from "structured RAG" (retrieval-side: how information is found and organized for the model). Without this distinction, readers may conflate the two.
+- **Citation review needed:**
+  - `lewis2020rag` — IN BIB. Verify it supports claim 1 specifically (inference-time retrieval into prompt)
+  - `rag_survey2023` — IN BIB (Gao et al., arXiv:2312.10997). Verify it supports claims 2 and 5 (variants overview, organization improves quality)
+  - `question_decomp_rag2025` — IN BIB (ACL 2025 SRW). Verify it supports claim 3 (sub-question decomposition, focused retrieval)
+  - `corrective_rag2024` — NOT IN BIB. Likely Yan et al., "Corrective Retrieval Augmented Generation" (CRAG). Need to find, verify, and add bib entry
 
 ## §2.8 (formerly §2.9) Answer Structure Types: Taxonomy Hypothesis — NOTE
 
@@ -143,7 +165,7 @@ Requirements for the definition (to be written crisply in §2.8 and §3):
 
 ## Experimental Design — REVISED (SQuAD, no RAG)
 
-**⚠️ main.tex is STALE:** §2.5 (RAG experimental implication) and §4 (Methodology) still contain the old 2×2 RAG design. These will be updated when those sections are reviewed.
+**⚠️ main.tex is STALE:** §4 (Methodology) still contains the old 2×2 RAG design. This will be updated when that section is reviewed.
 
 **Dataset:** SQuAD (extractive QA). The passage is provided in the prompt, so the model always has the knowledge it needs. No RAG required — the knowledge problem is solved by the dataset format itself.
 

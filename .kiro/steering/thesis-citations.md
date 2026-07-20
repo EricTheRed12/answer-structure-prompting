@@ -113,31 +113,33 @@ Priorities flagged:
 - [ ] Verify `sahoo2024promptsurvey` covers system/instruction prompting specifically (abstract confirms comprehensive survey, details TBD)
 - [ ] Consider whether `prompt_control_theory2023` (unreviewed) needs replacement with a stronger venue citation
 
-## Lit Review §2.6 — Unconstrained Prediction
+## Lit Review §2.6 — Unconstrained Prediction (REVISED)
 
-| Citation | Claim it supports | Confidence | Venue | Status |
-|----------|-------------------|------------|-------|--------|
-| `ji2023hallucination` | Definition of hallucination | HIGH | ACM Computing Surveys 2023 | Unverified |
-| `hallucination_unified2024` | Definition of hallucination | MEDIUM | ICML 2026 | **RISK — their definition (inaccurate world modeling) may conflict with our simpler definition (output ≠ expected). Review full text before relying on it.** |
-| `brown2020gpt3` | Autoregressive mechanism; no separate failure mode (supports premise, conclusion is ours) | HIGH | NeurIPS 2020 | Unverified |
-| `godey2024softmax` | Small models cannot fully express target probability distribution due to dimensional bottleneck | HIGH | arXiv 2024 (Inria) | Unverified |
-| `lpsr2026` | Inference-time error compounding: "once a wrong step is taken, subsequent tokens compound the mistake" | HIGH | arXiv 2026 (under review) | Unverified |
-| `exposure_bias_ilp2022` | Error propagation in autoregressive generation (training-side cause) | MEDIUM | arXiv | Unverified — supports the vulnerability but is about training-time exposure bias, not inference-time compounding directly. Keep as secondary support alongside lpsr2026. |
-| `costofdownscaling2023` | What degrades with scale (fact recall before ICL) — belongs on claim 3, not claim 4 | MEDIUM | ICLR 2024 / arXiv | Unverified |
-| `hallucination_survey2024` | Hallucination scales inversely with model size | MEDIUM | arXiv | Unverified — supports existence of problem, not "narrowing reduces scope" specifically |
-| `zhang2023hallucination` | Hallucination scales inversely with model size | MEDIUM | arXiv | Unverified — same concern as above |
-| `brevity_constraints2025` | Constraining output form improves performance empirically | MEDIUM | arXiv (unreviewed) | Unverified — empirical backing for claim 5's "narrowing reduces scope" principle |
-| `llmreasoning_stochastic2024` | LLMs as stochastic pattern-matchers (ambient support for claim 7) | MEDIUM | arXiv | Unverified |
+| Citation | Claim | Confidence | Venue | Status |
+|----------|-------|------------|-------|--------|
+| `ji2023hallucination` | Claim 1: Definition of hallucination (output ≠ expected) | HIGH | ACM Computing Surveys 2023 | Unverified |
+| `brown2020gpt3` | Claim 2: Autoregressive mechanism; no separate failure mode (supports premise, conclusion is ours) | HIGH | NeurIPS 2020 | Unverified |
+| `llmreasoning_stochastic2024` | Claim 2: LLMs as stochastic pattern-matchers; supports "no separate failure mode" | MEDIUM | arXiv | Unverified |
+| `godey2024softmax` | Claim 3: Small models cannot fully express target probability distribution (dimensional bottleneck) | HIGH | arXiv 2024 (Inria) | Unverified |
+| `costofdownscaling2023` | Claim 3: Fact recall degrades before ICL; lower-resolution approximation | MEDIUM | ICLR 2024 / arXiv | Unverified |
+| `lpsr2026` | Claim 4: Inference-time error compounding in autoregressive generation | HIGH | arXiv 2026 (under review) | Unverified |
+| `exposure_bias_ilp2022` | Claim 4: Error propagation (training-side exposure bias); secondary support | MEDIUM | arXiv | Unverified |
+| `prompt_control_theory2023` | Claim 5: Prompts steer output distributions; narrowing works | MEDIUM | arXiv (unreviewed) | Unverified |
+| `brevity_constraints2025` | Claim 5: Constraining output form inverts model-size performance rankings | MEDIUM | arXiv (unreviewed) | Unverified |
+| `costofdownscaling2023` | Claim 7: ICL withstands aggressive down-scaling | HIGH | ICLR 2024 / arXiv | Unverified |
+| `olsson2022inductionheads` | Claim 7: ICL mechanistically driven by attention heads (architectural, not capacity-dependent) | HIGH | ACL 2023 / arXiv:2209.11895 | Unverified |
+| `taskspecific_prompts2025` | Claim 7: Task-specific prompts provably improve ICL (matched > generic) | HIGH | AISTATS 2025 / arXiv:2503.02102 | Unverified |
+| `blueprints_slm2025` | Claim 7: Structured task-matched guides improve SLM performance up to 20% without training | HIGH | ICML 2025 Workshop / arXiv:2506.08669 | Unverified |
 
-### Claim 1 — Alternative papers to review (hallucination definition)
+### §2.6 Citation Decisions (this pass)
 
-The following papers could replace or supplement `hallucination_unified2024` if its "world model" definition conflicts:
-- `ji2023hallucination` — ACM Computing Surveys, comprehensive, uses simpler output-mismatch framing. Likely sufficient alone.
-- `zhang2023hallucination` — Siren's Song survey. Documents hallucination broadly. May have a compatible definition.
-- `whyllmshallucinate2024` — "Why Language Models Hallucinate." Mechanistic focus. May fit better with claim 2 than claim 1.
-- `hallucination_survey2024` — another broad survey. Check its definition section.
-
-**Decision needed after full-text review:** Does `hallucination_unified2024`'s "world model" framing conflict with our simpler "output ≠ expected" definition? If yes, drop it from claim 1 and use `ji2023hallucination` alone.
+- **DROPPED** `hallucination_unified2024` from claim 1 — "world model" definition conflicts with our simpler "output ≠ expected" framing. `ji2023hallucination` alone is sufficient.
+- **DROPPED** `hallucination_survey2024` and `zhang2023hallucination` — supported existence of problem but were not cited in actual claims; ambient support not needed.
+- **DROPPED** `llmreasoning_stochastic2024` from claim 7 — replaced with stronger, more specific citations.
+- **ADDED** `olsson2022inductionheads` — mechanistic support for ICL being architectural (attention heads).
+- **ADDED** `taskspecific_prompts2025` — theoretical proof that task-specific prompts improve ICL.
+- **ADDED** `blueprints_slm2025` — empirical evidence that matched structure helps SLMs specifically.
+- Claim 6 has no citations (synthesis claim with cross-references only) — this is intentional.
 
 ## Lit Review §2.2 — Scale and Structure
 
