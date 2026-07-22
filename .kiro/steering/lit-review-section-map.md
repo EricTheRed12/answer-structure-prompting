@@ -170,20 +170,29 @@ Each section has ONE job. This document tracks what each section establishes and
 
 ## §2.7 Question Classification in QA
 
-**Job:** Establish that question type classification is recognized prior art, grounding the classifier component in existing work. Distinguish question types from answer structure types.
+**Job (four parts):**
+1. **Precedent for answer structure** — show that question structure/type is a thoroughly explored idea (20+ years of QA systems), making the leap to answer-level structure feel natural
+2. **Classification is operational and mature** — systems do this reliably with encoders; concrete features distinguish question types; de-risks the classifier component
+3. **Gap identification** — the literature classifies questions but stops at the question level (retrieval routing, expected entity type); acknowledge closest adjacent work (blueprints, TemplateRL, dynamic template selection) and distinguish each
+4. **Author synthesis bridging to §2.8** — if questions have classifiable, structurally distinct types, answers logically must too
 
 **Core ideas:**
-- Classical QA recognizes question classification as preprocessing
-- Cognitive science: experts categorize problem type before solving
-- Different question types require structurally different reasoning
-- Prior work classifies question types but not the structure a valid answer must take
+- Question classification is well-established prior art (Li & Roth 2002, extended taxonomies)
+- Different question types exhibit distinct observable surface features (factual → single datum; analogical → relational mapping; multi-step → chained conclusions)
+- Encoder-based classifiers reliably map question text to categorical labels; the mechanism applies to any finite label set including novel ones
+- Surface features that determine question type correlate directly with answer structure requirements (same signal space)
+- Literature uses QC for retrieval filtering / expected entity type, not for defining output form
+- Adjacent work (blueprints, TemplateRL, DTS) provides reasoning-process templates or cost-optimizing templates, not answer-form templates
+- Gap: no existing work classifies questions to select a structural template defining answer form and provides it as input constraint before generation
 
 **Sets up:**
-- §2.8 (Answer Structure Types): the taxonomy hypothesis
+- §2.8 (Answer Structure Types): the taxonomy hypothesis — if question types are classifiable and structurally distinct, answer types must be too
 
 **Does NOT cover:**
-- The taxonomy itself (that's §2.8)
-- The classifier architecture (that's §3)
+- The taxonomy itself or what answer structures look like (that's §2.8)
+- The classifier architecture or training (that's §3)
+- Why structure matters / gap claims about unconstrained prediction (already done in §2.6)
+- Transition or "why care" — §2.6 already established matched structure is needed; this section answers "how do you match?"
 
 ---
 

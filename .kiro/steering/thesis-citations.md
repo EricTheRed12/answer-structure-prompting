@@ -180,6 +180,32 @@ Priorities flagged:
 - Probability-space claim: replaced `llmreasoning_stochastic2024` with `xie2022icl` for §1.3 specifically
 - Metadata bug FIXED: `llmreasoning_stochastic2024` bib year corrected 2024 → 2025
 
+## Lit Review §2.7 — Question Classification in QA
+
+| Citation | Claim it supports | Confidence | Venue | Status |
+|----------|-------------------|------------|-------|--------|
+| `liroth2002questions` | Claim 1: QC is well-established prior art (20+ years) | HIGH | COLING 2002 | Unverified |
+| `nonfactoid_taxonomy2022` | Claim 1: Extended taxonomies across domains | HIGH | SIGIR 2022 | Unverified |
+| `analogical_reasoning2022` | Claim 2: Analogical questions signal relational mapping | MEDIUM-HIGH | arXiv (Webb et al. 2022) | Unverified — supports claim from answer side rather than question-feature side; defensible but slightly indirect |
+| `wei2022cot` | Claim 2: Multi-step questions require chained inference (demonstrated in practice) | HIGH | NeurIPS 2022 | Unverified for §2.7 use |
+| `devlin2019bert` | Claim 3: Encoder architecture for classification | HIGH | NAACL 2019 | Unverified |
+| `xu2019qc_bert` | Claim 3: Modern BERT-based QC achieves SOTA; QC improves QA accuracy | HIGH | arXiv:1908.05441 (U of Arizona + AI2, 2019) | Unverified — abstract directly states BERT QC achieves SOTA on TREC + domain benchmarks and improves QA by +1.7% |
+| `blueprints_slm2025` | Claim 4: Adjacent work — reasoning blueprints per task category | MEDIUM | ICML 2025 Workshop (TTODLer-FM) | Unverified — workshop paper, not main-track peer review |
+| `templaterl2025` | Claim 4: Adjacent work — template library matched to problems via RL | MEDIUM-HIGH | ACL Findings 2026 | Unverified — strong venue; constructs template library via MCTS |
+| `dynamic_template_selection2025` | Claim 4: Adjacent work — classifier routes queries to templates | LOW-MEDIUM | arXiv:2511.20683 (unreviewed preprint) | Unverified — weakest citation; no venue; useful for due diligence on broad engagement |
+
+### §2.7 Citation Notes
+- Claim 5 has no citations (author synthesis) — intentional
+- `analogical_reasoning2022` is slightly indirect for claim 2 (about LLMs doing analogical reasoning, not about question features per se) — defensible but flagged
+- `dynamic_template_selection2025` is the weakest citation in this section (unreviewed, single author, no venue) — included to show breadth of engagement, not leaned on heavily
+- `blueprints_slm2025` is a workshop paper — fine to cite but reviewer may note lack of full peer review
+
+### §2.7 Action Items
+- [ ] Full-text verification pass (deferred milestone)
+- [ ] Verify `xu2019qc_bert` reports specific accuracy numbers on TREC benchmark (abstract confirms SOTA + QA improvement)
+- [ ] Verify `templaterl2025` is accepted at ACL Findings 2026 (found in ACL anthology PDF, needs confirmation)
+- [ ] Consider whether `analogical_reasoning2022` needs replacement with a question-features-specific paper
+
 ## Legacy Review Items
 
 - [ ] Consider enhancing Hook Claim 3 to strengthen "comprehension survives scale" argument

@@ -20,7 +20,7 @@ These are load-bearing conceptual decisions for the paper. Apply them everywhere
 | §2.5 RAG | Initially reviewed | 5 claims written; old prose/gap claims/2×2 design removed |
 | §2.6 Unconstrained Prediction | **REVIEWED AND FINALIZED** | Dropped hallucination_unified2024; added 3 new citations; claim 7 rewritten as general principle (no answer structure) |
 | §2.7 Question Classification | **UNREVIEWED** | Has \\needpaper{} placeholders |
-| §2.8 Answer Structure Types | **UNREVIEWED** | Needs CoT deep-dive and format-constrained decoding distinction added |
+| §2.8 Answer Structure Types | **INITIALLY REVIEWED** | Written to LaTeX; 5 claims finalized. Typed-RAG flagged for §2.7 adjacent work addition. |
 | §3 Architecture | **UNREVIEWED** | MoE routing added but section not reviewed |
 | §4 Methodology | **UNREVIEWED — KNOWN STALE** | Still has 2×2 RAG design and MC QA benchmarks; should be SQuAD with 3 conditions |
 | §5 Results | **UNREVIEWED** | TBD |
