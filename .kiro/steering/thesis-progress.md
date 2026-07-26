@@ -6,7 +6,7 @@ inclusion: auto
 
 ## Current Status
 
-**Currently working on:** Lit Review claims complete (§2.1–§2.8 all initially reviewed). Next: decomposition and prose rewrite pass over completed sections. Also pending: §2.7 minor revision (trim final bullet, add Typed-RAG adjacent work).
+**Currently working on:** Prose rewrite of §2.1 COMPLETE. Prose rewrite of §2.2 (Scale and Structure) COMPLETE. Encoder/decoder split moved to §2.7. Next: prose rewrite of §2.3 (Fine-Tuning) or address flagged §2.7 revisions.
 
 **⚠️ IMPORTANT: All sections written as bullet-point claims are DRAFTS.** Claims can be written/reviewed with Kiro but the final prose must be written by the author. No section is truly "done" until it has been rewritten in the author's voice as flowing paragraphs. "Initially reviewed" means claims are structured and reviewed — NOT that the section is publication-ready.
 
@@ -23,26 +23,51 @@ inclusion: auto
 
 ## Re-Review Notes
 
-- **§2.2 (end):** The roadmap sentence at the end of §2.2 describes what §2.3–§2.6 will do. Needs re-review against the new flow (§2.3 = rules out fine-tuning, §2.4 = structure helps, §2.5 = specificity matters, §2.6 = constraining the problem space). Current wording may still fit but verify.
+- **§2.2 (end):** Roadmap sentence removed. Section now closes with "prompting alone does not solve generalization" — verify this transitions cleanly into §2.3 opener when §2.3 is rewritten.
+- **§2.4:** Note added to thread "generalization" — prompting doesn't sacrifice generalization (no weight changes) but is generic, not per-question.
+- **§2.5:** Note added to thread "generalization" — RAG preserves general capability while augmenting with relevant context, but doesn't provide matched structure.
+- **§2.6:** Note added to thread "generalization" — without structure, model defaults to degraded general distribution; generalization without guidance = unconstrained prediction.
+- **§2.6 (brevity reference):** §2.6 still references brevity_constraints2025 with the old framing ("constraining output form alone inverts model-size performance rankings"). Needs updating to match corrected §2.2 framing when §2.6 is rewritten.
 
 ## Completed Work (All Sessions)
 
 ### Introduction
 - [x] Problem Statement (§1.2) — 20 claims, full citation coverage, all reviewed
 - [x] Purpose of the Paper (§1.3) — first pass done (claims reviewed/revised, citations logged)
+- [x] Hook (§1.1) — PROSE REWRITE COMPLETE
+  - 4 sentences flowing as one paragraph
+  - Covers: LLMs transformative → scale/resource cost → small models lose ability → conventional explanation (scale) → but language ability preserved → what's missing?
+  - Sets up §2 (Literature Review) as the answer to the closing question
+- [x] Problem Statement (§1.2) — PROSE REWRITE COMPLETE
+  - 3 paragraphs: closed models hinder community → open-source alternatives are flawed (scaling laws, parametric limits, brittleness) → linguistic competence preserved, existing approaches don't overcome capacity limits, research question stated
+  - Claims compressed from 22 to 3 focused paragraphs
+  - Original bullet claims removed from file
+- [x] Purpose of the Paper (§1.3) — PROSE REWRITE COMPLETE
+  - 3 paragraphs: hypothesis + system overview (classifier + generator) → two key premises (finite taxonomy, classifiable from question) → scope and evaluation (SQuAD, multiple model sizes, baseline comparison)
+  - Original bullet claims removed from file
+  - Key terms established: "answer structure," "prediction space," "answer dimensions"
 
 ### Literature Review
-- [x] §2.1 Large Language Models — 5 claims finalized and written to main.tex
-  - Structure (transformers, attention, parameters, training)
-  - Function (probabilistic token prediction, stochastic)
-  - Architecture split (encoder vs decoder, pre-training objectives)
-  - Autoregressive decoding (sequential, committed, limited self-correction)
-  - Key implication (probability engine — anything improving quality shapes the distribution)
-- [x] §2.2 Scale and Structure — claims reviewed, quick-pass edits applied
-  - Stripped "this paper" framing from final bullet
-  - Merged "Existing techniques demonstrate this principle" into CoT bullet
-  - Added architectural equivalence claim (small models = same system, lower resolution) with REVISIT note
-  - Self-correction language updated to match §2.3
+- [x] §2.1 Large Language Models — PROSE REWRITE COMPLETE
+  - 4 claims (reordered from original 5; encoder/decoder split moved to §2.7)
+  - Claim 1: Architecture — transformers, attention, structural features of language, parametric capacity constraint
+  - Claim 2: Function — prediction engine, statistical relationships, forward pass, probability distribution, no guarantee of correctness, deterministic distribution per input, sampling configuration
+  - Claim 3: Autoregressive decoding — sequential, each token becomes input for next, error propagation, contingent on initial prompt. Footnote re: closed models.
+  - Claim 4: Closing implication — input directly determines the distribution from which tokens are selected
+  - Note added to §2.7 to introduce encoder architecture there (motivated by classification argument)
+  - Original bullet claims removed from file
+- [x] §2.2 Scale and Structure — PROSE REWRITE COMPLETE
+  - 7 claims rewritten as prose (original bullet claims removed from file)
+  - Claim 1: Scale defined — parameter count, dominant predictor, capacity explanation (higher-resolution approximation)
+  - Claim 2: Demonstrated — Brown et al. GPT-3 ablation (175B vs 1.3B, same architecture/training, only parameters differ)
+  - Claim 3: Scale isn't everything — large models still fail (hallucinations, multi-step reasoning); gap is conditional, not absolute; small models with context match large ones
+  - Claim 4: Architectural equivalence — same generation mechanisms, same corpora, same target distribution; difference is resolution of approximation
+  - Claim 5: Structural argument (author synthesis) — advantage of scale is structural; image resolution analogy; patterns are statistically encoded and non-deterministic (unlike JSON schema); corruption possible regardless of size
+  - Claim 6: External structure compensates — prompting compensates for degraded structural encoding; brevity constraints shift hierarchies by 26pp; structure determines quality
+  - Claim 7: Closing — prompting alone doesn't solve generalization; need direct way to compensate for parametric constraint
+  - CITATION FIX: brevity_constraints2025 finding was inverted in original claims (paper shows constraining form helps large models regain advantage, not small models outperform). Corrected to focus on the 26pp hierarchy shift principle.
+  - Notes added to §2.4, §2.5, §2.6 to thread "generalization" through those sections during prose rewrite
+  - Roadmap sentence (listing §2.3–§2.6) dropped — sections speak for themselves
 - [x] §2.3 Fine-Tuning and Parameter-Efficient Adaptation — 6 claims reviewed
   - Weight modification as established approach
   - Variants (full fine-tuning, PEFT, instruction tuning, distillation)
@@ -86,7 +111,11 @@ inclusion: auto
 ### Flagged Revisions (Pending)
 - **§2.7 final bullet:** Trim to end at "answer types must be too" — remove hypothesis statement and "input constraint" language (§2.8 now owns this)
 - **§2.7 adjacent work:** Add Typed-RAG (Lee et al. 2025, arXiv:2503.15879) — classifies NFQs into types for retrieval decomposition; similar (finite taxonomy, classifier-driven), distinct (retrieval intervention, not answer structure)
+- **§2.7 adjacent work:** Add SMART (Setty 2023, arXiv:2304.12395) — BERT/XBERT encoder predicts answer entity types from KG taxonomy. Very close to our classifier approach but predicts entity type for retrieval filtering, not structural dimensions for generation.
+- **§2.7 adjacent work:** Add CEUR-WS (2021) — BERT classifier, semantic answer type prediction using DBpedia hierarchy (~760 classes). Two-stage pipeline. Same distinction as SMART: classifies what entity type the answer is, not how the answer should be structured.
 - **sample.bib:** Add `typed_rag2025` entry (Lee et al., "Typed-RAG: Type-Aware Decomposition of Non-Factoid Questions for RAG", XLLM@ACL 2025)
+- **sample.bib:** Add `smart_answer_type2023` entry (Setty, "Extreme Classification for Answer Type Prediction in QA", JCDL 2023, arXiv:2304.12395)
+- **sample.bib:** Add CEUR-WS 2021 semantic answer type prediction paper (need to identify exact authors/venue)
 
 ### Structural Decisions Made
 - Merged old §2.3 (Generalization at Scale) + §2.4 (Problem with Scale) → §2.2 (Scale and Structure)
@@ -104,14 +133,17 @@ inclusion: auto
 - `templaterl2025` — Wu et al., "TemplateRL" (template library via MCTS + RL training)
 - `dynamic_template_selection2025` — Yadavalli, "Dynamic Template Selection" (classifier → response templates for cost optimization)
 
-### §2.8 Citation Verification Status
+### §1.2 Citation Verification Status
+- `slm_survey2024` — used for "largest open-source models require specialized hardware" — UNREVIEWED (need to verify it specifically discusses hardware requirements by model size)
 - `liroth2002questions` — Li & Roth 2002, "Learning Question Classifiers" — UNREVIEWED (HIGH confidence: foundational QC paper, finite taxonomy of question types)
 - `nonfactoid_taxonomy2022` — Bolotova et al. 2022, "A Non-Factoid Question-Answering Taxonomy" — UNREVIEWED (HIGH confidence: SIGIR Best Paper, finite set of answer-type categories)
 - `xie2022icl` — Xie et al. 2022, "An Explanation of In-context Learning as Implicit Bayesian Inference" — UNREVIEWED (MEDIUM-HIGH confidence: supports "few-shot relies on model inferring latent pattern"; exact framing needs full-text verification)
 
 ## Still TODO (Non-Lit-Review)
 
-- [ ] Hook (§1.1) — needs rewrite after Problem Statement/Purpose finalized
+- [x] Hook (§1.1) — PROSE REWRITE COMPLETE
+- [x] Problem Statement (§1.2) — PROSE REWRITE COMPLETE
+- [x] Purpose of the Paper (§1.3) — PROSE REWRITE COMPLETE
 - [ ] Abstract — write from scratch
 - [ ] Architecture (§3) — write from scratch
 - [ ] Methodology (§4) — write from scratch

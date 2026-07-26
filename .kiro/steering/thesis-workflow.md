@@ -42,6 +42,18 @@ Follow this sequence for each subsection of the lit review (and other sections w
 16. Write the finalized claims into `main.tex`
 17. Update `thesis-progress.md` with what was done
 
+### Phase 6: Prose Rewrite (Second Pass)
+18. Deconstruct each claim into core bullets, preserving key terminology
+19. Present original claim + distilled bullets to author for review (confirm nothing lost)
+20. Author writes the claim in their own words
+21. Kiro provides:
+    - Grammar and spelling cleanup
+    - Terminology improvement suggestions only (no full prose)
+    - Verification that the claim is factually accurate
+    - Citation correctness check
+22. Add finalized prose to `main.tex`, comment out original bullets
+23. Update `second_pass_review.md` and `thesis-progress.md` with progress
+
 ## Key Principles
 
 - Work section by section, not all at once
