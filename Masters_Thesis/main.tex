@@ -166,47 +166,84 @@ As established in \S2.1, the input defines the trajectory of the prediction, whi
 Larger models often have this specificity and structure encoded in their parameters. Smaller models lack this resolution (\S2.2). Prompt engineering can supply structure (\S2.4), but the structure it provides is generic and is applied uniformly regardless of the task. RAG supplies specificity (\S2.5), but not in a form adapted to the specific task. Even combined, no existing technique provides structure adapted to the individual task. To surpass the parametric barrier and enable generalization, what is needed is a structure that is task-independent in mechanism, specific to the task in its dimensions, and consistent in form.
 
 \subsection{Question Classification in QA}
-% NOTE: Add prose explaining encoder-based (BERT-style) architecture here — bidirectional attention, masked language modeling pre-training, learns to represent rather than generate. Moved from §2.1 because the encoder is introduced where it is needed (as the classification tool) rather than as an abstract architectural aside.
+% NOTE: Adjacent work (Han et al., Wu et al., Yadavalli, SMART, CEUR-WS) moved to planned §2.9 (Related Work).
+% NOTE: Encoder architecture explanation (BERT bidirectional attention, MLM pre-training) — keep brief, one sentence. Not a full explainer.
 
-\begin{itemize}
-  \item Question type classification is a well-established component of question answering systems, with over two decades of research treating it as a standard preprocessing step. Li and Roth (2002) introduced a hierarchical taxonomy of question types and demonstrated that a learned classifier could assign types with high accuracy from question text alone; subsequent work has extended and refined these taxonomies across domains \cite{liroth2002questions, nonfactoid_taxonomy2022}
-  \item Classification is tractable because different question types exhibit distinct, observable features at the surface level. A factual question calls for a single datum as answer; an analogical question calls for a relational mapping between two domains; a multi-step question calls for a sequence of linked conclusions \cite{liroth2002questions, analogical_reasoning2022, wei2022cot}. These structural signals are present in the question text itself, independent of the answer content
-  \item Encoder-based classifiers reliably map question text to categorical labels; this is a mature capability demonstrated across multiple taxonomies, with modern BERT-based models achieving state-of-the-art performance on both open-domain and domain-specific question classification benchmarks \cite{liroth2002questions, devlin2019bert, xu2019qc_bert}. The same mechanism applies to any finite label set derived from question features, including novel taxonomies not represented in existing benchmarks. The classification task is structurally identical regardless of label set: assign a question to one of a finite set of categories based on features observable in the text. We argue that the surface features distinguishing question types correlate directly with answer structure requirements --- a ``who'' question signals a proper noun or person as answer; a ``how does X relate to Y'' question signals a relational mapping. The classifier targets a different label set but reads from the same signal space
-  \item The QA literature uses question classification to determine expected answer types (person, location, date) for retrieval filtering and candidate ranking \cite{liroth2002questions, nonfactoid_taxonomy2022}. More recent work has explored selecting structured templates based on task or question properties, but none match the specific intervention proposed here:
-    \begin{itemize}
-      \item Han et al.\ (2025) generate reasoning blueprints per task category that guide small models through problem-solving processes \cite{blueprints_slm2025}. \textbf{Similar:} structured templates matched to task type improve SLM performance without weight updates. \textbf{Distinct:} blueprints define a reasoning process (how to approach the problem), not an output form; and they are matched at the task-category level (math, coding, logic) rather than classified from individual question text
-      \item Wu et al.\ (2025) construct a problem-solving template library and match templates to problems during RL training \cite{templaterl2025}. \textbf{Similar:} a finite library of structural templates selected per problem. \textbf{Distinct:} templates define reasoning strategy, not answer form; selection occurs during training via reinforcement learning, not at inference time via a trained classifier
-      \item Yadavalli (2025) uses an encoder-based classifier to route queries to different response templates based on complexity \cite{dynamic_template_selection2025}. \textbf{Similar:} a trained classifier selects from a finite set of templates before generation. \textbf{Distinct:} the goal is cost optimization (shorter responses for simple queries), not accuracy improvement; templates control verbosity rather than defining the structural form a valid answer must take
-    \end{itemize}
-  % NOTE: REVIEW — Two additional papers to investigate and potentially add to this adjacent work list:
-  % - SMART (Setty 2023, arXiv:2304.12395): "Extreme Classification for Answer Type Prediction in Question Answering" — uses BERT/XBERT to predict answer *entity types* from a KG taxonomy based on question text. Very close: encoder classifier + taxonomy of answer types. Distinct: predicts entity type (person, location, date) for retrieval filtering, NOT structural dimensions for generation constraint.
-  % - CEUR-WS (2021): BERT classifier for semantic answer type prediction using DBpedia hierarchy (~760 classes). Two-stage pipeline: answer category prediction then resource type prediction. Very close: encoder, taxonomy, pipeline. Distinct: same as SMART — classifies what kind of entity the answer is, not the structural form.
-  % Both stop at predicting WHAT the answer is (entity type) rather than defining HOW the answer should be structured (dimensions). This is the key distinction from our work.
-  To the best of our knowledge, no existing work classifies individual questions to select a structural template that defines the form a valid answer must take and provides it to a generator as input constraint before generation begins
-  \item We argue that the structural correspondence between question types and answer types is not incidental: a question's type determines the structural form its answer must take. If this correspondence is systematic, it is classifiable; and if it is classifiable, it can be made explicit and provided to a model as input constraint rather than left implicit in the model's parameters. The following section develops this hypothesis
-\end{itemize}
+% PROSE REWRITE — 4 claims.
+% Claim 1: Question classification exists (well-established, foundational, Li & Roth taxonomy, classifiable from text alone, different features per class, observable at surface, extends across domains)
+% Claim 2: We propose answer classification (if questions classifiable + answers exist → answer structures classifiable; type determines form; examples; not all explicit but learnable; encoder/BERT can do it)
+% Claim 3: This solves specificity and generalization (specific: matched per-question; generalizable: classifying relational patterns across answers, not specific answers; task-independent mechanism, task-specific output)
+% Claim 4: Transition to §2.8 (if correspondence is systematic, structures can be defined; next section develops what they look like)
+
+% --- AUTHOR: Write each claim as one paragraph below. ---
+
+Question classification is well-established in computer science and foundational to question answering systems. Li and Roth demonstrate that a taxonomy of question classes exists and that these classes can be identified from the question text alone \cite{liroth2002questions}. Different classes of questions have different associated features. For example, some are factual, others map relations. The signals that identify these classes are observable at the surface level and can even extend across subject domains \cite{nonfactoid_taxonomy2022}.
+
+We propose that if questions are classifiable, and every question has a relevant answer, there must be some structure or set of features that can be used to identify groups of answers. The question type itself determines the answer form \cite{liroth2002questions}. For instance, a factual question calls for a single fact as answer \cite{liroth2002questions}; an analogical question calls for a relational mapping between two subjects \cite{analogical_reasoning2022}; a multi-step question calls for a sequence of linked conclusions \cite{wei2022cot}. Not all relationships between question type and answer form are equally explicit, but the patterns are learnable from sufficient examples. An encoder model like BERT, which excels at classification, could be fine-tuned to recognize this new taxonomy \cite{devlin2019bert, xu2019qc_bert}.
+% NOTE: CITATION REVIEW — verify analogical_reasoning2022 and wei2022cot explicitly support "calls for X as answer" framing. Both are indirect support (capabilities papers, not classification papers).
+% NOTE: FULL CITATION AUDIT NEEDED — flagged citations across §2.5–§2.8:
+% - seed_temperature_stability2025: "strong relationships preserved, divergence minimal" is our interpretation. Paper measures safety decision flips (5-12% at greedy vs 12-24% at t=1.0). Supports temperature > seed in effect, but "minimal" is arguable.
+% - analogical_reasoning2022: Paper tests LLMs on analogy tasks (Nature Human Behaviour). Demonstrates analogies require relational mapping. Indirect — it's a capabilities paper, not a taxonomy paper.
+% - wei2022cot: CoT paper shows multi-step problems benefit from intermediate steps. Indirect — it's a prompting technique paper, not answer form classification.
+% - brown2020gpt3 (§2.5 "more tokens = better"): Shows few-shot > zero-shot empirically. Standard use but doesn't explain mechanism (more attention signal). Evidence of effect, not explanation.
+% - liroth2002questions (for "type determines form"): Their taxonomy maps type → expected answer entity type (person, location). Valid interpretation but they frame it as entity classification for retrieval, not structural dimensions. Goes slightly beyond their explicit framing.
+% - llmreasoning_stochastic2024: Abstract confirms "LLMs create text based on learned patterns rather than performing actual reasoning." Supports "no separate failure mode" but full text not verified.
+% - prompt_eng_rag_slm2026: Preprint (2026). Empirically demonstrates RAG + prompting combined on SLMs. Solid for "not mutually exclusive" claim but unreviewed.
+
+A taxonomy of answer forms satisfies the requirements established in \S2.6. The relational patterns are content-independent and can be applied across specific answers regardless of task. The dimensions within each form can be explicitly provided to a model before generation begins. The classification produces consistent output regardless of domain. What remains is a clear definition of this form.
 
 \subsection{Answer Structure Types: A Taxonomy Hypothesis}
-% NOTE: INCLUDE a concrete example here demonstrating how additional tokens create combinatorial relational structure.
-% NOTE: §2.5 ends with the principle: "a prompt needs to provide everything but the answer." §2.8 is where the framework delivers on this — answer structure provides the structural form, specificity (classified per-question), and relevant context (dimensions tell the model what to attend to), leaving only the content for the model to supply. Make this connection explicit during prose rewrite.
-% Example: "write a thesis" → "write a physics thesis about stars"
-% - "thesis" alone = one node, unconstrained
-% - Add "physics": now thesis↔physics (one relationship)
-% - Add "stars": now thesis↔stars, physics↔stars, thesis↔physics↔stars (combinatorial growth)
-% Each additional token doesn't just add specificity — it adds *relationships between all tokens*.
-% Attention picks up on these inter-token relationships as structural signal.
-% This is exactly what answer structure provides: the relational dimensions explicitly, so the model
-% doesn't need to produce them from its parameters. Discuss this example and its implications
-% for why providing structure works mechanistically.
+% NOTE: §2.5 ends with the principle: "a prompt needs to provide everything but the answer." §2.8 is where the framework delivers on this.
 
-\begin{itemize}
-  \item \S2.7 established that questions exhibit distinct, classifiable structural patterns; surface features that determine what type of answer is required. We argue that this structural regularity extends to the answer side: if a question's type determines what form a valid answer must take, then answer forms are themselves a structured, identifiable set. Different question types call for different answer structures
-  \item We define an \textit{answer structure} as the set of dimensions a valid answer to a question must address; not the specific facts or values, but what kinds of information must be present for a response to count as complete. It is analogous to a schema: it defines the shape of the output without determining its values. A question's answer structure specifies what components are required; the model's job is to fill them with content
-  \item For example, a question asking ``What sport uses X?'' calls for an answer structure with the dimensions: (1) the sport's name, (2) how X is used in the sport, and (3) distinguishing context that confirms the identification. A question asking ``How does A relate to B?'' calls for a different structure: (1) the nature of A, (2) the nature of B, and (3) the relationship between them. A question asking ``Why did X happen?'' calls for yet another: (1) the event itself, (2) the causal factors, and (3) how those factors connect to the outcome. In each case the structure tells the model what to produce, not what the answer is; the model fills the dimensions from whatever knowledge its parameters or context supply. These examples are illustrative, not exhaustive; this paper tests the hypothesis on a constrained task domain (\S4)
-  % NOTE: §4 (Methodology) forward reference — when §4 is revised, ensure it describes the empirical test of finiteness (Experiment 1: LLM-based answer structure extraction from SQuAD, identifying patterns across filled structures).
-  \item We hypothesize that answer structure types are finite, enumerable, and classifiable from question text alone. While questions are generative and infinite in content, the structural forms they take are bounded; the question classification literature demonstrates this on the question side, where finite taxonomies have operated successfully for over two decades \cite{liroth2002questions}. Bolotova et al.\ demonstrate that non-factoid questions can be classified into a finite set of types defined by what kind of response they require \cite{nonfactoid_taxonomy2022}. We argue that if the kind of response a question requires is classifiable, the structural form of that response can be defined and provided to a model as input constraint. If a small model is provided with the correct answer structure before generation begins, its task reduces from general-purpose prediction to populating a known form; this reduction is what allows it to generalize across question types that would otherwise exceed its parametric capacity. The structure supplies what the model's parameters cannot reliably encode (\S2.2), compensating for limited capacity without requiring weight modification (\S2.3)
-  \item Answer structure is externally supplied and present in the input before generation begins, counteracting the compounding error problem where self-generated tokens propagate imprecision forward (\S2.6). It is classified per-question rather than applied generically, providing the kind of matched specificity that outperforms uniform approaches (\S2.2, \S2.5). And it constrains at the semantic level; defining what dimensions to produce; rather than relying on the model to activate the correct structural pattern probabilistically from its parameters. One distinction worth noting: unlike few-shot prompting, which provides finished examples and relies on the model to infer the underlying pattern \cite{xie2022icl}, answer structure provides the pattern itself directly. The model does not need to reverse-engineer what the examples have in common; it receives the dimensions to fill and generates the content
-\end{itemize}
+% PROSE REWRITE — 5 claims.
+% Claim 1: Definition (schema specifying what answer must contain; dimensions = required components; provides relational context constraining prediction space; model populates with content)
+% Claim 2: Examples (relational, causal, procedural; pattern: subjects, mechanism, joining details; varies but pattern clear; not fixed; identifiable from question; illustrative; tests on constrained domain)
+% Claim 3: Why this works mechanistically (tokens create combinatorial relational structure; more dimensions = more relationships for attention; provides "everything but the answer")
+% Claim 4: How it addresses small model + generalization (externally supplied before generation; per-question; task-independent; reduces task to populating form; unlike few-shot provides pattern directly)
+% Claim 5: Finiteness hypothesis (finite, enumerable; infinite in content but bounded in form; tractable)
+
+% --- AUTHOR: Write each claim as one paragraph below. ---
+
+We define an answer structure as a schema that specifies what a valid answer must contain without specifying what the answer is. Each entry in the schema is a dimension: a required component of the answer. The answer structure defines what kinds of information are needed, how they relate, and how they must be organized. The structure provides explicit relational context in the input, constraining the prediction space before generation begins. When prompted, the model's remaining task is to populate the structure with relevant content.
+
+The following examples illustrate how question types produce distinct answer structures. A relational question such as ``How does A relate to B?'' requires specific dimensions: (1) the nature of A, (2) the nature of B, and (3) how they relate. A causal question such as ``Why did X happen?'' calls for a different set: (1) the event, (2) the preceding causes, and (3) the causal mechanism. A procedural question such as ``How do you do X?'' differs again: (1) the task, (2) the steps required, and (3) the order of the steps. In each case the answer requires subjects, a mechanism of relation, and joining details. The dimensions vary across types, but the structural pattern is consistent. The number of dimensions is not fixed. In all cases, the structure can be identified from the question and provided before generation begins. These examples are illustrative, not exhaustive. This paper tests this hypothesis on a constrained task domain (\S4).
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Answer Structure (provided):}
+\begin{verbatim}
+{
+  "event": "",
+  "causes": [],
+  "mechanism": ""
+}
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\textbf{Populated by model:}
+\begin{verbatim}
+{
+  "event": "sinking of the Titanic",
+  "causes": [
+    "ship enters iceberg territory",
+    "collision occurs",
+    "hull is punctured"
+  ],
+  "mechanism": "causal chain"
+}
+\end{verbatim}
+\end{minipage}
+\caption{An answer structure for the question ``Why did the Titanic sink?'' The left shows the empty structure provided to the model before generation. The right shows the structure populated by the model.}
+\label{fig:answer_structure_example}
+\end{figure}
+
+What an answer structure provides to a model is additional context. Answer structures use in-context learning to narrow the prediction space of the generation task \cite{prompt_control_theory2023}. The structure provides dimensional hooks, such as subjects or mechanisms, as input tokens. For example, a prompt containing only ``describe a historical event'' leaves the prediction space broad. Adding dimensional tokens such as ``the event: a maritime disaster, the causes: environmental and navigational, the mechanism: causal chain'' builds explicit relationships between these tokens, narrowing the space of valid continuations. The more input tokens are included, the more attention is constrained. Fewer output tokens receive high probability, and the result is a sharper distribution. For smaller models, the sharpened distribution compensates for limited parametric resolution (\S2.2). The model has more signal to work with and in return produces more accurate output.
+
+Answer structures also enable generalization. As a defined taxonomy, they can be applied across many problems with the same process: classify the question, provide the structure, populate the dimensions. The only change between tasks is the structure itself. Unlike few-shot prompting, which provides examples that the model must infer a pattern from, the answer structure provides a direct mapping to the answer form.
+
+We further hypothesize that the space answer structures operate in is bounded. While a structure need not come from a finite taxonomy to be effective, there is a finite set of structures that can be identified. This stems from the classification of questions, bound at the highest level by the six interrogatives: who, what, when, where, why, and how. At any level below, subtypes can be defined with as much or as little granularity as required, forming a static taxonomy \cite{liroth2002questions, nonfactoid_taxonomy2022}. Once predefined, this enables automation through classification. Questions can be infinite, but as the interrogatives show, content is infinite while form is bounded.
 
 % ============================================================
 \section{Architecture}
