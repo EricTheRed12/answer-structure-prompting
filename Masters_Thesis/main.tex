@@ -84,6 +84,7 @@ We argue that the advantage provided by scale is structural. The capacity of lar
 Building on this, prompting techniques are effective because they compensate for degraded structural encoding \cite{prompt_control_theory2023}. Techniques like brevity constraints demonstrate this directly. Constraining output form alone shifts performance hierarchies by up to 26 percentage points, demonstrating that structure, not just capacity, determines output quality \cite{brevity_constraints2025}.
 
 Brevity demonstrates the principle, but prompting alone does not solve generalization. For a small model to generalize, it will need a direct way to compensate for the parametric constraint.
+% NOTE: §2.5 synthesis crystallizes three components: structure, specificity, relevant context. "Structure" is introduced here (structural encoding, compensating for degraded structure). During prose rewrite, ensure this term is used consistently so the §2.5 synthesis reads as a callback, not new terminology.
 
 \subsection{Fine-Tuning and Parameter-Efficient Adaptation}
 
@@ -105,8 +106,6 @@ Fine-tuning cannot add capacity that is not there, and it narrows what capacity 
 % NOTE: §3 should clarify that the framework is compatible with instruction-tuned models — it operates on top of whatever model you have (base or instruction-tuned). The argument here is that fine-tuning alone doesn't solve the problem, not that it's incompatible with our approach.
 
 \subsection{Prompt Engineering and In-Context Learning}
-% NOTE: When rewriting §2.4 as prose, connect back to §2.2's "degraded structural encoding" framing. §2.2 establishes WHY prompting works (compensates for what scale can't encode); §2.4 explains HOW it works (mechanisms). Ensure language is consistent — "degraded" here means relative to larger models, not that something broke.
-% NOTE: Thread "generalization" into this section. Key point: prompting doesn't sacrifice generalization (no weight changes), but existing approaches are generic rather than *enabling* generalization per-question. They apply the same structure uniformly regardless of what the question requires.
 
 Prompt engineering shapes model output by constructing the input at inference time. The additional context narrows the prediction space, resulting in more accurate output \cite{brown2020gpt3, prompt_control_theory2023}. These techniques do not update model parameters and are agnostic to model version.
 % NOTE: REVIEW — alternative/additional citations for the mechanistic claim about token relationships as signal:
@@ -124,34 +123,47 @@ Chain-of-thought prompting highlights this explicitly. It works well on larger m
 Prompt engineering effectively narrows the prediction space, but still cannot entirely account for the parametric capacity gap. One takeaway, however, is that a prompt with specific information, like the few-shot technique, offers a path worth exploring.
 
 % NOTE: MoE routing concept moved to §3 (Architecture).
-% NOTE: CoT deep-dive (large vs small, extensions, "more defined structure helps") moved to §2.8 (Answer Structure Types) where it argues for why matched answer structure matters.
+% NOTE: CoT large vs small degradation addressed in §2.4 (claim 4). Remaining for §2.8: "more defined structure helps" argument — use to motivate why matched answer structure outperforms generic structure.
 % NOTE: Structured prompting (providing explicit output format/structure) is discussed in §2.8 where it is distinguished from answer structure.
+% NOTE: §2.5 synthesis names three components (structure, specificity, relevant context). During prose rewrite of §2.4, crystallize these terms where they first appear — "structure" when discussing how prompts provide structural framing, "specificity" when discussing few-shot examples providing specific patterns.
 
 \subsection{Retrieval-Augmented Generation}
-% NOTE: Thread "generalization" into this section during prose rewrite. Key point: RAG adds task-specific information without modifying weights — it preserves the model's general capability while augmenting it with relevant context. But like prompting, it doesn't provide structure matched to the question type.
 
-\begin{itemize}
-  \item Retrieval-Augmented Generation is an inference-time system that automates prompt construction by retrieving relevant information from an external corpus and injecting it into the model's input \cite{lewis2020rag, rag_survey2023}
-  \item Like prompt engineering (\S2.4), RAG operates on the input side without modifying model weights. The distinction is where the context originates: prompt engineering provides context designed by the prompt author (instructions, examples, elicited reasoning), while RAG provides context retrieved from an external knowledge source indexed at runtime \cite{sahoo2024promptsurvey}
-  \item For example, question-decomposition RAG breaks a complex query into sub-questions, retrieves separately for each, and synthesizes the results \cite{question_decomp_rag2025}. By simplifying complex information needs into focused retrieval targets, decomposition provides the model with more precise and relevant content at each step
-  \item Corrective RAG evaluates retrieval quality before passing content to the model, rejecting or revising documents that do not meet relevance thresholds \cite{corrective_rag2024}. By filtering what the model is allowed to generate from, these mechanisms prevent low-quality retrievals from degrading output
-  \item RAG demonstrates that the principle established in \S2.4 extends further: structuring the input process improves output quality, and doing so with specific, relevant information produces better results than generic structure alone \cite{question_decomp_rag2025, corrective_rag2024}. Organization and specificity together outperform either in isolation
-\end{itemize}
+% PROSE REWRITE — 4 claims.
+% Claim 1: RAG defined (inference-time, retrieves from external source, injects into input, automates prompt construction)
+% Claim 2: Distinction from prompt engineering (same mechanism: ICL, no weight mod; different source: authored structure vs retrieved content per-query; not mutually exclusive, compatible together)
+% Claim 3: More structure, but organization matters (retrieved content provides more tokens for attention → more relational structure in context; but volume alone isn't enough — variants like decomposition and corrective filtering show organization determines quality; structured retrieval > naive retrieval)
+% Claim 4: Synthesis (preserves generalization + adds specificity automatically; organization + specificity outperform either alone; but relational structure between tokens still implicit — nothing tells model which relationships matter for this answer; reducing prediction space further requires making that relational structure explicit)
+
+% --- AUTHOR: Write each claim as one paragraph below. Original bullets preserved in comments above. ---
+
+Retrieval-Augmented Generation, as the name implies, augments generation by retrieving additional context to construct the prompt at inference time \cite{lewis2020rag, rag_survey2023}. This retrieval pulls information from an external source.
+
+Like prompt engineering (\S2.4), RAG uses in-context learning to improve a model's performance without modifying its internal weights \cite{lewis2020rag}. The difference is in what each provides. Prompt engineering supplies structure and framing designed by the author to activate relationships the model might not otherwise prioritize. RAG supplies specific content retrieved per-query to cover information the model's parameters may not encode. The two are not mutually exclusive; RAG can augment prompt engineering and vice versa \cite{prompt_eng_rag_slm2026}.
+
+Retrieval-Augmented Generation's value is in specificity. Retrieval from an external source supplies explicitly task-relevant tokens at inference time \cite{lewis2020rag}. These can range from factual content pulled from a static knowledge base to passages selected dynamically based on query similarity \cite{rag_survey2023}. As established in \S2.4, the mechanism that allows this to improve performance is the increased number of relevant tokens in the prompt \cite{brown2020gpt3, prompt_control_theory2023}. This additional context increases the implicit relational structure during generation reducing the prediction space. Certain RAG techniques provide organization beyond just relevant context. For example, question-decomposition approaches break a complex query into sub-questions and retrieve separately for each, providing more precise content at each step and a clear breakdown of a given problem \cite{question_decomp_rag2025}. As with prompting (\S2.4), more context improves performance, more context with structure improves performance further, and context with both structure and specificity outperforms either alone.
+
+As an inference-time technique, RAG is both generalizable and scale-resistant. A retrieval system can be applied to any model, trained or untrained, and depending on the technique, applied across a variety of domains without modification \cite{rag_survey2023}. Its core mechanism operates through attention rather than parametric capacity, meaning benefits persist when models are smaller \cite{costofdownscaling2023}. However, the same limitation identified in prompt engineering (\S2.4) applies: there remains a reliance on the model's encoded information to organize its output. To reduce the prediction space further, a prompt needs to provide everything but the answer.
 
 \subsection{Unconstrained Prediction}
 % NOTE: Thread "generalization" into this section during prose rewrite. Key point: without structure, the model defaults to its degraded general distribution — generalization without structural guidance = unconstrained prediction. The model can generate across tasks (it's general) but the output quality is unreliable because nothing constrains the prediction space per-question.
+% NOTE: §2.5 ends with "a prompt needs to provide everything but the answer." This section should show what happens when that isn't done — unconstrained prediction is the consequence of the gap.
 
-\begin{itemize}
-  \item What is commonly called ``hallucination'' is output that does not match the expected or correct answer for a given task \cite{ji2023hallucination, hallucination_unified2024}
-  \item However, at the architectural level, the model's generation process is autoregressive next-token prediction: regardless of internal complexity, every forward pass produces a probability distribution over the next token (see \S2.1). This operation is the same whether the output is task-correct or task-incorrect. We argue that any token the model produces is a statistically probable continuation given its parameters and context, and that there is no separate failure mode that produces hallucinations \cite{brown2020gpt3, llmreasoning_stochastic2024}
-  \item The model's parameters determine the baseline distribution over possible outputs. In small models, this baseline is less precise: as established in \S2.2, they approximate the same target distributions as large models but with fewer dimensions. The mechanistic basis for this is a dimensional bottleneck; the target distribution is high-rank, and when a model's hidden dimension falls below what is required to express it, the approximation degrades \cite{godey2024softmax, costofdownscaling2023}
-  % NOTE: REVISIT — review wording on next pass. Depends on §2.2 architectural equivalence addition. Verify godey2024softmax supports this framing.
-  \item This approximation compounds during autoregressive generation: each token is produced from an imprecise representation of what should come next, and that imprecision propagates forward through the sequence with limited mechanism for self-correction under standard decoding \cite{lpsr2026, exposure_bias_ilp2022}
-  \item We argue that this compounding cannot be eliminated from autoregressive systems, but its scope can be reduced by narrowing the space of probable outputs before generation begins. Empirical evidence supports this: constraining output form alone inverts model-size performance rankings on reasoning tasks (see \S2.2) \cite{prompt_control_theory2023, brevity_constraints2025}
-  \item The preceding sections reviewed approaches that reduce the prediction space: modifying parameters reshapes the baseline distribution itself (\S2.3), while enriching context through prompting (\S2.4) or retrieval (\S2.5) constrains the distribution at inference time by providing additional signal the model conditions on
-  \item Answer structure (defined in \S2.8) reduces the prediction space by providing the output form before generation begins, so that the model's remaining task is to populate it with relevant content. This reduces the probability mass on structurally incorrect continuations regardless of the model's parametric coverage \cite{llmreasoning_stochastic2024}
-  % NOTE: May need workshopping later.
-\end{itemize}
+% PROSE REWRITE — 4 claims.
+% Claim 1: Reframe hallucination (not a separate failure mode; model produces most probable continuation given input; "wrong" only relative to task expectation; reference §2.1 don't restate)
+% Claim 2: Output trajectory determined at input (model is deterministic; entire sequence latent in prompt + params + sampling; input is only point of intervention; if input doesn't structurally constrain, degraded encoding determines trajectory; CoT evidence: extending generation in small models hurts because trajectory set on degraded foundation)
+% Claim 3: Sampling doesn't change structure (temp/top-p/seed select which trajectory; don't reshape structural encoding; different sampling = different paths through same degraded space)
+% Claim 4: Structure must be in the input (input is when trajectory is determined; providing structure changes the trajectory; must happen before first output token; this IS the generalization problem — absence of structural constraint across diverse question types; model can produce correct output when guided but can't determine right trajectory on its own across tasks)
+
+% --- AUTHOR: Write each claim as one paragraph below. Original bullets preserved in comments above. ---
+
+When a model does not produce the expected or correct answer for a given task, it is common to call the error a hallucination \cite{ji2023hallucination, hallucination_unified2024}. At the architectural level, this is a misleading description. The model did not make a mistake nor imagine a false reality. It simply produced an output that did not match the task. As introduced in \S2.1, for every forward pass the model produces a probability distribution derived entirely from the prompt \cite{brown2020gpt3, llmreasoning_stochastic2024}. There is no alternative failure mode.
+
+LLMs use temperature to reshape the softmax probability curve and a random seed to select from that distribution, creating the appearance of variety \cite{temperature_impact2025}. Like the neural networks they are built on, if these values are static, LLMs will always produce the same output. When these values vary, they produce different but adjacent outputs. Seed determines which token is drawn from the distribution; strong relationships are preserved, so divergence is minimal \cite{seed_temperature_stability2025}. Temperature reshapes the distribution itself. Selecting adjacent tokens in the probability space can cause the output to diverge more significantly \cite{temperature_impact2025}. Neither actively improves the generation.
+
+As established in \S2.1, the input defines the trajectory of the prediction, which we argue makes it the only point of intervention \cite{prompt_control_theory2023}. If the quality of the input determines the quality of the output, then it is critical the input has the right context. Chain-of-thought demonstrates what happens when this context is absent. When the input does not sufficiently constrain the trajectory, the model generates purely from its internal representations. If those representations do not match the task space, the output diverges significantly \cite{cot_degradation_slm2025, smallmodel_learnability2025}.
+
+Larger models often have this specificity and structure encoded in their parameters. Smaller models lack this resolution (\S2.2). Prompt engineering can supply structure (\S2.4), but the structure it provides is generic and is applied uniformly regardless of the task. RAG supplies specificity (\S2.5), but not in a form adapted to the specific task. Even combined, no existing technique provides structure adapted to the individual task. To surpass the parametric barrier and enable generalization, what is needed is a structure that is task-independent in mechanism, specific to the task in its dimensions, and consistent in form.
 
 \subsection{Question Classification in QA}
 % NOTE: Add prose explaining encoder-based (BERT-style) architecture here — bidirectional attention, masked language modeling pre-training, learns to represent rather than generate. Moved from §2.1 because the encoder is introduced where it is needed (as the classification tool) rather than as an abstract architectural aside.
@@ -176,6 +188,7 @@ Prompt engineering effectively narrows the prediction space, but still cannot en
 
 \subsection{Answer Structure Types: A Taxonomy Hypothesis}
 % NOTE: INCLUDE a concrete example here demonstrating how additional tokens create combinatorial relational structure.
+% NOTE: §2.5 ends with the principle: "a prompt needs to provide everything but the answer." §2.8 is where the framework delivers on this — answer structure provides the structural form, specificity (classified per-question), and relevant context (dimensions tell the model what to attend to), leaving only the content for the model to supply. Make this connection explicit during prose rewrite.
 % Example: "write a thesis" → "write a physics thesis about stars"
 % - "thesis" alone = one node, unconstrained
 % - Add "physics": now thesis↔physics (one relationship)
