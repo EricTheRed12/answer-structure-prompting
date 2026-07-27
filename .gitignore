@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 *.env
+# /.kiro  # re-enabled to track steering files
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -416,3 +417,17 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.pdf
+*.bbl
+*.blg
