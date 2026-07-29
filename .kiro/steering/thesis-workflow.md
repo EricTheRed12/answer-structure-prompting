@@ -6,53 +6,44 @@ inclusion: auto
 
 ## Process for Working on a Section
 
-Follow this sequence for each subsection of the lit review (and other sections when writing):
+Follow this sequence for each subsection:
 
 ### Phase 1: Structure Review
-1. Read the existing claims in the section
+1. Read the existing claims/prose in the section
 2. Assess: does the ordering make logical sense?
 3. Assess: is anything missing that the paper's argument depends on?
 4. Assess: is anything present that doesn't earn its place (relevance filter)?
-5. Propose structural changes (reorder, add, remove) and confirm with author
+5. Propose structural changes and confirm with author
 
-### Phase 2: Claim Review
+### Phase 2: Claim Review (for scaffold sections)
 6. Go claim by claim — review wording, accuracy, and framing
 7. For each claim, check: does it connect forward to the paper's argument?
-8. Expand or trim sub-points based on relevance filter
+8. Expand or trim based on relevance filter
 9. Iterate with author until each claim feels right
 
 ### Phase 3: Citation Review
 10. For each finalized claim, review the associated citations:
     - Does the citation actually support what the claim says?
     - Is it peer-reviewed? How well-cited?
-    - Are we relying on it because it was already in the bib, or is it the best fit?
     - Are there better papers we should find?
 11. Search for additional/replacement papers where needed
 12. Add new citations to `sample.bib` (flagged as unreviewed)
-13. Log all citations in the Citation Verification Tracker (`thesis-citations.md`)
 
 ### Phase 4: Context Check
-14. Review the finished section against the Problem Statement and Purpose:
-    - Does it support claims made in §1.2/§1.4?
-    - Does it contradict anything stated elsewhere?
-    - Does it introduce terminology or framing inconsistent with the rest of the paper?
+14. Review the finished section against the Problem Statement and Purpose
 15. Check against adjacent sections for overlap or gaps
 
 ### Phase 5: Write to File
-16. Write the finalized claims into `main.tex`
-17. Update `thesis-progress.md` with what was done
+16. Write the finalized content into `main.tex`
+17. Update steering docs with what was done
 
-### Phase 6: Prose Rewrite (Second Pass)
-18. Deconstruct each claim into core bullets, preserving key terminology
-19. Present original claim + distilled bullets to author for review (confirm nothing lost)
+### Phase 6: Prose Rewrite
+18. Deconstruct each claim into core bullets
+19. Present original claim + distilled bullets to author for review
 20. Author writes the claim in their own words
-21. Kiro provides:
-    - Grammar and spelling cleanup
-    - Terminology improvement suggestions only (no full prose)
-    - Verification that the claim is factually accurate
-    - Citation correctness check
-22. Add finalized prose to `main.tex`, comment out original bullets
-23. Update `second_pass_review.md` and `thesis-progress.md` with progress
+21. Kiro provides: grammar cleanup, terminology suggestions, accuracy check, citation check
+22. Add finalized prose to `main.tex`
+23. Clean up old comments/scaffolding
 
 ## Key Principles
 

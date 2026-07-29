@@ -125,17 +125,9 @@ Prompt engineering effectively narrows the prediction space, but still cannot en
 % NOTE: MoE routing concept moved to §3 (Architecture).
 % NOTE: CoT large vs small degradation addressed in §2.4 (claim 4). Remaining for §2.8: "more defined structure helps" argument — use to motivate why matched answer structure outperforms generic structure.
 % NOTE: Structured prompting (providing explicit output format/structure) is discussed in §2.8 where it is distinguished from answer structure.
-% NOTE: §2.5 synthesis names three components (structure, specificity, relevant context). During prose rewrite of §2.4, crystallize these terms where they first appear — "structure" when discussing how prompts provide structural framing, "specificity" when discussing few-shot examples providing specific patterns.
 
 \subsection{Retrieval-Augmented Generation}
 
-% PROSE REWRITE — 4 claims.
-% Claim 1: RAG defined (inference-time, retrieves from external source, injects into input, automates prompt construction)
-% Claim 2: Distinction from prompt engineering (same mechanism: ICL, no weight mod; different source: authored structure vs retrieved content per-query; not mutually exclusive, compatible together)
-% Claim 3: More structure, but organization matters (retrieved content provides more tokens for attention → more relational structure in context; but volume alone isn't enough — variants like decomposition and corrective filtering show organization determines quality; structured retrieval > naive retrieval)
-% Claim 4: Synthesis (preserves generalization + adds specificity automatically; organization + specificity outperform either alone; but relational structure between tokens still implicit — nothing tells model which relationships matter for this answer; reducing prediction space further requires making that relational structure explicit)
-
-% --- AUTHOR: Write each claim as one paragraph below. Original bullets preserved in comments above. ---
 
 Retrieval-Augmented Generation, as the name implies, augments generation by retrieving additional context to construct the prompt at inference time \cite{lewis2020rag, rag_survey2023}. This retrieval pulls information from an external source.
 
@@ -146,16 +138,7 @@ Retrieval-Augmented Generation's value is in specificity. Retrieval from an exte
 As an inference-time technique, RAG is both generalizable and scale-resistant. A retrieval system can be applied to any model, trained or untrained, and depending on the technique, applied across a variety of domains without modification \cite{rag_survey2023}. Its core mechanism operates through attention rather than parametric capacity, meaning benefits persist when models are smaller \cite{costofdownscaling2023}. However, the same limitation identified in prompt engineering (\S2.4) applies: there remains a reliance on the model's encoded information to organize its output. To reduce the prediction space further, a prompt needs to provide everything but the answer.
 
 \subsection{Unconstrained Prediction}
-% NOTE: Thread "generalization" into this section during prose rewrite. Key point: without structure, the model defaults to its degraded general distribution — generalization without structural guidance = unconstrained prediction. The model can generate across tasks (it's general) but the output quality is unreliable because nothing constrains the prediction space per-question.
-% NOTE: §2.5 ends with "a prompt needs to provide everything but the answer." This section should show what happens when that isn't done — unconstrained prediction is the consequence of the gap.
 
-% PROSE REWRITE — 4 claims.
-% Claim 1: Reframe hallucination (not a separate failure mode; model produces most probable continuation given input; "wrong" only relative to task expectation; reference §2.1 don't restate)
-% Claim 2: Output trajectory determined at input (model is deterministic; entire sequence latent in prompt + params + sampling; input is only point of intervention; if input doesn't structurally constrain, degraded encoding determines trajectory; CoT evidence: extending generation in small models hurts because trajectory set on degraded foundation)
-% Claim 3: Sampling doesn't change structure (temp/top-p/seed select which trajectory; don't reshape structural encoding; different sampling = different paths through same degraded space)
-% Claim 4: Structure must be in the input (input is when trajectory is determined; providing structure changes the trajectory; must happen before first output token; this IS the generalization problem — absence of structural constraint across diverse question types; model can produce correct output when guided but can't determine right trajectory on its own across tasks)
-
-% --- AUTHOR: Write each claim as one paragraph below. Original bullets preserved in comments above. ---
 
 When a model does not produce the expected or correct answer for a given task, it is common to call the error a hallucination \cite{ji2023hallucination, hallucination_unified2024}. At the architectural level, this is a misleading description. The model did not make a mistake nor imagine a false reality. It simply produced an output that did not match the task. As introduced in \S2.1, for every forward pass the model produces a probability distribution derived entirely from the prompt \cite{brown2020gpt3, llmreasoning_stochastic2024}. There is no alternative failure mode.
 
@@ -169,18 +152,10 @@ Larger models often have this specificity and structure encoded in their paramet
 % NOTE: Adjacent work (Han et al., Wu et al., Yadavalli, SMART, CEUR-WS) moved to planned §2.9 (Related Work).
 % NOTE: Encoder architecture explanation (BERT bidirectional attention, MLM pre-training) — keep brief, one sentence. Not a full explainer.
 
-% PROSE REWRITE — 4 claims.
-% Claim 1: Question classification exists (well-established, foundational, Li & Roth taxonomy, classifiable from text alone, different features per class, observable at surface, extends across domains)
-% Claim 2: We propose answer classification (if questions classifiable + answers exist → answer structures classifiable; type determines form; examples; not all explicit but learnable; encoder/BERT can do it)
-% Claim 3: This solves specificity and generalization (specific: matched per-question; generalizable: classifying relational patterns across answers, not specific answers; task-independent mechanism, task-specific output)
-% Claim 4: Transition to §2.8 (if correspondence is systematic, structures can be defined; next section develops what they look like)
-
-% --- AUTHOR: Write each claim as one paragraph below. ---
 
 Question classification is well-established in computer science and foundational to question answering systems. Li and Roth demonstrate that a taxonomy of question classes exists and that these classes can be identified from the question text alone \cite{liroth2002questions}. Different classes of questions have different associated features. For example, some are factual, others map relations. The signals that identify these classes are observable at the surface level and can even extend across subject domains \cite{nonfactoid_taxonomy2022}.
 
 We propose that if questions are classifiable, and every question has a relevant answer, there must be some structure or set of features that can be used to identify groups of answers. The question type itself determines the answer form \cite{liroth2002questions}. For instance, a factual question calls for a single fact as answer \cite{liroth2002questions}; an analogical question calls for a relational mapping between two subjects \cite{analogical_reasoning2022}; a multi-step question calls for a sequence of linked conclusions \cite{wei2022cot}. Not all relationships between question type and answer form are equally explicit, but the patterns are learnable from sufficient examples. An encoder model like BERT, which excels at classification, could be fine-tuned to recognize this new taxonomy \cite{devlin2019bert, xu2019qc_bert}.
-% NOTE: CITATION REVIEW — verify analogical_reasoning2022 and wei2022cot explicitly support "calls for X as answer" framing. Both are indirect support (capabilities papers, not classification papers).
 % NOTE: FULL CITATION AUDIT NEEDED — flagged citations across §2.5–§2.8:
 % - seed_temperature_stability2025: "strong relationships preserved, divergence minimal" is our interpretation. Paper measures safety decision flips (5-12% at greedy vs 12-24% at t=1.0). Supports temperature > seed in effect, but "minimal" is arguable.
 % - analogical_reasoning2022: Paper tests LLMs on analogy tasks (Nature Human Behaviour). Demonstrates analogies require relational mapping. Indirect — it's a capabilities paper, not a taxonomy paper.
@@ -193,16 +168,15 @@ We propose that if questions are classifiable, and every question has a relevant
 A taxonomy of answer forms satisfies the requirements established in \S2.6. The relational patterns are content-independent and can be applied across specific answers regardless of task. The dimensions within each form can be explicitly provided to a model before generation begins. The classification produces consistent output regardless of domain. What remains is a clear definition of this form.
 
 \subsection{Answer Structure Types: A Taxonomy Hypothesis}
-% NOTE: §2.5 ends with the principle: "a prompt needs to provide everything but the answer." §2.8 is where the framework delivers on this.
+% NOTE: FULL CITATION AUDIT NEEDED — flagged citations across §2.5–§2.8:
+% - seed_temperature_stability2025: "strong relationships preserved, divergence minimal" is our interpretation. Paper measures safety decision flips (5-12% at greedy vs 12-24% at t=1.0). Supports temperature > seed in effect, but "minimal" is arguable.
+% - analogical_reasoning2022: Paper tests LLMs on analogy tasks (Nature Human Behaviour). Demonstrates analogies require relational mapping. Indirect — it's a capabilities paper, not a taxonomy paper.
+% - wei2022cot: CoT paper shows multi-step problems benefit from intermediate steps. Indirect — it's a prompting technique paper, not answer form classification.
+% - brown2020gpt3 (§2.5 "more tokens = better"): Shows few-shot > zero-shot empirically. Standard use but doesn't explain mechanism (more attention signal). Evidence of effect, not explanation.
+% - liroth2002questions (for "type determines form"): Their taxonomy maps type → expected answer entity type (person, location). Valid interpretation but they frame it as entity classification for retrieval, not structural dimensions. Goes slightly beyond their explicit framing.
+% - llmreasoning_stochastic2024: Abstract confirms "LLMs create text based on learned patterns rather than performing actual reasoning." Supports "no separate failure mode" but full text not verified.
+% - prompt_eng_rag_slm2026: Preprint (2026). Empirically demonstrates RAG + prompting combined on SLMs. Solid for "not mutually exclusive" claim but unreviewed.
 
-% PROSE REWRITE — 5 claims.
-% Claim 1: Definition (schema specifying what answer must contain; dimensions = required components; provides relational context constraining prediction space; model populates with content)
-% Claim 2: Examples (relational, causal, procedural; pattern: subjects, mechanism, joining details; varies but pattern clear; not fixed; identifiable from question; illustrative; tests on constrained domain)
-% Claim 3: Why this works mechanistically (tokens create combinatorial relational structure; more dimensions = more relationships for attention; provides "everything but the answer")
-% Claim 4: How it addresses small model + generalization (externally supplied before generation; per-question; task-independent; reduces task to populating form; unlike few-shot provides pattern directly)
-% Claim 5: Finiteness hypothesis (finite, enumerable; infinite in content but bounded in form; tractable)
-
-% --- AUTHOR: Write each claim as one paragraph below. ---
 
 We define an answer structure as a schema that specifies what a valid answer must contain without specifying what the answer is. Each entry in the schema is a dimension: a required component of the answer. The answer structure defines what kinds of information are needed, how they relate, and how they must be organized. The structure provides explicit relational context in the input, constraining the prediction space before generation begins. When prompted, the model's remaining task is to populate the structure with relevant content.
 
@@ -244,6 +218,24 @@ What an answer structure provides to a model is additional context. Answer struc
 Answer structures also enable generalization. As a defined taxonomy, they can be applied across many problems with the same process: classify the question, provide the structure, populate the dimensions. The only change between tasks is the structure itself. Unlike few-shot prompting, which provides examples that the model must infer a pattern from, the answer structure provides a direct mapping to the answer form.
 
 We further hypothesize that the space answer structures operate in is bounded. While a structure need not come from a finite taxonomy to be effective, there is a finite set of structures that can be identified. This stems from the classification of questions, bound at the highest level by the six interrogatives: who, what, when, where, why, and how. At any level below, subtypes can be defined with as much or as little granularity as required, forming a static taxonomy \cite{liroth2002questions, nonfactoid_taxonomy2022}. Once predefined, this enables automation through classification. Questions can be infinite, but as the interrogatives show, content is infinite while form is bounded.
+
+% ============================================================
+\subsection{Related Work}
+% ============================================================
+
+Several recent works cover adjacent problems, and each contributes an element of our approach.
+
+SMART proposes that properties of the answer can be identified from the input question alone \cite{setty2023smart, smart2021}. This is done by predicting the ontological entity type an expected answer requires. The predicted type is used to narrow the retrieval search space so that only entities of that type are considered. This work demonstrates a question contains enough signal to identify features of an answer before producing one.
+
+Dynamic Template Selection classifies incoming prompts by semantic complexity to select a pre-built response template \cite{yadavalli2025dts}. The templates determine the output's verbosity and structure. The objective is to reduce the cost of generation through more efficient token usage. For our purposes, this work highlights that classification of an input can map directly to a templated taxonomy.
+
+TemplateRL constructs a library of problem-solving templates \cite{wu2025templaterl}. Like our answer structures, these templates provide structured context to assist in generation. The difference is that TemplateRL's templates provide a set of reasoning action sequences, indexed by problem complexity and retrievable per-problem. This work establishes that a structured library can be maintained and retrieved on a per-prompt basis to improve generation.
+
+The Blueprints devised by Han et al. structure step-by-step reasoning to guide generation \cite{han2025blueprints}. By providing these as input tokens to a small model, they are shown to increase performance. No weight updates are required; the intervention is purely at inference time. This demonstrates that structured guidance provided as a prompt can improve small model performance without fine-tuning.
+
+Constrained decoding masks illegal tokens at each step of the generation process \cite{willard2023guided}. This guarantees the output conforms to a specified grammar. It operates at decode time and limits the output distribution directly. Like an answer structure, constrained decoding illustrates that the distribution of a prediction can be sharpened with a structural constraint.
+
+Coupled with an effective structural form provided at inference time, these elements bridge the gap between generalization and model size.
 
 % ============================================================
 \section{Architecture}
