@@ -1,0 +1,2597 @@
+{
+  "total_classified": 5928,
+  "feature_distributions": {
+    "interrogative": {
+      "what": 3551,
+      "how": 670,
+      "who": 559,
+      "when": 505,
+      "where": 280,
+      "which": 255,
+      "why": 101,
+      "whose": 6,
+      "did": 1
+    },
+    "cardinality": {
+      "singular": 5558,
+      "multipart": 370
+    },
+    "entity_type": {
+      "thing": 2021,
+      "concept": 1467,
+      "person": 653,
+      "number": 653,
+      "time": 603,
+      "place": 524,
+      "role": 4,
+      "process": 3
+    },
+    "answer_form": {
+      "noun": 5305,
+      "adjective": 286,
+      "clause": 246,
+      "verb": 89,
+      "adverb": 2
+    },
+    "relational_context": {
+      "identificatory": 1815,
+      "descriptive": 740,
+      "quantitative": 629,
+      "temporal": 592,
+      "agent": 570,
+      "resultative": 436,
+      "locative": 392,
+      "causal": 260,
+      "instrumental": 207,
+      "role": 178,
+      "procedural": 107,
+      "exemplary": 1,
+      "patient": 1
+    }
+  },
+  "taxonomy_classes": [
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 922,
+      "example_question": "What is the original meaning of the word Norman?",
+      "example_answer": "Viking"
+    },
+    {
+      "interrogative": "when",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "temporal",
+      "count": 489,
+      "example_question": "When were the Normans in Normandy?",
+      "example_answer": "10th and 11th centuries"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 432,
+      "example_question": "How many men were in Robert's army?",
+      "example_answer": "30,000"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 351,
+      "example_question": "Who was the Norse leader?",
+      "example_answer": "Rollo"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 318,
+      "example_question": "What branch of theoretical computer science deals with broadly classifying computational problems by difficulty and class of relationship?",
+      "example_answer": "Computational complexity theory"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 235,
+      "example_question": "In what country is Normandy located?",
+      "example_answer": "France"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 193,
+      "example_question": "What religion were the Normans",
+      "example_answer": "Catholic"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 178,
+      "example_question": "What will the output be for a member of the language of a decision problem?",
+      "example_answer": "yes"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 159,
+      "example_question": "What is the prize offered for finding a solution to P=NP?",
+      "example_answer": "$1,000,000"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 145,
+      "example_question": "What is commonly believed to be the value relationship between P and co-NP",
+      "example_answer": "not equal"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 141,
+      "example_question": "What is typically used to broadly define complexity measures?",
+      "example_answer": "Blum complexity axioms"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 131,
+      "example_question": "What were Isaac's chains made out of?",
+      "example_answer": "silver"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 128,
+      "example_question": "A non-deterministic Turing machine has the ability to capture what facet of useful analysis?",
+      "example_answer": "mathematical models"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 106,
+      "example_question": "What is the name of the region that is not defined by the eight or 10 county definitions?",
+      "example_answer": "Southern California Megaregion"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 103,
+      "example_question": "Who was Robert's son?",
+      "example_answer": "Bohemond"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 82,
+      "example_question": "What are two basic primary resources used to guage complexity?",
+      "example_answer": "time and storage"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 81,
+      "example_question": "What provides a solution to a list of integers provided as input that ned to be sorted?",
+      "example_answer": "deterministic sorting algorithm quicksort"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 68,
+      "example_question": "The reasons for the las two counties to be added are based on what?",
+      "example_answer": "historical political divisions"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 63,
+      "example_question": "Which organization released a California Earthquake forecast?",
+      "example_answer": "USGS"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 58,
+      "example_question": "That there currently exists no known integer factorization problem underpins what commonly used system?",
+      "example_answer": "modern cryptographic systems"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 54,
+      "example_question": "What was the name of the count of Apulia ",
+      "example_answer": "Robert Guiscard"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 51,
+      "example_question": "What ruined Richard's plans to reach Acre?",
+      "example_answer": "a storm"
+    },
+    {
+      "interrogative": "why",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 51,
+      "example_question": "Why is Priestley usually given credit for being first to discover oxygen?",
+      "example_answer": "published his findings first"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 48,
+      "example_question": "What river originally bounded the Duchy",
+      "example_answer": "Seine"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "descriptive",
+      "count": 45,
+      "example_question": "What commonality do alternate machine models, such as random access machines, share with Turing machines?",
+      "example_answer": "the machines operate deterministically"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "temporal",
+      "count": 40,
+      "example_question": "What year did the storm hit Richard's fleet?",
+      "example_answer": "1191"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 38,
+      "example_question": "What practical role does defining the complexity of problems play in everyday computing?",
+      "example_answer": "determine the practical limits on what computers can and cannot do"
+    },
+    {
+      "interrogative": "why",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "causal",
+      "count": 37,
+      "example_question": "Why did Berlin Huguenots switch to German from French in their services?",
+      "example_answer": "in protest against the occupation of Prussia by Napoleon"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 36,
+      "example_question": "Is a problem instance typically characterized as abstract or concrete?",
+      "example_answer": "concrete"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 32,
+      "example_question": "What entity owns V/Line?",
+      "example_answer": "Victorian Government"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 29,
+      "example_question": "Who can be in the Victorian cabinet?",
+      "example_answer": "representatives"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 28,
+      "example_question": "Which coastline does Southern California touch?",
+      "example_answer": "Pacific"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "temporal",
+      "count": 28,
+      "example_question": "How often are elections held for the Victorian Parliament?",
+      "example_answer": "every four years"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "procedural",
+      "count": 28,
+      "example_question": "How was the efficiency of a steam engine typically evaluated?",
+      "example_answer": "duty"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 27,
+      "example_question": "Who purhcased the remaining 4 pacakages available to broadcasters?",
+      "example_answer": "Sky"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 26,
+      "example_question": "What kind of arches does Norman architecture have?",
+      "example_answer": "rounded"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 25,
+      "example_question": "What are two factors that directly effect how powerful a Turing machine may or may not be?",
+      "example_answer": "time or space"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 25,
+      "example_question": "In what expression can one expect to find DTIME(n)",
+      "example_answer": "DTIME(n2)"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "procedural",
+      "count": 25,
+      "example_question": "How did the new king react to the Huguenots?",
+      "example_answer": "acted increasingly aggressively to force the Huguenots to convert"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "resultative",
+      "count": 24,
+      "example_question": "What did Virgin Media claim BSkyB did that resulted Virgin not carrying the channels anymore?",
+      "example_answer": "substantially increased the asking price"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 23,
+      "example_question": "What are the two simple word responses to a decision problem?",
+      "example_answer": "yes or no"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 23,
+      "example_question": "Complexity theory classifies problems based on what primary attribute?",
+      "example_answer": "difficulty"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 23,
+      "example_question": "Though unkown, what are the most commonly ascribed attributes of L in relation to P",
+      "example_answer": "strictly contained in P or equal to P"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 22,
+      "example_question": "Which city does the Hollywood district belong to?",
+      "example_answer": "Los Angeles"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "resultative",
+      "count": 20,
+      "example_question": "What was the effect of the housing crash on the region?",
+      "example_answer": "heavily impacted"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "resultative",
+      "count": 18,
+      "example_question": "An algorithm for X which reduces to C would us to do what?",
+      "example_answer": "solve any problem in C"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "descriptive",
+      "count": 16,
+      "example_question": "Can the President of the Council vote on important matters related to the European Central Bank?",
+      "example_answer": "do not have voting rights"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 15,
+      "example_question": "Who are commonly associated with the algorithm typically considered the most effective with respect to finite polynomial hierarchy and graph isomorphism?",
+      "example_answer": "Laszlo Babai and Eugene Luks"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "resultative",
+      "count": 15,
+      "example_question": "What happens to the packet at the destination",
+      "example_answer": "the original message/data is reassembled in the correct order, based on the packet sequence number"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 14,
+      "example_question": "What complex measurements were defined by \"On the Computational Complexity of Algorithms\"?",
+      "example_answer": "time and space"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 14,
+      "example_question": "Which company owns ABC?",
+      "example_answer": "The Walt Disney Company"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 14,
+      "example_question": "What is the position of the satellite that allowed sky to broadcast channels almost elclusively for the United Kingdom?",
+      "example_answer": "28.5\u00b0E"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "adjective",
+      "relational_context": "quantitative",
+      "count": 14,
+      "example_question": "How much did the population of Victoria increase in ten years after the discovery of gold?",
+      "example_answer": "sevenfold"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 14,
+      "example_question": "How is dioxygen most simply described?",
+      "example_answer": "covalent double bond"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 14,
+      "example_question": "What could justify restrictions on freedom of establishment?",
+      "example_answer": "creditor protection, labour rights to participate in work, or the public interest in collecting taxes"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "multipart",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 13,
+      "example_question": "From which countries did the Norse originate?",
+      "example_answer": "Denmark, Iceland and Norway"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 13,
+      "example_question": "What are Los Angeles, Orange, San Diego, San Bernardino and Riverside?",
+      "example_answer": "counties"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 12,
+      "example_question": "Who were the two abbots at F\u00e9camp Abbey?",
+      "example_answer": "William of Volpiano and John of Ravenna"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "causal",
+      "count": 12,
+      "example_question": "What was a non-religious reason for the massacre?",
+      "example_answer": "some of the Huguenots were nobles trying to establish separate centers of power in southern France"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 12,
+      "example_question": "Which principle is based on the appearance of fossils in sedimentary rocks?",
+      "example_answer": "The principle of faunal succession"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 11,
+      "example_question": "Which Senator was a strong advocate for the Pico Act?",
+      "example_answer": "Milton Latham"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "temporal",
+      "count": 11,
+      "example_question": "In which year did the newspaper define southern California?",
+      "example_answer": "1900"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 11,
+      "example_question": "What is needed to make combustion happen?",
+      "example_answer": "heat or a spark"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 11,
+      "example_question": "From where would scientists like measure vegetation radiance?",
+      "example_answer": "satellite platform"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 11,
+      "example_question": "What does the electrolysis of water produce?",
+      "example_answer": "oxygen and hydrogen"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 11,
+      "example_question": "Which two courts apply European Union law?",
+      "example_answer": "courts of member states and the Court of Justice of the European Union"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "descriptive",
+      "count": 10,
+      "example_question": "What was happening to subscriber numbers in other areas of europe?",
+      "example_answer": "flattened"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 9,
+      "example_question": "Who was the ruling class ahead of the Normans?",
+      "example_answer": "Anglo-Saxons"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "procedural",
+      "count": 9,
+      "example_question": "How can function problems typically be restated?",
+      "example_answer": "decision problems"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 9,
+      "example_question": "What magnitude was the 1994 Northridge earthquake?",
+      "example_answer": "6.7"
+    },
+    {
+      "interrogative": "when",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "clause",
+      "relational_context": "temporal",
+      "count": 9,
+      "example_question": "When do treaties apply?",
+      "example_answer": "as soon as they enter into force, unless stated otherwise"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 9,
+      "example_question": "How do ctenophores control buoyancy?",
+      "example_answer": "osmotic pressure"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 8,
+      "example_question": "Which country used to rule California?",
+      "example_answer": "Mexico"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 8,
+      "example_question": "How did the Huguenots defend themselves?",
+      "example_answer": "their own militia"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 8,
+      "example_question": "Which country is a traditional ally of Israel?",
+      "example_answer": "UK"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 8,
+      "example_question": "How long would the invasion of the Middle East have to last in order to develop renewable resources?",
+      "example_answer": "10 years"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "procedural",
+      "count": 7,
+      "example_question": "What does connecting different Sky Q boxes enable them to do?",
+      "example_answer": "share recordings"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 7,
+      "example_question": "What city is the capital of Victoria?",
+      "example_answer": "Melbourne"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 7,
+      "example_question": "Compared to other Australian cities, what is the size of Melbourne?",
+      "example_answer": "second-largest"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 7,
+      "example_question": "What produces the high levels of oxygen on Earth?",
+      "example_answer": "oxygen cycle"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 7,
+      "example_question": "Highways built in the Amazon rainforest were built primarily for what kind of farmers?",
+      "example_answer": "soy farmers"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "identificatory",
+      "count": 7,
+      "example_question": "Ctenophores and cnidarians are classified as what?",
+      "example_answer": "diploblastic"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 6,
+      "example_question": "Jamboree Business Parks belongs to which business center?",
+      "example_answer": "West Irvine"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "resultative",
+      "count": 6,
+      "example_question": "What effect did breathing Priestley's discovered gas have on the experiment's mouse?",
+      "example_answer": "active"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 6,
+      "example_question": " What may have caused rainforests to grow across South America?",
+      "example_answer": "the extinction of the dinosaurs and the wetter climate"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "procedural",
+      "count": 6,
+      "example_question": "What do the auricles do?",
+      "example_answer": "help direct microscopic prey toward the mouth"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 5,
+      "example_question": "Which bound of time is more difficult to establish?",
+      "example_answer": "lower bounds"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "procedural",
+      "count": 5,
+      "example_question": "How did the revocation restrict Huguenot travel?",
+      "example_answer": "prohibited emigration"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 5,
+      "example_question": "What parts of a conventional reciprocating steam engine could be replaced by a pistonless rotary engine?",
+      "example_answer": "cylinders and valve gear"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "descriptive",
+      "count": 5,
+      "example_question": "What powers does the Court of Justice of the European Union have in regards to treaties?",
+      "example_answer": "can interpret the Treaties, but it cannot rule on their validity"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "resultative",
+      "count": 5,
+      "example_question": "What happens first if a Directive's deadline for implementation is not met?",
+      "example_answer": "the member state cannot enforce conflicting laws, and a citizen may rely on the Directive in such an action"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "identificatory",
+      "count": 5,
+      "example_question": "What is a hermaphrodite?",
+      "example_answer": "a single animal can produce both eggs and sperm"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 5,
+      "example_question": "What was the period called that was 505 million years ago?",
+      "example_answer": "Cambrian period."
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "procedural",
+      "count": 5,
+      "example_question": "Name one way the Plowshares organization temporarily close GCSB Waihopai?",
+      "example_answer": "by padlocking the gates"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 5,
+      "example_question": "What anthropologists are also university alumni members?",
+      "example_answer": "David Graeber and Donald Johanson"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 4,
+      "example_question": "What theorems are responsible for determining questions of time and space requirements?",
+      "example_answer": "time and space hierarchy theorems"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 4,
+      "example_question": "What were the first two destinations of Huguenot emigres?",
+      "example_answer": "Switzerland and the Netherlands"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 4,
+      "example_question": "Which court is the highest court in the European Union?",
+      "example_answer": "The European Court of Justice"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "procedural",
+      "count": 4,
+      "example_question": "How did the principle treaties that form the European Union begin?",
+      "example_answer": "with common rules for coal and steel, and then atomic energy"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 4,
+      "example_question": "The legislative body, the Council, are made up of what type of individuals?",
+      "example_answer": "different ministers of the member states"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "multipart",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 4,
+      "example_question": "Which countries were the European Coal and Steel Community agreement between?",
+      "example_answer": "France, Italy, Belgium, the Netherlands, Luxembourg and Germany"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 4,
+      "example_question": "Which pharmacists are likely to seek additional education following pharmacy school?",
+      "example_answer": "pharmacists practicing in hospitals"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 4,
+      "example_question": "Where might the doctor's self-interest be at odds with the patient's self-interest?",
+      "example_answer": "in obtaining cost-effective medication and avoiding the unnecessary use of medication that may have side-effects"
+    },
+    {
+      "interrogative": "why",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "causal",
+      "count": 4,
+      "example_question": "Why should one not go to jail?",
+      "example_answer": "accept jail penitently"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "adjective",
+      "relational_context": "identificatory",
+      "count": 4,
+      "example_question": "Along with private individuals and organizations, what groups sometimes runs erg\u00e4nzungsschulen?",
+      "example_answer": "religious"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 3,
+      "example_question": "What are the two integer responses to a decision problem?",
+      "example_answer": "1 or 0"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 3,
+      "example_question": "Which border does the megaregion extend over?",
+      "example_answer": "Mexican"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "adjective",
+      "relational_context": "locative",
+      "count": 3,
+      "example_question": "The Port of Long Beach belongs to which region of California?",
+      "example_answer": "Southern"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 3,
+      "example_question": "The Los Angeles Clippers are a team belonging to which sport?",
+      "example_answer": "NBA"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "procedural",
+      "count": 3,
+      "example_question": "How are Victorian cabinet members chosen?",
+      "example_answer": "elected"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "multipart",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 3,
+      "example_question": "Which Irish cities had large Huguenot enclaves?",
+      "example_answer": "Dublin, Cork, Portarlington, Lisburn, Waterford and Youghal"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "adjective",
+      "relational_context": "locative",
+      "count": 3,
+      "example_question": "In what geographical portion of Wales is Abercynon located?",
+      "example_answer": "south"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "procedural",
+      "count": 3,
+      "example_question": "How did the Nixon administration negotiate with the uncooperative countries?",
+      "example_answer": "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights."
+    },
+    {
+      "interrogative": "why",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "causal",
+      "count": 3,
+      "example_question": "Why did oil start getting priced in terms of gold?",
+      "example_answer": "oil was priced in dollars, oil producers' real income decreased"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 3,
+      "example_question": "Who applies European Union law?",
+      "example_answer": "courts of member states and the Court of Justice of the European Union"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 3,
+      "example_question": "Which treaty provides that the European Union law be applied to metropolitan territories of member states?",
+      "example_answer": "Treaty on European Union (TEU)"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "temporal",
+      "count": 3,
+      "example_question": "The amazon rainforest became a mostly inland forest around which global event?",
+      "example_answer": "last glacial maximum"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "clause",
+      "relational_context": "temporal",
+      "count": 3,
+      "example_question": "In which point did the drainage basin of the Amazon split?",
+      "example_answer": "During the mid-Eocene, it is believed that the drainage basin of the Amazon was split along the middle of the continent by the Purus Arch."
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "clause",
+      "relational_context": "locative",
+      "count": 3,
+      "example_question": "Where did it join in the direction of its flow?",
+      "example_answer": "joining the easterly flow toward the Atlantic."
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "resultative",
+      "count": 3,
+      "example_question": "What did DECnet phase 2 become ",
+      "example_answer": "were open standards with published specifications, and several implementations were developed outside DEC, including one for Linux"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "role",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 3,
+      "example_question": "What position did the tax collector that arrested Thoreau get?",
+      "example_answer": "rose to higher political office"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 3,
+      "example_question": "What was the first US state to have compulsory education?",
+      "example_answer": "Massachusetts"
+    },
+    {
+      "interrogative": "why",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 3,
+      "example_question": "Why do firms substitute equipment for workers?",
+      "example_answer": "reduce costs and maximize profits"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 3,
+      "example_question": "What cancer researchers were also apart of the university's faculty?",
+      "example_answer": "Charles Brenton Huggins and Janet Rowley"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 3,
+      "example_question": "What Han Chinese leader defected to the Mongols?",
+      "example_answer": "Shi Tianze, Liu Heima"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "adjective",
+      "relational_context": "locative",
+      "count": 2,
+      "example_question": "What part of France were the Normans located?",
+      "example_answer": "north"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 2,
+      "example_question": "What is the most critical resource measured to in assessing the determination of a Turing machine's ability to solve any given set of problems?",
+      "example_answer": "time"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 2,
+      "example_question": "Case complexity likelihoods provide variable probabilities of what general measure? ",
+      "example_answer": "complexity measure"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "role",
+      "count": 2,
+      "example_question": "According to reduction, if X and Y can be solved by the same algorithm then X performs what function in relationship to Y?",
+      "example_answer": "reduces"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "A problem set that that is hard for the expression NP can also be stated how?",
+      "example_answer": "NP-hard"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "Point Conception is an example of a landmark among what boundary of southern California?",
+      "example_answer": "northern"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "adjective",
+      "relational_context": "quantitative",
+      "count": 2,
+      "example_question": "At what rate is Orange County developing its business centers?",
+      "example_answer": "rapidly"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "Where does oxygen rank by mass in the planet's biosphere?",
+      "example_answer": "most abundant"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 2,
+      "example_question": "During what type of climate is oxygen 18 in seawater at higher levels?",
+      "example_answer": "lower global temperatures"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 2,
+      "example_question": "At what wavelength do the spectrophotometric bands peak?",
+      "example_answer": "687 and 760 nm"
+    },
+    {
+      "interrogative": "when",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "temporal",
+      "count": 2,
+      "example_question": "When can oxygen gas produce a toxic condition?",
+      "example_answer": "at elevated partial pressures"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "Which country was worried that the US would invade the Middle East?",
+      "example_answer": "British Prime Minister Edward Heath"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "Which country is the most dependent on Arab oil?",
+      "example_answer": "Japan"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "Which sized cars were the least demanded cars in the crisis?",
+      "example_answer": "large cars"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "identificatory",
+      "count": 2,
+      "example_question": "What reform was attempted following the Nice Treaty?",
+      "example_answer": "there was an attempt to reform the constitutional law of the European Union and make it more transparent"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "temporal",
+      "count": 2,
+      "example_question": "What were the years two Regulations that conflicted with an Italian law originate in the Simmenthal SpA case? ",
+      "example_answer": "1964 and 1968"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 2,
+      "example_question": "Which two importers claimed that under a French competition law, they were prevented from selling Picon beer under wholesale price?",
+      "example_answer": "Keck and Mithouard"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "multipart",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 2,
+      "example_question": "How many invertebrate species are known in Brazil alone? ",
+      "example_answer": "96,660 and 128,843"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "Does the residential architecture of the Tower District compare or contrast with other part of Fresno?",
+      "example_answer": "contrasts"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "What area of Brookhaven is still known for its high levels of crime?",
+      "example_answer": "The isolated subdivision"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "clause",
+      "relational_context": "quantitative",
+      "count": 2,
+      "example_question": "DEC originally had 3 layers but evolved into how many layers ",
+      "example_answer": "Initially built with three layers, it later (1982) evolved into a seven-layer OSI-compliant networking protocol"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 2,
+      "example_question": "Sedimentary rock can be turned into which of the three types of rock?",
+      "example_answer": "metamorphic rock"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "When rock formations are found on top of a fault that have not been cut, then they must be older or younger than the fault?",
+      "example_answer": "younger than the fault"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "procedural",
+      "count": 2,
+      "example_question": "Gandhi often referenced Shelley's poem in his efforts to do what? ",
+      "example_answer": "free India"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "instrumental",
+      "count": 2,
+      "example_question": "What did Thoreau ask a public figure the taxman to do?",
+      "example_answer": "Resign"
+    },
+    {
+      "interrogative": "when",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "temporal",
+      "count": 2,
+      "example_question": "When do cash flow problems exist?",
+      "example_answer": "when the present amount of funding cannot cover the current costs for labour and materials"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "Who has limited productive potential when faced with less access to education?",
+      "example_answer": "poor"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 2,
+      "example_question": "Under which policy are labor unions encouraged?",
+      "example_answer": "continental European liberalism"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 2,
+      "example_question": "Who is seen as the ultimate climate change authority?",
+      "example_answer": "IPCC"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 2,
+      "example_question": "How was the Rhine Gorge formed?",
+      "example_answer": "erosion"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 2,
+      "example_question": "Which direction did the Rhine flow during the last cold phase?",
+      "example_answer": "west"
+    },
+    {
+      "interrogative": "whose",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 2,
+      "example_question": "Whose control of the UK's government helped fuel a desire for a Scottish Parliament?",
+      "example_answer": "the Conservative Party"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "resultative",
+      "count": 2,
+      "example_question": "How was Sadat rewarded by the Islamists for his attempts to bring Egypt into modern times and civilization?",
+      "example_answer": "assassinated"
+    },
+    {
+      "interrogative": "whose",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 2,
+      "example_question": "Whose puppet did Islamists accuse the Saudi regime of being?",
+      "example_answer": "the west"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "What major conquest did Tancred play a roll in?",
+      "example_answer": "Jerusalem"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "adjective",
+      "relational_context": "role",
+      "count": 1,
+      "example_question": "What type of Turing machine can be characterized by checking multiple possibilities at the same time?",
+      "example_answer": "non-deterministic"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "To what level would the polynomial time hierarchy collapse if graph isomorphism is NP-complete?",
+      "example_answer": "second level"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "How quickly can an algorithm solve an NP-complete knapsack problem?",
+      "example_answer": "in less than quadratic time"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 1,
+      "example_question": "In which cardinal direction from Los Angeles is San Diego?",
+      "example_answer": "south"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 1,
+      "example_question": "Geographically speaking, where is California's north - south midway point in terms of latitude?",
+      "example_answer": "37\u00b0 9' 58.23\""
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "adjective",
+      "relational_context": "role",
+      "count": 1,
+      "example_question": "In the definition based off the mountain range, which region would the desert portions of north Los Angeles County be included in?",
+      "example_answer": "southern"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "adjective",
+      "relational_context": "quantitative",
+      "count": 1,
+      "example_question": "Where does southern California's megalopolis standard in terms of population nationwide?",
+      "example_answer": "third"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 1,
+      "example_question": "Who's satellites would the new free-to-air channels be broadcast from?",
+      "example_answer": "Astra"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 1,
+      "example_question": "Where according to gross state product does Victoria rank in Australia?",
+      "example_answer": "second"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "What were the conditions for miners in the gold fields in Victoria?",
+      "example_answer": "cramped and unsanitary"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "How populous is Victoria compared to other Australian states?",
+      "example_answer": "second"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "What was the king's first approach to the Huguenots?",
+      "example_answer": "he sent missionaries, backed by a fund to financially reward converts"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "role",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 1,
+      "example_question": "What dual titles did Frederick William hold?",
+      "example_answer": "Elector of Brandenburg and Duke of Prussia"
+    },
+    {
+      "interrogative": "when",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "adjective",
+      "relational_context": "temporal",
+      "count": 1,
+      "example_question": "In what part of the 19th century were steam turbines introduced?",
+      "example_answer": "late"
+    },
+    {
+      "interrogative": "whose",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "In addition to Watt, Boulton and Smeaton, whose engine was an atmosphere design?",
+      "example_answer": "Newcomen's"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "agent",
+      "count": 1,
+      "example_question": "People of what nationality invented the steam turbine?",
+      "example_answer": "British"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adverb",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "Philo of Byzantium ____ surmised that air converted to fire",
+      "example_answer": "incorrectly"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 1,
+      "example_question": "By what means were scientists able to liquefy air?",
+      "example_answer": "compressing and cooling"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 1,
+      "example_question": "Which oil producer is a close ally of the United States?",
+      "example_answer": "Iran"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "Who would the occupation alienate?",
+      "example_answer": "Arabs and much of the rest of the Third World"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "multipart",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "Which countries became dependent on US's security assurance to threats?",
+      "example_answer": "Saudi Arabia and Iran"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 1,
+      "example_question": "Mazda, Mitsubishi and Isuzu joined partnership with which American car company?",
+      "example_answer": "Ford, Chrysler, and GM"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "When American car companies rolled out with their domestic replacement cars, which policy ended?",
+      "example_answer": "captive import policy"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "What caused the need for principal Treaties that ended up forming the EU?",
+      "example_answer": "common rules for coal and steel, and then atomic energy"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "Which caused the reform to never come into force?",
+      "example_answer": "the referendum in France and the referendum in the Netherlands"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "clause",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "Did the European Court of Justice rule the defendant in the case of Commission v. Edith Cresson broke any laws?",
+      "example_answer": "did in fact not break any law"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "agent",
+      "count": 1,
+      "example_question": "What can block a legislation?",
+      "example_answer": "legislation can be blocked by a majority in Parliament, a minority in the Council, and a majority in the Commission"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "Which type of climate may have allowed the rainforest to spread across the continent?",
+      "example_answer": "the wetter climate may have allowed the tropical rainforest to spread out across the continent."
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "What has allowed for the Savanna region to expand into the tropics?",
+      "example_answer": "Climate fluctuations during the last 34 million years have allowed savanna regions to expand into the tropics."
+    },
+    {
+      "interrogative": "did",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "Did the rainforest managed to thrive during the glacial periods? ",
+      "example_answer": "However, the rainforest still managed to thrive during these glacial periods, allowing for the survival and evolution of a broad diversity of species."
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "clause",
+      "relational_context": "locative",
+      "count": 1,
+      "example_question": "In which direction did the water on the eastern side flow?",
+      "example_answer": "Water on the eastern side flowed toward the Atlantic,"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "locative",
+      "count": 1,
+      "example_question": "Where does the Amazon region rate among the entire earth for its amount of biodiversity?",
+      "example_answer": "highest on Earth"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "Where is Brazil ranked globally in soybean production?",
+      "example_answer": "second-largest global producer"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "What does the internal cavity contain?",
+      "example_answer": "a mouth that can usually be closed by muscles; a pharynx (\"throat\"); a wider area in the center that acts as a stomach; and a system of internal canals."
+    },
+    {
+      "interrogative": "when",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "verb",
+      "relational_context": "temporal",
+      "count": 1,
+      "example_question": "When do bathyctena chuni, euplokamis stationis and eurhamphaea vexilligera  excrete secretions?",
+      "example_answer": "are disturbed,"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "How does cooling of the local environment affect the mnemiopsis?",
+      "example_answer": "significantly slowed the animal's metabolism"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "What did the  fossils found in the Burgess Shale lack?",
+      "example_answer": "lacked tentacles"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "locative",
+      "count": 1,
+      "example_question": "In which direction does the west side of Fresno neighborhood lie to the 99 freeway?",
+      "example_answer": "southwest"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "Are there any other aviation communities such as Sierra Sky Park in the United States?",
+      "example_answer": "there are now numerous such communities across the United States"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "agent",
+      "count": 1,
+      "example_question": "What did the Apple system assign automatically ",
+      "example_answer": "automatically assigned addresses, updated the distributed namespace, and configured any required inter-network routing"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "What did DECnet originally do ",
+      "example_answer": "connect two PDP-11 minicomputers"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "How are AUSTPAC connections made ",
+      "example_answer": "Access can be via a dial-up terminal to a PAD, or, by linking a permanent X.25 node to the network"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "clause",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "Strictly speaking who was included in DATANET 1",
+      "example_answer": "Datanet 1 only referred to the network and the connected users via leased lines"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "Funding limitations allowed CSNET to be what ",
+      "example_answer": "role in spreading awareness of, and access to, national networking and was a major milestone on the path to development of the global Internet"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 1,
+      "example_question": "Where can population estimates be extrapolated from?",
+      "example_answer": "the clergy"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "Which timeline is further expanded in the fourth scale?",
+      "example_answer": "Quaternary"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "instrumental",
+      "count": 1,
+      "example_question": "What do petrologists use electron microprobes in the laboratory for?",
+      "example_answer": "identifying rocks"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "What do most online pharmacies do?",
+      "example_answer": "sell prescription drugs and require a valid prescription"
+    },
+    {
+      "interrogative": "whose",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "Whose needs will the growth in pharmacy informatics meet?",
+      "example_answer": "major national and international patient information projects and health system interoperability goals"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 1,
+      "example_question": "What areas are pharmacy informatics prepared to work in?",
+      "example_answer": "medication management system development, deployment and optimization"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "What are pharmacists forbidden to do?",
+      "example_answer": "form business partnerships with physicians or give them \"kickback\" payments"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "What responsibilities are pharmacists believed to be taking on more in the future?",
+      "example_answer": "increasingly expected to be compensated for their patient care skills"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "exemplary",
+      "count": 1,
+      "example_question": "What is an example of major civil disobedience in South Africa?",
+      "example_answer": "apartheid"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "What was the civil disobedience performed at the test site?",
+      "example_answer": "tempted to enter the test site"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "What do those in the field do to ensure a positive outcome?",
+      "example_answer": "make detailed plans and maintain careful oversight"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 1,
+      "example_question": "Common Sense Realism of what Scottish philosophers did Agassiz incorporate in his dual view of knowedge?",
+      "example_answer": "Thomas Reid and Dugald Stewart"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "How was the school able to bring aboard the best talented students?",
+      "example_answer": "identify, recruit"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "What is the duration of Harvard Academic year?",
+      "example_answer": "beginning in early September and ending in mid-May"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "role",
+      "count": 1,
+      "example_question": "According to the Princeton Review where has Harvard ranked as a \"Dream College\" in 2013",
+      "example_answer": "second most commonly"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "How did the education during the high school education movement differ from the subsequent high school education?",
+      "example_answer": "designed to equip students with necessary skill sets to be able to perform at work"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "patient",
+      "count": 1,
+      "example_question": "What dynasty did Zhang Rhou help attack?",
+      "example_answer": "Song dynasty"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "How did the final Song emperor die?",
+      "example_answer": "drowned"
+    },
+    {
+      "interrogative": "when",
+      "cardinality": "multipart",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "temporal",
+      "count": 1,
+      "example_question": "When had the Six Ministries existed?",
+      "example_answer": "since the Sui and Tang dynasties"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "How well did the Mongol Emperors know Chinese?",
+      "example_answer": "could not master written Chinese, but they could generally converse well"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "adjective",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "Which khanates had converted to Islam?",
+      "example_answer": "western"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "clause",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "What did Guo Shoujing do for calendars?",
+      "example_answer": "applied mathematics to the construction of calendars"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "How did the unequal treatment of Chinese versus Mongols in the Yuan make the dynasty seem?",
+      "example_answer": "colonial"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "agent",
+      "count": 1,
+      "example_question": "What responses protect the lungs by mechanically ejecting pathogens from the respiratory system?",
+      "example_answer": "coughing and sneezing"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "Phagocytosis first evolved as means of doing what?",
+      "example_answer": "acquiring nutrients"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "process",
+      "answer_form": "noun",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "By what process can active immunity be generated in an artificial manner?",
+      "example_answer": "vaccination"
+    },
+    {
+      "interrogative": "why",
+      "cardinality": "singular",
+      "entity_type": "process",
+      "answer_form": "verb",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "In a type III secretion system, proteins are transported to the host cell in order to do what?",
+      "example_answer": "shut down host defenses"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "process",
+      "answer_form": "verb",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "The success of pathogens is predicated on their ability to do what?",
+      "example_answer": "elude host immune responses"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 1,
+      "example_question": "To what extent did Fermat confirm the validity of Fermat numbers?",
+      "example_answer": "up to n = 4 (or 216 + 1)"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "number",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "According to the Riemann hypothesis, all zeroes of the \u03b6-function have real part equal to 1/2 except for what values of s?",
+      "example_answer": "s = \u22122, \u22124, ...,"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "Where does the name Rhine derive from? ",
+      "example_answer": "Gaulish name R\u0113nos"
+    },
+    {
+      "interrogative": "why",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "Why has the Rhine been shortened?",
+      "example_answer": "canalisation projects"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "place",
+      "answer_form": "noun",
+      "relational_context": "instrumental",
+      "count": 1,
+      "example_question": "What do the Waal and the Nederrijn-Lek discharge throguh?",
+      "example_answer": "Meuse estuary"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "adjective",
+      "relational_context": "role",
+      "count": 1,
+      "example_question": "Which hall was used as Parliament's principle committee room?",
+      "example_answer": "main"
+    },
+    {
+      "interrogative": "why",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "Why do police and fire services fall under the purview of the Scottish Parliament?",
+      "example_answer": "automatically devolved"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "time",
+      "answer_form": "noun",
+      "relational_context": "quantitative",
+      "count": 1,
+      "example_question": "What is the minimum amount of time before a bill can go into law?",
+      "example_answer": "a 4-week period"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "locative",
+      "count": 1,
+      "example_question": "Other than Scotland's Chief Law Officer, from whence are most ministers drawn from amongst?",
+      "example_answer": "elected MSPs"
+    },
+    {
+      "interrogative": "how",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adverb",
+      "relational_context": "procedural",
+      "count": 1,
+      "example_question": "How is the process of allocating seats repeated until all available seats have been determined?",
+      "example_answer": "iteratively"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "multipart",
+      "entity_type": "thing",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "Members of which organizations are disqualified from sitting in the SP as elected MSPs?",
+      "example_answer": "police and the armed forces"
+    },
+    {
+      "interrogative": "where",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "clause",
+      "relational_context": "locative",
+      "count": 1,
+      "example_question": "Where does Khomeini's beliefs fall as compared to Mawdudi and Qutb?",
+      "example_answer": "somewhere between"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "adjective",
+      "relational_context": "instrumental",
+      "count": 1,
+      "example_question": "Most imperialism was carried out using which method of transport?",
+      "example_answer": "seaborne"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "adjective",
+      "relational_context": "causal",
+      "count": 1,
+      "example_question": "Colonialism as a policy is caused by financial and what other reasons?",
+      "example_answer": "ideological"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "multipart",
+      "entity_type": "concept",
+      "answer_form": "noun",
+      "relational_context": "identificatory",
+      "count": 1,
+      "example_question": "Political advantage is an attribute of which state policies?",
+      "example_answer": "Imperialism and colonialism"
+    },
+    {
+      "interrogative": "which",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "adjective",
+      "relational_context": "instrumental",
+      "count": 1,
+      "example_question": "Theories on imperialism use which country as a model?",
+      "example_answer": "British"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "concept",
+      "answer_form": "verb",
+      "relational_context": "role",
+      "count": 1,
+      "example_question": "Jules Ferry thought that the \"higher races\" have a duty to what?",
+      "example_answer": "civilize the inferior"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "adjective",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "What was there a significant minority of in Warsaw?",
+      "example_answer": "Jewish"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "multipart",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "descriptive",
+      "count": 1,
+      "example_question": "What does the Zach\u0119ta National Gallery of Art organize exhibitions of art from?",
+      "example_answer": "Polish and international artists"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "thing",
+      "answer_form": "verb",
+      "relational_context": "agent",
+      "count": 1,
+      "example_question": "What did a greedy merchant do to the mermaid?",
+      "example_answer": "captured"
+    },
+    {
+      "interrogative": "who",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "clause",
+      "relational_context": "agent",
+      "count": 1,
+      "example_question": "Who won the battle of Lake George?",
+      "example_answer": "inconclusively, with both sides withdrawing from the field"
+    },
+    {
+      "interrogative": "what",
+      "cardinality": "singular",
+      "entity_type": "person",
+      "answer_form": "noun",
+      "relational_context": "resultative",
+      "count": 1,
+      "example_question": "What natives were displaced by British takeover in Florida?",
+      "example_answer": "Choctaw and the Creek"
+    }
+  ],
+  "viable_classes": 67,
+  "rare_classes": 187,
+  "threshold": 10
+}

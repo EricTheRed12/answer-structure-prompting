@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "573314e3d058e614000b56f2",
+    "question": "What was Warsaw's Old Town listed as in 1980?",
+    "answer": "a UNESCO World Heritage Site",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56e190bce3433e1400422fca",
+    "question": "What are the two integer responses to a decision problem?",
+    "answer": "1 or 0",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572881d34b864d1900164a5d",
+    "question": "What aspect of Western medicine did the Chinese dislike?",
+    "answer": "its humoral system",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "571cebc05efbb31900334e49",
+    "question": "What is a spark or heat to the progress of a fire?",
+    "answer": "ignition event",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5733638fd058e614000b59ea",
+    "question": "What style was the Warsaw Philharmony edifice built in?",
+    "answer": "socialist realism",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "57302bd0b2c2fd14005689dc",
+    "question": "Who leads The Islamic State?",
+    "answer": "Sunni Arabs",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "573786b51c45671900574490",
+    "question": "What is included along with gravitational acceration, and mass of the Earth in a formula about rotation about the Earth?",
+    "answer": "radius () of the Earth",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5728ec6a4b864d19001650ac",
+    "question": "What was the result of the disobedience protesting the nuclear site?",
+    "answer": "arrested",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "verb",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "5725c0f289a1e219009abdf5",
+    "question": "How large can ctenophora grow?",
+    "answer": "1.5 m (4 ft 11 in)",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "571ce6655efbb31900334e37",
+    "question": "What medical appliance can be a concern for oxygen toxicity?",
+    "answer": "mechanical ventilators",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572a0e0e1d0469140077970a",
+    "question": "What does an increase in the income share of the bottom 20 percent of people of a society result in?",
+    "answer": "higher GDP growth",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "573093598ab72b1400f9c5b0",
+    "question": "Which American show changed the views of Romanians during the cold war?",
+    "answer": "Dallas",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "572ffc0f947a6a140053cef0",
+    "question": "How did the Rhine extend watershed southward?",
+    "answer": "stream capture",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "procedural"
+  },
+  {
+    "id": "572863363acd2414000df985",
+    "question": "In the fall quarter of 2014, how many students signed up for the college?",
+    "answer": "5,792",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57293e221d046914007791d8",
+    "question": "What is the scenario called in which we don't change our greenhouse gas creation practices?",
+    "answer": "\"business as usual\" (BAU)",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57300761947a6a140053cf9d",
+    "question": "Who first wrote about the Rhine's discovery and border?",
+    "answer": "Maurus Servius Honoratus",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57265f605951b619008f70dc",
+    "question": "What is the area called where one plate subducts under another?",
+    "answer": "convergent boundaries",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725f00938643c19005aced9",
+    "question": "Between which two streets along Kearney Boulevard were wealthy African-Americans at one time residing?",
+    "answer": "Fresno Street and Thorne Ave",
+    "interrogative": "where",
+    "cardinality": "multipart",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "570d391fb3d812140066d577",
+    "question": "In what direction does the mountain system extend?",
+    "answer": "east-west",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "5729081d3f37b31900477fab",
+    "question": "What are two types of phagocytes that travel through the body to find invading pathogens?",
+    "answer": "Neutrophils and macrophages",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57115e532419e314009555b0",
+    "question": "Compounding was not popular in the construction of what machines?",
+    "answer": "railway locomotives",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57281940ff5b5019007d9d47",
+    "question": "What brought the downfall of Jacksonville filmmaking?",
+    "answer": "Hollywood",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "572989846aef051400154fc0",
+    "question": "What function is related to prime numbers?",
+    "answer": "The zeta function",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "570953a7efce8f15003a7e01",
+    "question": "What additional srevice did BSkyB offer besides HD channels that they claimed offered \"substantially more value\"?",
+    "answer": "Video On Demand",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5728d5793acd2414000dffb6",
+    "question": "What was the protest in Antigone about?",
+    "answer": "giving her brother Polynices a proper burial",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57268bf9dd62a815002e890d",
+    "question": "What are some supplementary sources of European Union law?",
+    "answer": "case law by the Court of Justice, international law and general principles of European Union law",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5733cff84776f419006612b4",
+    "question": "Where was war fought?",
+    "answer": "primarily along the frontiers between New France and the British colonies",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "572a07c11d046914007796d5",
+    "question": "What kind of sending technology is being used to protect tribal lands in the Amazon?",
+    "answer": "remote sensing",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "5728f9882ca10214002dab5b",
+    "question": "For most organisms, what is the dominant system of defense?",
+    "answer": "innate immune system",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572fda6fb2c2fd140056850c",
+    "question": "What method is used for tallying votes in the second vote of the ballot?",
+    "answer": "the d'Hondt method",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "572ff4ca04bcaa1900d76f27",
+    "question": "What's the name of where the Rhine branches off near Dordrecht?",
+    "answer": "The Oude Maas",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572a0bafaf94a219006aa769",
+    "question": "What will a society with more equality have?",
+    "answer": "higher aggregate utility",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "5728facd4b864d1900165173",
+    "question": "What US war has a large amount of Civil Disobedients?",
+    "answer": "Vietnam War",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57286bf84b864d19001649d2",
+    "question": "What alumni member also write the bestseller Before I Fall?",
+    "answer": "Lauren Oliver",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "572818f54b864d190016446e",
+    "question": "Stephen Eilmann demonstrates covert law breaking in Nazi Germany. Citizen's illegally had been doing what?",
+    "answer": "hiding a Jew in their house",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572fd7b8947a6a140053cd3e",
+    "question": "How many general questions are available to opposition leaders?",
+    "answer": "four",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5729e2b76aef0514001550ce",
+    "question": "When was the mass high school education movement?",
+    "answer": "from 1910\u20131940",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5725c41eec44d21400f3d50b",
+    "question": "What does LGM stands for?",
+    "answer": "Last Glacial Maximum",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57267947f1498d1400e8e0ed",
+    "question": "What properties are analyzed with a conoscopic lens by petrologists?",
+    "answer": "birefringence, pleochroism, twinning, and interference properties",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5709686c200fba1400367f78",
+    "question": "How many people were registered to receive the HD service prior to launch?",
+    "answer": "40,000",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "572677e7708984140094c725",
+    "question": "What is structural geology?",
+    "answer": "the study of positions of rock units and their deformation",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57299c2c6aef051400155021",
+    "question": "What is one general concept that applies to elements of commutative rings?",
+    "answer": "prime elements",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "573020f7b2c2fd14005688f8",
+    "question": "How many people did Hamas kill between 2000 to 2007?",
+    "answer": "542",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57287fec4b864d1900164a3c",
+    "question": "Which khanates had converted to Islam?",
+    "answer": "western",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "adjective",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57096505ed30961900e84084",
+    "question": "What does connecting different Sky Q boxes enable them to do?",
+    "answer": "share recordings",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "verb",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "573060b48ab72b1400f9c4ca",
+    "question": "Imperialism is responsible for the rapid spread of what?",
+    "answer": "technologies and ideas",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "56e19557e3433e1400422ff1",
+    "question": "What encoding decision needs to be made in order to determine an exact definition of the formal language?",
+    "answer": "how graphs are encoded as binary strings",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57115ac550c2381900b54a79",
+    "question": "What type of steam engine produces most electricity in the world today?",
+    "answer": "turbine",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57286f373acd2414000df9de",
+    "question": "What government department did Buyantu shut down?",
+    "answer": "the Department of State Affairs",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725d34089a1e219009abf51",
+    "question": "What did Distributed Adaptive Message Block Switching do",
+    "answer": "provide a fault-tolerant, efficient routing method for telecommunication messages",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57113639a58dae1900cd6d1c",
+    "question": "What class of ships is an example of large passenger liners?",
+    "answer": "Olympic",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5729517d6aef051400154cc9",
+    "question": "What can the IPCC's report deadlines cause to be omitted?",
+    "answer": "significant new evidence or events that change our understanding of climate science",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "572855973acd2414000df925",
+    "question": "What is the name of the private day school for K-12 students the university runs?",
+    "answer": "University of Chicago Laboratory Schools",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572ffe6fb2c2fd14005686ef",
+    "question": "What type of movement is the Muslim Brotherhood?",
+    "answer": "Islamist",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "57294279af94a219006aa20b",
+    "question": "Where did Singer hold a press conference in May 2000?",
+    "answer": "Capitol Hill, Washington, D.C.",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "57379ed81c456719005744d5",
+    "question": "What can be used to model tension forces?",
+    "answer": "ideal strings",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "5727c8863acd2414000dec49",
+    "question": "How far from state house in downtown Boston is Harvard Yard?",
+    "answer": "3 miles",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5729edd56aef051400155112",
+    "question": "Who was the first European to travel the entire length of the Amazon River?",
+    "answer": "Francisco de Orellana",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57268220f1498d1400e8e219",
+    "question": "What types of scientists looks for signs of magnetic reversals in igneous rocks within the drill cores?",
+    "answer": "Magnetic stratigraphers",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "56e1c720e3433e140042316b",
+    "question": "In what expression can one expect to find DTIME(n)",
+    "answer": "DTIME(n2)",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5728455bff5b5019007da07b",
+    "question": "How much Saharan dust remains in the air over the Amazon each year?",
+    "answer": "132 million tons",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5726449f1125e71900ae192b",
+    "question": "What do current ctenophores have that fossils found did not have?",
+    "answer": "tentacles",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57336755d058e614000b5a3f",
+    "question": "What is a popular strolling destination for the Varsovians?",
+    "answer": "Krasi\u0144ski Palace Garden",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57337f6ad058e614000b5bcf",
+    "question": "What are there no longer limitations on since 1990?",
+    "answer": "residency registration",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725d662ec44d21400f3d689",
+    "question": "Which park is home to the Kearney Mansion?",
+    "answer": "Kearney Park",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "56e1d9fee3433e14004231ce",
+    "question": "If polynomial time can be utilized within an NP-complete problem, what does the imply P is equal to?",
+    "answer": "NP",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572985011d04691400779503",
+    "question": "For what size natural number does Bertrand's postulate hold?",
+    "answer": "any natural number n > 3",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5705e4fe75f01819005e7706",
+    "question": "What is the name of the desert near the border of Nevada?",
+    "answer": "Mojave Desert",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5734025d4776f419006616c6",
+    "question": "How many of the Pitt's planned expeditions were successful?",
+    "answer": "Two of the expeditions were successful, with Fort Duquesne and Louisbourg",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "clause",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5733a6ac4776f41900660f58",
+    "question": "Where was the famous artist Tamara de Lempicka born?",
+    "answer": "Warsaw",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "56e1b8f3e3433e14004230e8",
+    "question": "What is one common example of a critical complexity measure?",
+    "answer": "time",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "570d3468b3d812140066d545",
+    "question": "When did Holden announce that it will close its Victoria plant?",
+    "answer": "May 2013",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57265285708984140094c25c",
+    "question": "How significant was the transfer of disease through fleas?",
+    "answer": "of marginal significance",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "57302faa04bcaa1900d77311",
+    "question": "How many Muslims are in Greater London?",
+    "answer": "over 900,000",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57281ab63acd2414000df495",
+    "question": "What term referred to middle class citizens leaving the suburbs?",
+    "answer": "\"white flight\"",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57111713a58dae1900cd6c04",
+    "question": "What was the name of du Pont's gunpowder operation?",
+    "answer": "Eleutherian gunpowder mills",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572ff83ab2c2fd1400568681",
+    "question": "What flood impacted the Meuse?",
+    "answer": "St. Elizabeth's",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5711119cb654c5140001fae5",
+    "question": "What area in South Africa accepted Huguenot colonists?",
+    "answer": "Dutch Cape Colony",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "56de15dbcffd8e1900b4b5c9",
+    "question": "Who was Emma's brother?",
+    "answer": "Duke Richard II",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5705f36452bb89140068971c",
+    "question": "In the definition based off the mountain range, which region would the desert portions of north Los Angeles County be included in?",
+    "answer": "southern",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5705fd8475f01819005e7841",
+    "question": "The region spans starting at islands found in which body of water?",
+    "answer": "Pacific Ocean",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "57373a9fc3c5551400e51e7d",
+    "question": "What is the strongest main interaction?",
+    "answer": "strong",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572a09abaf94a219006aa75c",
+    "question": "The classification of aspects of the Amazon forest is important for mapping what type of emission?",
+    "answer": "carbon related emissions",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572ff35f947a6a140053ce66",
+    "question": "Besides viniculture, what is the other dominate economic sector in the middle rhine?",
+    "answer": "tourism",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "571144d1a58dae1900cd6d71",
+    "question": "What type of heating element is often used in toy steam engines?",
+    "answer": "electric",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "5728fd3c3f37b31900477f2b",
+    "question": "What is the main goal of criminal punishment of civil disobedients?",
+    "answer": "incapacitation",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5729fd56af94a219006aa730",
+    "question": "Acessing the Amazon rainforest was restricted before what era?",
+    "answer": "the early 1960s",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "573330444776f41900660759",
+    "question": "What did John Paul II's visits in 1979 and 1983 encourage?",
+    "answer": "growing anti-communist fervor",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "57309bfb8ab72b1400f9c5e6",
+    "question": "Theories on imperialism use which country as a model?",
+    "answer": "British",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "573062662461fd1900a9cdf7",
+    "question": "Imperialism extends a country's power and what?",
+    "answer": "influence",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57268f2bf1498d1400e8e3c6",
+    "question": "Which caused the reform to never come into force?",
+    "answer": "the referendum in France and the referendum in the Netherlands",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57096b66200fba1400367fa8",
+    "question": "When did Setanta Sports say it would launch as a subscription service?",
+    "answer": "March",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "572fbea404bcaa1900d76c5d",
+    "question": "How many seats are in the debating chamber?",
+    "answer": "131",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5728fb002ca10214002dab6b",
+    "question": "What is an example of a mechanical barrier on leaves?",
+    "answer": "The waxy cuticle",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5728e715ff5b5019007da914",
+    "question": "What is a type of disobedience against the federal government?",
+    "answer": "refusals to pay taxes",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56e190bce3433e1400422fc9",
+    "question": "What are the two simple word responses to a decision problem?",
+    "answer": "yes or no",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725cfd0271a42140099d228",
+    "question": "How many streetcars did the Fresno Traction Company operate in 1931?",
+    "answer": "47 streetcars",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5728170d3acd2414000df446",
+    "question": "What was the Jacksonville fire later known as?",
+    "answer": "Great Fire of 1901",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572658daf1498d1400e8dcaf",
+    "question": "How many types of movements do euplokamis tentilla have?",
+    "answer": "three types of movement",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "56de4c324396321400ee27ab",
+    "question": "What kind of needlework was used in the creation of the Bayeux Tapestry?",
+    "answer": "embroidery",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  }
+]

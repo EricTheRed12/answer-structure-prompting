@@ -1,0 +1,1011 @@
+[
+  {
+    "id": "5727e6cbff5b5019007d97ef",
+    "question": "According to Oxfam, the 85 richest people have wealth equal to how many average people?",
+    "answer": "about 3.5 billion people",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5729e2316aef0514001550c5",
+    "question": "How many square kilometers is the Amazon Basin?",
+    "answer": "7,000,000 square kilometres (2,70",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57287f6a3acd2414000dfa54",
+    "question": "What form of poetry was developed in the Yuan?",
+    "answer": "the qu",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5705e63175f01819005e7720",
+    "question": "The cities of Los Angeles and San Diego are a part of which state?",
+    "answer": "California",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "57293e983f37b3190047818d",
+    "question": "Which journal was the joint statement published in?",
+    "answer": "Science",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5730035e04bcaa1900d77001",
+    "question": "When was the Muslim Brotherhood founded?",
+    "answer": "1928",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57293d6d1d046914007791b8",
+    "question": "How many lead authors does an IPCC report chapter have?",
+    "answer": "ten to fifteen",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5728e07e3acd2414000e00e9",
+    "question": "What is a simple form of civil disobedience?",
+    "answer": "disobedience of laws",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5726975c708984140094cb21",
+    "question": "Which court argued that the Treaty of Rome did not prevent energy nationalism?",
+    "answer": "the Court of Justice",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57114e8d50c2381900b54a5f",
+    "question": "What is a turbine's theoretical Carnot efficiency?",
+    "answer": "63%",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+
+  {
+    "id": "5726da89dd62a815002e92b3",
+    "question": "With what body must a pharmacy technician register?",
+    "answer": "the General Pharmaceutical Council (GPhC) register",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56de16ca4396321400ee25c6",
+    "question": "Who killed Harold II?",
+    "answer": "William II",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5728fd206aef05140015494f",
+    "question": "Commensal flora can change what specific conditions of their environment in the gastrointestinal tract?",
+    "answer": "pH or available iron",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5726462b708984140094c117",
+    "question": "What is CSNET",
+    "answer": "The Computer Science Network",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57273f27dd62a815002e9a0b",
+    "question": "There are other categories for what?",
+    "answer": "construction service firms (e.g., engineering, architecture) and construction managers",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5728f2e26aef051400154898",
+    "question": "What field involves the study of the immune system?",
+    "answer": "Immunology",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57288428ff5b5019007da28e",
+    "question": "What Yuan policies did Muslims dislike?",
+    "answer": "restricting Halal slaughter and other Islamic practices like circumcision",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5726a46cdd62a815002e8bd2",
+    "question": "What title was the Social Charter set to be included into the Maastricht treaty under?",
+    "answer": "the \"Social Chapter\"",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572fce13a23a5019007fca12",
+    "question": "What are presented to parliament in addition to the bill itself?",
+    "answer": "accompanying documents",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57107d73b654c5140001f91e",
+    "question": "When was this edict declared?",
+    "answer": "1685",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+
+  {
+    "id": "57267b3c5951b619008f7423",
+    "question": "How else can petrologists understand the pressures at which different mineral phases appear?",
+    "answer": "pressure physical experiments",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "572a1f086aef0514001552c1",
+    "question": "What would be lower if there were fewer people?",
+    "answer": "emissions per person",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5737534ec3c5551400e51eac",
+    "question": "What law staes that forces are interactions between bodies?",
+    "answer": "Newton's Third",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56e1aba0e3433e1400423095",
+    "question": "It is generally assumed that a Turing machine can solve anything capable of also being solved using what?",
+    "answer": "an algorithm",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "5725edfe38643c19005acea1",
+    "question": "The west side of Fresno is the center of which ethnic community?",
+    "answer": "African-American",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57264845f1498d1400e8db0e",
+    "question": "What contributed to the severity of the plague?",
+    "answer": "war, famine, and weather",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57097051ed30961900e84134",
+    "question": "What did BSkyB name their interactive service?",
+    "answer": "Sky Active",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725dd7d89a1e219009abfec",
+    "question": "From what landmark within Fresno does the Tower Theatre get its name?",
+    "answer": "water tower",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57265a58dd62a815002e8270",
+    "question": "Name a type of Toyota compact trucks?",
+    "answer": "Toyota Hilux",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572757bef1498d1400e8f693",
+    "question": "What was the primary race of students attending Christian academies after the Brown decision?",
+    "answer": "white",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+
+  {
+    "id": "5726887e708984140094c918",
+    "question": "Haeckelia prey mostly on what animal?",
+    "answer": "jellyfish",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56e1a38de3433e140042305f",
+    "question": "In what unit is the size of the input measured?",
+    "answer": "bits",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "573060b48ab72b1400f9c4c6",
+    "question": "The word imperialism has it's origins in which ancient language?",
+    "answer": "Latin",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572ffee1947a6a140053cf16",
+    "question": "What year did Iqbal return to Lahore?",
+    "answer": "1908",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5725c41eec44d21400f3d50f",
+    "question": "How are the explanations supported?",
+    "answer": "explanations are reasonably well supported",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "5729d878af94a219006aa66c",
+    "question": "What do wages work in the same way as for any other good?",
+    "answer": "prices",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56de1563cffd8e1900b4b5c2",
+    "question": "When did the Normans attack Dyrrachium?",
+    "answer": "1185",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5727c94bff5b5019007d954e",
+    "question": "What year did consolidation cause Jacksonville to become part of Duval County?",
+    "answer": "1968",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "570607f575f01819005e78b4",
+    "question": "What is the largest city in all of California?",
+    "answer": "Los Angeles",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572a1c943f37b319004786e2",
+    "question": "What decreased in number between 1984 and 1991?",
+    "answer": "quality rental units",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+
+  {
+    "id": "57286d7d4b864d19001649e4",
+    "question": "What comedian is also a university graduate?",
+    "answer": "Mike Nichols",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "571090abb654c5140001f999",
+    "question": "What is located on the site of The Weaving House currently?",
+    "answer": "a restaurant",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5726f2375951b619008f830f",
+    "question": "What two things does pharmacy informatics bring together?",
+    "answer": "pharmacy practice science and applied information science",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56de4c324396321400ee27ad",
+    "question": "Who commissioned the Tapestry?",
+    "answer": "Odo",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "570d2f5bfed7b91900d45ccf",
+    "question": "When did Victoria enact its constitution?",
+    "answer": "1975",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57273a465951b619008f8703",
+    "question": "Construction takes place on location for who?",
+    "answer": "a known client",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572ff4ca04bcaa1900d76f24",
+    "question": "Which direction does two thirds of the Rhine flow outside of Germany?",
+    "answer": "west",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "57293b843f37b31900478136",
+    "question": "What is the UN's climate change treaty?",
+    "answer": "United Nations Framework Convention on Climate Change",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5705e26d75f01819005e76d7",
+    "question": "What are the ties that best described what the \"eight counties\" are based on?",
+    "answer": "demographics and economic ties",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57115f652419e314009555b9",
+    "question": "Who received the first steam engine patent?",
+    "answer": "Jerónimo de Ayanz y Beaumont",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+
+  {
+    "id": "57115b8b50c2381900b54a8b",
+    "question": "In what year did Richard Trevithick patent his device?",
+    "answer": "1802",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57265700dd62a815002e8212",
+    "question": "When was Europe's last major epidemic?",
+    "answer": "1720 in Marseille.",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "572a20816aef0514001552e4",
+    "question": "Who argues that the government redistributes wealth by force?",
+    "answer": "Robert Nozick",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57287b322ca10214002da3c0",
+    "question": "In what sector are jobs beginning to increase?",
+    "answer": "service",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5733ea04d058e614000b6596",
+    "question": "Where was Marin's second fort constructed?",
+    "answer": "Fort Le Boeuf (present-day Waterford, Pennsylvania",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5728827b2ca10214002da42c",
+    "question": "When did the Yuan begin using bronze printing plates for its money?",
+    "answer": "1275",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "571ccfbadd7acb1400e4c168",
+    "question": "What other catalysts can be used to produce oxygen?",
+    "answer": "Chemical",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "5725cfd0271a42140099d226",
+    "question": "What were the reasons why residents moved to the town of Fresno Station?",
+    "answer": "the convenience of the railroad and worried about flooding",
+    "interrogative": "why",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5727ec062ca10214002d99b6",
+    "question": "What is controled by the market and economy?",
+    "answer": "workers wages",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725c337271a42140099d166",
+    "question": "What do coastal beroids not have that other ctenophora have?",
+    "answer": "tentacles",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+
+  {
+    "id": "571cb27fdd7acb1400e4c136",
+    "question": "During what type of climate is oxygen 18 in seawater at higher levels?",
+    "answer": "lower global temperatures",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "57300911947a6a140053cfba",
+    "question": "Who threw gold into the Rhine, according to legend?",
+    "answer": "Hagen",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "56dddf4066d3e219004dad60",
+    "question": "Who ruled the duchy of Normandy",
+    "answer": "Richard I",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "572949306aef051400154c6a",
+    "question": "How much do researchers now think sea levels will rise from 1990 to 2100?",
+    "answer": "50–140 cm",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5727565ef1498d1400e8f674",
+    "question": "What is the average construction salary in the Middle East?",
+    "answer": "£42,090",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57264684708984140094c126",
+    "question": "When did the world's population finally recover from the black death?",
+    "answer": "the 17th century",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57265526708984140094c2c0",
+    "question": "When did the Shah kingdom start to collapse?",
+    "answer": "January 1979",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "572658435951b619008f7025",
+    "question": "Which branch of the EU has had the most influence on the development of EU law?",
+    "answer": "judicial branch",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5728223cff5b5019007d9dc7",
+    "question": "Aside from being located on the coast, what contributes to Jacksonville's lack of cold weather?",
+    "answer": "low latitude",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5733f9fa4776f41900661620",
+    "question": "How were British able to cut supplies to Louisbourg?",
+    "answer": "deportation of the French-speaking Acadian population from the area.",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+
+  {
+    "id": "572ffa79a23a5019007fcbea",
+    "question": "What period opened the Tethys Ocean?",
+    "answer": "Mesozoic Era",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5725fb8138643c19005acf3f",
+    "question": "Why does Fresno only have UHF television stations?",
+    "answer": "To avoid interference with existing VHF television stations",
+    "interrogative": "why",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5730ac782461fd1900a9cf74",
+    "question": "When was Otto von Bismarck born?",
+    "answer": "1862",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "570603c475f01819005e7885",
+    "question": "What kind of economy did northern California start to grow in the 2000s?",
+    "answer": "tech-oriented",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "571cde695efbb31900334e19",
+    "question": "Besides fats, fatty acids, and amino acids,what other organic compounds contain oxygen?",
+    "answer": "proteins",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725bad5271a42140099d0bd",
+    "question": "When did Syria and Egypt launch a surprise attack on Israel?",
+    "answer": "On October 6, 1973",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57265746dd62a815002e821a",
+    "question": "Cydippid are typically what shape?",
+    "answer": "more or less rounded",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "571135b8a58dae1900cd6d10",
+    "question": "In what decade were injectors widely used in steam engines?",
+    "answer": "1850s",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5728848cff5b5019007da29a",
+    "question": "There were many Chinese with what unexpected status?",
+    "answer": "rich and well socially standing",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "572742bd5951b619008f8785",
+    "question": "Residential construction practices, technologies, and resources must conform to what?",
+    "answer": "local building authority regulations and codes of practice",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+
+  {
+    "id": "5711607f2419e314009555d1",
+    "question": "Along with fuel sources, what concern has contributed to the development of the Advanced Steam movement?",
+    "answer": "pollution",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57340111d058e614000b677f",
+    "question": "Where was Montcalm focusing the defense for New France?",
+    "answer": "St. Lawrence, with primary defenses at Carillon, Quebec, and Louisbourg,",
+    "interrogative": "where",
+    "cardinality": "multipart",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "572a04d51d046914007796cd",
+    "question": "What are examples of differentiated effector cells that peak during wake periods?",
+    "answer": "cytotoxic natural killer cells and CTLs (cytotoxic T lymphocytes)",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57264cac708984140094c1b7",
+    "question": "How was scarcity managed in many countries?",
+    "answer": "rationing",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "procedural"
+  },
+  {
+    "id": "56de3d594396321400ee26ca",
+    "question": "Where was Ralph earl of?",
+    "answer": "Hereford",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "56de49a8cffd8e1900b4b7a9",
+    "question": "Who sold the rights?",
+    "answer": "Maciot de Bethencourt",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57303048947a6a140053d257",
+    "question": "What position in the government does Robert Gates hold?",
+    "answer": "U.S. Defense Secretary",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "role"
+  },
+  {
+    "id": "5733d249d058e614000b6332",
+    "question": "How much resources were French placing in North America?",
+    "answer": "unwilling to risk large convoys to aid the limited forces it had in New France",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5726559edd62a815002e81ca",
+    "question": "How many people died in the outbreak of 1471?",
+    "answer": "10–15% of the population",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "571c8539dd7acb1400e4c0e4",
+    "question": "What gave Priestley the claim to being the first discovered of oxygen?",
+    "answer": "work was published first",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "causal"
+  },
+
+  {
+    "id": "5706155352bb891400689894",
+    "question": "What is a growing sport in southern California?",
+    "answer": "Rugby",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56de11154396321400ee25aa",
+    "question": "What were the origins of the Raouliii family?",
+    "answer": "Norman mercenary",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572a1f086aef0514001552c0",
+    "question": "When economic inequality is smaller, more waste and pollution is?",
+    "answer": "created",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "verb",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "5711628a2419e314009555df",
+    "question": "How many valves did the Corliss engine use?",
+    "answer": "four",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5726da89dd62a815002e92b6",
+    "question": "What types of responsibilities might a pharmacy technician have?",
+    "answer": "manage the pharmacy department and specialised areas in pharmacy practice",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "role"
+  },
+  {
+    "id": "57297ed93f37b31900478463",
+    "question": "What is the name of another compelling continuation of the Fermat primality test?",
+    "answer": "Solovay-Strassen tests",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5710e9f8a58dae1900cd6b34",
+    "question": "When was the colony destroyed?",
+    "answer": "1565",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "570d4329fed7b91900d45dd8",
+    "question": "When was gold found near Ballarat?",
+    "answer": "1851",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5725b81b271a42140099d09a",
+    "question": "How many nations contain \"Amazonas\" in their names?",
+    "answer": "States or departments in four nations contain \"Amazonas\" in their names.",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "clause",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "572ff07304bcaa1900d76ef5",
+    "question": "The Rhine is the longest river in what country?",
+    "answer": "Germany",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  }
+]

@@ -1,0 +1,719 @@
+TAXONOMY DERIVATION REPORT
+Based on 5928 classified SQuAD questions
+============================================================
+
+VIABLE TAXONOMY CLASSES
+(minimum 10 questions per class)
+
+Class 1: what/singular/thing/noun/identificatory
+  Count: 922 (15.6%)
+  Example Q: What is the original meaning of the word Norman?
+  Example A: Viking
+
+Class 2: when/singular/time/noun/temporal
+  Count: 489 (8.2%)
+  Example Q: When were the Normans in Normandy?
+  Example A: 10th and 11th centuries
+
+Class 3: how/singular/number/noun/quantitative
+  Count: 432 (7.3%)
+  Example Q: How many men were in Robert's army?
+  Example A: 30,000
+
+Class 4: who/singular/person/noun/agent
+  Count: 351 (5.9%)
+  Example Q: Who was the Norse leader?
+  Example A: Rollo
+
+Class 5: what/singular/concept/noun/identificatory
+  Count: 318 (5.4%)
+  Example Q: What branch of theoretical computer science deals with broadly classifying computational problems by difficulty and class of relationship?
+  Example A: Computational complexity theory
+
+Class 6: where/singular/place/noun/locative
+  Count: 235 (4.0%)
+  Example Q: In what country is Normandy located?
+  Example A: France
+
+Class 7: what/singular/concept/noun/descriptive
+  Count: 193 (3.3%)
+  Example Q: What religion were the Normans
+  Example A: Catholic
+
+Class 8: what/singular/thing/noun/resultative
+  Count: 178 (3.0%)
+  Example Q: What will the output be for a member of the language of a decision problem?
+  Example A: yes
+
+Class 9: what/singular/number/noun/quantitative
+  Count: 159 (2.7%)
+  Example Q: What is the prize offered for finding a solution to P=NP?
+  Example A: $1,000,000
+
+Class 10: what/singular/concept/adjective/descriptive
+  Count: 145 (2.4%)
+  Example Q: What is commonly believed to be the value relationship between P and co-NP
+  Example A: not equal
+
+Class 11: what/singular/thing/noun/instrumental
+  Count: 141 (2.4%)
+  Example Q: What is typically used to broadly define complexity measures?
+  Example A: Blum complexity axioms
+
+Class 12: what/singular/thing/noun/descriptive
+  Count: 131 (2.2%)
+  Example Q: What were Isaac's chains made out of?
+  Example A: silver
+
+Class 13: what/singular/concept/noun/resultative
+  Count: 128 (2.2%)
+  Example Q: A non-deterministic Turing machine has the ability to capture what facet of useful analysis?
+  Example A: mathematical models
+
+Class 14: what/singular/place/noun/identificatory
+  Count: 106 (1.8%)
+  Example Q: What is the name of the region that is not defined by the eight or 10 county definitions?
+  Example A: Southern California Megaregion
+
+Class 15: who/singular/person/noun/identificatory
+  Count: 103 (1.7%)
+  Example Q: Who was Robert's son?
+  Example A: Bohemond
+
+Class 16: what/multipart/thing/noun/identificatory
+  Count: 82 (1.4%)
+  Example Q: What are two basic primary resources used to guage complexity?
+  Example A: time and storage
+
+Class 17: what/singular/thing/noun/agent
+  Count: 81 (1.4%)
+  Example Q: What provides a solution to a list of integers provided as input that ned to be sorted?
+  Example A: deterministic sorting algorithm quicksort
+
+Class 18: what/singular/concept/noun/causal
+  Count: 68 (1.1%)
+  Example Q: The reasons for the las two counties to be added are based on what?
+  Example A: historical political divisions
+
+Class 19: which/singular/thing/noun/identificatory
+  Count: 63 (1.1%)
+  Example Q: Which organization released a California Earthquake forecast?
+  Example A: USGS
+
+Class 20: what/singular/thing/noun/role
+  Count: 58 (1.0%)
+  Example Q: That there currently exists no known integer factorization problem underpins what commonly used system?
+  Example A: modern cryptographic systems
+
+Class 21: what/singular/person/noun/identificatory
+  Count: 54 (0.9%)
+  Example Q: What was the name of the count of Apulia 
+  Example A: Robert Guiscard
+
+Class 22: what/singular/thing/noun/causal
+  Count: 51 (0.9%)
+  Example Q: What ruined Richard's plans to reach Acre?
+  Example A: a storm
+
+Class 23: why/singular/concept/noun/causal
+  Count: 51 (0.9%)
+  Example Q: Why is Priestley usually given credit for being first to discover oxygen?
+  Example A: published his findings first
+
+Class 24: what/singular/place/noun/locative
+  Count: 48 (0.8%)
+  Example Q: What river originally bounded the Duchy
+  Example A: Seine
+
+Class 25: what/singular/concept/clause/descriptive
+  Count: 45 (0.8%)
+  Example Q: What commonality do alternate machine models, such as random access machines, share with Turing machines?
+  Example A: the machines operate deterministically
+
+Class 26: what/singular/time/noun/temporal
+  Count: 40 (0.7%)
+  Example Q: What year did the storm hit Richard's fleet?
+  Example A: 1191
+
+Class 27: what/singular/concept/noun/role
+  Count: 38 (0.6%)
+  Example Q: What practical role does defining the complexity of problems play in everyday computing?
+  Example A: determine the practical limits on what computers can and cannot do
+
+Class 28: why/singular/concept/clause/causal
+  Count: 37 (0.6%)
+  Example Q: Why did Berlin Huguenots switch to German from French in their services?
+  Example A: in protest against the occupation of Prussia by Napoleon
+
+Class 29: how/singular/concept/adjective/descriptive
+  Count: 36 (0.6%)
+  Example Q: Is a problem instance typically characterized as abstract or concrete?
+  Example A: concrete
+
+Class 30: what/singular/person/noun/agent
+  Count: 32 (0.5%)
+  Example Q: What entity owns V/Line?
+  Example A: Victorian Government
+
+Class 31: who/singular/person/noun/role
+  Count: 29 (0.5%)
+  Example Q: Who can be in the Victorian cabinet?
+  Example A: representatives
+
+Class 32: which/singular/place/noun/identificatory
+  Count: 28 (0.5%)
+  Example Q: Which coastline does Southern California touch?
+  Example A: Pacific
+
+Class 33: how/singular/time/noun/temporal
+  Count: 28 (0.5%)
+  Example Q: How often are elections held for the Victorian Parliament?
+  Example A: every four years
+
+Class 34: how/singular/concept/noun/procedural
+  Count: 28 (0.5%)
+  Example Q: How was the efficiency of a steam engine typically evaluated?
+  Example A: duty
+
+Class 35: who/singular/thing/noun/agent
+  Count: 27 (0.5%)
+  Example Q: Who purhcased the remaining 4 pacakages available to broadcasters?
+  Example A: Sky
+
+Class 36: what/singular/thing/adjective/descriptive
+  Count: 26 (0.4%)
+  Example Q: What kind of arches does Norman architecture have?
+  Example A: rounded
+
+Class 37: what/multipart/concept/noun/identificatory
+  Count: 25 (0.4%)
+  Example Q: What are two factors that directly effect how powerful a Turing machine may or may not be?
+  Example A: time or space
+
+Class 38: what/singular/thing/noun/locative
+  Count: 25 (0.4%)
+  Example Q: In what expression can one expect to find DTIME(n)
+  Example A: DTIME(n2)
+
+Class 39: how/singular/concept/clause/procedural
+  Count: 25 (0.4%)
+  Example Q: How did the new king react to the Huguenots?
+  Example A: acted increasingly aggressively to force the Huguenots to convert
+
+Class 40: what/singular/concept/clause/resultative
+  Count: 24 (0.4%)
+  Example Q: What did Virgin Media claim BSkyB did that resulted Virgin not carrying the channels anymore?
+  Example A: substantially increased the asking price
+
+Class 41: what/multipart/thing/noun/descriptive
+  Count: 23 (0.4%)
+  Example Q: What are the two simple word responses to a decision problem?
+  Example A: yes or no
+
+Class 42: what/singular/concept/noun/instrumental
+  Count: 23 (0.4%)
+  Example Q: Complexity theory classifies problems based on what primary attribute?
+  Example A: difficulty
+
+Class 43: what/multipart/concept/noun/descriptive
+  Count: 23 (0.4%)
+  Example Q: Though unkown, what are the most commonly ascribed attributes of L in relation to P
+  Example A: strictly contained in P or equal to P
+
+Class 44: which/singular/place/noun/locative
+  Count: 22 (0.4%)
+  Example Q: Which city does the Hollywood district belong to?
+  Example A: Los Angeles
+
+Class 45: what/singular/concept/verb/resultative
+  Count: 20 (0.3%)
+  Example Q: What was the effect of the housing crash on the region?
+  Example A: heavily impacted
+
+Class 46: what/singular/thing/verb/resultative
+  Count: 18 (0.3%)
+  Example Q: An algorithm for X which reduces to C would us to do what?
+  Example A: solve any problem in C
+
+Class 47: how/singular/concept/clause/descriptive
+  Count: 16 (0.3%)
+  Example Q: Can the President of the Council vote on important matters related to the European Central Bank?
+  Example A: do not have voting rights
+
+Class 48: who/multipart/person/noun/agent
+  Count: 15 (0.3%)
+  Example Q: Who are commonly associated with the algorithm typically considered the most effective with respect to finite polynomial hierarchy and graph isomorphism?
+  Example A: Laszlo Babai and Eugene Luks
+
+Class 49: what/singular/thing/clause/resultative
+  Count: 15 (0.3%)
+  Example Q: What happens to the packet at the destination
+  Example A: the original message/data is reassembled in the correct order, based on the packet sequence number
+
+Class 50: what/multipart/concept/noun/resultative
+  Count: 14 (0.2%)
+  Example Q: What complex measurements were defined by "On the Computational Complexity of Algorithms"?
+  Example A: time and space
+
+Class 51: which/singular/thing/noun/agent
+  Count: 14 (0.2%)
+  Example Q: Which company owns ABC?
+  Example A: The Walt Disney Company
+
+Class 52: what/singular/number/noun/descriptive
+  Count: 14 (0.2%)
+  Example Q: What is the position of the satellite that allowed sky to broadcast channels almost elclusively for the United Kingdom?
+  Example A: 28.5°E
+
+Class 53: how/singular/number/adjective/quantitative
+  Count: 14 (0.2%)
+  Example Q: How much did the population of Victoria increase in ten years after the discovery of gold?
+  Example A: sevenfold
+
+Class 54: how/singular/concept/noun/descriptive
+  Count: 14 (0.2%)
+  Example Q: How is dioxygen most simply described?
+  Example A: covalent double bond
+
+Class 55: what/multipart/concept/noun/causal
+  Count: 14 (0.2%)
+  Example Q: What could justify restrictions on freedom of establishment?
+  Example A: creditor protection, labour rights to participate in work, or the public interest in collecting taxes
+
+Class 56: where/multipart/place/noun/locative
+  Count: 13 (0.2%)
+  Example Q: From which countries did the Norse originate?
+  Example A: Denmark, Iceland and Norway
+
+Class 57: what/multipart/place/noun/identificatory
+  Count: 13 (0.2%)
+  Example Q: What are Los Angeles, Orange, San Diego, San Bernardino and Riverside?
+  Example A: counties
+
+Class 58: who/multipart/person/noun/identificatory
+  Count: 12 (0.2%)
+  Example Q: Who were the two abbots at Fécamp Abbey?
+  Example A: William of Volpiano and John of Ravenna
+
+Class 59: what/singular/concept/clause/causal
+  Count: 12 (0.2%)
+  Example Q: What was a non-religious reason for the massacre?
+  Example A: some of the Huguenots were nobles trying to establish separate centers of power in southern France
+
+Class 60: which/singular/concept/noun/identificatory
+  Count: 12 (0.2%)
+  Example Q: Which principle is based on the appearance of fossils in sedimentary rocks?
+  Example A: The principle of faunal succession
+
+Class 61: which/singular/person/noun/agent
+  Count: 11 (0.2%)
+  Example Q: Which Senator was a strong advocate for the Pico Act?
+  Example A: Milton Latham
+
+Class 62: which/singular/time/noun/temporal
+  Count: 11 (0.2%)
+  Example Q: In which year did the newspaper define southern California?
+  Example A: 1900
+
+Class 63: what/multipart/thing/noun/instrumental
+  Count: 11 (0.2%)
+  Example Q: What is needed to make combustion happen?
+  Example A: heat or a spark
+
+Class 64: where/singular/thing/noun/locative
+  Count: 11 (0.2%)
+  Example Q: From where would scientists like measure vegetation radiance?
+  Example A: satellite platform
+
+Class 65: what/multipart/thing/noun/resultative
+  Count: 11 (0.2%)
+  Example Q: What does the electrolysis of water produce?
+  Example A: oxygen and hydrogen
+
+Class 66: which/multipart/thing/noun/identificatory
+  Count: 11 (0.2%)
+  Example Q: Which two courts apply European Union law?
+  Example A: courts of member states and the Court of Justice of the European Union
+
+Class 67: what/singular/concept/verb/descriptive
+  Count: 10 (0.2%)
+  Example Q: What was happening to subscriber numbers in other areas of europe?
+  Example A: flattened
+
+
+RARE CLASSES (candidates for merging)
+
+  who/singular/thing/noun/identificatory (9x)
+    Ex: Who was the ruling class ahead of the Normans?
+  how/singular/thing/noun/procedural (9x)
+    Ex: How can function problems typically be restated?
+  what/singular/number/noun/identificatory (9x)
+    Ex: What magnitude was the 1994 Northridge earthquake?
+  when/singular/time/clause/temporal (9x)
+    Ex: When do treaties apply?
+  how/singular/concept/noun/instrumental (9x)
+    Ex: How do ctenophores control buoyancy?
+  which/singular/place/noun/agent (8x)
+    Ex: Which country used to rule California?
+  how/singular/thing/noun/instrumental (8x)
+    Ex: How did the Huguenots defend themselves?
+  which/singular/place/noun/role (8x)
+    Ex: Which country is a traditional ally of Israel?
+  how/singular/time/noun/quantitative (8x)
+    Ex: How long would the invasion of the Middle East have to last in order to develop renewable resources?
+  what/singular/concept/verb/procedural (7x)
+    Ex: What does connecting different Sky Q boxes enable them to do?
+  what/singular/place/noun/role (7x)
+    Ex: What city is the capital of Victoria?
+  what/singular/number/adjective/descriptive (7x)
+    Ex: Compared to other Australian cities, what is the size of Melbourne?
+  what/singular/concept/noun/agent (7x)
+    Ex: What produces the high levels of oxygen on Earth?
+  what/singular/person/noun/role (7x)
+    Ex: Highways built in the Amazon rainforest were built primarily for what kind of farmers?
+  what/singular/concept/adjective/identificatory (7x)
+    Ex: Ctenophores and cnidarians are classified as what?
+  which/singular/thing/noun/locative (6x)
+    Ex: Jamboree Business Parks belongs to which business center?
+  what/singular/concept/adjective/resultative (6x)
+    Ex: What effect did breathing Priestley's discovered gas have on the experiment's mouse?
+  what/multipart/thing/noun/causal (6x)
+    Ex:  What may have caused rainforests to grow across South America?
+  what/singular/concept/clause/procedural (6x)
+    Ex: What do the auricles do?
+  which/singular/concept/noun/descriptive (5x)
+    Ex: Which bound of time is more difficult to establish?
+  how/singular/concept/verb/procedural (5x)
+    Ex: How did the revocation restrict Huguenot travel?
+  what/multipart/thing/noun/role (5x)
+    Ex: What parts of a conventional reciprocating steam engine could be replaced by a pistonless rotary engine?
+  what/multipart/concept/clause/descriptive (5x)
+    Ex: What powers does the Court of Justice of the European Union have in regards to treaties?
+  what/multipart/concept/clause/resultative (5x)
+    Ex: What happens first if a Directive's deadline for implementation is not met?
+  what/singular/concept/clause/identificatory (5x)
+    Ex: What is a hermaphrodite?
+  what/singular/time/noun/identificatory (5x)
+    Ex: What was the period called that was 505 million years ago?
+  what/singular/thing/noun/procedural (5x)
+    Ex: Name one way the Plowshares organization temporarily close GCSB Waihopai?
+  what/multipart/person/noun/identificatory (5x)
+    Ex: What anthropologists are also university alumni members?
+  what/multipart/thing/noun/agent (4x)
+    Ex: What theorems are responsible for determining questions of time and space requirements?
+  what/multipart/place/noun/locative (4x)
+    Ex: What were the first two destinations of Huguenot emigres?
+  which/singular/thing/noun/role (4x)
+    Ex: Which court is the highest court in the European Union?
+  how/multipart/concept/clause/procedural (4x)
+    Ex: How did the principle treaties that form the European Union begin?
+  what/singular/person/noun/descriptive (4x)
+    Ex: The legislative body, the Council, are made up of what type of individuals?
+  which/multipart/place/noun/identificatory (4x)
+    Ex: Which countries were the European Coal and Steel Community agreement between?
+  which/singular/person/noun/identificatory (4x)
+    Ex: Which pharmacists are likely to seek additional education following pharmacy school?
+  where/singular/concept/noun/locative (4x)
+    Ex: Where might the doctor's self-interest be at odds with the patient's self-interest?
+  why/singular/concept/verb/causal (4x)
+    Ex: Why should one not go to jail?
+  what/singular/thing/adjective/identificatory (4x)
+    Ex: Along with private individuals and organizations, what groups sometimes runs ergänzungsschulen?
+  what/multipart/number/noun/descriptive (3x)
+    Ex: What are the two integer responses to a decision problem?
+  which/singular/thing/adjective/descriptive (3x)
+    Ex: Which border does the megaregion extend over?
+  which/singular/place/adjective/locative (3x)
+    Ex: The Port of Long Beach belongs to which region of California?
+  which/singular/concept/noun/role (3x)
+    Ex: The Los Angeles Clippers are a team belonging to which sport?
+  how/singular/concept/adjective/procedural (3x)
+    Ex: How are Victorian cabinet members chosen?
+  which/multipart/place/noun/locative (3x)
+    Ex: Which Irish cities had large Huguenot enclaves?
+  where/singular/place/adjective/locative (3x)
+    Ex: In what geographical portion of Wales is Abercynon located?
+  how/singular/thing/clause/procedural (3x)
+    Ex: How did the Nixon administration negotiate with the uncooperative countries?
+  why/multipart/concept/clause/causal (3x)
+    Ex: Why did oil start getting priced in terms of gold?
+  who/multipart/thing/noun/agent (3x)
+    Ex: Who applies European Union law?
+  which/singular/thing/noun/instrumental (3x)
+    Ex: Which treaty provides that the European Union law be applied to metropolitan territories of member states?
+  what/singular/thing/noun/temporal (3x)
+    Ex: The amazon rainforest became a mostly inland forest around which global event?
+  what/singular/time/clause/temporal (3x)
+    Ex: In which point did the drainage basin of the Amazon split?
+  where/singular/place/clause/locative (3x)
+    Ex: Where did it join in the direction of its flow?
+  what/multipart/thing/clause/resultative (3x)
+    Ex: What did DECnet phase 2 become 
+  what/singular/role/noun/role (3x)
+    Ex: What position did the tax collector that arrested Thoreau get?
+  what/singular/place/noun/agent (3x)
+    Ex: What was the first US state to have compulsory education?
+  why/multipart/concept/noun/causal (3x)
+    Ex: Why do firms substitute equipment for workers?
+  what/multipart/person/noun/role (3x)
+    Ex: What cancer researchers were also apart of the university's faculty?
+  what/multipart/person/noun/agent (3x)
+    Ex: What Han Chinese leader defected to the Mongols?
+  what/singular/place/adjective/locative (2x)
+    Ex: What part of France were the Normans located?
+  what/singular/thing/noun/quantitative (2x)
+    Ex: What is the most critical resource measured to in assessing the determination of a Turing machine's ability to solve any given set of problems?
+  what/singular/concept/noun/quantitative (2x)
+    Ex: Case complexity likelihoods provide variable probabilities of what general measure? 
+  what/singular/thing/verb/role (2x)
+    Ex: According to reduction, if X and Y can be solved by the same algorithm then X performs what function in relationship to Y?
+  how/singular/thing/noun/descriptive (2x)
+    Ex: A problem set that that is hard for the expression NP can also be stated how?
+  what/singular/place/adjective/descriptive (2x)
+    Ex: Point Conception is an example of a landmark among what boundary of southern California?
+  what/singular/number/adjective/quantitative (2x)
+    Ex: At what rate is Orange County developing its business centers?
+  where/singular/concept/adjective/descriptive (2x)
+    Ex: Where does oxygen rank by mass in the planet's biosphere?
+  what/singular/concept/noun/locative (2x)
+    Ex: During what type of climate is oxygen 18 in seawater at higher levels?
+  what/multipart/number/noun/quantitative (2x)
+    Ex: At what wavelength do the spectrophotometric bands peak?
+  when/singular/concept/noun/temporal (2x)
+    Ex: When can oxygen gas produce a toxic condition?
+  which/singular/person/noun/descriptive (2x)
+    Ex: Which country was worried that the US would invade the Middle East?
+  which/singular/place/noun/descriptive (2x)
+    Ex: Which country is the most dependent on Arab oil?
+  which/singular/thing/noun/descriptive (2x)
+    Ex: Which sized cars were the least demanded cars in the crisis?
+  what/multipart/concept/clause/identificatory (2x)
+    Ex: What reform was attempted following the Nice Treaty?
+  what/multipart/time/noun/temporal (2x)
+    Ex: What were the years two Regulations that conflicted with an Italian law originate in the Simmenthal SpA case? 
+  which/multipart/person/noun/agent (2x)
+    Ex: Which two importers claimed that under a French competition law, they were prevented from selling Picon beer under wholesale price?
+  how/multipart/number/noun/quantitative (2x)
+    Ex: How many invertebrate species are known in Brazil alone? 
+  how/singular/concept/verb/descriptive (2x)
+    Ex: Does the residential architecture of the Tower District compare or contrast with other part of Fresno?
+  what/singular/place/noun/descriptive (2x)
+    Ex: What area of Brookhaven is still known for its high levels of crime?
+  how/singular/number/clause/quantitative (2x)
+    Ex: DEC originally had 3 layers but evolved into how many layers 
+  which/singular/thing/noun/resultative (2x)
+    Ex: Sedimentary rock can be turned into which of the three types of rock?
+  what/singular/time/adjective/descriptive (2x)
+    Ex: When rock formations are found on top of a fault that have not been cut, then they must be older or younger than the fault?
+  what/singular/concept/noun/procedural (2x)
+    Ex: Gandhi often referenced Shelley's poem in his efforts to do what? 
+  what/singular/thing/verb/instrumental (2x)
+    Ex: What did Thoreau ask a public figure the taxman to do?
+  when/singular/concept/clause/temporal (2x)
+    Ex: When do cash flow problems exist?
+  who/singular/person/noun/descriptive (2x)
+    Ex: Who has limited productive potential when faced with less access to education?
+  which/singular/concept/noun/instrumental (2x)
+    Ex: Under which policy are labor unions encouraged?
+  who/singular/thing/noun/role (2x)
+    Ex: Who is seen as the ultimate climate change authority?
+  how/singular/concept/noun/causal (2x)
+    Ex: How was the Rhine Gorge formed?
+  which/singular/concept/adjective/descriptive (2x)
+    Ex: Which direction did the Rhine flow during the last cold phase?
+  whose/singular/person/noun/agent (2x)
+    Ex: Whose control of the UK's government helped fuel a desire for a Scottish Parliament?
+  how/singular/thing/verb/resultative (2x)
+    Ex: How was Sadat rewarded by the Islamists for his attempts to bring Egypt into modern times and civilization?
+  whose/singular/thing/noun/role (2x)
+    Ex: Whose puppet did Islamists accuse the Saudi regime of being?
+  what/singular/place/noun/resultative (1x)
+    Ex: What major conquest did Tancred play a roll in?
+  what/singular/thing/adjective/role (1x)
+    Ex: What type of Turing machine can be characterized by checking multiple possibilities at the same time?
+  how/singular/thing/noun/resultative (1x)
+    Ex: To what level would the polynomial time hierarchy collapse if graph isomorphism is NP-complete?
+  how/singular/number/noun/procedural (1x)
+    Ex: How quickly can an algorithm solve an NP-complete knapsack problem?
+  which/singular/concept/noun/locative (1x)
+    Ex: In which cardinal direction from Los Angeles is San Diego?
+  where/singular/number/noun/locative (1x)
+    Ex: Geographically speaking, where is California's north - south midway point in terms of latitude?
+  which/singular/place/adjective/role (1x)
+    Ex: In the definition based off the mountain range, which region would the desert portions of north Los Angeles County be included in?
+  where/singular/number/adjective/quantitative (1x)
+    Ex: Where does southern California's megalopolis standard in terms of population nationwide?
+  who/singular/thing/noun/instrumental (1x)
+    Ex: Who's satellites would the new free-to-air channels be broadcast from?
+  where/singular/number/noun/quantitative (1x)
+    Ex: Where according to gross state product does Victoria rank in Australia?
+  what/multipart/concept/adjective/descriptive (1x)
+    Ex: What were the conditions for miners in the gold fields in Victoria?
+  how/singular/number/adjective/descriptive (1x)
+    Ex: How populous is Victoria compared to other Australian states?
+  what/singular/thing/clause/descriptive (1x)
+    Ex: What was the king's first approach to the Huguenots?
+  what/multipart/role/noun/role (1x)
+    Ex: What dual titles did Frederick William hold?
+  when/singular/time/adjective/temporal (1x)
+    Ex: In what part of the 19th century were steam turbines introduced?
+  whose/singular/person/noun/identificatory (1x)
+    Ex: In addition to Watt, Boulton and Smeaton, whose engine was an atmosphere design?
+  what/singular/concept/adjective/agent (1x)
+    Ex: People of what nationality invented the steam turbine?
+  how/singular/concept/adverb/descriptive (1x)
+    Ex: Philo of Byzantium ____ surmised that air converted to fire
+  how/multipart/concept/noun/instrumental (1x)
+    Ex: By what means were scientists able to liquefy air?
+  which/singular/person/noun/role (1x)
+    Ex: Which oil producer is a close ally of the United States?
+  who/multipart/person/noun/resultative (1x)
+    Ex: Who would the occupation alienate?
+  which/multipart/place/noun/descriptive (1x)
+    Ex: Which countries became dependent on US's security assurance to threats?
+  which/multipart/thing/noun/agent (1x)
+    Ex: Mazda, Mitsubishi and Isuzu joined partnership with which American car company?
+  which/singular/concept/noun/resultative (1x)
+    Ex: When American car companies rolled out with their domestic replacement cars, which policy ended?
+  what/multipart/concept/clause/causal (1x)
+    Ex: What caused the need for principal Treaties that ended up forming the EU?
+  which/multipart/concept/noun/causal (1x)
+    Ex: Which caused the reform to never come into force?
+  who/singular/person/clause/descriptive (1x)
+    Ex: Did the European Court of Justice rule the defendant in the case of Commission v. Edith Cresson broke any laws?
+  what/multipart/concept/clause/agent (1x)
+    Ex: What can block a legislation?
+  which/singular/thing/noun/causal (1x)
+    Ex: Which type of climate may have allowed the rainforest to spread across the continent?
+  what/singular/thing/clause/causal (1x)
+    Ex: What has allowed for the Savanna region to expand into the tropics?
+  did/singular/thing/clause/resultative (1x)
+    Ex: Did the rainforest managed to thrive during the glacial periods? 
+  what/singular/place/clause/locative (1x)
+    Ex: In which direction did the water on the eastern side flow?
+  where/singular/concept/adjective/locative (1x)
+    Ex: Where does the Amazon region rate among the entire earth for its amount of biodiversity?
+  where/singular/number/noun/descriptive (1x)
+    Ex: Where is Brazil ranked globally in soybean production?
+  what/multipart/thing/clause/identificatory (1x)
+    Ex: What does the internal cavity contain?
+  when/singular/time/verb/temporal (1x)
+    Ex: When do bathyctena chuni, euplokamis stationis and eurhamphaea vexilligera  excrete secretions?
+  how/singular/concept/verb/resultative (1x)
+    Ex: How does cooling of the local environment affect the mnemiopsis?
+  what/singular/thing/verb/descriptive (1x)
+    Ex: What did the  fossils found in the Burgess Shale lack?
+  which/singular/concept/adjective/locative (1x)
+    Ex: In which direction does the west side of Fresno neighborhood lie to the 99 freeway?
+  what/singular/thing/clause/identificatory (1x)
+    Ex: Are there any other aviation communities such as Sierra Sky Park in the United States?
+  what/multipart/thing/verb/agent (1x)
+    Ex: What did the Apple system assign automatically 
+  what/singular/thing/verb/procedural (1x)
+    Ex: What did DECnet originally do 
+  how/multipart/thing/clause/procedural (1x)
+    Ex: How are AUSTPAC connections made 
+  who/multipart/person/clause/descriptive (1x)
+    Ex: Strictly speaking who was included in DATANET 1
+  how/singular/concept/clause/resultative (1x)
+    Ex: Funding limitations allowed CSNET to be what 
+  where/singular/concept/noun/instrumental (1x)
+    Ex: Where can population estimates be extrapolated from?
+  which/singular/time/noun/identificatory (1x)
+    Ex: Which timeline is further expanded in the fourth scale?
+  what/singular/concept/verb/instrumental (1x)
+    Ex: What do petrologists use electron microprobes in the laboratory for?
+  what/multipart/concept/verb/descriptive (1x)
+    Ex: What do most online pharmacies do?
+  whose/multipart/concept/noun/identificatory (1x)
+    Ex: Whose needs will the growth in pharmacy informatics meet?
+  what/multipart/thing/noun/locative (1x)
+    Ex: What areas are pharmacy informatics prepared to work in?
+  what/multipart/concept/verb/identificatory (1x)
+    Ex: What are pharmacists forbidden to do?
+  what/singular/concept/verb/identificatory (1x)
+    Ex: What responsibilities are pharmacists believed to be taking on more in the future?
+  what/singular/concept/noun/exemplary (1x)
+    Ex: What is an example of major civil disobedience in South Africa?
+  what/singular/thing/verb/identificatory (1x)
+    Ex: What was the civil disobedience performed at the test site?
+  what/multipart/concept/noun/procedural (1x)
+    Ex: What do those in the field do to ensure a positive outcome?
+  what/multipart/person/noun/instrumental (1x)
+    Ex: Common Sense Realism of what Scottish philosophers did Agassiz incorporate in his dual view of knowedge?
+  how/multipart/concept/verb/procedural (1x)
+    Ex: How was the school able to bring aboard the best talented students?
+  what/singular/time/noun/descriptive (1x)
+    Ex: What is the duration of Harvard Academic year?
+  where/singular/concept/noun/role (1x)
+    Ex: According to the Princeton Review where has Harvard ranked as a "Dream College" in 2013
+  how/singular/thing/clause/descriptive (1x)
+    Ex: How did the education during the high school education movement differ from the subsequent high school education?
+  what/singular/thing/noun/patient (1x)
+    Ex: What dynasty did Zhang Rhou help attack?
+  how/singular/thing/verb/procedural (1x)
+    Ex: How did the final Song emperor die?
+  when/multipart/time/noun/temporal (1x)
+    Ex: When had the Six Ministries existed?
+  how/multipart/concept/clause/descriptive (1x)
+    Ex: How well did the Mongol Emperors know Chinese?
+  which/singular/thing/adjective/identificatory (1x)
+    Ex: Which khanates had converted to Islam?
+  what/singular/thing/clause/procedural (1x)
+    Ex: What did Guo Shoujing do for calendars?
+  how/singular/concept/adjective/resultative (1x)
+    Ex: How did the unequal treatment of Chinese versus Mongols in the Yuan make the dynasty seem?
+  what/multipart/concept/noun/agent (1x)
+    Ex: What responses protect the lungs by mechanically ejecting pathogens from the respiratory system?
+  what/singular/concept/verb/causal (1x)
+    Ex: Phagocytosis first evolved as means of doing what?
+  how/singular/process/noun/procedural (1x)
+    Ex: By what process can active immunity be generated in an artificial manner?
+  why/singular/process/verb/resultative (1x)
+    Ex: In a type III secretion system, proteins are transported to the host cell in order to do what?
+  what/singular/process/verb/procedural (1x)
+    Ex: The success of pathogens is predicated on their ability to do what?
+  how/singular/concept/noun/quantitative (1x)
+    Ex: To what extent did Fermat confirm the validity of Fermat numbers?
+  what/multipart/number/noun/identificatory (1x)
+    Ex: According to the Riemann hypothesis, all zeroes of the ζ-function have real part equal to 1/2 except for what values of s?
+  where/singular/concept/noun/causal (1x)
+    Ex: Where does the name Rhine derive from? 
+  why/singular/thing/noun/causal (1x)
+    Ex: Why has the Rhine been shortened?
+  what/singular/place/noun/instrumental (1x)
+    Ex: What do the Waal and the Nederrijn-Lek discharge throguh?
+  which/singular/thing/adjective/role (1x)
+    Ex: Which hall was used as Parliament's principle committee room?
+  why/singular/concept/adjective/causal (1x)
+    Ex: Why do police and fire services fall under the purview of the Scottish Parliament?
+  what/singular/time/noun/quantitative (1x)
+    Ex: What is the minimum amount of time before a bill can go into law?
+  what/singular/person/noun/locative (1x)
+    Ex: Other than Scotland's Chief Law Officer, from whence are most ministers drawn from amongst?
+  how/singular/concept/adverb/procedural (1x)
+    Ex: How is the process of allocating seats repeated until all available seats have been determined?
+  who/multipart/thing/noun/identificatory (1x)
+    Ex: Members of which organizations are disqualified from sitting in the SP as elected MSPs?
+  where/singular/concept/clause/locative (1x)
+    Ex: Where does Khomeini's beliefs fall as compared to Mawdudi and Qutb?
+  which/singular/thing/adjective/instrumental (1x)
+    Ex: Most imperialism was carried out using which method of transport?
+  what/singular/concept/adjective/causal (1x)
+    Ex: Colonialism as a policy is caused by financial and what other reasons?
+  which/multipart/concept/noun/identificatory (1x)
+    Ex: Political advantage is an attribute of which state policies?
+  which/singular/person/adjective/instrumental (1x)
+    Ex: Theories on imperialism use which country as a model?
+  what/singular/concept/verb/role (1x)
+    Ex: Jules Ferry thought that the "higher races" have a duty to what?
+  what/singular/person/adjective/descriptive (1x)
+    Ex: What was there a significant minority of in Warsaw?
+  what/multipart/person/noun/descriptive (1x)
+    Ex: What does the Zachęta National Gallery of Art organize exhibitions of art from?
+  what/singular/thing/verb/agent (1x)
+    Ex: What did a greedy merchant do to the mermaid?
+  who/singular/person/clause/agent (1x)
+    Ex: Who won the battle of Lake George?
+  what/singular/person/noun/resultative (1x)
+    Ex: What natives were displaced by British takeover in Florida?

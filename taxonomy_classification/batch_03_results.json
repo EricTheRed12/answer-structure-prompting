@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "570960cf200fba1400367f04",
+    "question": "What did Microsoft announce that it would rename Sky Drive Pro to?",
+    "answer": "OneDrive for Business",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5706139252bb891400689865",
+    "question": "What kind of universities is the region famous for?",
+    "answer": "research",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "573020f7b2c2fd14005688fb",
+    "question": "What have Muslims praised Hamas for doing?",
+    "answer": "driving Israel out of the Gaza Strip",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572f59b4a23a5019007fc589",
+    "question": "What is the Island off of the German shore of the Rhine that this warm and cold water meet?",
+    "answer": "Lindau",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "571cd88ddd7acb1400e4c18d",
+    "question": "What event would necessitate airline passengers to need a supplemental supply of oxygen?",
+    "answer": "cabin depressurization",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5729f1c13f37b319004785ea",
+    "question": "Who is the author of the book, \"Knowledge and Decisions\"?",
+    "answer": "Thomas Sowell",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "572a1046af94a219006aa78e",
+    "question": "How does inequality prevent growth?",
+    "answer": "by limiting aggregate demand",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "procedural"
+  },
+  {
+    "id": "57281c594b864d19001644a2",
+    "question": "Cristian Bay's encyclopedia concludes that civil disobedience does not only include what behavior?",
+    "answer": "non-violence",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725fabc89a1e219009ac128",
+    "question": "How many people lived in Fresno in 2000, according to the Census Bureau?",
+    "answer": "427,652",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5727c3b02ca10214002d95bb",
+    "question": "What conviction motivated Eliot to move towards secularization?",
+    "answer": "Transcendentalist Unitarian",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5729fb003f37b3190047862a",
+    "question": "Older people get less sun and produce less of what chemical via UVB radiation?",
+    "answer": "cholecalciferol",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5727f05b4b864d190016406c",
+    "question": "What are those with lower incomes less likely to have in order to prepare for the future?",
+    "answer": "savings and investment",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5730285a04bcaa1900d7726f",
+    "question": "When was the FIS founded?",
+    "answer": "1989",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "573362b94776f41900660974",
+    "question": "When did building activity in the palaces and churches take place in the later decades of?",
+    "answer": "17th century",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "571114cfb654c5140001fb0c",
+    "question": "What did the king do to regarding Huguenot education?",
+    "answer": "closed Huguenot schools",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572843304b864d1900164848",
+    "question": "In 1890, who did the university decide to team up with?",
+    "answer": "several regional colleges and universities",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "570d2d68fed7b91900d45cbe",
+    "question": "How much does Victoria produce in Australian pears?",
+    "answer": "90%",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "56e1e9dfe3433e1400423200",
+    "question": "Who are commonly associated with the algorithm typically considered the most effective with respect to finite polynomial hierarchy and graph isomorphism?",
+    "answer": "Laszlo Babai and Eugene Luks",
+    "interrogative": "who",
+    "cardinality": "multipart",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572945b11d04691400779230",
+    "question": "How did the 2001 IPCC report compare to reality for 2001-2006?",
+    "answer": "temperatures and sea levels have been rising at or above the maximum rates",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "57114b1a2419e31400955575",
+    "question": "What type of steam engine doesn't need valves to direct steam?",
+    "answer": "oscillating cylinder",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5730b4282461fd1900a9cfc5",
+    "question": "Trotsky thought what was needed for a true Russian revolution.",
+    "answer": "a world revolution",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57293f8a6aef051400154bde",
+    "question": "How does the IPCC prepare Special Reports?",
+    "answer": "the same procedures as for IPCC Assessment Reports",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "procedural"
+  },
+  {
+    "id": "57265e97708984140094c3c6",
+    "question": "What is the largest ctenophore?",
+    "answer": "Cestum veneris",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "573403394776f419006616de",
+    "question": "How many troops were defeated for British in BAttle of Carillon?",
+    "answer": "18,000 regulars, militia and Native American allies",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5705e63175f01819005e7724",
+    "question": "In which cardinal direction from Los Angeles is San Diego?",
+    "answer": "south",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "572643de5951261400b5195b",
+    "question": "Who developed DATAPAC",
+    "answer": "DATAPAC was developed by Bell Northern Research",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "clause",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57266c015951b619008f7239",
+    "question": "It is now possible to convert old relative ages into what type of ages using isotopic dating?",
+    "answer": "absolute ages",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5727c8863acd2414000dec4a",
+    "question": "How many residential dorms house upper class, sophomore, Jr, and Sr students?",
+    "answer": "twelve residential Houses",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5705fd8475f01819005e7844",
+    "question": "The mountain ranges tail off into what kind of geographical formation?",
+    "answer": "valleys",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5730b255396df919000962b0",
+    "question": "Who along with Russia supported post WW-II communist movements?",
+    "answer": "China",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57108073b654c5140001f928",
+    "question": "What King and former Huguenot looked out for the welfare of the group?",
+    "answer": "Henry IV",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5726a3c6f1498d1400e8e5b0",
+    "question": "When was the basis for the Social Chapter developed?",
+    "answer": "1989",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "572982e76aef051400154f96",
+    "question": "In what interval are some of the greatest primes without a distinct form discovered in?",
+    "answer": "[256kn + 1, 256k(n + 1) \u2212 1]",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57298ef11d04691400779530",
+    "question": "What type of prime distribution does the Riemann hypothesis propose is also true for short intervals near X?",
+    "answer": "asymptotic distribution",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "573408ef4776f41900661758",
+    "question": "When was the European portion of the Seven Years War complete?",
+    "answer": "Treaty of Hubertusburg on 15 February 1763",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "572fadcbb2c2fd140056832d",
+    "question": "What percentage of Scotland's voting population failed to actually vote?",
+    "answer": "32.9%",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "571c8eb9dd7acb1400e4c0f9",
+    "question": "In what year did Lavoisier publish his work on combustion?",
+    "answer": "1777",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5730a4d02461fd1900a9cf2a",
+    "question": "When did France begin in earnest to rebuild its global empire?",
+    "answer": "1850",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5737a0acc3c5551400e51f4a",
+    "question": "What may a force on one part of an object affect?",
+    "answer": "other parts",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "57284d484b864d1900164901",
+    "question": "Who was assigned to design a second master plan?",
+    "answer": "Eero Saarinen",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5726ed6cf1498d1400e8f00c",
+    "question": "Why might customers order from internet pharmacies?",
+    "answer": "to avoid the \"inconvenience\" of visiting a doctor or to obtain medications which their doctors were unwilling to prescribe",
+    "interrogative": "why",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57308f6b8ab72b1400f9c583",
+    "question": "What was used by the West to justify control over eastern territories?",
+    "answer": "Orientalism",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "5729517d6aef051400154cca",
+    "question": "Who is seen as the ultimate climate change authority?",
+    "answer": "IPCC",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "role"
+  },
+  {
+    "id": "572a0e0e1d0469140077970b",
+    "question": "Who matters the most for economic growth?",
+    "answer": "The poor and the middle class",
+    "interrogative": "who",
+    "cardinality": "multipart",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5729f60caf94a219006aa6ef",
+    "question": "Higher rates of health and social problems are just two of examples of effects from what?",
+    "answer": "inequality",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57264865dd62a815002e8065",
+    "question": "What type of treaty was the Lisbon Treaty?",
+    "answer": "an amending treaty",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "573750f61c45671900574468",
+    "question": "What kind of measurements define accelerlations?",
+    "answer": "kinematic",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "57108d69b654c5140001f987",
+    "question": "What declaration predicated the emigration of Huguenot refugees?",
+    "answer": "the revocation of the Edict of Nantes",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5737804dc3c5551400e51f13",
+    "question": "What prohibits atoms from passing through each other?",
+    "answer": "Pauli exclusion principle",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57339ad74776f41900660e87",
+    "question": "What does Warsaw host many of?",
+    "answer": "events and festivals",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57274e975951b619008f87fb",
+    "question": "Many construction companies are now placing more emphasis on what?",
+    "answer": "establishing relationships with other necessary participants through the design-build process",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5705e99452bb891400689689",
+    "question": "What country are all the counties in?",
+    "answer": "United States",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5729e500af94a219006aa6b8",
+    "question": "The amazon rainforest became a mostly inland forest around which global event?",
+    "answer": "last glacial maximum",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5711669550c2381900b54adf",
+    "question": "What is the Rankine cycle sometimes called?",
+    "answer": "practical Carnot cycle",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57286d7d4b864d19001649e1",
+    "question": "What is the name of the Bungie Inc. founder who is also a university graduate?",
+    "answer": "Alex Seropian",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5726e313f1498d1400e8eeb4",
+    "question": "What types of pharmacy functions have begun to be outsourced?",
+    "answer": "high risk preparations and some other compounding functions",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572fe41e04bcaa1900d76e4e",
+    "question": "What is the glacial alpine valley known as?",
+    "answer": "Rhine Valley",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57300f8504bcaa1900d770d5",
+    "question": "Whose puppet did Islamists accuse the Saudi regime of being?",
+    "answer": "the west",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "571cd3b55efbb31900334e03",
+    "question": "What device is used to treat various conditions such as carbon monoxide poisoning?",
+    "answer": "Hyperbaric (high-pressure) medicine",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "57274e0d708984140094dbe6",
+    "question": "Even in large firms, architects, interior designers, engineers, developers, construction managers, and general contractors were more likely to be what?",
+    "answer": "entirely separate companies",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57115bf350c2381900b54a94",
+    "question": "Where is Energiprojekt AB based?",
+    "answer": "Sweden",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "57332442d058e614000b5723",
+    "question": "What did Warsz own?",
+    "answer": "a village",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57281edd3acd2414000df4eb",
+    "question": "What was the result of the 1967 referendum?",
+    "answer": "voters approved the plan",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "5729506d6aef051400154caf",
+    "question": "Who ordered the Stern Review?",
+    "answer": "the UK government",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "56e20a3ae3433e140042324e",
+    "question": "How many combinatory and graph theoretical problems, formerly believed to be plagued by intractability, did Karp's paper address?",
+    "answer": "21",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "571077ecb654c5140001f90c",
+    "question": "What trading company helped settle Huguenots near the Cape?",
+    "answer": "Dutch East India Company",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5733a32bd058e614000b5f35",
+    "question": "Where is Polonia's home venue located?",
+    "answer": "at Konwiktorska Street",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "572663a9f1498d1400e8ddf2",
+    "question": "Why is the second timeline needed?",
+    "answer": "second scale shows the most recent eon with an expanded scale",
+    "interrogative": "why",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "causal"
+  },
+  {
+    "id": "572908c13f37b31900477fbe",
+    "question": "What cells are the second arm of the innate immune system?",
+    "answer": "Leukocytes (white blood cells)",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "role"
+  },
+  {
+    "id": "5730a951069b531400832217",
+    "question": "Where did the French send a large number of settlers?",
+    "answer": "Algeria",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5726da89dd62a815002e92b4",
+    "question": "What is a main duty of the GPhC?",
+    "answer": "regulates the practice of pharmacists and pharmacy technicians",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5737534ec3c5551400e51ead",
+    "question": "What kind of force does not exist under Newton's third law?",
+    "answer": "unidirectional",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "572a0c541d046914007796f3",
+    "question": "What do conservative researchers fell should be a measure of inequality?",
+    "answer": "consumption",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57299326af94a219006aa515",
+    "question": "Besides the study of prime numbers, what general theory was considered the official example of pure mathematics?",
+    "answer": "number theory",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57283f014b864d19001647e9",
+    "question": "What person helped establish the school with a donation?",
+    "answer": "John D. Rockefeller",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "56de3f784396321400ee26fa",
+    "question": "What ruined Richard's plans to reach Acre?",
+    "answer": "a storm",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57293d116aef051400154bcb",
+    "question": "What kind of non-peer-reviewed sources does the IPCC use?",
+    "answer": "model results, reports from government agencies and non-governmental organizations, and industry journals",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57373d0cc3c5551400e51e87",
+    "question": "How many elements did Aristotle believe the terrestrial sphere to be made up of?",
+    "answer": "four",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57266193dd62a815002e832c",
+    "question": "In the layered model of the Earth, the mantle has two layers below it. What are they?",
+    "answer": "the outer core and inner core",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "571c8198dd7acb1400e4c0d1",
+    "question": "What material's weight gain during rusting was an early clue that philogiston theory was wrong?",
+    "answer": "metals",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "570607f575f01819005e78b5",
+    "question": "What is the population of the second largest city in California?",
+    "answer": "1.3 million",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "572f58d9a23a5019007fc581",
+    "question": "Which border does the Rhine flow from the south?",
+    "answer": "Swiss-Austrian border",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "56e1a38de3433e1400423060",
+    "question": "Complexity theory seeks to define the relationship between the scale of algorithms with respect to what other variable?",
+    "answer": "an increase in the input size",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5727ec062ca10214002d99b7",
+    "question": "Under what law is value of a worker determined?",
+    "answer": "supply and demand",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "57335ddbd058e614000b5933",
+    "question": "What type of forested areas can be found on the highest terrace?",
+    "answer": "pine",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "572818f54b864d190016446f",
+    "question": "Stephen Eildmann cites the oldest known example of civil disobedience in what part of the bible?",
+    "answer": "(Exodus 1: 15-19)",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5730a314069b5314008321ec",
+    "question": "Which regions have temperate climates?",
+    "answer": "Northern Europe and the Mid-Atlantic",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572751b4708984140094dc1f",
+    "question": "What leads to confusion and collapse?",
+    "answer": "poorly drafted contracts",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5726a46cdd62a815002e8bd0",
+    "question": "How many member states adopted the Social Charter in 1989?",
+    "answer": "11 of the then 12 member states",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5727aa413acd2414000de925",
+    "question": "What president of the university transformed it into a modern research university?",
+    "answer": "Charles W. Eliot",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5710f2e2a58dae1900cd6b75",
+    "question": "Huguenots in Killeshandra and County Cavan expanded what agricultural industry?",
+    "answer": "flax cultivation",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57332f81d058e614000b5779",
+    "question": "What building was a gift from the Soviet Union?",
+    "answer": "Palace of Culture and Science",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56de3ebc4396321400ee26e6",
+    "question": "When did the Siege of Antioch take place?",
+    "answer": "1097",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "572881d34b864d1900164a5c",
+    "question": "When was the Office of Western Medicine founded?",
+    "answer": "1263",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "570961aa200fba1400367f15",
+    "question": "Who was the chief executive officer when the service began?",
+    "answer": "Sam Chisholm",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "role"
+  },
+  {
+    "id": "5725c0f289a1e219009abdf3",
+    "question": "What does the ctenophora use to swim?",
+    "answer": "'combs' \u2013 groups of cilia",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "5733fd66d058e614000b6735",
+    "question": "Who refused to act until Loudoun approved plans?",
+    "answer": "Abercrombie",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "572f6c85947a6a140053c942",
+    "question": "What is Europe's largest inland port?",
+    "answer": "Duisburg",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57300a25a23a5019007fcc99",
+    "question": "Who established the Confederation of the Rhine?",
+    "answer": "Napoleon",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "573749741c45671900574461",
+    "question": "What was the basis mentioned for the develpment of the general theory of relativity?",
+    "answer": "principle of equivalence",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  }
+]
