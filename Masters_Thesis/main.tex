@@ -53,7 +53,7 @@ The hypothesis is straightforward. By providing a model with a structured prompt
 
 This paper operates under two key premises. First, a finite set of common answer dimensions exists and can cover a given domain \cite{nonfactoid_taxonomy2022}. Second, the structure that holds these dimensions can be recognized from the question alone \cite{liroth2002questions}. We construct a taxonomy from the questions in the SQuAD dataset to verify that it can be created and then classified. This paper does not aim to extend this taxonomy beyond a limited domain, nor to establish a definitive taxonomy, only to demonstrate that the concept has merit.
 
-We evaluate this taxonomy across a variety of generator models, including various sizes under 15B parameters, in both base and fine-tuned variants. We measure success by the performance of each generator on the questions in the SQuAD dataset against its own baseline results.
+We evaluate this taxonomy across a variety of generator models at various sizes in base pretrained form. We measure success by the performance of each generator on the questions in the SQuAD dataset against its own baseline results.
 
 % ============================================================
 \section{Literature Review}
@@ -312,9 +312,8 @@ Each class maps to a schema that specifies the dimensions a valid answer must ad
 \end{figure}
 
 \subsection{The Classifier}
-% NOTE: Replace "BERT" with specific model variant once chosen (RoBERTa, DistilBERT, etc.)
 
-The classifier component is a BERT encoder fine-tuned for sequence classification \cite{devlin2019bert}. Bidirectional encoding allows the classifier to attend to the full feature set of the input question simultaneously, enabling more reliable classification than a unidirectional model would achieve on the same task. The input is the raw question text and the output is a single label corresponding to one of the ten taxonomy classes defined in \S3.2. The accuracy of this component is critical to system performance. An incorrect classification delivers a mismatched scaffold to the generator. However, the classifier is not the focal contribution of this paper. Its accuracy is evaluated as a system validity check, and the ablation condition (\S4) tests whether classification quality matters empirically.
+The classifier component is a BERT encoder fine-tuned for sequence classification \cite{devlin2019bert}. Bidirectional encoding allows the classifier to attend to the full feature set of the input question simultaneously, enabling more reliable classification than a unidirectional model would achieve on the same task. The input is the raw question text and the output is a single label corresponding to one of the ten taxonomy classes defined in \S3.2. The accuracy of this component is critical to system performance. An incorrect classification delivers a mismatched scaffold to the generator. However, the classifier is not the focal contribution of this paper. Its accuracy is evaluated as a system validity check, and the random structure condition (\S4) tests whether classification quality matters empirically.
 
 \subsection{Scaffold Construction}
 % NOTE: Consider adding a concrete scaffold example (assembled prompt as generator would see it) in a figure.
@@ -323,7 +322,7 @@ After classification, the framework constructs a scaffold at inference time as i
 
 \subsection{The Generator}
 
-The generator can be any small decoder-style LLM. It receives a scaffold as its prompt and produces a free-form answer. No fine-tuning or weight modification is applied to the generator as part of the framework. The answer structure operates entirely through in-context learning. The framework is compatible with both base models and models fine-tuned on task-relevant data. For the purposes of this paper, both are explored (\S4).
+The generator can be any small decoder-style LLM. It receives a scaffold as its prompt and produces a free-form answer. No fine-tuning or weight modification is applied to the generator as part of the framework. The answer structure operates entirely through in-context learning.
 
 % ============================================================
 \section{Methodology}
@@ -331,7 +330,7 @@ The generator can be any small decoder-style LLM. It receives a scaffold as its 
 
 \subsection{Research Questions}
 
-This work evaluates the framework against four research questions. Each maps to a comparison between experimental conditions (\S4.6).
+This work evaluates the framework against four research questions. Each maps to a comparison between experimental conditions (\S4.5).
 
 \begin{enumerate}
   \item Does a matched answer structure improve accuracy on extractive QA?
@@ -356,55 +355,30 @@ The 67 classes were further reviewed and reduced based on two criteria: the stru
 
 The classifier used in the proposed architecture is BERT \cite{devlin2019bert}, fine-tuned for single-label classification over the 10 taxonomy classes. The training data consists of the 5,928 labeled questions from \S4.3. Each question's five-feature label was mapped to its corresponding final class as determined during consolidation. A question labeled (who/singular/person/noun/agent) maps to the Agent class. The dataset was split 80/20 into training and validation sets, stratified by class to preserve label distribution. The model was trained for 4 epochs with a learning rate of 2e-5 using the Adam optimizer, a batch size of 32, and a maximum sequence length of 128 tokens. Cross-entropy loss was weighted by inverse class frequency to account for class imbalance.
 
-\subsection{Scaffold Design}
-
-\begin{itemize}
-  \item One scaffold pre-built per taxonomy class.
-  \item Scaffold format: answer structure definition (the dimensional schema) + N worked examples showing the structure populated + the target question.
-  \item Worked examples are drawn from SQuAD questions of the same class (not from the evaluation set).
-  \item Number of examples per scaffold is a parameter --- report what was used and why.
-  \item Scaffolds are static: authored once, reused for every question classified into that type.
-\end{itemize}
-
 \subsection{Experimental Conditions}
 
-\begin{itemize}
-  \item \textbf{Baseline:} passage + question $\rightarrow$ generate answer. No scaffold, no structure.
-  \item \textbf{Scaffolded:} passage + question + classifier-selected answer structure scaffold $\rightarrow$ generate answer.
-  \item \textbf{Random scaffold (ablation):} passage + question + scaffold from a randomly-assigned taxonomy class $\rightarrow$ generate answer. Tests whether any structure helps or whether the matched structure specifically matters.
-  \item \textbf{Oracle:} passage + question + manually-assigned correct scaffold $\rightarrow$ generate answer. Bypasses the classifier. Sets the ceiling: if the structure were always correct, how much improvement is possible?
-  \item All conditions use identical decoding parameters (temperature, seed) across runs for comparability.
-\end{itemize}
+Eight experimental conditions are evaluated in this paper. Each condition provides the question and some combination of an answer structure and a source passage, either or neither. The conditions are as follows:
 
-% NOTE (expanded conditions from §3.4 design session, August 6 2026):
-% Full set of scaffold configurations to test:
-%   1. Question only (no passage, no structure) — absolute baseline
-%   2. Question + passage (no structure) — current "baseline" condition
-%   3. Question + answer structure (no passage) — tests structure alone, supports claim that answer structures independently improve generation
-%   4. Question + passage + matched answer structure — current "scaffolded" condition
-%   5. Question + passage + wrong answer structure — current "random scaffold" ablation
-%   6. Question + passage + oracle answer structure — current "oracle" condition
-% Conditions 1 and 3 are critical for secondary hypothesis (structure alone improves performance).
-% Decide which are primary vs secondary experiments based on resources.
+\begin{enumerate}
+  \item Question only
+  \item Question + passage
+  \item Question + matched structure
+  \item Question + passage + matched structure
+  \item Question + random structure
+  \item Question + random structure + passage
+  \item Question + classified structure
+  \item Question + classified structure + passage
+\end{enumerate}
+
+The matched structure is a direct match to the question based on the classification dataset. The random structure is assigned from the nine classes that do not match the given question. The classified structure is the label produced by the trained BERT model from \S4.4. All conditions use identical decoding parameters (temperature and seed) to ensure differences in output are attributable only to the scaffold configuration.
 
 \subsection{Models Evaluated}
 
-\begin{itemize}
-  \item Range of small decoder-style LLMs across parameter counts (e.g.\ 1B, 3B, 7B, 13B).
-  \item All models evaluated on all four conditions in base (pretrained-only) form.
-  \item 1--3B models additionally evaluated in task-tuned form (fine-tuned on SQuAD passages).
-  \item Task-tuning method: LoRA or pre-existing community fine-tunes if available. If LoRA, training details reported here.
-  \item Specific model families TBD based on availability and resource constraints.
-\end{itemize}
+All eight conditions are evaluated across five open-source decoder model families: Llama (1B, 3B, 8B), Qwen (1.5B, 3B, 7B), Gemma (2B, 4B, 9B), Phi (3.8B), and Mistral (7B). All models are evaluated in base pretrained form. No fine-tuning is applied to the generator. Models are served locally via Ollama. Each model is evaluated against all 5,928 questions on conditions 1--6. The classifier conditions (7 and 8) are evaluated on four models spanning the parameter range: Llama (1B), Phi (3.8B), Mistral (7B), and Gemma (9B).
 
 \subsection{Evaluation Metrics}
 
-\begin{itemize}
-  \item \textbf{Primary (generator performance):} Exact Match (EM) and token-level F1 --- both SQuAD-standard, directly comparable to published baselines.
-  \item \textbf{Condition comparisons:} delta (scaffolded $-$ baseline) per model size; delta (oracle $-$ scaffolded) to measure classifier headroom; delta (random scaffold $-$ baseline) to test whether wrong structure helps, hurts, or is neutral.
-  \item \textbf{Per-class breakdown:} EM/F1 by taxonomy class --- identifies which answer structure types benefit most from scaffolding.
-  \item \textbf{System validity (reported in \S5, not a primary metric):} classifier accuracy + confusion matrix. Confirms the taxonomy is learnable; not the headline result.
-\end{itemize}
+Generator performance is measured by Exact Match (EM) and token-level F1, both standard metrics for SQuAD and directly comparable to published baselines. Results are reported as deltas between conditions: matched structure versus baseline (RQ1), random structure versus matched versus baseline (RQ2), structure-only versus baseline versus combined (RQ3), and all deltas compared across model sizes (RQ4). Performance is additionally broken down by taxonomy class to identify which answer structure types benefit most from scaffolding. Classifier accuracy and per-class confusion are reported separately as a system validity check.
 
 % ============================================================
 \section{Results}
