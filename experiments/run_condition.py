@@ -205,6 +205,7 @@ def compute_aggregates(results: list) -> dict:
     avg_em = sum(r["exact_match"] for r in results) / n
     avg_em_ext = sum(r["exact_match_extracted"] for r in results) / n
     avg_f1 = sum(r["f1"] for r in results) / n
+    avg_f1_ext = sum(r.get("f1_extracted", r["f1"]) for r in results) / n
     avg_latency = sum(r["latency_s"] for r in results) / n
     avg_tokens = sum(r["prediction_tokens"] for r in results) / n
 
@@ -221,6 +222,7 @@ def compute_aggregates(results: list) -> dict:
             "em": round(sum(r["exact_match"] for r in class_results) / cn, 4),
             "em_extracted": round(sum(r["exact_match_extracted"] for r in class_results) / cn, 4),
             "f1": round(sum(r["f1"] for r in class_results) / cn, 4),
+            "f1_extracted": round(sum(r.get("f1_extracted", r["f1"]) for r in class_results) / cn, 4),
             "avg_tokens": round(sum(r["prediction_tokens"] for r in class_results) / cn, 1),
         }
 
@@ -229,6 +231,7 @@ def compute_aggregates(results: list) -> dict:
         "em": round(avg_em, 4),
         "em_extracted": round(avg_em_ext, 4),
         "f1": round(avg_f1, 4),
+        "f1_extracted": round(avg_f1_ext, 4),
         "avg_latency_s": round(avg_latency, 2),
         "avg_prediction_tokens": round(avg_tokens, 1),
         "by_class": class_metrics,
@@ -237,6 +240,14 @@ def compute_aggregates(results: list) -> dict:
 
 def run(args):
     """Run a single condition with checkpoint/resume."""
+    # Check if final result already exists (skip completed runs)
+    model_safe = args.model.replace(":", "_").replace("/", "_")
+    cond_label = condition_name(args.condition)
+    output_path = RESULTS_DIR / f"{model_safe}_{cond_label}.json"
+    if output_path.exists():
+        print(f"SKIPPED: {output_path.name} already exists")
+        return
+
     # Load sample
     print(f"Loading sample from: {args.sample}")
     with open(args.sample) as f:
@@ -304,6 +315,12 @@ def run(args):
             em = exact_match(prediction, item["gold_answers"])
             em_ext = exact_match_extracted(prediction, item["gold_answers"])
             f1 = f1_score(prediction, item["gold_answers"])
+            # F1 on extracted span (more meaningful for verbose outputs)
+            extracted_span = best_span_extraction(prediction, item["gold_answers"])
+            f1_ext = _token_f1(extracted_span.split(), normalize_answer(item["gold_answers"][0]).split())
+            # Take max F1_ext over all gold answers
+            for gold in item["gold_answers"][1:]:
+                f1_ext = max(f1_ext, _token_f1(extracted_span.split(), normalize_answer(gold).split()))
             pred_tokens = len(prediction.split())
 
             result = {
@@ -315,6 +332,7 @@ def run(args):
                 "exact_match": em,
                 "exact_match_extracted": em_ext,
                 "f1": f1,
+                "f1_extracted": f1_ext,
                 "prediction_tokens": pred_tokens,
                 "latency_s": round(latency, 2),
             }
@@ -324,11 +342,11 @@ def run(args):
             done_total = len(results)
             if done_total % 10 == 0 or (i + 1) == total_remaining:
                 avg_em_ext = sum(r["exact_match_extracted"] for r in results) / done_total
-                avg_f1 = sum(r["f1"] for r in results) / done_total
+                avg_f1_ext = sum(r.get("f1_extracted", r["f1"]) for r in results) / done_total
                 avg_tok = sum(r["prediction_tokens"] for r in results) / done_total
                 print(
                     f"  [{done_total}/{total_overall}] "
-                    f"EM_ext={avg_em_ext:.3f} F1={avg_f1:.3f} "
+                    f"EM_ext={avg_em_ext:.3f} F1_ext={avg_f1_ext:.3f} "
                     f"avg_tokens={avg_tok:.0f}"
                 )
 
@@ -363,7 +381,8 @@ def run(args):
     print(f"\n{'='*60}")
     print(f"DONE: {output_path.name}")
     print(f"  EM={aggregates['em']:.4f}  EM_ext={aggregates['em_extracted']:.4f}  "
-          f"F1={aggregates['f1']:.4f}  avg_tokens={aggregates['avg_prediction_tokens']:.0f}")
+          f"F1={aggregates['f1']:.4f}  F1_ext={aggregates['f1_extracted']:.4f}  "
+          f"avg_tokens={aggregates['avg_prediction_tokens']:.0f}")
     print(f"{'='*60}")
 
     # Clean up checkpoint
