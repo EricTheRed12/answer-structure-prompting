@@ -12,8 +12,8 @@ set -e
 # Small tier (≤3.8B): 4 models, different architectures
 # Medium tier (8B): 2 models
 # Large tier (12B): 1 model
-MODELS=("llama3.2:1b" "gemma2:2b" "llama3.2:3b" "phi3:mini" "llama3:8b" "qwen3:8b" "gemma3:12b")
-CONDITIONS=(1 2 3 4 5 6 7 8)
+MODELS=("llama3.2:1b" "gemma2:2b" "llama3.2:3b" "phi3:mini" "llama3:8b" "qwen3:8b")
+CONDITIONS=(1 2 3 4 5 6)
 
 echo "=========================================="
 echo "FULL EXPERIMENT RUN"
