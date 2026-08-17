@@ -12,207 +12,186 @@ Each section has ONE job. This document tracks what each section establishes and
 - §2.2: Scale gives structural encoding; gap is partly structural (identifies the problem)
 - §2.3: Fine-tuning is not the answer (rules out weight modification)
 - §2.4: Prompt engineering works at any scale, and structure helps (establishes viability)
-- §2.5: RAG shows that structure with specific relevant information is better (specificity matters)
-- §2.6: Errors are a failure of constraining the problem space (mechanistic why / synthesis)
-- §2.7: Question classification exists as prior art (precursor)
-- §2.8: Answer structure types are the solution direction (taxonomy hypothesis / payoff)
+- §2.5: RAG shows that specificity matters; organization of retrieval matters; but still relies on model to organize output
+- §2.6: The model is deterministic; input defines trajectory; when input lacks context, output diverges; existing techniques don't provide matched structure
+- §2.7: Question classification exists; we propose answer classification; it satisfies the requirements
+- §2.8: Answer structure defined; examples; mechanistic why; enables generalization; finiteness hypothesis
+- §2.9 (planned): Related/adjacent work distinguished from our contribution
 
 ---
 
-## §2.1 Large Language Models
+## §2.1 Large Language Models — PROSE COMPLETE
 
 **Job:** Establish how the technology works at the architectural level.
 
 **Core ideas:**
 - Transformer architecture, self-attention
 - LLMs are probabilistic token predictors (probability engines, not knowledge databases)
-- Two architectures: decoders (generate) vs encoders (represent); this paper uses both
 - Autoregressive decoding: one token at a time, no lookahead, no revision, early tokens propagate
 - Output is a probability distribution over the full vocabulary at every step
+- What the model receives as input directly determines the distribution
 
 **Sets up:**
 - §2.2 can discuss what scale adds without re-explaining the mechanism
-- §2.6 can invoke "autoregressive generation compounds errors" without re-explaining what autoregressive means
+- §2.6 can invoke determinism and trajectory without re-explaining autoregressive decoding
 - §3 (Architecture) can reference encoder vs decoder distinction
-
-**Does NOT cover:**
-- Why scale matters (that's §2.2)
-- Why small models specifically struggle (that's §2.2)
-- How to intervene on the generation process (that's §2.4, §2.5, and §3)
 
 ---
 
-## §2.2 Scale and Structure
+## §2.2 Scale and Structure — PROSE COMPLETE
 
 **Job:** Establish that the performance gap between large and small models is partly structural, not purely about knowledge capacity, and that external structure can partially close it.
 
 **Core ideas:**
 - Scale = parameter count; dominant performance predictor (scaling laws)
-- Larger models outperform smaller ones (well-established)
-- Conventional explanation: more parameters = more encoded connections
-- But even large models fail on structured/multi-step tasks
-- Gap is conditional, not absolute: small models match large ones given appropriate context
-- Small models are architecturally identical to large models; same system, lower-resolution approximation of same distributions
-- Author's argument: part of large-model advantage is structural encoding (capacity to encode answer structure patterns)
-- This structural encoding is statistical, never deterministic
-- External structure (CoT, brevity constraints) partially compensates
-- Neither CoT nor brevity constraints are matched to the specific question
+- Larger models outperform smaller ones (demonstrated: GPT-3 175B vs 1.3B)
+- Gap is conditional, not absolute: small models with context match large ones
+- Small models are architecturally identical; same system, lower-resolution approximation
+- Author's argument: advantage of scale is structural (image resolution analogy)
+- Structural patterns are statistically encoded and non-deterministic
+- External structure (brevity constraints) compensates; structure determines quality
+- Prompting alone does not solve generalization
 
 **Sets up:**
-- §2.3 can reference distributional narrowing as the mechanism fine-tuning uses
-- §2.4 can discuss prompt engineering approaches as partially structural
-- §2.6 can reference dimensional bottleneck for unconstrained prediction argument
-- §3 can reference "matched to the specific question" as the gap this framework fills
-
-**Does NOT cover:**
-- Specific prompting techniques in detail (that's §2.4)
-- RAG (that's §2.5)
-- The mechanistic why of unconstrained prediction (that's §2.6)
+- §2.3 references distributional narrowing
+- §2.4 discusses prompt engineering as partially structural
+- §2.6 references parametric resolution and the "limited resolution" framing
 
 ---
 
-## §2.3 Fine-Tuning and Parameter-Efficient Adaptation
+## §2.3 Fine-Tuning and Parameter-Efficient Adaptation — PROSE COMPLETE
 
-**Job:** Establish that weight-modification approaches are the standard approach, then argue they are both unnecessary (required abilities already exist) AND counterproductive (actively narrows distribution, harms generalization). Rules out the entire parameter-modification design space. Positions inference-time intervention as the right approach.
+**Job:** Establish that weight-modification approaches are standard, then argue they are unnecessary AND counterproductive for generalization. Rules out the entire parameter-modification design space.
 
 **Core ideas:**
-- Weight modification is the most established approach
-- Variants: full fine-tuning, PEFT (LoRA, adapters, prefix tuning). All modify the learned distribution
-- Instruction tuning: often framed as generalization, but is still distributional narrowing
-- Knowledge distillation: student still has same dimensional bottleneck
-- All approaches narrow distribution toward training task, degrading performance outside it. Counterproductive for our goal
-- Weight modification addresses a problem that is not the bottleneck (ICL and language understanding survive downscaling)
-- The deficit is parametric but the fix is input-side. Provide structure in the input rather than relying on weights
+- Weight modification is the established approach (full fine-tuning, PEFT, LoRA, adapters, prefix tuning)
+- Instruction tuning: distributional narrowing, not generalization
+- Knowledge distillation: student has same dimensional bottleneck
+- All approaches narrow distribution toward training task; counterproductive for general-task goal
+- ICL and language understanding survive downscaling (the deficit isn't in capability)
+- The fix is input-side: provide structure in the input
 
 **Sets up:**
 - §2.4: inference-time alternatives that avoid retraining
-- §3 (Architecture): framework operates on any model as-is, no weight updates
-
-**Does NOT cover:**
-- What inference-time approaches look like (that's §2.4, §2.5)
-- The mechanistic argument for why structure specifically (that's §2.6)
+- §3: framework operates on any model as-is, no weight updates
 
 ---
 
-## §2.4 Prompt Engineering and In-Context Learning
+## §2.4 Prompt Engineering and In-Context Learning — PROSE COMPLETE
 
 **Job:** Establish that prompt engineering works at any scale and that structure in the input helps. Show ICL is the mechanism. Establishes viability of input-side interventions.
 
 **Core ideas:**
-- Prompt engineering is the category of input-side interventions
-- Zero-shot and system/instruction prompting provide task-level context (uniform across all questions)
-- Few-shot and many-shot provide example input-output pairs
-- CoT provides generic process structure; variations include ToT and Self-Consistency
-- Common principle: additional context narrows the prediction space; each technique narrows differently
-- ICL defined: the mechanism enabling all of the above
-- ICL is scale-independent: operates through attention (architectural), not stored parameters (capacity-dependent)
+- Prompt engineering: category of input-side interventions
+- Variations: zero-shot, few-shot, chain-of-thought (landscape)
+- Common principle: additional context narrows the prediction space
+- ICL defined: the mechanism enabling all of the above (attention-based, not parametric)
+- ICL is scale-resistant
+- Prompting still requires model to produce from parametric capacity
+- CoT degrades in small models (evidence of limitation)
+- Takeaway: prompt with specific information (few-shot) offers a path worth exploring
 
 **Sets up:**
-- §2.5: RAG applies same principle but automates content selection through retrieval
-- §2.6: synthesizes what's still missing after §2.3–§2.5
+- §2.5: RAG applies same principle but automates content selection
+- §2.6: synthesizes what's still missing
 
-**Does NOT cover:**
-- RAG (that's §2.5)
-- Gap claims or "what's missing" (that's §2.6's synthesis job)
-- Answer structure definition (that's §2.8)
+**Notes:**
+- MoE routing concept moved to §3 (Architecture)
+- CoT deep-dive and "more defined structure helps" argument available for §2.8 if needed
 
 ---
 
-## §2.5 Retrieval-Augmented Generation
+## §2.5 Retrieval-Augmented Generation — PROSE COMPLETE
 
-**Job:** Show that RAG demonstrates structure with specific, relevant information produces better results than generic structure alone. Advances the escalation: §2.4 shows structure helps; §2.5 shows specificity and organization together outperform either in isolation.
+**Job:** Show RAG's value is in specificity. Organization of retrieval matters. RAG is generalizable and scale-resistant. But still relies on model to organize output. Close with: "a prompt needs to provide everything but the answer."
 
 **Core ideas:**
-- RAG is an inference-time system that automates prompt construction through retrieval from external corpus
-- Distinction from prompt engineering: same input-side principle, different context origin (external knowledge source indexed at runtime vs prompt author's design)
-- Question-decomposition RAG: simplifies complex info needs into focused retrieval targets, provides more precise content
-- Corrective RAG: filters low-quality retrievals, prevents degraded output
-- Synthesis: organization and specificity together outperform either in isolation
+- RAG defined: inference-time, retrieves from external source, constructs prompt
+- Distinction from prompting: same mechanism (ICL), different source (retrieved vs authored); compatible together
+- RAG's value is specificity: task-relevant tokens at inference time
+- More tokens = more implicit relational structure for attention; ICL mechanism
+- Organization matters: question-decomposition as example of structured retrieval > naive retrieval
+- Generalizable, scale-resistant, applied across domains without modification
+- Limitation: still relies on model's encoded information to organize output
+- Closer: "To reduce the prediction space further, a prompt needs to provide everything but the answer."
 
 **Sets up:**
-- §2.6: can synthesize what's missing across §2.3–§2.5 (none provide matched output structure)
-- §2.8: must differentiate "answer structure" from "structured RAG" (output-side vs retrieval-side)
-- §8 (Future work): structure-aware retrieval (answer structure as retrieval guide)
-
-**Does NOT cover:**
-- The gap argument or "what's still missing" (that's §2.6)
-- Prediction space / generation space language (that's §2.6)
-- Definition of answer structure (that's §2.8)
-- Self-RAG / output-structuring RAG (dropped for now; steelman if committee raises it)
+- §2.6: what happens when the prompt doesn't provide everything but the answer
 
 ---
 
-## §2.6 Unconstrained Prediction
+## §2.6 Unconstrained Prediction — PROSE COMPLETE
 
-**Job:** Serve as the PIVOT from "here's what exists" to "here's what's missing." Reframe hallucination as unconstrained prediction. Synthesize preceding sections: none provide the specific type of narrowing needed. Set up answer structure as the solution direction.
+**Job:** Reframe hallucination as just prediction. Establish that the model is deterministic and input defines the trajectory. Show what happens when input lacks context. Identify the gap across existing techniques. State what's needed.
 
 **Core ideas:**
-- "Hallucination" = output that doesn't match expected answer (literature's definition)
-- Reframe: same mechanism produces all output; no separate failure mode; unconstrained prediction
-- Parameters determine baseline distribution; small models approximate at lower resolution (dimensional bottleneck)
-- Approximation compounds during autoregressive generation (imprecision propagates)
-- Compounding cannot be eliminated but scope reduced by narrowing output space
-- The preceding sections reviewed approaches that reduce the prediction space: weight modification (§2.3), prompting (§2.4), retrieval (§2.5)
-- Answer structure reduces space by providing output form (model populates content)
+- "Hallucination" is misleading: no alternative failure mode, just prediction from the distribution
+- Temperature/seed create variety but don't improve generation; seed is the draw, temperature reshapes the distribution
+- Input defines the trajectory (deterministic); only point of intervention
+- If input lacks context, output diverges (CoT as evidence)
+- Larger models have structure encoded; smaller models lack resolution
+- Prompting provides generic structure; RAG provides specificity but not adapted form; combined still fails
+- Closer: "To surpass the parametric barrier and enable generalization, what is needed is a structure that is task-independent in mechanism, specific to the task in its dimensions, and consistent in form."
 
 **Sets up:**
-- §2.7/§2.8: how to identify and define the right structure
-- §3 (Architecture): the mechanism that provides output form
-
-**Does NOT cover:**
-- Detailed discussion of any single approach (those live in §2.3–§2.5)
-- Definition of answer structure (that's §2.8)
-- The taxonomy or classifier (that's §2.7/§2.8/§3)
-
-**NOTE:** Needs re-review after §2.5 revision. Claim 6 references §2.5 and may need softer language now that §2.5 no longer makes explicit gap claims.
+- §2.7: how to identify the right structure (classification)
+- §2.8: what that structure looks like (answer structure defined)
 
 ---
 
-## §2.7 Question Classification in QA
+## §2.7 Question Classification in QA — PROSE COMPLETE
 
-**Job (four parts):**
-1. **Precedent for answer structure** — show that question structure/type is a thoroughly explored idea (20+ years of QA systems), making the leap to answer-level structure feel natural
-2. **Classification is operational and mature** — systems do this reliably with encoders; concrete features distinguish question types; de-risks the classifier component
-3. **Gap identification** — the literature classifies questions but stops at the question level (retrieval routing, expected entity type); acknowledge closest adjacent work (blueprints, TemplateRL, dynamic template selection) and distinguish each
-4. **Author synthesis bridging to §2.8** — if questions have classifiable, structurally distinct types, answers logically must too
+**Job:** Establish classification is feasible. Propose answer classification. Show it satisfies §2.6 requirements. Transition to §2.8.
 
 **Core ideas:**
-- Question classification is well-established prior art (Li & Roth 2002, extended taxonomies)
-- Different question types exhibit distinct observable surface features (factual → single datum; analogical → relational mapping; multi-step → chained conclusions)
-- Encoder-based classifiers reliably map question text to categorical labels; the mechanism applies to any finite label set including novel ones
-- Surface features that determine question type correlate directly with answer structure requirements (same signal space)
-- Literature uses QC for retrieval filtering / expected entity type, not for defining output form
-- Adjacent work (blueprints, TemplateRL, DTS) provides reasoning-process templates or cost-optimizing templates, not answer-form templates
-- Gap: no existing work classifies questions to select a structural template defining answer form and provides it as input constraint before generation
+- Question classification is well-established (Li & Roth, 2+ decades, surface-level signals, extends across domains)
+- We propose: if questions are classifiable and every question has an answer, answer structures are classifiable
+- Question type determines answer form (examples: factual, analogical, multi-step)
+- Not all relationships are equally explicit, but patterns are learnable
+- BERT-style encoder could be fine-tuned for this taxonomy
+- Taxonomy satisfies §2.6 requirements: content-independent patterns, explicit dimensions before generation, consistent across domains
+- Closer: "What remains is a clear definition of this form."
 
 **Sets up:**
-- §2.8 (Answer Structure Types): the taxonomy hypothesis — if question types are classifiable and structurally distinct, answer types must be too
+- §2.8: defines what answer structures look like
 
-**Does NOT cover:**
-- The taxonomy itself or what answer structures look like (that's §2.8)
-- The classifier architecture or training (that's §3)
-- Why structure matters / gap claims about unconstrained prediction (already done in §2.6)
-- Transition or "why care" — §2.6 already established matched structure is needed; this section answers "how do you match?"
+**Notes:**
+- Adjacent work (Han et al., Wu et al., Yadavalli, SMART, CEUR-WS) moved to planned §2.9
 
 ---
 
-## §2.8 Answer Structure Types: A Taxonomy Hypothesis
+## §2.8 Answer Structure Types: A Taxonomy Hypothesis — PROSE COMPLETE
 
-**Job:** State the novel hypothesis: answer structure types are finite, enumerable, classifiable from question text alone. Define what an answer structure IS.
+**Job:** Define answer structure. Show examples. Explain mechanistic why. Show it enables generalization. State finiteness hypothesis.
 
 **Core ideas:**
-- Not all questions require the same answer structure
-- Hypothesis: structural types are finite, enumerable, classifiable by an encoder
-- An answer structure defines dimensions/components a valid answer must contain (not content)
-- Implication: if structure classification is natural for humans and QA systems, an encoder can replicate it
-
-**Must include (per concepts doc):**
-- Explicit differentiation of "answer structure" from "structured RAG" (output-side vs retrieval-side)
-- Differentiation from format-level output constraints (JSON, templates — generic, not question-matched)
-- CoT deep-dive: why process-level structure is different from answer structure
-- Formal, operational definition of answer structure
+- Definition: schema specifying what a valid answer must contain without specifying the answer itself; dimensions = required components
+- Structure provides explicit relational context, constraining prediction space before generation
+- Model's remaining task: populate the structure with relevant content
+- Examples: relational, causal, procedural (each with numbered dimensions); pattern = subjects, mechanism of relation, joining details
+- Figure: JSON schema (empty → populated by model)
+- Mechanistic why: dimensional hooks as input tokens; more tokens = more constrained attention = sharper distribution; compensates for limited parametric resolution in small models
+- Generalization: same process across problems (classify, provide, populate); only the structure changes; unlike few-shot, provides pattern directly
+- Finiteness hypothesis: space is bounded; six interrogatives at top level; subtypes at any granularity; static taxonomy enables automation through classification
+- "Content is infinite while form is bounded."
 
 **Sets up:**
-- §3 (Architecture): the classifier and taxonomy are the implementation of this hypothesis
+- §3 (Architecture): the pipeline that implements this (classifier + scaffold + generator)
+- §2.9 (planned): distinguishes from adjacent work
 
-**NOTE:** Placement decision deferred — may belong in §3 since it IS the novel contribution. Revisit after all sections complete.
+---
+
+## §2.9 Related Work (PLANNED — not yet written)
+
+**Job:** Distinguish this paper's contribution from adjacent work. Show awareness of landscape. Carve out novelty.
+
+**Planned content (moved from §2.7):**
+- Han et al. (2025): reasoning blueprints — reasoning process, not output form; task-category level, not per-question
+- Wu et al. (2025): TemplateRL — reasoning strategy templates via RL training, not inference-time
+- Yadavalli (2025): dynamic template selection — cost optimization, not accuracy; verbosity control, not structural form
+- SMART (Setty 2023): answer entity type prediction — predicts WHAT (entity type), not HOW (structural form)
+- CEUR-WS (2021): semantic answer type prediction — same distinction as SMART
+- Conclusion: no existing work classifies questions to select structural template defining answer form as input constraint before generation
+
+**Sets up:**
+- Nothing — this is the final lit review section before §3

@@ -1,0 +1,125 @@
+{
+  "models": [
+    "llama3.2:1b",
+    "llama3:8b",
+    "llama3:text"
+  ],
+  "n": 50,
+  "seed": 123,
+  "summary": {
+    "llama3.2:1b": {
+      "baseline": {
+        "n": 50,
+        "em_ext": 0.18,
+        "f1_ext": 0.4029,
+        "avg_tokens": 122.8
+      },
+      "passage": {
+        "n": 50,
+        "em_ext": 0.66,
+        "f1_ext": 0.8122,
+        "avg_tokens": 57.0
+      },
+      "flat": {
+        "n": 50,
+        "em_ext": 0.14,
+        "f1_ext": 0.2881,
+        "avg_tokens": 78.2
+      },
+      "flat_passage": {
+        "n": 50,
+        "em_ext": 0.54,
+        "f1_ext": 0.6851,
+        "avg_tokens": 43.0
+      },
+      "sentence": {
+        "n": 50,
+        "em_ext": 0.1,
+        "f1_ext": 0.2307,
+        "avg_tokens": 34.1
+      },
+      "sentence_passage": {
+        "n": 50,
+        "em_ext": 0.38,
+        "f1_ext": 0.5096,
+        "avg_tokens": 23.7
+      }
+    },
+    "llama3:8b": {
+      "baseline": {
+        "n": 50,
+        "em_ext": 0.22,
+        "f1_ext": 0.4493,
+        "avg_tokens": 134.8
+      },
+      "passage": {
+        "n": 50,
+        "em_ext": 0.86,
+        "f1_ext": 0.9723,
+        "avg_tokens": 26.9
+      },
+      "flat": {
+        "n": 50,
+        "em_ext": 0.2,
+        "f1_ext": 0.4248,
+        "avg_tokens": 85.2
+      },
+      "flat_passage": {
+        "n": 50,
+        "em_ext": 0.78,
+        "f1_ext": 0.938,
+        "avg_tokens": 30.5
+      },
+      "sentence": {
+        "n": 50,
+        "em_ext": 0.16,
+        "f1_ext": 0.3591,
+        "avg_tokens": 42.8
+      },
+      "sentence_passage": {
+        "n": 50,
+        "em_ext": 0.66,
+        "f1_ext": 0.7936,
+        "avg_tokens": 25.3
+      }
+    },
+    "llama3:text": {
+      "baseline": {
+        "n": 50,
+        "em_ext": 0.1,
+        "f1_ext": 0.276,
+        "avg_tokens": 17.9
+      },
+      "passage": {
+        "n": 50,
+        "em_ext": 0.6,
+        "f1_ext": 0.7019,
+        "avg_tokens": 8.7
+      },
+      "flat": {
+        "n": 50,
+        "em_ext": 0.12,
+        "f1_ext": 0.2792,
+        "avg_tokens": 5.2
+      },
+      "flat_passage": {
+        "n": 50,
+        "em_ext": 0.56,
+        "f1_ext": 0.6903,
+        "avg_tokens": 3.5
+      },
+      "sentence": {
+        "n": 50,
+        "em_ext": 0.18,
+        "f1_ext": 0.2802,
+        "avg_tokens": 7.1
+      },
+      "sentence_passage": {
+        "n": 50,
+        "em_ext": 0.6,
+        "f1_ext": 0.6728,
+        "avg_tokens": 4.8
+      }
+    }
+  }
+}

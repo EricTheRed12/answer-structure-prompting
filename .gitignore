@@ -431,3 +431,4 @@ FodyWeavers.xsd
 *.pdf
 *.bbl
 *.blg
+.DS_Store

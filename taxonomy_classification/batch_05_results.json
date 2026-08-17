@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "5730a314069b5314008321ed",
+    "question": "What did the the Europeans think the peoples in the tropics were in need of?",
+    "answer": "guidance",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57264cac708984140094c1b5",
+    "question": "Why was old oil withdrawn from the market?",
+    "answer": "Price controls",
+    "interrogative": "why",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5729e6313f37b319004785aa",
+    "question": "Near where in the continent is it believed that the Amazon basin split?",
+    "answer": "Purus Arch",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "5726965ef1498d1400e8e486",
+    "question": "What entity deals with EU staff issues?",
+    "answer": "Civil Service Tribunal",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "role"
+  },
+  {
+    "id": "57264845f1498d1400e8db0b",
+    "question": "Who did the army siege belong to?",
+    "answer": "Jani Beg",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5725be0f271a42140099d118",
+    "question": "What has allowed for the Savanna region to expand into the tropics?",
+    "answer": "Climate fluctuations during the last 34 million years have allowed savanna regions to expand into the tropics.",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57297781af94a219006aa4a7",
+    "question": "If 1 were to be considered as prime what would the sieve of Eratosthenes yield for all other numbers?",
+    "answer": "only the single number 1",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "572656e4dd62a815002e81fa",
+    "question": "What type of vote must the Parliament have to either block or suggest changes to the Commission's proposals?",
+    "answer": "a majority",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "5725c743ec44d21400f3d54d",
+    "question": "What governing body appoints commissioners and the board of European Central Bank?",
+    "answer": "The \"European Council\"",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "573098f38ab72b1400f9c5d2",
+    "question": "European imperialism was focused on what?",
+    "answer": "economic growth",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5726487b5951b619008f6edf",
+    "question": "Which country is a traditional ally of Israel?",
+    "answer": "UK",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "role"
+  },
+  {
+    "id": "572fdd03a23a5019007fca9e",
+    "question": "What are MPs unable to vote upon?",
+    "answer": "domestic legislation of the Scottish Parliament",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57107e6ca58dae1900cd69f5",
+    "question": "How did the Huguenots defend themselves?",
+    "answer": "their own militia",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "571a53d410f8ca1400304fe7",
+    "question": "Oxygen exists in the atmosphere by way of what?",
+    "answer": "carbon dioxide",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "57280f974b864d1900164372",
+    "question": "How is civil disobedience typically defined in connection of the citizen's?",
+    "answer": "to the state and its laws",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "5726deed5951b619008f80c5",
+    "question": "How far does one pharmacy in Croatia date back to?",
+    "answer": "1317",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57302700a23a5019007fce8b",
+    "question": "What organization did General Gaafar al-Nimeiry invite members of to serve in his government?",
+    "answer": "National Islamic Front",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5705ec1675f01819005e776e",
+    "question": "Other than surf, what other culture is southern California home to?",
+    "answer": "skateboard",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5727cd7dff5b5019007d9591",
+    "question": "What are those from Jacksonville sometimes called?",
+    "answer": "\"Jacksonvillians\" or \"Jaxsons\"",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572fdd03a23a5019007fca9f",
+    "question": "What phenomenon has led to criticism?",
+    "answer": "West Lothian question",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57339dd94776f41900660ece",
+    "question": "When is the Wianki festival held?",
+    "answer": "Midsummer's Night",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "573005b9947a6a140053cf6c",
+    "question": "Secular Arab nationalism was blamed for both the defeat of Arab troops as well as what type of stagnation?",
+    "answer": "economic",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "571161092419e314009555d7",
+    "question": "What is an example of a rotary engine without pistons?",
+    "answer": "Wankel",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572fd7b8947a6a140053cd3d",
+    "question": "What may members question the First Minister about directly during First Minister's Question Time?",
+    "answer": "issues under their jurisdiction",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "570d50a5fed7b91900d45e7e",
+    "question": "What percentage was the increase of agricultural products in 2003-04?",
+    "answer": "17%",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5733d249d058e614000b6333",
+    "question": "Where was France concentraing efforts?",
+    "answer": "against Prussia and its allies in the European theatre of the war.",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "clause",
+    "relational_context": "locative"
+  },
+  {
+    "id": "572699db5951b619008f779d",
+    "question": "What does the EU's legitimacy rest on?",
+    "answer": "the ultimate authority of member states, its factual commitment to human rights, and the democratic will of the people.",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5726f7715951b619008f8390",
+    "question": "Where might the doctor's self-interest be at odds with the patient's self-interest?",
+    "answer": "in obtaining cost-effective medication and avoiding the unnecessary use of medication that may have side-effects",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "5737804dc3c5551400e51f10",
+    "question": "What nuclear forces only act at short distances?",
+    "answer": "strong and weak",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57266e72f1498d1400e8df8c",
+    "question": "What techniques can be used to determine paleotopography?",
+    "answer": "Thermochemical techniques",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "572885c44b864d1900164a7b",
+    "question": "What modern city did Khanbaliq become?",
+    "answer": "Beijing",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572849b4ff5b5019007da0f4",
+    "question": "How much did the Milton Friedman Institute roughly cost?",
+    "answer": "around $200 million",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "572a05eb3f37b31900478656",
+    "question": "What's one factor in eroding self-esteem?",
+    "answer": "Unemployment",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5729f4e46aef051400155159",
+    "question": "What is used by certain wealthy groups to obtain policies financially beneficial for them?",
+    "answer": "political power generated by wealth",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "56e17e6ee3433e1400422f7f",
+    "question": "By how many kilometers does the traveling salesman problem seek to classify a route between the 15 largest cities in Germany?",
+    "answer": "2000",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57286bb84b864d19001649c9",
+    "question": "What does 'Pax Mongolica' mean?",
+    "answer": "Mongol peace",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57263fd138643c19005ad37d",
+    "question": "Were the centers profitable",
+    "answer": "They lost money from the beginning, and Sinback, a high-level marketing manager, was given the job of turning the business around",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "5733266b4776f41900660714",
+    "question": "What did the Warsaw Confederation formally establish in 1573?",
+    "answer": "religious freedom",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "5737a5931c456719005744e7",
+    "question": "Where does centripetal force go?",
+    "answer": "toward the center of the curving path",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "57268e2bf1498d1400e8e3b4",
+    "question": "When did Greenland sign a Treaty granting them special status?",
+    "answer": "1985",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57339c16d058e614000b5ec7",
+    "question": "How long was the Summer Theatre in operation?",
+    "answer": "1870 to 1939",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "57108ee6a58dae1900cd6a1c",
+    "question": "Who allegedly haunted the gate?",
+    "answer": "the ghost of le roi Huguet",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "573406d1d058e614000b6802",
+    "question": "What was the significance of victory at Forth Niagara for British?",
+    "answer": "cut off the French frontier forts further to the west and south",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "5728809f2ca10214002da40d",
+    "question": "What did Gou use for astronomy?",
+    "answer": "a cubic interpolation formula",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "572ffb02b2c2fd14005686b9",
+    "question": "What time did a river system develop in the Upper Rhine Graben?",
+    "answer": "Miocene",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5726701add62a815002e84c9",
+    "question": "Where do thrust faults form?",
+    "answer": "In the shallow crust",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "572807802ca10214002d9bfb",
+    "question": "Le grand states that students studying civil disobedience will often run into grammatical niceties and what other problem?",
+    "answer": "semantical",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "571c879bdd7acb1400e4c0ec",
+    "question": "What is the term for the arrangement of two unpaired electrons in dioxygen?",
+    "answer": "spin triplet state",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5729d44b1d04691400779613",
+    "question": "What may explain why some Americans who've become rich may have had a head start?",
+    "answer": "Inherited wealth",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "57268066708984140094c822",
+    "question": "What type of surveys show the location of stratigraphic units in the subsurface?",
+    "answer": "geophysical surveys",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "instrumental"
+  },
+  {
+    "id": "57113f83b654c5140001fc29",
+    "question": "What type of engines became widespread around the end of the 19th century?",
+    "answer": "compound",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "57265e11708984140094c3bd",
+    "question": "Why did Saudi Arabia try to increase production, and reduce profits for high cost producers?",
+    "answer": "recover market share",
+    "interrogative": "why",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "causal"
+  },
+  {
+    "id": "572684365951b619008f7542",
+    "question": "Juvenile platyctenids act like what?",
+    "answer": "more like true larvae",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "57267947f1498d1400e8e0ec",
+    "question": "What do petrologists use electron microprobes in the laboratory for?",
+    "answer": "identifying rocks",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "procedural"
+  },
+  {
+    "id": "5733a6ac4776f41900660f5b",
+    "question": "What profession was Nathan Alterman?",
+    "answer": "poet",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "role"
+  },
+  {
+    "id": "57265200708984140094c238",
+    "question": "Which country was worried that the US would invade the Middle East?",
+    "answer": "British Prime Minister Edward Heath",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "56e1b754cd28a01900c67abf",
+    "question": "Communication complexity is an example of what type of measure?",
+    "answer": "Complexity measures",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57115b2850c2381900b54a81",
+    "question": "In what year was the first commercial steam powered device invented?",
+    "answer": "1698",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5733a2a9d058e614000b5f29",
+    "question": "How many projects does the Centre currently realize a year?",
+    "answer": "about 500",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57297a276aef051400154f8a",
+    "question": "Of what form do Fermat numbers take?",
+    "answer": "22n + 1",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572659535951b619008f7040",
+    "question": "Name a larger car that Toyota came up with as buyers lamented the small sized compacts?",
+    "answer": "Toyota Corona Mark II",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57115f652419e314009555bc",
+    "question": "In what year did Savery patent his steam pump?",
+    "answer": "1698",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "56de4b074396321400ee2795",
+    "question": "What place had the Norman Arab architectural style?",
+    "answer": "Sicily",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "573403394776f419006616dd",
+    "question": "How many Frenchman won Battle of Carillon?",
+    "answer": "3,600",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "5710e8c8a58dae1900cd6b28",
+    "question": "What did the 18th century Huguenot group call themselves?",
+    "answer": "Camisards",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572fffb1b2c2fd14005686fb",
+    "question": "When Iqbal promoted ideas of greater Islamic political unity, what did he encourage ending?",
+    "answer": "nationalist differences",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "5729fe5c3f37b31900478630",
+    "question": "In autoimmune disorders, the immune system doesn't distinguish between what types of cells?",
+    "answer": "self and non-self",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "571097baa58dae1900cd6a9c",
+    "question": "In what state is the largest Huguenot Society located?",
+    "answer": "Texas",
+    "interrogative": "where",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "locative"
+  },
+  {
+    "id": "56de3e414396321400ee26d9",
+    "question": "Who was in charge of the papal army in the War of Barbastro?",
+    "answer": "William of Montreuil",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "573099ee8ab72b1400f9c5dd",
+    "question": "What did European chemists make that could be used in warfare?",
+    "answer": "deadly explosives",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "570610b275f01819005e792e",
+    "question": "What is the world's busiest general aviation airport?",
+    "answer": "Van Nuys Airport",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572f5703a23a5019007fc576",
+    "question": "What is the natural dam that the Rhine flows through?",
+    "answer": "Sargans",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5726509bdd62a815002e815d",
+    "question": "What did Graham Twigg publish in 1984?",
+    "answer": "the first major work to challenge the bubonic plague theory directly",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572754dd708984140094dc3c",
+    "question": "About many students attend Kunskapsskolan schools?",
+    "answer": "10,000",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "57302bd0b2c2fd14005689db",
+    "question": "What type of group is The Islamic State?",
+    "answer": "Wahhabi/Salafi jihadist extremist militant",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "5725b76389a1e219009abd4e",
+    "question": "Why did oil start getting priced in terms of gold?",
+    "answer": "oil was priced in dollars, oil producers' real income decreased",
+    "interrogative": "why",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5729e1101d04691400779643",
+    "question": "What type of wages do people unable to afford an education receive?",
+    "answer": "lower",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "adjective",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "56e1b8f3e3433e14004230e7",
+    "question": "Case complexity likelihoods provide variable probabilities of what general measure?",
+    "answer": "complexity measure",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "57339a554776f41900660e76",
+    "question": "What is one of the largest and most modern oncological institutions in Europe?",
+    "answer": "Maria Sk\u0142odowska-Curie Institute of Oncology",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572847ff3acd2414000df86b",
+    "question": "In what year was the Kalven Report issued?",
+    "answer": "1967",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "570960cf200fba1400367f02",
+    "question": "What year did BSkyB and Microsoft announce their settlement?",
+    "answer": "2013",
+    "interrogative": "when",
+    "cardinality": "singular",
+    "entity_type": "time",
+    "answer_form": "noun",
+    "relational_context": "temporal"
+  },
+  {
+    "id": "5725c95f38643c19005accf7",
+    "question": "How many people may have lived in the Amazon region during AD 1500?",
+    "answer": "5 million",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  },
+  {
+    "id": "56e2042ecd28a01900c67c1e",
+    "question": "Who provided a definition of linear bounded automata in 1960?",
+    "answer": "John Myhill",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5733db8dd058e614000b6429",
+    "question": "Who was on Celeron's expedition?",
+    "answer": "200 Troupes de la marine and 30 Indians",
+    "interrogative": "who",
+    "cardinality": "multipart",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "56e1bd4acd28a01900c67afe",
+    "question": "How would one write T(n) = 7n2 + 15n + 40 in big O notation?",
+    "answer": "T(n) = O(n2)",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "procedural"
+  },
+  {
+    "id": "572fbea404bcaa1900d76c5b",
+    "question": "What is the seating arrangement of the debating chamber?",
+    "answer": "hemicycle",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "descriptive"
+  },
+  {
+    "id": "571a484210f8ca1400304fbe",
+    "question": "What is the second most abundant element?",
+    "answer": "helium",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572941273f37b319004781b0",
+    "question": "What was the topic of the error?",
+    "answer": "Himalayan glaciers",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5728501aff5b5019007da16a",
+    "question": "Who took Isaacs place as Provost in 2016?",
+    "answer": "Robert Zimmer",
+    "interrogative": "who",
+    "cardinality": "singular",
+    "entity_type": "person",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "572998673f37b319004784d5",
+    "question": "What type of insect employs the use of prime numbers in its evolutionary strategy?",
+    "answer": "cicadas",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "57299326af94a219006aa518",
+    "question": "Besides public key cryptography, what is another application for prime numbers?",
+    "answer": "hash tables",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "thing",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "56e17644e3433e1400422f40",
+    "question": "What two fields of theoretical computer science closely mirror computational complexity theory?",
+    "answer": "analysis of algorithms and computability theory",
+    "interrogative": "what",
+    "cardinality": "multipart",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5705ffde52bb891400689784",
+    "question": "Which fault can produce a magnitude earthquake of 8.0?",
+    "answer": "San Andreas",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "agent"
+  },
+  {
+    "id": "5733a560d058e614000b5f77",
+    "question": "What did Artur Oppman give to the world?",
+    "answer": "legend",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "resultative"
+  },
+  {
+    "id": "572a09abaf94a219006aa75b",
+    "question": "Classifying the stages of what is important to mapping aspects of the Amazon?",
+    "answer": "tree growth",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5725e45689a1e219009ac04c",
+    "question": "Which district in Fresno is known as the center for the heavy metal community?",
+    "answer": "Tower District",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "place",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "572822233acd2414000df556",
+    "question": "What did the Jewish people do so pagan items wouldn't be in the temple of Jerusalem?",
+    "answer": "gathered in the streets",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "verb",
+    "relational_context": "procedural"
+  },
+  {
+    "id": "5727d1c93acd2414000ded41",
+    "question": "Why did Harvard end its early admission program?",
+    "answer": "disadvantage low-income and under-represented minority applicants",
+    "interrogative": "why",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "clause",
+    "relational_context": "causal"
+  },
+  {
+    "id": "5729a03f1d04691400779596",
+    "question": "What does quadratic reciprocity seek to achieve?",
+    "answer": "the solvability of quadratic equations",
+    "interrogative": "what",
+    "cardinality": "singular",
+    "entity_type": "concept",
+    "answer_form": "noun",
+    "relational_context": "identificatory"
+  },
+  {
+    "id": "5711623e50c2381900b54ab9",
+    "question": "How many mechanisms does a typical steam engine have to keep boiler pressure from getting too high?",
+    "answer": "two",
+    "interrogative": "how",
+    "cardinality": "singular",
+    "entity_type": "number",
+    "answer_form": "noun",
+    "relational_context": "quantitative"
+  }
+]

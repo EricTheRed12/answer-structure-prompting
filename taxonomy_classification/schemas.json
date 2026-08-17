@@ -1,0 +1,141 @@
+{
+  "taxonomy_version": "final_10_class",
+  "notes": "Two pre-filled common fields (answer_type, answer) + class-specific empty dimensions. Repetition in field names (e.g. answer:cause + cause:'') is intentional — reinforces signal.",
+  "classes": [
+    {
+      "id": 1,
+      "name": "Object Identification",
+      "description": "The answer names or identifies a concrete object, entity, document, technology, or substance.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "object",
+        "object": "",
+        "relation": ""
+      },
+      "example_q": "What is the name of the CBS affiliate in Fresno?",
+      "example_a": "KGPE"
+    },
+    {
+      "id": 2,
+      "name": "Concept/Person Identification",
+      "description": "The answer identifies an abstract concept, classification, or person by a defining property.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "concept or person",
+        "identity": "",
+        "defining_property": ""
+      },
+      "example_q": "What are both Branko Milanovic and Joseph Stiglitz?",
+      "example_a": "Economist"
+    },
+    {
+      "id": 3,
+      "name": "Multipart Identification",
+      "description": "The answer requires identifying multiple distinct components.",
+      "schema": {
+        "answer_type": "multiple",
+        "answer": "list",
+        "components": [],
+        "shared_category": ""
+      },
+      "example_q": "What does Warsaw host many of?",
+      "example_a": "events and festivals"
+    },
+    {
+      "id": 4,
+      "name": "Quantitative",
+      "description": "The answer is a number: a count, measurement, proportion, or recorded statistic.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "quantity",
+        "quantity": "",
+        "unit": "",
+        "measurement_context": ""
+      },
+      "example_q": "How many volumes does the University of Chicago Library hold?",
+      "example_a": "9.8 million"
+    },
+    {
+      "id": 5,
+      "name": "Temporal",
+      "description": "The answer is a time expression: a date, year, era, duration, or range.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "time",
+        "event": "",
+        "time_expression": "",
+        "temporal_type": ""
+      },
+      "example_q": "What year was Setanta Sports awarded Premier League rights?",
+      "example_a": "2006"
+    },
+    {
+      "id": 6,
+      "name": "Place",
+      "description": "The answer is a geographic location or spatial reference.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "location",
+        "location": "",
+        "relation": ""
+      },
+      "example_q": "Where does the Rhine river's measurement begin?",
+      "example_a": "Old Rhine Bridge at Constance"
+    },
+    {
+      "id": 7,
+      "name": "Agent",
+      "description": "The answer is who or what performed an action.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "agent",
+        "agent": "",
+        "action_performed": "",
+        "object_of_action": ""
+      },
+      "example_q": "Who challenged Kublai Khan's right to succeed?",
+      "example_a": "Ariq Böke"
+    },
+    {
+      "id": 8,
+      "name": "Descriptive",
+      "description": "The answer describes a quality, property, or characteristic of something.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "quality",
+        "quality": "",
+        "description_domain": ""
+      },
+      "example_q": "What kind of university is the California Institute of Technology?",
+      "example_a": "private"
+    },
+    {
+      "id": 9,
+      "name": "Causal",
+      "description": "The answer explains why something happened: the cause, reason, or enabling mechanism.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "cause",
+        "effect": "",
+        "cause": "",
+        "mechanism": ""
+      },
+      "example_q": "Why did Berlin Huguenots switch to German?",
+      "example_a": "in protest against the occupation of Prussia by Napoleon"
+    },
+    {
+      "id": 10,
+      "name": "Resultative",
+      "description": "The answer is the outcome, effect, or product of an action or event.",
+      "schema": {
+        "answer_type": "single",
+        "answer": "outcome",
+        "action": "",
+        "actor": "",
+        "outcome": ""
+      },
+      "example_q": "What did the use of steam engines in farming lead to?",
+      "example_a": "increase in the land available for cultivation"
+    }
+  ]
+}

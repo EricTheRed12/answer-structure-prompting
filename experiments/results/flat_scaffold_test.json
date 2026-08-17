@@ -1,0 +1,49 @@
+{
+  "model": "llama3:8b",
+  "n": 50,
+  "seed": 77,
+  "summary": {
+    "A_baseline": {
+      "n": 50,
+      "em_ext": 0.38,
+      "f1_ext": 0.5931,
+      "avg_tokens": 147.6
+    },
+    "B_passage_only": {
+      "n": 50,
+      "em_ext": 0.88,
+      "f1_ext": 0.9367,
+      "avg_tokens": 36.3
+    },
+    "C_json_scaffold": {
+      "n": 50,
+      "em_ext": 0.76,
+      "f1_ext": 0.8697,
+      "avg_tokens": 38.0
+    },
+    "D_flat_scaffold": {
+      "n": 50,
+      "em_ext": 0.34,
+      "f1_ext": 0.58,
+      "avg_tokens": 85.2
+    },
+    "E_flat_scaffold_passage": {
+      "n": 50,
+      "em_ext": 0.82,
+      "f1_ext": 0.9178,
+      "avg_tokens": 38.8
+    },
+    "F_flat_system": {
+      "n": 50,
+      "em_ext": 0.34,
+      "f1_ext": 0.5001,
+      "avg_tokens": 28.4
+    },
+    "G_flat_system_passage": {
+      "n": 50,
+      "em_ext": 0.7,
+      "f1_ext": 0.8221,
+      "avg_tokens": 19.5
+    }
+  }
+}

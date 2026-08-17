@@ -53,7 +53,7 @@ The hypothesis is straightforward. By providing a model with a structured prompt
 
 This paper operates under two key premises. First, a finite set of common answer dimensions exists and can cover a given domain \cite{nonfactoid_taxonomy2022}. Second, the structure that holds these dimensions can be recognized from the question alone \cite{liroth2002questions}. We construct a taxonomy from the questions in the SQuAD dataset to verify that it can be created and then classified. This paper does not aim to extend this taxonomy beyond a limited domain, nor to establish a definitive taxonomy, only to demonstrate that the concept has merit.
 
-We evaluate this taxonomy across a variety of generator models, including various sizes under 15B parameters, in both base and fine-tuned variants. We measure success by the performance of each generator on the questions in the SQuAD dataset against its own baseline results.
+We evaluate this taxonomy across a variety of generator models at various sizes in base pretrained form. We measure success by the performance of each generator on the questions in the SQuAD dataset against its own baseline results.
 
 % ============================================================
 \section{Literature Review}
@@ -125,17 +125,9 @@ Prompt engineering effectively narrows the prediction space, but still cannot en
 % NOTE: MoE routing concept moved to §3 (Architecture).
 % NOTE: CoT large vs small degradation addressed in §2.4 (claim 4). Remaining for §2.8: "more defined structure helps" argument — use to motivate why matched answer structure outperforms generic structure.
 % NOTE: Structured prompting (providing explicit output format/structure) is discussed in §2.8 where it is distinguished from answer structure.
-% NOTE: §2.5 synthesis names three components (structure, specificity, relevant context). During prose rewrite of §2.4, crystallize these terms where they first appear — "structure" when discussing how prompts provide structural framing, "specificity" when discussing few-shot examples providing specific patterns.
 
 \subsection{Retrieval-Augmented Generation}
 
-% PROSE REWRITE — 4 claims.
-% Claim 1: RAG defined (inference-time, retrieves from external source, injects into input, automates prompt construction)
-% Claim 2: Distinction from prompt engineering (same mechanism: ICL, no weight mod; different source: authored structure vs retrieved content per-query; not mutually exclusive, compatible together)
-% Claim 3: More structure, but organization matters (retrieved content provides more tokens for attention → more relational structure in context; but volume alone isn't enough — variants like decomposition and corrective filtering show organization determines quality; structured retrieval > naive retrieval)
-% Claim 4: Synthesis (preserves generalization + adds specificity automatically; organization + specificity outperform either alone; but relational structure between tokens still implicit — nothing tells model which relationships matter for this answer; reducing prediction space further requires making that relational structure explicit)
-
-% --- AUTHOR: Write each claim as one paragraph below. Original bullets preserved in comments above. ---
 
 Retrieval-Augmented Generation, as the name implies, augments generation by retrieving additional context to construct the prompt at inference time \cite{lewis2020rag, rag_survey2023}. This retrieval pulls information from an external source.
 
@@ -146,16 +138,7 @@ Retrieval-Augmented Generation's value is in specificity. Retrieval from an exte
 As an inference-time technique, RAG is both generalizable and scale-resistant. A retrieval system can be applied to any model, trained or untrained, and depending on the technique, applied across a variety of domains without modification \cite{rag_survey2023}. Its core mechanism operates through attention rather than parametric capacity, meaning benefits persist when models are smaller \cite{costofdownscaling2023}. However, the same limitation identified in prompt engineering (\S2.4) applies: there remains a reliance on the model's encoded information to organize its output. To reduce the prediction space further, a prompt needs to provide everything but the answer.
 
 \subsection{Unconstrained Prediction}
-% NOTE: Thread "generalization" into this section during prose rewrite. Key point: without structure, the model defaults to its degraded general distribution — generalization without structural guidance = unconstrained prediction. The model can generate across tasks (it's general) but the output quality is unreliable because nothing constrains the prediction space per-question.
-% NOTE: §2.5 ends with "a prompt needs to provide everything but the answer." This section should show what happens when that isn't done — unconstrained prediction is the consequence of the gap.
 
-% PROSE REWRITE — 4 claims.
-% Claim 1: Reframe hallucination (not a separate failure mode; model produces most probable continuation given input; "wrong" only relative to task expectation; reference §2.1 don't restate)
-% Claim 2: Output trajectory determined at input (model is deterministic; entire sequence latent in prompt + params + sampling; input is only point of intervention; if input doesn't structurally constrain, degraded encoding determines trajectory; CoT evidence: extending generation in small models hurts because trajectory set on degraded foundation)
-% Claim 3: Sampling doesn't change structure (temp/top-p/seed select which trajectory; don't reshape structural encoding; different sampling = different paths through same degraded space)
-% Claim 4: Structure must be in the input (input is when trajectory is determined; providing structure changes the trajectory; must happen before first output token; this IS the generalization problem — absence of structural constraint across diverse question types; model can produce correct output when guided but can't determine right trajectory on its own across tasks)
-
-% --- AUTHOR: Write each claim as one paragraph below. Original bullets preserved in comments above. ---
 
 When a model does not produce the expected or correct answer for a given task, it is common to call the error a hallucination \cite{ji2023hallucination, hallucination_unified2024}. At the architectural level, this is a misleading description. The model did not make a mistake nor imagine a false reality. It simply produced an output that did not match the task. As introduced in \S2.1, for every forward pass the model produces a probability distribution derived entirely from the prompt \cite{brown2020gpt3, llmreasoning_stochastic2024}. There is no alternative failure mode.
 
@@ -169,18 +152,10 @@ Larger models often have this specificity and structure encoded in their paramet
 % NOTE: Adjacent work (Han et al., Wu et al., Yadavalli, SMART, CEUR-WS) moved to planned §2.9 (Related Work).
 % NOTE: Encoder architecture explanation (BERT bidirectional attention, MLM pre-training) — keep brief, one sentence. Not a full explainer.
 
-% PROSE REWRITE — 4 claims.
-% Claim 1: Question classification exists (well-established, foundational, Li & Roth taxonomy, classifiable from text alone, different features per class, observable at surface, extends across domains)
-% Claim 2: We propose answer classification (if questions classifiable + answers exist → answer structures classifiable; type determines form; examples; not all explicit but learnable; encoder/BERT can do it)
-% Claim 3: This solves specificity and generalization (specific: matched per-question; generalizable: classifying relational patterns across answers, not specific answers; task-independent mechanism, task-specific output)
-% Claim 4: Transition to §2.8 (if correspondence is systematic, structures can be defined; next section develops what they look like)
-
-% --- AUTHOR: Write each claim as one paragraph below. ---
 
 Question classification is well-established in computer science and foundational to question answering systems. Li and Roth demonstrate that a taxonomy of question classes exists and that these classes can be identified from the question text alone \cite{liroth2002questions}. Different classes of questions have different associated features. For example, some are factual, others map relations. The signals that identify these classes are observable at the surface level and can even extend across subject domains \cite{nonfactoid_taxonomy2022}.
 
 We propose that if questions are classifiable, and every question has a relevant answer, there must be some structure or set of features that can be used to identify groups of answers. The question type itself determines the answer form \cite{liroth2002questions}. For instance, a factual question calls for a single fact as answer \cite{liroth2002questions}; an analogical question calls for a relational mapping between two subjects \cite{analogical_reasoning2022}; a multi-step question calls for a sequence of linked conclusions \cite{wei2022cot}. Not all relationships between question type and answer form are equally explicit, but the patterns are learnable from sufficient examples. An encoder model like BERT, which excels at classification, could be fine-tuned to recognize this new taxonomy \cite{devlin2019bert, xu2019qc_bert}.
-% NOTE: CITATION REVIEW — verify analogical_reasoning2022 and wei2022cot explicitly support "calls for X as answer" framing. Both are indirect support (capabilities papers, not classification papers).
 % NOTE: FULL CITATION AUDIT NEEDED — flagged citations across §2.5–§2.8:
 % - seed_temperature_stability2025: "strong relationships preserved, divergence minimal" is our interpretation. Paper measures safety decision flips (5-12% at greedy vs 12-24% at t=1.0). Supports temperature > seed in effect, but "minimal" is arguable.
 % - analogical_reasoning2022: Paper tests LLMs on analogy tasks (Nature Human Behaviour). Demonstrates analogies require relational mapping. Indirect — it's a capabilities paper, not a taxonomy paper.
@@ -193,16 +168,15 @@ We propose that if questions are classifiable, and every question has a relevant
 A taxonomy of answer forms satisfies the requirements established in \S2.6. The relational patterns are content-independent and can be applied across specific answers regardless of task. The dimensions within each form can be explicitly provided to a model before generation begins. The classification produces consistent output regardless of domain. What remains is a clear definition of this form.
 
 \subsection{Answer Structure Types: A Taxonomy Hypothesis}
-% NOTE: §2.5 ends with the principle: "a prompt needs to provide everything but the answer." §2.8 is where the framework delivers on this.
+% NOTE: FULL CITATION AUDIT NEEDED — flagged citations across §2.5–§2.8:
+% - seed_temperature_stability2025: "strong relationships preserved, divergence minimal" is our interpretation. Paper measures safety decision flips (5-12% at greedy vs 12-24% at t=1.0). Supports temperature > seed in effect, but "minimal" is arguable.
+% - analogical_reasoning2022: Paper tests LLMs on analogy tasks (Nature Human Behaviour). Demonstrates analogies require relational mapping. Indirect — it's a capabilities paper, not a taxonomy paper.
+% - wei2022cot: CoT paper shows multi-step problems benefit from intermediate steps. Indirect — it's a prompting technique paper, not answer form classification.
+% - brown2020gpt3 (§2.5 "more tokens = better"): Shows few-shot > zero-shot empirically. Standard use but doesn't explain mechanism (more attention signal). Evidence of effect, not explanation.
+% - liroth2002questions (for "type determines form"): Their taxonomy maps type → expected answer entity type (person, location). Valid interpretation but they frame it as entity classification for retrieval, not structural dimensions. Goes slightly beyond their explicit framing.
+% - llmreasoning_stochastic2024: Abstract confirms "LLMs create text based on learned patterns rather than performing actual reasoning." Supports "no separate failure mode" but full text not verified.
+% - prompt_eng_rag_slm2026: Preprint (2026). Empirically demonstrates RAG + prompting combined on SLMs. Solid for "not mutually exclusive" claim but unreviewed.
 
-% PROSE REWRITE — 5 claims.
-% Claim 1: Definition (schema specifying what answer must contain; dimensions = required components; provides relational context constraining prediction space; model populates with content)
-% Claim 2: Examples (relational, causal, procedural; pattern: subjects, mechanism, joining details; varies but pattern clear; not fixed; identifiable from question; illustrative; tests on constrained domain)
-% Claim 3: Why this works mechanistically (tokens create combinatorial relational structure; more dimensions = more relationships for attention; provides "everything but the answer")
-% Claim 4: How it addresses small model + generalization (externally supplied before generation; per-question; task-independent; reduces task to populating form; unlike few-shot provides pattern directly)
-% Claim 5: Finiteness hypothesis (finite, enumerable; infinite in content but bounded in form; tractable)
-
-% --- AUTHOR: Write each claim as one paragraph below. ---
 
 We define an answer structure as a schema that specifies what a valid answer must contain without specifying what the answer is. Each entry in the schema is a dimension: a required component of the answer. The answer structure defines what kinds of information are needed, how they relate, and how they must be organized. The structure provides explicit relational context in the input, constraining the prediction space before generation begins. When prompted, the model's remaining task is to populate the structure with relevant content.
 
@@ -246,99 +220,169 @@ Answer structures also enable generalization. As a defined taxonomy, they can be
 We further hypothesize that the space answer structures operate in is bounded. While a structure need not come from a finite taxonomy to be effective, there is a finite set of structures that can be identified. This stems from the classification of questions, bound at the highest level by the six interrogatives: who, what, when, where, why, and how. At any level below, subtypes can be defined with as much or as little granularity as required, forming a static taxonomy \cite{liroth2002questions, nonfactoid_taxonomy2022}. Once predefined, this enables automation through classification. Questions can be infinite, but as the interrogatives show, content is infinite while form is bounded.
 
 % ============================================================
+\subsection{Related Work}
+% ============================================================
+
+Several recent works cover adjacent problems, and each contributes an element of our approach.
+
+SMART proposes that properties of the answer can be identified from the input question alone \cite{setty2023smart, smart2021}. This is done by predicting the ontological entity type an expected answer requires. The predicted type is used to narrow the retrieval search space so that only entities of that type are considered. This work demonstrates a question contains enough signal to identify features of an answer before producing one.
+
+Dynamic Template Selection classifies incoming prompts by semantic complexity to select a pre-built response template \cite{yadavalli2025dts}. The templates determine the output's verbosity and structure. The objective is to reduce the cost of generation through more efficient token usage. For our purposes, this work highlights that classification of an input can map directly to a templated taxonomy.
+
+TemplateRL constructs a library of problem-solving templates \cite{wu2025templaterl}. Like our answer structures, these templates provide structured context to assist in generation. The difference is that TemplateRL's templates provide a set of reasoning action sequences, indexed by problem complexity and retrievable per-problem. This work establishes that a structured library can be maintained and retrieved on a per-prompt basis to improve generation.
+
+The Blueprints devised by Han et al. structure step-by-step reasoning to guide generation \cite{han2025blueprints}. By providing these as input tokens to a small model, they are shown to increase performance. No weight updates are required; the intervention is purely at inference time. This demonstrates that structured guidance provided as a prompt can improve small model performance without fine-tuning.
+
+Constrained decoding masks illegal tokens at each step of the generation process \cite{willard2023guided}. This guarantees the output conforms to a specified grammar. It operates at decode time and limits the output distribution directly. Like an answer structure, constrained decoding illustrates that the distribution of a prediction can be sharpened with a structural constraint.
+
+Coupled with an effective structural form provided at inference time, these elements bridge the gap between generalization and model size.
+
+% ============================================================
 \section{Architecture}
 % ============================================================
 
-\begin{itemize}
-  \item \textbf{Overview:} two-stage inference-time pipeline, no weight updates required
-    \begin{itemize}
-      \item Stage 1 --- Classification: encoder model classifies question $\rightarrow$ answer structure type
-      \item Stage 2 --- Generation: small LLM generates answer conditioned on retrieved scaffold
-    \end{itemize}
-  \item \textbf{Stage 1 --- The Classifier}
-    \begin{itemize}
-      \item Architecture: BERT-style bidirectional encoder \cite{devlin2019bert}
-      \item Input: raw question text
-      \item Output: answer structure type label (from the taxonomy)
-      \item Training: fine-tuned on labeled question-type dataset \cite{datasets_survey2024}
-      \item Why an encoder: bidirectional attention gives richer question representations than a left-to-right decoder; classification is a natural fit \cite{devlin2019bert, liu2019roberta}
-    \end{itemize}
-  \item \textbf{The Taxonomy}
-    \begin{itemize}
-      \item Define the set of answer structure types used in this paper (e.g.\ factual-recall, analogical, multi-step reasoning, multiple-choice selection)
-      \item Discuss how the taxonomy was derived
-      \item Justify that the taxonomy is principled, not arbitrary \cite{nonfactoid_taxonomy2022}
-    \end{itemize}
-  \item \textbf{Stage 2 --- Scaffold Retrieval}
-    \begin{itemize}
-      \item Each taxonomy class has a corresponding pre-constructed few-shot prompt scaffold
-      \item Scaffold structure: [answer type description] + [N worked examples] + [question]
-      \item The scaffold narrows the probability space before generation begins \cite{brown2020gpt3, manyshot2024}
-    \end{itemize}
-  \item \textbf{Stage 2 --- The Generator}
-    \begin{itemize}
-      \item Any small, English-understanding LLM (baseline or instruction-tuned)
-      \item No fine-tuning required
-      \item The scaffold does the structural work; the model supplies language understanding \cite{smalllmsready2024}
-    \end{itemize}
-  \item \textbf{Why this works (theoretical argument):}
-    \begin{itemize}
-      \item LLMs are probability engines; the scaffold shifts the prior toward valid response structures
-      \item This is analogous to how few-shot prompting works, but at the structural level rather than the topical level \cite{llmreasoning_stochastic2024, brown2020gpt3}
-    \end{itemize}
-  \item \textbf{Related routing concept --- Mixture of Experts (MoE):} MoE divides a model into specialized sub-networks routed by a learned gate \cite{shazeer2017moe, fedus2022switchtransformer}. Conceptually similar to our classifier-based routing: both select a specialized pathway based on the input. However, MoE operates at training time within the model architecture and requires massive infrastructure; our classifier operates at inference time with no retraining of the generator \cite{moe_survey2024}
-\end{itemize}
+\subsection{Overview}
+
+Our proposed solution is an inference-time pipeline consisting of two stages. The first stage consists of a classifier trained to map a question to an answer structure type from a predefined taxonomy. The second stage uses the classified structure to enhance the question prompt to a generator model. The pipeline is designed to enrich the prompt, allowing the generator to produce output through existing mechanisms. Any decoder-style LLM can serve as the generator. The answer structures are static, defined before inference.
+
+\subsection{The Taxonomy}
+% TODO: Add 2-3 figure examples showing representative schemas
+
+The taxonomy defined in this paper serves as both the classification target and the index of the prompt scaffolds. The taxonomy contains 10 classes of answer structure, each representing a distinct relational role the answer plays relative to the question. Each class maps to a unique answer structure consisting of a set of labeled dimensions. Classes are defined by the structural form of the answer, not by surface features of the question such as the interrogative. The set is static and predefined prior to inference. The taxonomy presented here is scoped to the experimental dataset (\S4) and the process to derive it is outlined in \S4.3.
+
+The 10 classes are:
+
+\begin{enumerate}
+  \item \textbf{Object Identification} --- the answer names or identifies a concrete object, entity, document, technology, or substance.
+  \item \textbf{Concept/Person Identification} --- the answer identifies an abstract concept, classification, or person by a defining property.
+  \item \textbf{Multipart Identification} --- the answer requires identifying multiple distinct components.
+  \item \textbf{Quantitative} --- the answer is a number: a count, measurement, proportion, or recorded statistic.
+  \item \textbf{Temporal} --- the answer is a time expression: a date, year, era, duration, or range.
+  \item \textbf{Place} --- the answer is a geographic location or spatial reference.
+  \item \textbf{Agent} --- the answer is who or what performed an action.
+  \item \textbf{Descriptive} --- the answer describes a quality, property, or characteristic of something.
+  \item \textbf{Causal} --- the answer explains why something happened: the cause, reason, or enabling mechanism.
+  \item \textbf{Resultative} --- the answer is the outcome, effect, or product of an action or event.
+\end{enumerate}
+
+Each class maps to a schema that specifies the dimensions a valid answer must address. Every schema contains two common pre-filled fields: \texttt{answer\_type}, which indicates cardinality (single or multiple), and \texttt{answer}, which names the kind of answer expected. The remaining fields are class-specific and empty, defining the structural components the model must populate. For example, the Causal class maps to a schema containing the effect, the cause, and the mechanism linking them. The Agent class maps to a schema containing the agent, the action performed, and the object of that action. The schemas differ in both the number and nature of their dimensions, providing the generator with structurally distinct guidance per class.
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{Temporal:}
+\begin{verbatim}
+{
+  "answer_type": "single",
+  "answer": "time",
+  "event": "",
+  "time_expression": "",
+  "temporal_type": ""
+}
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{Causal:}
+\begin{verbatim}
+{
+  "answer_type": "single",
+  "answer": "cause",
+  "effect": "",
+  "cause": "",
+  "mechanism": ""
+}
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{Resultative:}
+\begin{verbatim}
+{
+  "answer_type": "single",
+  "answer": "outcome",
+  "action": "",
+  "actor": "",
+  "outcome": ""
+}
+\end{verbatim}
+\end{minipage}
+\caption{Answer structure schemas for three taxonomy classes. Each schema contains two pre-filled fields (\texttt{answer\_type} and \texttt{answer}) that immediately signal what kind of answer is expected, followed by empty dimensions that define the structural components the answer must address.}
+\label{fig:taxonomy_schemas}
+\end{figure}
+
+\subsection{The Classifier}
+
+The classifier component is a BERT encoder fine-tuned for sequence classification \cite{devlin2019bert}. Bidirectional encoding allows the classifier to attend to the full feature set of the input question simultaneously, enabling more reliable classification than a unidirectional model would achieve on the same task. The input is the raw question text and the output is a single label corresponding to one of the ten taxonomy classes defined in \S3.2. The accuracy of this component is critical to system performance. An incorrect classification delivers a mismatched scaffold to the generator. However, the classifier is not the focal contribution of this paper. Its accuracy is evaluated as a system validity check, and the random structure condition (\S4) tests whether classification quality matters empirically.
+
+\subsection{Scaffold Construction}
+% NOTE: Consider adding a concrete scaffold example (assembled prompt as generator would see it) in a figure.
+
+After classification, the framework constructs a scaffold at inference time as input to the generator. The purpose of the scaffold is to provide a structure that joins associated dimensional tokens into a single prompt. These tokens constrain attention and narrow the prediction space before generation begins (as established in \S2.8). Each scaffold consists of up to three components: the answer structure schema corresponding to the classification label, the input question, and an optional associated passage providing source context. The framework is configurable to allow for experimentation. Depending on conditions, the answer structure and passage can each be included or excluded. The question is always provided. Experimental configurations are detailed in \S4.
+
+\subsection{The Generator}
+
+The generator can be any small decoder-style LLM. It receives a scaffold as its prompt and produces a free-form answer. No fine-tuning or weight modification is applied to the generator as part of the framework. The answer structure operates entirely through in-context learning.
 
 % ============================================================
 \section{Methodology}
 % ============================================================
 
-\begin{itemize}
-  \item \textbf{Research questions:}
-    \begin{itemize}
-      \item RQ1: Does structural scaffolding improve small LLM accuracy on multiple choice QA?
-      \item RQ2: Is the improvement consistent across different model sizes?
-      \item RQ3: Does the classifier reliably identify answer structure types?
-    \end{itemize}
-  \item \textbf{Dataset selection}
-    \begin{itemize}
-      \item Multiple choice QA benchmarks (e.g.\ ARC, MMLU, HellaSwag) --- \needpaper{} ARC and MMLU dataset citations
-      \item Justify: clear correctness criteria, well-established benchmarks with diverse question types
-    \end{itemize}
-  \item \textbf{Models evaluated}
-    \begin{itemize}
-      \item Range of small LLMs across parameter counts (e.g.\ 125M, 350M, 1B, 3B)
-      \item Both base and instruction-tuned variants
-      \item Specific models TBD based on availability
-    \end{itemize}
-  \item \textbf{Experimental conditions}
-    \begin{itemize}
-      \item \textbf{Baseline:} small LLM, zero-shot, no scaffold, no retrieval
-      \item \textbf{Structure only:} small LLM + classifier-generated structural scaffold, no retrieval
-      \item \textbf{RAG only:} small LLM + retrieved context, no structural scaffold
-      \item \textbf{Structure + RAG:} small LLM + classifier-generated structural scaffold + retrieved context (structure guides both generation and retrieval)
-      \item \textbf{Ablation --- random scaffold:} small LLM + random scaffold (wrong structure type) --- tests whether classification quality matters or scaffolding volume alone drives improvement
-      \item \textbf{Oracle upper bound:} small LLM + correct scaffold manually assigned --- sets the ceiling for a perfect classifier
-    \end{itemize}
-  \item \textbf{What the 2$\times$2 design tests:}
-    \begin{itemize}
-      \item Structure-only vs.\ baseline: does structure alone improve performance?
-      \item Structure+RAG vs.\ RAG-only: does structure improve RAG-augmented generation?
-      \item Structure+RAG vs.\ structure-only: does RAG add value on top of structure?
-      \item If structure improves performance in both the with-RAG and without-RAG conditions, it validates that the structural intervention is independently beneficial regardless of knowledge augmentation
-    \end{itemize}
-  \item \textbf{Classifier training}
-    \begin{itemize}
-      \item Training data: labeled question-type examples
-      \item Architecture: fine-tuned BERT / RoBERTa \cite{devlin2019bert, liu2019roberta}
-      \item Evaluation: accuracy of structure type prediction
-    \end{itemize}
-  \item \textbf{Evaluation metrics}
-    \begin{itemize}
-      \item Primary: accuracy on multiple choice questions
-      \item Secondary: classifier accuracy on answer structure type prediction
-    \end{itemize}
-\end{itemize}
+\subsection{Research Questions}
+
+This work evaluates the framework against four research questions. Each maps to a comparison between experimental conditions (\S4.5).
+
+\begin{enumerate}
+  \item Does a matched answer structure improve accuracy on extractive QA?
+  \item Does the specific structure matter, or does any structure help equally?
+  \item Does the structure contribute independently of source context?
+  \item Is the improvement consistent across model sizes?
+\end{enumerate}
+
+\subsection{Dataset}
+
+The dataset used in this paper is the Stanford Question Answering Dataset (SQuAD) \cite{rajpurkar2016squad}. SQuAD consists of extractive question answering over Wikipedia passages and is a widely used benchmark for automated QA evaluation. Question answering as a task format spans many structural types such as factual, causal, temporal, and descriptive. One format covers many distinct answer forms, making it suitable for empirical derivation of a taxonomy. Gold-standard span answers further enable automated scoring via Exact Match and F1 without requiring human judgment. SQuAD also provides a source passage from which the answer is extracted. The passage serves as the context variable in our experimental design. It can be included or excluded, allowing us to verify whether the answer structure contributes independently of source context (RQ3). This constrained scope allows us to isolate the structural variable and demonstrate the concept. Extension to other domains requires only re-derivation of the taxonomy.
+
+\subsection{Taxonomy Derivation}
+
+As described in \S3, the taxonomy was derived empirically from the SQuAD dataset and is not based on existing literature. Each question was classified initially by four features: the interrogative, cardinality, the entity type, and the grammatical form of the answer. The initial four features proved insufficient. Questions with identical surface features often required different answer forms. A fifth feature, the relational context between the answer and the question, was added to capture the role the answer plays. For example, ``Who founded X?'' and ``Who was impacted by X?'' share the same interrogative and entity type but require different answer structures. The first identifies an agent, the second a resultative.
+
+Using this five-feature model, all 5,928 questions in the SQuAD development set were classified using an LLM annotator. Each question was classified independently using a structured prompt specifying feature definitions and valid values. The consolidation step served as implicit validation. Incoherent labels would not produce structurally meaningful clusters. The resulting output produced 254 unique structural combinations, 67 of which contained ten or more questions.
+
+The 67 classes were further reviewed and reduced based on two criteria: the structural distinctiveness of the resulting answer schema and class balance for classifier training. Classes that mapped to identical schemas were merged. Classes too small to train on were absorbed into their nearest structural neighbor. This produced 10 final classes (\S3.2), each producing a unique schema and sufficiently represented for training, with a largest-to-smallest class ratio of approximately 3:1. For example, temporal point and temporal duration both require the same dimensions (event, time expression, temporal type), differing only in content, not in guidance to the model. This taxonomy is scoped to SQuAD and is not claimed to be universal. It serves the purpose of demonstrating that a taxonomy of answer structures can be derived and operationalized.
+
+\subsection{Classifier Training}
+
+The classifier used in the proposed architecture is BERT \cite{devlin2019bert}, fine-tuned for single-label classification over the 10 taxonomy classes. The training data consists of the 5,928 labeled questions from \S4.3. Each question's five-feature label was mapped to its corresponding final class as determined during consolidation. A question labeled (who/singular/person/noun/agent) maps to the Agent class. The dataset was split 80/20 into training and validation sets, stratified by class to preserve label distribution. The model was trained for 4 epochs with a learning rate of 2e-5 using the Adam optimizer, a batch size of 32, and a maximum sequence length of 128 tokens. Cross-entropy loss was weighted by inverse class frequency to account for class imbalance.
+
+\subsection{Experimental Conditions}
+
+Eight experimental conditions are evaluated in this paper. Each condition provides the question and some combination of an answer structure and a source passage, either or neither. The conditions are as follows:
+
+\begin{enumerate}
+  \item Question only
+  \item Question + passage
+  \item Question + matched structure
+  \item Question + passage + matched structure
+  \item Question + random structure
+  \item Question + random structure + passage
+  \item Question + classified structure
+  \item Question + classified structure + passage
+\end{enumerate}
+
+The matched structure is a direct match to the question based on the classification dataset. The random structure is assigned from the nine classes that do not match the given question. The classified structure is the label produced by the trained BERT model from \S4.4. Conditions 7--8 depend on the scaffold providing measurable improvement in conditions 3--4. If the oracle scaffold (matched structure) does not improve performance over baseline, classifier accuracy is irrelevant and conditions 7--8 are not executed. All conditions use identical decoding parameters (temperature and seed) to ensure differences in output are attributable only to the scaffold configuration.
+
+\subsection{Models Evaluated}
+
+Six open-source decoder models spanning two parameter tiers are evaluated. The small tier ($\leq$3.8B) includes four architecturally diverse models: Llama 3.2 1B (1.3B parameters), Gemma 2 2B (2.6B), Llama 3.2 3B (3.2B), and Phi-3 Mini (3.8B). The medium tier includes Llama 3 8B (8.0B) and Qwen 3 8B (8.2B), providing a same-scale cross-architecture comparison. All models are served locally via Ollama in their default quantized form. No fine-tuning is applied to the generator. Each model is evaluated on conditions 1--6 using a fixed stratified sample of 1,000 questions (class-proportional) drawn from the SQuAD dev set. Temperature is set to 0 for deterministic outputs. Response verbosity (token count) is recorded alongside accuracy metrics.
+
+\subsection{Evaluation Metrics}
+
+Generator performance is measured by Exact Match (EM) and token-level F1, both standard metrics for SQuAD and directly comparable to published baselines. Results are reported as deltas between conditions: matched structure versus baseline (RQ1), random structure versus matched versus baseline (RQ2), structure-only versus baseline versus combined (RQ3), and all deltas compared across model sizes (RQ4). Performance is additionally broken down by taxonomy class to identify which answer structure types benefit most from scaffolding. Classifier accuracy and per-class confusion are reported separately as a system validity check.
+
+Because the generator produces free-form text rather than extractive spans, a raw EM comparison between the full model output and the gold answer would systematically undercount correct responses (e.g., ``Normandy is a region in France'' contains the correct answer ``France'' but fails string-level EM). We therefore apply \textbf{max-F1 substring extraction} as a post-processing step: for each prediction, we evaluate every contiguous token subsequence against each gold answer and select the span that maximizes token-level F1. EM is then computed on this extracted span. The search window is bounded at twice the length of the longest gold answer for efficiency, since the optimal span is unlikely to exceed this length. Both raw EM and extracted EM (EM\textsubscript{ext}) are reported; EM\textsubscript{ext} serves as the primary exact-match metric. This approach is prompt-agnostic---it does not alter experimental conditions or introduce confounding instruction tokens---and is a standard evaluation technique for generative QA systems where the model's response may embed the correct answer within surrounding text.
+
+Token-level F1 is likewise reported in two forms: raw F1 (computed over the full model output) and extracted F1 (F1\textsubscript{ext}, computed on the extracted span). Raw F1 penalizes verbose outputs even when the correct answer is present, since precision drops with every extraneous token. F1\textsubscript{ext} isolates answer quality from verbosity and is used as the primary F1 metric alongside EM\textsubscript{ext}. Mean prediction length (token count) is reported separately as an explicit verbosity measure.
 
 % ============================================================
 \section{Results}
