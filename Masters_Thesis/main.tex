@@ -4,6 +4,7 @@
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 % Scaffold mode: sections contain argument outlines as rendered bullet lists.
 % Replace each itemize block with prose when ready to write.
@@ -25,7 +26,7 @@ Generalization and Accuracy of Few-Parameter LLMs}
   \item We propose a two-component pipeline: encoder classifier $\rightarrow$ few-shot scaffold $\rightarrow$ small LLM
   \item Central hypothesis: supplying a small LLM with an answer structure matched to the question improves its accuracy, narrowing the gap with larger models
   \item Enabling assumption: a finite taxonomy of answer structure types exists and is learnable by a classifier
-  \item Experimental scope: multiple choice QA; evaluated across model sizes and configurations
+  \item Experimental scope: extractive QA; evaluated across model sizes and configurations
   \item Result preview: \textbf{TBD after experiments}
 \end{itemize}
 \end{abstract}
@@ -353,7 +354,7 @@ The 67 classes were further reviewed and reduced based on two criteria: the stru
 
 \subsection{Classifier Training}
 
-The classifier used in the proposed architecture is BERT \cite{devlin2019bert}, fine-tuned for single-label classification over the 10 taxonomy classes. The training data consists of the 5,928 labeled questions from \S4.3. Each question's five-feature label was mapped to its corresponding final class as determined during consolidation. A question labeled (who/singular/person/noun/agent) maps to the Agent class. The dataset was split 80/20 into training and validation sets, stratified by class to preserve label distribution. The model was trained for 4 epochs with a learning rate of 2e-5 using the Adam optimizer, a batch size of 32, and a maximum sequence length of 128 tokens. Cross-entropy loss was weighted by inverse class frequency to account for class imbalance.
+The classifier in the proposed architecture is BERT \cite{devlin2019bert}, fine-tuned for single-label classification over the 10 taxonomy classes. The training data would consist of the 5,928 labeled questions from \S4.3. Each question's five-feature label maps to its corresponding final class as determined during consolidation. A question labeled (who/singular/person/noun/agent) maps to the Agent class. The dataset would be split 80/20 into training and validation sets, stratified by class to preserve label distribution. The planned training configuration is 4 epochs with a learning rate of 2e-5 using the Adam optimizer, a batch size of 32, and a maximum sequence length of 128 tokens, with cross-entropy loss weighted by inverse class frequency to account for class imbalance.
 
 \subsection{Experimental Conditions}
 
@@ -378,7 +379,7 @@ Six open-source decoder models spanning two parameter tiers are evaluated. The s
 
 \subsection{Evaluation Metrics}
 
-Generator performance is measured by Exact Match (EM) and token-level F1, both standard metrics for SQuAD and directly comparable to published baselines. Results are reported as deltas between conditions: matched structure versus baseline (RQ1), random structure versus matched versus baseline (RQ2), structure-only versus baseline versus combined (RQ3), and all deltas compared across model sizes (RQ4). Performance is additionally broken down by taxonomy class to identify which answer structure types benefit most from scaffolding. Classifier accuracy and per-class confusion are reported separately as a system validity check.
+Generator performance is measured by Exact Match (EM) and token-level F1, both standard metrics for SQuAD and directly comparable to published baselines. Results are reported as deltas between conditions: matched structure versus baseline (RQ1), random structure versus matched versus baseline (RQ2), structure-only versus baseline versus combined (RQ3), and all deltas compared across model sizes (RQ4). Classifier accuracy and per-class confusion are reported separately as a system validity check.
 
 Because the generator produces free-form text rather than extractive spans, a raw EM comparison between the full model output and the gold answer would systematically undercount correct responses (e.g., ``Normandy is a region in France'' contains the correct answer ``France'' but fails string-level EM). We therefore apply \textbf{max-F1 substring extraction} as a post-processing step: for each prediction, we evaluate every contiguous token subsequence against each gold answer and select the span that maximizes token-level F1. EM is then computed on this extracted span. The search window is bounded at twice the length of the longest gold answer for efficiency, since the optimal span is unlikely to exceed this length. Both raw EM and extracted EM (EM\textsubscript{ext}) are reported; EM\textsubscript{ext} serves as the primary exact-match metric. This approach is prompt-agnostic---it does not alter experimental conditions or introduce confounding instruction tokens---and is a standard evaluation technique for generative QA systems where the model's response may embed the correct answer within surrounding text.
 
@@ -388,13 +389,95 @@ Token-level F1 is likewise reported in two forms: raw F1 (computed over the full
 \section{Results}
 % ============================================================
 
-\begin{itemize}
-  \item \textbf{Classifier performance:} accuracy of answer structure type classification --- \textbf{TBD}
-  \item \textbf{Main result:} scaffolded vs.\ baseline accuracy per model size --- present as table: model size $\times$ condition $\times$ accuracy --- \textbf{TBD}
-  \item \textbf{Ablation result:} random scaffold vs.\ correct scaffold --- tests whether structure classification quality drives the improvement --- \textbf{TBD}
-  \item \textbf{Oracle upper bound:} how much headroom remains if classification were perfect --- \textbf{TBD}
-  \item \textbf{Qualitative examples:} cases where scaffolding helped and where it did not --- \textbf{TBD}
-\end{itemize}
+\subsection{Results by Research Question}
+
+The central hypothesis is not supported. Supplying a matched answer structure does not improve extractive QA accuracy for any model or in any condition tested. Table~\ref{tab:f1ext} reports F1\textsubscript{ext} for the six instruction-tuned models across conditions 1--6, and Table~\ref{tab:emext} reports exact match (EM\textsubscript{ext}) for the same conditions. Qwen 3 8B behaves atypically, with a baseline well below the other models; this behaviour is discussed in \S6. The following paragraphs address each research question against these tables.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+Model & C1 base & C2 pass & C3 match & C4 p+m & C5 rand & C6 p+r \\
+\midrule
+Llama 3.2 1B & 0.335 & 0.791 & 0.299 & 0.738 & 0.300 & 0.730 \\
+Gemma 2 2B   & 0.388 & 0.919 & 0.337 & 0.865 & 0.327 & 0.804 \\
+Llama 3.2 3B & 0.369 & 0.906 & 0.343 & 0.891 & 0.360 & 0.874 \\
+Phi-3 Mini   & 0.415 & 0.834 & 0.388 & 0.808 & 0.372 & 0.767 \\
+Llama 3 8B   & 0.441 & 0.930 & 0.403 & 0.915 & 0.397 & 0.892 \\
+Qwen 3 8B    & 0.177 & 0.762 & 0.157 & 0.591 & 0.117 & 0.436 \\
+\bottomrule
+\end{tabular}
+\caption{F1\textsubscript{ext} by model and condition (1,000 questions). Token-level F1 computed on the max-F1 extracted span. C1--C6 correspond to the conditions in \S4.5.}
+\label{tab:f1ext}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+Model & C1 base & C2 pass & C3 match & C4 p+m & C5 rand & C6 p+r \\
+\midrule
+Llama 3.2 1B & 0.122 & 0.646 & 0.109 & 0.594 & 0.111 & 0.589 \\
+Gemma 2 2B   & 0.166 & 0.818 & 0.121 & 0.758 & 0.123 & 0.700 \\
+Llama 3.2 3B & 0.160 & 0.801 & 0.142 & 0.785 & 0.151 & 0.766 \\
+Phi-3 Mini   & 0.195 & 0.668 & 0.160 & 0.657 & 0.160 & 0.614 \\
+Llama 3 8B   & 0.215 & 0.839 & 0.183 & 0.816 & 0.187 & 0.800 \\
+Qwen 3 8B    & 0.111 & 0.693 & 0.089 & 0.515 & 0.066 & 0.402 \\
+\bottomrule
+\end{tabular}
+\caption{EM\textsubscript{ext} by model and condition (1,000 questions). Exact match computed on the extracted span. C1--C6 correspond to the conditions in \S4.5.}
+\label{tab:emext}
+\end{table}
+
+The two metrics agree on every comparison that follows: no scaffold condition improves over its no-structure counterpart under either metric, and the matched structure outperforms the random one under both. The findings below are therefore robust to the choice of metric and are not an artifact of the partial credit that F1 assigns. The discussion refers to F1\textsubscript{ext} for concreteness; the corresponding EM\textsubscript{ext} values follow the same ordering in Table~\ref{tab:emext}, often with a wider margin.
+
+\paragraph{Matched structure and accuracy (RQ1).}
+Matched structure does not improve accuracy in any model. Without a passage, the matched structure (C3) is lower than the question-only baseline (C1) for all six models; with a passage, the combined condition (C4) is lower than the passage-only condition (C2) for all six. The structure effect without a passage (C3 $-$ C1) is negative in every case, ranging from $-0.020$ (Qwen 3 8B) to $-0.051$ (Gemma 2 2B). EM\textsubscript{ext} shows the same pattern, with the drop from C2 to C4 reaching 0.060 on Gemma 2 2B.
+
+\paragraph{Specificity of the structure (RQ2).}
+The specific structure does matter, even though no structure condition beats baseline: the matched structure consistently outperforms a random one. With a passage, the matched condition (C4) exceeds the random condition (C6) for all six models, most clearly on Qwen 3 8B (0.591 versus 0.436) and Gemma 2 2B (0.865 versus 0.804). The model responds differently to the correct schema than to an incorrect one, which indicates that the classification captures a structurally meaningful property of the question rather than an arbitrary label.
+
+\paragraph{Independence from source context (RQ3).}
+The structure does not contribute independently of the passage. The passage-only condition (C2) is the strongest or joint-strongest condition for every model, with F1\textsubscript{ext} between 0.762 and 0.930 when the passage is present against 0.177 to 0.441 when it is absent. Adding structure on top of the passage (C4) never exceeds the passage alone. The structure neither adds to the passage nor stands in for it.
+
+\paragraph{Consistency across model sizes (RQ4).}
+No conclusive evidence of a size-dependent effect was found. In the main experiment (Table~\ref{tab:f1ext}) the structure penalty (C3 $-$ C1) is negative for every model but of similar magnitude across sizes, so it neither confirms nor rules out a relationship with scale. A size-dependent effect appears only in the exploratory flat and sentence formats (\S5.2), where the penalty on Llama 3.2 1B ($-0.115$ and $-0.172$) is markedly larger than on Llama 3 8B ($-0.025$ and $-0.090$). This preliminary evidence points, if anything, toward smaller models being harmed more rather than less --- the opposite of the hypothesis --- but the main experiment does not corroborate a size trend, and the question is revisited in \S6.
+
+\paragraph{Verbosity.}
+The scaffold's effect on output length depends on whether a passage is present, and in neither case does the change correspond to improved accuracy. Without a passage, adding structure shortens outputs; on Llama 3 8B the mean prediction length falls from 70.6 tokens at baseline to 57.6 with matched structure. With a passage, the effect reverses and structure lengthens outputs, from 27.4 tokens to 38.0 on the same model. The scaffold perturbs the form of the answer in both directions without improving its content.
+
+\subsection{Exploratory Results}
+
+Following the main experiment, a series of exploratory tests examined whether the outcome was an artifact of how the structure was delivered rather than of the structure itself. Each test varied a single aspect of delivery: the format, its placement in the prompt, the generation pipeline, model scale, or the training regime of the model. Table~\ref{tab:exploratory} pairs each scaffold variant with the passage-only condition from the same run. Because the runs differ in model and sample size, values are comparable only within a row, not across rows; they establish direction, not comparable magnitudes.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llcccc}
+\toprule
+Delivery variant & Model & Scaffold F1 & Passage-only F1 & Direction & $n$ \\
+\midrule
+Structure in system prompt      & llama3:8b   & 0.233 & 0.429 & worse         & 30* \\
+Two-pass fill-then-generate      & llama3:8b   & 0.824 & 0.895 & worse         & 130* \\
+Filled schema in system prompt   & llama3:8b   & 0.849 & 0.939 & worse         & 30* \\
+Flat keywords + passage          & llama3:8b   & 0.918 & 0.937 & worse         & 50 \\
+JSON scaffold + passage          & llama3:8b   & 0.870 & 0.937 & worse         & 50 \\
+Sentence + passage               & llama3:8b   & 0.794 & 0.972 & worse         & 50 \\
+Base model, flat + passage       & llama3:text & 0.690 & 0.702 & $\approx$equal & 50 \\
+\bottomrule
+\end{tabular}
+\caption{Exploratory delivery variants, each paired with its own passage-only reference (F1\textsubscript{ext}). Entries marked * are preliminary partial runs. The scaffold and reference values on each row come from the same model and sample, so the within-row comparison is valid; values are not comparable across rows, as even the passage-only reference varies with the sample drawn.}
+\label{tab:exploratory}
+\end{table}
+
+A separate rescoring test, stripping JSON syntax from predictions before scoring, changed F1\textsubscript{ext} by less than 0.002 on the full 1,000-question set, ruling out a measurement artifact from the scaffold format.
+
+Across every delivery variant, the scaffold underperforms the passage alone. Placement made the effect worse, not better: moving the structure into the system prompt drove F1\textsubscript{ext} down to 0.233 against a 0.429 reference, as the accompanying instruction over-constrained the output. A two-pass pipeline, in which the model first filled the schema from the passage and then generated an answer from the filled schema, also fell below the passage alone (0.824 versus 0.895); extracting the passage into a schema discards information. Flat keywords were the least harmful format but still did not reach the passage baseline, and the natural-language sentence scaffold was worse than both.
+
+The base-model run (Llama 3 8B in raw completion mode) isolates the contribution of instruction tuning. It is the only configuration in which the scaffold is not harmful: flat-plus-passage reaches 0.690 against a 0.702 passage reference, a difference within noise at this sample size. This is reported as an exploratory diagnostic rather than a main result. It does not answer a research question, but it separates the effect of the instruction-tuned prior from the delivery format investigated above.
+
+\subsection{Classifier}
+
+The classifier described in \S4.4 was not trained or evaluated. Conditions 7--8 supply the generator with a classifier-predicted structure, and per \S4.6 they are contingent on the matched (oracle) scaffold improving over baseline in conditions 3--4. The matched structure represents the ceiling a classifier could reach: a perfect classifier would reproduce the matched condition exactly, and any classification error could only move the input away from it. Since the matched condition does not improve over baseline, no attainable classifier accuracy would change the outcome. The taxonomy itself retains value, as the matched-over-random result (RQ2) shows it captures a real structural signal. A classifier stage, however, cannot compensate for a scaffold that fails to help even when supplied perfectly.
 
 % ============================================================
 \section{Discussion}
@@ -409,7 +492,7 @@ Token-level F1 is likewise reported in two forms: raw F1 (computed over the full
   \item \textbf{Ablation interpretation:} if random scaffold underperforms correct scaffold, this validates that answer structure classification matters, not just scaffolding volume
   \item \textbf{Limitations:}
     \begin{itemize}
-      \item Experimental scope limited to multiple choice QA
+      \item Experimental scope limited to extractive QA
       \item Taxonomy is hand-designed; broader coverage is future work
       \item Results may not generalize to open-ended generation tasks
       \item Classifier performance is a ceiling on overall system performance
@@ -433,7 +516,7 @@ Token-level F1 is likewise reported in two forms: raw F1 (computed over the full
 \begin{itemize}
   \item \textbf{Restate the problem:} small LLMs fail not from lack of language understanding but from unguided generation --- no structural entry point before generating
   \item \textbf{Restate the contribution:} a two-component inference-time framework (encoder classifier + few-shot scaffold) that requires no retraining of the generator
-  \item \textbf{Restate the central finding:} structural scaffolding consistently improves small LLM performance on multiple choice QA across model sizes --- \textbf{TBD with results}
+  \item \textbf{Restate the central finding:} structural scaffolding's effect on small LLM performance on extractive QA across model sizes --- \textbf{TBD with results}
   \item \textbf{Restate the taxonomy hypothesis:} a finite set of answer structure types is sufficient to cover the experimental task space; broader generalization is a direction for future work
   \item \textbf{Future work:}
     \begin{itemize}
