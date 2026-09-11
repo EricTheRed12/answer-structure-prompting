@@ -11,8 +11,11 @@
 
 \newcommand{\needpaper}{\textbf{[NEED PAPER]}}
 
-\title{A Framework for Answer-Structure Prompting to Improve
-Generalization and Accuracy of Few-Parameter LLMs}
+% TODO: finalize title. Placeholder below reflects the study as an empirical
+% investigation with a negative result; original title overclaimed
+% ("improve generalization and accuracy"), which the findings do not support.
+\title{Answer-Structure Prompting for Small Language Models:
+An Empirical Study}
 \author{Eric Redman}
 
 \begin{document}
@@ -20,15 +23,7 @@ Generalization and Accuracy of Few-Parameter LLMs}
 
 % ============================================================
 \begin{abstract}
-\begin{itemize}
-  \item Small LLMs are capable but underutilized due to unguided generation
-  \item Existing prompting techniques address \textit{what} the model knows, not \textit{how} it structures its approach
-  \item We propose a two-component pipeline: encoder classifier $\rightarrow$ few-shot scaffold $\rightarrow$ small LLM
-  \item Central hypothesis: supplying a small LLM with an answer structure matched to the question improves its accuracy, narrowing the gap with larger models
-  \item Enabling assumption: a finite taxonomy of answer structure types exists and is learnable by a classifier
-  \item Experimental scope: extractive QA; evaluated across model sizes and configurations
-  \item Result preview: \textbf{TBD after experiments}
-\end{itemize}
+Small language models are limited by capacity, and prompting is one way to compensate at inference time. This work investigates whether supplying a small model with an answer structure matched to the question improves its accuracy on extractive question answering. The premise is that such a structure narrows the prediction space. A taxonomy of answer structures was derived from SQuAD. Six models between 1B and 8B were then evaluated with the matched structure, a mismatched structure, the source passage, and their combinations. The structure did not improve accuracy and often reduced it, whereas the passage improved every model. A matched structure did, however, consistently outperform a mismatched one, indicating that the taxonomy captures a real distinction the model responds to. The failure therefore lies not in the taxonomy but in its delivery: an explicit schema competes with the structure a model already reads rather than reinforcing it. Structure matters to a small model, but an imposed schema is not an effective way to supply it.
 \end{abstract}
 
 % ============================================================
@@ -375,7 +370,7 @@ The matched structure is a direct match to the question based on the classificat
 
 \subsection{Models Evaluated}
 
-Six open-source decoder models spanning two parameter tiers are evaluated. The small tier ($\leq$3.8B) includes four architecturally diverse models: Llama 3.2 1B (1.3B parameters), Gemma 2 2B (2.6B), Llama 3.2 3B (3.2B), and Phi-3 Mini (3.8B). The medium tier includes Llama 3 8B (8.0B) and Qwen 3 8B (8.2B), providing a same-scale cross-architecture comparison. All models are served locally via Ollama in their default quantized form. No fine-tuning is applied to the generator. Each model is evaluated on conditions 1--6 using a fixed stratified sample of 1,000 questions (class-proportional) drawn from the SQuAD dev set. Temperature is set to 0 for deterministic outputs. Response verbosity (token count) is recorded alongside accuracy metrics.
+Six open-source decoder models spanning two parameter tiers are evaluated. The small tier ($\leq$3.8B) includes four architecturally diverse models: Llama 3.2 1B (1.3B parameters), Gemma 2 2B (2.6B), Llama 3.2 3B (3.2B), and Phi-3 Mini (3.8B). The medium tier includes Llama 3 8B (8.0B) and Qwen 3 8B (8.2B), providing a same-scale cross-architecture comparison. All models are served locally via Ollama in their default quantized form. No fine-tuning is applied to the generator. Each model is evaluated on conditions 1--6 using a fixed stratified sample of 1,000 questions (class-proportional) drawn from the SQuAD dev set. Temperature is set to 0 for deterministic outputs. Response verbosity (token count) is recorded alongside accuracy metrics. Qwen 3 8B is a reasoning model that generates an intermediate reasoning trace by default; this was disabled so that it answers directly, on the same footing as the other instruction-tuned models.
 
 \subsection{Evaluation Metrics}
 
@@ -391,7 +386,7 @@ Token-level F1 is likewise reported in two forms: raw F1 (computed over the full
 
 \subsection{Results by Research Question}
 
-The central hypothesis is not supported. Supplying a matched answer structure does not improve extractive QA accuracy for any model or in any condition tested. Table~\ref{tab:f1ext} reports F1\textsubscript{ext} for the six instruction-tuned models across conditions 1--6, and Table~\ref{tab:emext} reports exact match (EM\textsubscript{ext}) for the same conditions. Qwen 3 8B behaves atypically, with a baseline well below the other models; this behaviour is discussed in \S6. The following paragraphs address each research question against these tables.
+The central hypothesis is not supported. Supplying a matched answer structure does not improve extractive QA accuracy for any model or in any condition tested. Table~\ref{tab:f1ext} reports F1\textsubscript{ext} for the six instruction-tuned models across conditions 1--6, and Table~\ref{tab:emext} reports exact match (EM\textsubscript{ext}) for the same conditions. The following paragraphs address each research question against these tables.
 
 \begin{table}[h]
 \centering
@@ -404,7 +399,7 @@ Gemma 2 2B   & 0.388 & 0.919 & 0.337 & 0.865 & 0.327 & 0.804 \\
 Llama 3.2 3B & 0.369 & 0.906 & 0.343 & 0.891 & 0.360 & 0.874 \\
 Phi-3 Mini   & 0.415 & 0.834 & 0.388 & 0.808 & 0.372 & 0.767 \\
 Llama 3 8B   & 0.441 & 0.930 & 0.403 & 0.915 & 0.397 & 0.892 \\
-Qwen 3 8B    & 0.177 & 0.762 & 0.157 & 0.591 & 0.117 & 0.436 \\
+Qwen 3 8B    & 0.482 & 0.952 & 0.384 & 0.902 & 0.357 & 0.882 \\
 \bottomrule
 \end{tabular}
 \caption{F1\textsubscript{ext} by model and condition (1,000 questions). Token-level F1 computed on the max-F1 extracted span. C1--C6 correspond to the conditions in \S4.5.}
@@ -422,33 +417,42 @@ Gemma 2 2B   & 0.166 & 0.818 & 0.121 & 0.758 & 0.123 & 0.700 \\
 Llama 3.2 3B & 0.160 & 0.801 & 0.142 & 0.785 & 0.151 & 0.766 \\
 Phi-3 Mini   & 0.195 & 0.668 & 0.160 & 0.657 & 0.160 & 0.614 \\
 Llama 3 8B   & 0.215 & 0.839 & 0.183 & 0.816 & 0.187 & 0.800 \\
-Qwen 3 8B    & 0.111 & 0.693 & 0.089 & 0.515 & 0.066 & 0.402 \\
+Qwen 3 8B    & 0.240 & 0.868 & 0.178 & 0.823 & 0.168 & 0.820 \\
 \bottomrule
 \end{tabular}
 \caption{EM\textsubscript{ext} by model and condition (1,000 questions). Exact match computed on the extracted span. C1--C6 correspond to the conditions in \S4.5.}
 \label{tab:emext}
 \end{table}
 
-The two metrics agree on every comparison that follows: no scaffold condition improves over its no-structure counterpart under either metric, and the matched structure outperforms the random one under both. The findings below are therefore robust to the choice of metric and are not an artifact of the partial credit that F1 assigns. The discussion refers to F1\textsubscript{ext} for concreteness; the corresponding EM\textsubscript{ext} values follow the same ordering in Table~\ref{tab:emext}, often with a wider margin.
+The two metrics agree on every comparison that follows: no scaffold condition improves over its no-structure counterpart under either metric, and the matched structure outperforms the random one under both. The findings below are therefore robust to the choice of metric and are not an artifact of the partial credit that F1 assigns. The discussion refers to F1\textsubscript{ext} for concreteness; the corresponding EM\textsubscript{ext} values follow the same ordering in Table~\ref{tab:emext}.
 
 \paragraph{Matched structure and accuracy (RQ1).}
-Matched structure does not improve accuracy in any model. Without a passage, the matched structure (C3) is lower than the question-only baseline (C1) for all six models; with a passage, the combined condition (C4) is lower than the passage-only condition (C2) for all six. The structure effect without a passage (C3 $-$ C1) is negative in every case, ranging from $-0.020$ (Qwen 3 8B) to $-0.051$ (Gemma 2 2B). EM\textsubscript{ext} shows the same pattern, with the drop from C2 to C4 reaching 0.060 on Gemma 2 2B.
+Matched structure does not improve accuracy in any model. Without a passage, the matched structure (C3) is lower than the question-only baseline (C1) for all six models; with a passage, the combined condition (C4) is lower than the passage-only condition (C2) for all six. The structure effect without a passage (C3 $-$ C1) is negative in every case, ranging from $-0.026$ (Llama 3.2 3B) to $-0.098$ (Qwen 3 8B). EM\textsubscript{ext} shows the same pattern, with the drop from C2 to C4 reaching 0.060 on Gemma 2 2B.
 
 \paragraph{Specificity of the structure (RQ2).}
-The specific structure does matter, even though no structure condition beats baseline: the matched structure consistently outperforms a random one. With a passage, the matched condition (C4) exceeds the random condition (C6) for all six models, most clearly on Qwen 3 8B (0.591 versus 0.436) and Gemma 2 2B (0.865 versus 0.804). The model responds differently to the correct schema than to an incorrect one, which indicates that the classification captures a structurally meaningful property of the question rather than an arbitrary label.
+The specific structure does matter, even though no structure condition beats baseline: the matched structure consistently outperforms a random one. With a passage, the matched condition (C4) exceeds the random condition (C6) for all six models, most clearly on Gemma 2 2B (0.865 versus 0.804) and Phi-3 Mini (0.808 versus 0.767). The model responds differently to the correct schema than to an incorrect one, which indicates that the classification captures a structurally meaningful property of the question rather than an arbitrary label.
 
 \paragraph{Independence from source context (RQ3).}
-The structure does not contribute independently of the passage. The passage-only condition (C2) is the strongest or joint-strongest condition for every model, with F1\textsubscript{ext} between 0.762 and 0.930 when the passage is present against 0.177 to 0.441 when it is absent. Adding structure on top of the passage (C4) never exceeds the passage alone. The structure neither adds to the passage nor stands in for it.
+The structure does not contribute independently of the passage. The passage-only condition (C2) is the strongest or joint-strongest condition for every model, with F1\textsubscript{ext} between 0.791 and 0.952 when the passage is present against 0.335 to 0.482 when it is absent. Adding structure on top of the passage (C4) never exceeds the passage alone. The structure neither adds to the passage nor stands in for it.
 
 \paragraph{Consistency across model sizes (RQ4).}
-No conclusive evidence of a size-dependent effect was found. In the main experiment (Table~\ref{tab:f1ext}) the structure penalty (C3 $-$ C1) is negative for every model but of similar magnitude across sizes, so it neither confirms nor rules out a relationship with scale. A size-dependent effect appears only in the exploratory flat and sentence formats (\S5.2), where the penalty on Llama 3.2 1B ($-0.115$ and $-0.172$) is markedly larger than on Llama 3 8B ($-0.025$ and $-0.090$). This preliminary evidence points, if anything, toward smaller models being harmed more rather than less --- the opposite of the hypothesis --- but the main experiment does not corroborate a size trend, and the question is revisited in \S6.
+No conclusive evidence of a size-dependent effect was found. In the main experiment (Table~\ref{tab:f1ext}) the structure penalty (C3 $-$ C1) is negative for every model, but its magnitude does not track model size: the two 8B models differ more from each other than either does from the 1B model. A size-dependent effect appears only in the exploratory flat and sentence formats (\S\ref{sec:exploratory}), where the penalty on Llama 3.2 1B ($-0.115$ and $-0.172$) is markedly larger than on Llama 3 8B ($-0.025$ and $-0.090$). This preliminary evidence points, if anything, toward smaller models being harmed more rather than less --- the opposite of the hypothesis --- but the main experiment does not corroborate a size trend, and the question is revisited in \S6.
 
 \paragraph{Verbosity.}
 The scaffold's effect on output length depends on whether a passage is present, and in neither case does the change correspond to improved accuracy. Without a passage, adding structure shortens outputs; on Llama 3 8B the mean prediction length falls from 70.6 tokens at baseline to 57.6 with matched structure. With a passage, the effect reverses and structure lengthens outputs, from 27.4 tokens to 38.0 on the same model. The scaffold perturbs the form of the answer in both directions without improving its content.
 
-\subsection{Exploratory Results}
+\subsection{Comparison with Reference Performance}
 
-Following the main experiment, a series of exploratory tests examined whether the outcome was an artifact of how the structure was delivered rather than of the structure itself. Each test varied a single aspect of delivery: the format, its placement in the prompt, the generation pipeline, model scale, or the training regime of the model. Table~\ref{tab:exploratory} pairs each scaffold variant with the passage-only condition from the same run. Because the runs differ in model and sample size, values are comparable only within a row, not across rows; they establish direction, not comparable magnitudes.
+No directly comparable evaluation of significantly larger models exists for this setting. SQuAD 1.1 predates current large language models and is widely treated as saturated, and the extraction-based scoring used here (\S4.8) is not identical to the official metric, so a like-for-like comparison against larger models cannot be drawn from published results.
+
+The available reference points are the original benchmark figures. Human performance on SQuAD 1.1 is reported at 82.3 EM and 91.2 F1, and BERT-large, a 340M-parameter encoder fine-tuned specifically for the task, reaches 84.1 EM and 90.9 F1 on the development set \cite{rajpurkar2016squad, devlin2019bert}. With the passage, the smaller models here reach these figures on exact match, from 80.1 on Llama 3.2 3B to 86.8 on Qwen 3 8B, without any task-specific fine-tuning. Exact match is the more reliable basis for this comparison, since F1\textsubscript{ext} applies a substring-extraction step (\S4.8) that the official metric does not, and the F1 values should therefore be read as indicative. Even read cautiously, several of the smaller models sit within the range of the reference systems.
+
+Broader evaluations of large models on SQuAD have been conducted, most notably HELM \cite{liang2022helm}, which benchmarks models up to 530B parameters. These are not directly comparable to the results here: they adapt models through prompting rather than fine-tuning, and HELM itself cautions that its findings may not transfer to fine-tuned settings.
+
+\subsection{Exploratory Results}
+\label{sec:exploratory}
+
+Following the main experiment, a series of exploratory tests examined whether the outcome was an artifact of how the structure was delivered rather than of the structure itself. Each test varied a single aspect of delivery: the format, its placement in the prompt, the generation pipeline, model scale, or the training regime of the model. Table~\ref{tab:exploratory} pairs each scaffold variant with the passage-only condition from the same run. The runs differ in model and sample size, so values are comparable only within a row and not across them; each row establishes direction rather than a comparable magnitude.
 
 \begin{table}[h]
 \centering
@@ -462,7 +466,6 @@ Filled schema in system prompt   & llama3:8b   & 0.849 & 0.939 & worse         &
 Flat keywords + passage          & llama3:8b   & 0.918 & 0.937 & worse         & 50 \\
 JSON scaffold + passage          & llama3:8b   & 0.870 & 0.937 & worse         & 50 \\
 Sentence + passage               & llama3:8b   & 0.794 & 0.972 & worse         & 50 \\
-Base model, flat + passage       & llama3:text & 0.690 & 0.702 & $\approx$equal & 50 \\
 \bottomrule
 \end{tabular}
 \caption{Exploratory delivery variants, each paired with its own passage-only reference (F1\textsubscript{ext}). Entries marked * are preliminary partial runs. The scaffold and reference values on each row come from the same model and sample, so the within-row comparison is valid; values are not comparable across rows, as even the passage-only reference varies with the sample drawn.}
@@ -473,7 +476,27 @@ A separate rescoring test, stripping JSON syntax from predictions before scoring
 
 Across every delivery variant, the scaffold underperforms the passage alone. Placement made the effect worse, not better: moving the structure into the system prompt drove F1\textsubscript{ext} down to 0.233 against a 0.429 reference, as the accompanying instruction over-constrained the output. A two-pass pipeline, in which the model first filled the schema from the passage and then generated an answer from the filled schema, also fell below the passage alone (0.824 versus 0.895); extracting the passage into a schema discards information. Flat keywords were the least harmful format but still did not reach the passage baseline, and the natural-language sentence scaffold was worse than both.
 
-The base-model run (Llama 3 8B in raw completion mode) isolates the contribution of instruction tuning. It is the only configuration in which the scaffold is not harmful: flat-plus-passage reaches 0.690 against a 0.702 passage reference, a difference within noise at this sample size. This is reported as an exploratory diagnostic rather than a main result. It does not answer a research question, but it separates the effect of the instruction-tuned prior from the delivery format investigated above.
+We would like to draw particular attention to a set of exploratory runs examining pre-populated prompts and base-model testing. Two alternative runs of Llama 3 8B were carried out, each varying one of these properties: one with the instruction-tuned model in raw completion mode without its chat template, and one with the base model under the same raw prompt. Together with the templated results from the main experiment, these give three configurations, all run on the full 1,000 questions and reported in Table~\ref{tab:rawtuning}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Condition & Instruct + template & Instruct + raw & Base + raw \\
+\midrule
+C1 question-only    & 0.441 & 0.396 & 0.304 \\
+C2 passage          & 0.930 & 0.943 & 0.776 \\
+C3 matched          & 0.403 & 0.276 & 0.188 \\
+C4 passage + matched & 0.915 & 0.811 & 0.686 \\
+C5 random           & 0.397 & 0.277 & 0.217 \\
+C6 passage + random & 0.892 & 0.801 & 0.734 \\
+\bottomrule
+\end{tabular}
+\caption{Llama 3 8B across prompt format and training (F1\textsubscript{ext}, 1,000 questions). The instruction-tuned model is shown with its chat template and in raw completion mode; the base model is the untuned weights under the same raw prompt.}
+\label{tab:rawtuning}
+\end{table}
+
+Removing the chat template changes little on the passage condition, from 0.930 to 0.943, so the template is not the source of the passage's advantage. Removing instruction tuning changes it substantially, from 0.943 to 0.776 under the same raw prompt. The scaffold reduces accuracy in all three configurations; the instruction-tuned model in raw mode falls from 0.943 to 0.811 once the matched schema is added, in the same direction as the templated runs. The two models also differ in their response to a correct schema. The instruction-tuned model scores the matched schema above the random one in raw mode as it does with the template, while the base model reverses this, scoring the random schema higher. These results are interpreted in \S6.3.
 
 \subsection{Classifier}
 
@@ -483,50 +506,91 @@ The classifier described in \S4.4 was not trained or evaluated. Conditions 7--8 
 \section{Discussion}
 % ============================================================
 
-\begin{itemize}
-  \item \textbf{Main result interpretation:} does structural scaffolding close the gap between small and large models on these tasks?
-  \item \textbf{Scaling behavior:} does improvement scale with model size or is it consistent across sizes?
-    \begin{itemize}
-      \item If consistent: supports the claim that language understanding is sufficient and the bottleneck is structural guidance, not capacity
-    \end{itemize}
-  \item \textbf{Ablation interpretation:} if random scaffold underperforms correct scaffold, this validates that answer structure classification matters, not just scaffolding volume
-  \item \textbf{Limitations:}
-    \begin{itemize}
-      \item Experimental scope limited to extractive QA
-      \item Taxonomy is hand-designed; broader coverage is future work
-      \item Results may not generalize to open-ended generation tasks
-      \item Classifier performance is a ceiling on overall system performance
-    \end{itemize}
-  \item \textbf{Connection back to problem statement:} results support the claim that unguided generation is the bottleneck, not knowledge capacity
-  \item \textbf{Comparison to related work:} how do results compare to CoT-prompted and RAG-augmented small models? \cite{wei2022cot, lewis2020rag}
-\end{itemize}
+\subsection{Principal Finding}
+
+As stated above, the central hypothesis is not supported. Across every model and condition, a matched answer structure did not improve extractive QA accuracy, and in most cases reduced it. The result is nonetheless only partly negative, and the part that holds is the more consequential.
+
+The hypothesis combined two claims: that small models benefit from external structural support, and that the support they need is an explicit description of the answer's form supplied at inference. The results uphold the structural claim and reject the specific form it took. When given the source passage, every model improves sharply over its question-only baseline in F1\textsubscript{ext}. Llama 3.2 1B rises from 0.335 to 0.791, Gemma 2 2B from 0.388 to 0.919, and Phi-3 Mini from 0.415 to 0.834, narrowing the gap with the larger models in the study. The answer-structure scaffold produces the opposite effect. Supplied without a passage, it falls below the question-only baseline for every model, dropping Llama 3.2 1B to 0.299 and Gemma 2 2B to 0.337. Added on top of the passage, it still reduces accuracy, from 0.919 to 0.865 on Gemma 2 2B and from 0.930 to 0.915 on Llama 3 8B.
+
+The passage closes the gap; the scaffold does not, indicating that what the small model lacks is not a description of the answer's shape but the structure already present in well-formed prose, which is sufficient to bring these models close to the reference performance discussed in \S5.2.
+
+\subsection{Structure Matters, but Imposed Structure Interferes}
+
+That the scaffold failed does not mean the model is indifferent to structure. A matched schema outperforms a random one in every model when a passage is present, for example 0.865 against 0.804 on Gemma 2 2B or 0.808 against 0.767 on Phi-3 Mini. The model responds to the correctness of the structure it is given. Yet the passage alone remains the strongest condition throughout, and no schema improves on it. Structure matters, but the explicit schema is not the way to supply it.
+
+This points to the passage already supplying what the scaffold was meant to provide. A well-formed passage is drawn from the same distribution the model was trained on, and its organization aligns with the structural patterns the model encodes internally. As argued in \S2.2, those patterns are held as statistical, non-deterministic representations rather than explicit rules. An answer-structure scaffold supplies structure of the opposite kind: explicit, deterministic, and external to the representation the model already holds. For the question of the country in which Normandy is located, the passage states in prose that Normandy is a region in France, while the matched scaffold restates the target as the schema \texttt{\{answer: location, location: "", relation: ""\}}. The passage gives the answer in a form the model reads directly; the scaffold gives a template it must first map onto the same content. A matched schema aligns with the passage more closely than a random one, which is why it scores higher, but both add an unfamiliar second description of an answer the prose already carries.
+
+This intersection was not tested directly. The experiments measured accuracy across conditions, not how the model processes prose and schema internally, so the explanation is not a direct result. It rests on two findings the study does establish: the passage is the strongest input, and an explicit schema reduces accuracy even when correct. Together with the account of structural encoding in \S2.2, these indicate that a natural passage and an explicit answer structure are different and competing forms of structure, and that this difference is the most likely reason the scaffold did not help.
+
+\subsection{Understood Structure versus Imposed Structure}
+
+If the passage helps because the model already understands its structure, then a model with weaker structural understanding should benefit less from structure of any kind. The runs in \S5.3, which vary prompt format and training separately, allow this to be examined.
+
+Removing the chat template from the instruction-tuned model leaves its accuracy on the passage largely unchanged, at 0.930 versus 0.943. Removing instruction tuning lowers it sharply, to 0.776 under the same raw prompt. The model's ability to use the passage rests on its training, not on the prompt format, and the base model, lacking that training, reads the same inputs less effectively across every condition.
+
+The scaffold fails in all three configurations. The instruction-tuned model in raw completion mode, stripped of its chat template, still loses accuracy when the matched schema is added to the passage, from 0.943 to 0.811. Its failure cannot be attributed to the extra framing a schema adds to a templated prompt, since the effect persists once the template is removed. The imposed structure itself is the problem.
+
+Yet the two models do not fail in the same way. The instruction-tuned model scores the matched schema above the random one with or without its template; the base model does the opposite, scoring the random schema higher. The sensitivity that produced the matched-over-random result is thus acquired through instruction tuning rather than supplied by the schema. Structure can assist the model, but only once it has been trained to interpret it.
+
+\subsection{The Taxonomy Captures a Real Signal}
+
+The hypothesis of this paper rested on an enabling assumption: that a finite set of answer-structure types exists and is distinguishable to the model (\S2.7). The results support it. In the matched-versus-random comparison, the matched structure consistently scores higher. The model responds to whether the structure fits the question rather than to the presence of a structure alone. If the taxonomy assigned labels arbitrarily, the matched and random conditions would perform the same, but they do not.
+
+The derived taxonomy therefore captures a genuine property of the questions. This part of the hypothesis holds even though the scaffold built on it did not. A taxonomy that produces a real structural signal can be derived. The difficulty lies in delivery, not in the taxonomy itself. Prompting with an imposed structure alone does not put the signal in a form the model can use.
+
+\subsection{Model Size}
+
+The results show no clear relationship between model size and the scaffold's effect. The structure penalty is negative for every model, but its magnitude does not track parameter count: the two 8B models show the largest and among the smallest penalties respectively. The passage, by contrast, improves every model substantially regardless of size.
+
+This indicates that the scaffold's failure is not a matter of capacity that a larger model would overcome, at least among the models tested here. If size were the limiting factor, the penalty would shrink as models grew larger. It did not. That every model, from smallest to largest, is harmed by the scaffold and helped by the passage suggests this is a general property of prompt-supplied structure rather than an artifact of any particular model. This also runs counter to the original motivation for the scaffold, that smaller models, being more limited, would benefit most from external structure.
+
+The models tested span only 1B to 8B parameters, and the largest current models were not evaluated. The conclusion therefore extends no further than this range; a wider one would be needed to characterize the relationship, if any, between size and structural guidance.
+
+\subsection{Toward Structure the Model Can Use}
+
+The scaffold we proposed was the wrong way to supply structure, but this does not mean the hypothesis behind it was wrong. The failure was not in the structure itself but in the model's ability to read it. An explicit schema reduced accuracy even when it matched the question (\S6.2). It continued to do so once the prompt template was removed, which locates the failure in the model's handling of the structure rather than in how it was framed (\S6.3). Additionally, the taxonomy itself is not without merit. The matched-versus-random comparison offers evidence, if modest, that it captures a real distinction among questions (\S6.4). The structure carries information the model could use, but not in the form it was given. What must be addressed, then, is the disconnect between the model and that form. Two approaches might close it, though each is a direction to explore rather than a solution the results establish.
+
+An inference-time approach, consistent with the original design (\S2.6), leaves the model unchanged and alters the encoding instead. The schema likely fails because its explicit, deterministic form does not match the implicit way the model encodes structure. A delivery closer to that form might succeed where the schema did not, for instance expressing the answer structure in prose rather than as a rigid schema, so that it resembles the input the model already reads well. What form this should take is unresolved, however, and no clear evidence points to a particular one.
+
+A training approach departs from the inference-time design and modifies the model itself. Rather than supplying the schema at inference and relying on the model to interpret it, the model would be trained on pairs of structured input and answer, learning to read the answer structure as it already reads prose. In effect the passage is replaced by the answer structure while the target output stays the same.
+
+This shifts away from the position taken in \S2.6, that modifying a model's weights narrows it toward a specific task and degrades general performance. It also gives up a property the original design was built for. An inference-time scaffold applies to any model without modification, but a trained model is tied to the weights it was trained on. The departure may nonetheless be justified. The distinction from ordinary fine-tuning is that the answer structure is content-independent. It describes the form of an answer, not a topic or a task. Training a model to read it would teach a general input format, much as instruction tuning teaches a model to read prompts rather than confining it to one subject. On this reasoning generalization need not be sacrificed, though whether it holds in practice remains to be shown. It would also require training data pairing structured inputs with correct answers, which is not trivial to produce.
+
+Both approaches follow from the same finding: the taxonomy is not the problem, its delivery is. Whether the structure is brought closer to the model or the model closer to the structure, the goal is the same, to present the taxonomy in a form the model can act on. Both also rest on a more complete taxonomy than this study derived. Neither was tested here, and both remain directions for future work rather than conclusions this study establishes.
+
+\subsection{A Note in Hindsight}
+
+It is worth asking whether this outcome could have been anticipated, and in principle it might have been. The task is extractive, and the answer is a span within the passage, so with hindsight it is unsurprising that access to the passage would outweigh a description of the answer's form. That structure must be learned before it can be used also follows from the account of implicit encoding this work builds on (\S2.2). Both observations, however, are clearer in retrospect than they would have been in advance, and neither was obvious at the outset.
+
+The extractive setting is central to this. The answer being present in the passage is precisely what allows content to dominate form, and this is a property of the task rather than a flaw in the design. SQuAD was chosen deliberately: it supplied the passages the framework required, a body of questions from which to derive the taxonomy, and gold answers against which to measure, all without the cost of building a dataset from scratch. The same feature that made it a practical choice is what made the passage so difficult to compete with.
+
+This is raised to place the result, not to diminish it. Content is most likely to dominate form precisely in an extractive setting. A generative task, in which the model must compose rather than locate an answer, would test the role of structure more directly, and is left to future work.
 
 % ============================================================
 \section{Limitations}
 % ============================================================
 
-\begin{itemize}
-  \item \textbf{TBD}
-\end{itemize}
+We acknowledge several limitations that bound the scope of these conclusions. The evaluation uses SQuAD, whose answers are short factual spans. Without the passage the model must generate the answer from memory rather than locate it, ideally still resulting in a brief span. Such answers have little internal structure, so a scaffold meant to lay out the form of an answer has little to organize. Whether the result holds for tasks with composite answers, where form carries more weight, remains untested. The model sample is also narrow. Six open-weight decoders between 1B and 8B span a limited range of scale, and no large-scale models were included. Whether the relationship between structure and capacity changes at that scale is therefore left open. The taxonomy was derived by hand from a single dataset and is not offered as definitive. A taxonomy built differently might capture a different signal. The study establishes that such a taxonomy can exist, not what its ideal form is. The final limitation we would like to address is an extraction-based F1 that recovers the best-matching span from the model output. Being more forgiving than the official SQuAD metric, it inflates the absolute numbers, so the figures here support comparison across conditions more than comparison with published results.
+
+% ============================================================
+\section{Future Work}
+% ============================================================
+
+A natural extension is to change how the taxonomy is delivered, since the results locate the failure in the delivery. As discussed in \S6.6, one approach is to change the encoding. Expressing the answer structure in prose rather than as a schema would give it a passage-like form, closer to what the model already reads. Another is to train the model on the structure directly, pairing structured inputs with answers so that the schema becomes a familiar input format rather than an imposed one.
+
+A second direction is to revisit the definition of the taxonomy. It was derived here from a single extractive dataset. Building it over a wider range of tasks would show how far the idea generalizes. Those tasks might include multiple-choice answering, reasoning, and long-form generation. A broader taxonomy would also reveal whether one set of answer structures serves across tasks or each calls for its own. Evaluating the approach on these tasks would further test its continued feasibility and show which structures affect answering most.
 
 % ============================================================
 \section{Conclusion}
 % ============================================================
 
-\begin{itemize}
-  \item \textbf{Restate the problem:} small LLMs fail not from lack of language understanding but from unguided generation --- no structural entry point before generating
-  \item \textbf{Restate the contribution:} a two-component inference-time framework (encoder classifier + few-shot scaffold) that requires no retraining of the generator
-  \item \textbf{Restate the central finding:} structural scaffolding's effect on small LLM performance on extractive QA across model sizes --- \textbf{TBD with results}
-  \item \textbf{Restate the taxonomy hypothesis:} a finite set of answer structure types is sufficient to cover the experimental task space; broader generalization is a direction for future work
-  \item \textbf{Future work:}
-    \begin{itemize}
-      \item Extend the taxonomy to open-ended question types
-      \item Apply the framework to other small model families
-      \item Combine with RAG for knowledge-augmented + structure-guided generation
-      \item Explore whether the framework reduces hallucinations specifically \cite{ji2023hallucination}
-      \item Investigate whether the classifier can be made domain-agnostic
-    \end{itemize}
-\end{itemize}
+This work asked whether a small language model benefits from an answer structure matched to the question before generation. Underlying this was the expectation that an explicit description of the answer's form would narrow the model's prediction space, and that a model constrained in capacity would benefit most. A taxonomy of answer structures was derived from SQuAD, and six models between 1B and 8B were evaluated across conditions supplying the matched structure, a mismatched structure, the source passage, and their combinations.
+
+The structure did not improve accuracy. It failed to help any model and in most cases reduced performance, whereas the passage improved every model. What a small model lacks on this task is not a description of the answer's form but the structure already carried by a well-formed passage, one it has been pretrained to interpret.
+
+The taxonomy nonetheless captures a real distinction. The matched structure consistently outperformed a mismatched one, indicating that the model responds to the correctness of the structure it is given. The limitation lies not in the structure or the taxonomy but in their delivery: an explicit schema competes with the structure the model already reads rather than reinforcing it, and this holds with or without the model's prompt template. Nor did model size prove decisive; the effect did not vary with scale in any consistent way across the models tested. Structure matters to a small model, as the hypothesis held, but an imposed schema is not an effective means of supplying it. The study contributes this distinction, a taxonomy shown to carry signal, and an account of why prompt-based delivery fails.
+
+Whether such structure can improve generalization more broadly requires further study.
 
 \bibliographystyle{alpha}
 \bibliography{sample}
