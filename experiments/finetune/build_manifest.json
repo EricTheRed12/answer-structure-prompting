@@ -1,0 +1,45 @@
+{
+  "description": "Multi-arm fine-tuning data (empty-schema arms). No passage. Arm S filled schemas built separately.",
+  "seed": 42,
+  "val_fraction": 0.1,
+  "random_schema_seed_base": 1000,
+  "target_source": "SQuAD gold (first span), fallback annotator answer",
+  "record_counts": {
+    "total_labeled": 5928,
+    "eval_sample_size": 1000,
+    "train_records": 4433,
+    "val_records": 493,
+    "eval_records": 1000,
+    "dropped_empty_train": 1,
+    "dropped_empty_eval": 0
+  },
+  "arm_pair_counts": {
+    "arm1_train": 8866,
+    "arm1_val": 986,
+    "arm2_train": 8866,
+    "arm2_val": 986,
+    "arm4_train": 4433,
+    "arm4_val": 493
+  },
+  "arm_descriptions": {
+    "arm1": "mix C1 (question) + C3 (question+empty matched schema)",
+    "arm2": "C3 (matched) + C5 (mismatched) per question, same target; schema-sensitivity",
+    "arm4": "C1 only (answer-only control / floor)"
+  },
+  "leakage_check": {
+    "train_val_ids_in_eval_sample": 0,
+    "ok": true
+  },
+  "train_class_distribution": {
+    "1": 894,
+    "2": 504,
+    "3": 277,
+    "4": 474,
+    "5": 445,
+    "6": 378,
+    "7": 403,
+    "8": 584,
+    "9": 173,
+    "10": 301
+  }
+}

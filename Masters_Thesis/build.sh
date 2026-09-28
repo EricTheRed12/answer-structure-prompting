@@ -5,8 +5,10 @@
 #
 # USAGE:
 #   From the Masters_Thesis directory:
-#     ./build.sh           <- compile main.tex and open the PDF
-#     ./build.sh clean     <- delete all build artifacts
+#     ./build.sh           <- compile thesis.tex (default) and open the PDF
+#     ./build.sh main      <- compile main.tex instead
+#     ./build.sh clean     <- delete build artifacts for thesis
+#     ./build.sh clean main<- delete build artifacts for main
 #
 # FIRST TIME SETUP:
 #   Make this script executable (only need to do this once):
@@ -32,7 +34,16 @@
 # =============================================================
 
 # --- Config --------------------------------------------------
-TEX_FILE="main"          # name of your .tex file without extension
+# Target .tex file (without extension). Defaults to "thesis" (the CSU-template
+# version). Override by passing a name as the first argument, e.g.:
+#   ./build.sh main        <- build the old article-class main.tex
+#   ./build.sh clean       <- delete build artifacts for the default target
+#   ./build.sh clean main  <- delete build artifacts for main
+if [ "$1" = "clean" ]; then
+    TEX_FILE="${2:-thesis}"
+else
+    TEX_FILE="${1:-thesis}"   # name of your .tex file without extension
+fi
 BUILD_LOG="build.log"    # all compiler output goes here
 # -------------------------------------------------------------
 
@@ -51,6 +62,8 @@ if [ "$1" = "clean" ]; then
           "$TEX_FILE".log \
           "$TEX_FILE".out \
           "$TEX_FILE".toc \
+          "$TEX_FILE".lot \
+          "$TEX_FILE".lof \
           "$BUILD_LOG"
     echo -e "${GREEN}Done. PDF kept.${NC}"
     exit 0
@@ -77,12 +90,14 @@ echo -e "${YELLOW}Step 4/4: pdflatex (final pass)...${NC}"
 pdflatex -interaction=nonstopmode "$TEX_FILE.tex" >> "$BUILD_LOG" 2>&1
 
 # --- Check for errors ----------------------------------------
-# pdflatex exits with 0 even on some errors, so we grep the log
-if grep -q "^!" "$TEX_FILE.log" 2>/dev/null; then
+# pdflatex exits with 0 even on some errors, so we grep the log.
+# LaTeX errors are prefixed with "! " (bang-space); match that exactly to
+# avoid false positives from other lines. -a treats the log as text.
+if grep -aq "^! " "$TEX_FILE.log" 2>/dev/null; then
     echo ""
     echo -e "${RED}Build failed. Errors found:${NC}"
     # Print only the error lines for quick diagnosis
-    grep -A 2 "^!" "$TEX_FILE.log"
+    grep -a -A 2 "^! " "$TEX_FILE.log"
     echo ""
     echo "Full output is in $BUILD_LOG"
     exit 1
