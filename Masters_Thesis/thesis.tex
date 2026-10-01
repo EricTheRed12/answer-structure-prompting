@@ -376,15 +376,100 @@ The scaffold operates through in-context learning. The structure it supplies is 
 The six-model study addresses RQ1 through RQ4. It evaluates six models across six conditions, each supplying the question with some combination of an answer structure and a source passage:
 
 \begin{enumerate}
-  \item Question only
-  \item Question + passage
-  \item Question + matched structure
-  \item Question + passage + matched structure
-  \item Question + random structure
-  \item Question + passage + random structure
+  \item \textbf{C1.} Question only
+  \item \textbf{C2.} Question + passage
+  \item \textbf{C3.} Question + matched structure
+  \item \textbf{C4.} Question + passage + matched structure
+  \item \textbf{C5.} Question + random structure
+  \item \textbf{C6.} Question + passage + random structure
 \end{enumerate}
 
-The matched structure is the schema for the question's own class. The random structure is drawn from one of the nine classes that do not match it. Each research question is answered by a comparison among these conditions. RQ1 compares the matched conditions against their baselines, condition 3 against 1 without a passage and condition 4 against 2 with a passage. RQ2 compares the matched conditions against the random ones, condition 3 against 5 and condition 4 against 6. RQ3 asks whether structure adds anything to the passage, comparing the combined condition 4 against the passage-only condition 2. RQ4 compares these differences across the six models.
+The matched structure is the schema for the question's own class. The random structure is drawn from one of the nine classes that do not match it. C1 is the baseline for this study. It measures each model on zero-shot prompts containing only the question. Every other condition is compared against this baseline. RQ1 compares the matched conditions against their baselines, C3 against C1 without a passage and C4 against C2 with a passage. RQ2 compares the matched conditions against the random ones, C3 against C5 and C4 against C6. RQ3 asks whether structure adds anything to the passage, comparing the combined C4 against the passage-only C2. RQ4 compares these differences across the six models. \fref{fig:six_conditions} illustrates the six conditions for a single question.
+
+\begin{figure}[ht]
+\centering
+
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{C1 (question only):}
+\begin{verbatim}
+In what country is
+Normandy...?
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{C2 (passage):}
+\begin{verbatim}
+The Normans gave
+their name...
+In what country is
+Normandy...?
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{C3 (matched):}
+\begin{verbatim}
+In what country is
+Normandy...?
+{
+  "answer": "location",
+  "location": "",
+  "relation": ""
+}
+\end{verbatim}
+\end{minipage}
+
+\vspace{1.5em}
+
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{C4 (passage + matched):}
+\begin{verbatim}
+The Normans gave
+their name...
+In what country is
+Normandy...?
+{
+  "answer": "location",
+  "location": "",
+  "relation": ""
+}
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{C5 (random):}
+\begin{verbatim}
+In what country is
+Normandy...?
+{
+  "answer": "cause",
+  "effect": "",
+  "cause": "",
+  "mechanism": ""
+}
+\end{verbatim}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\textbf{C6 (passage + random):}
+\begin{verbatim}
+The Normans gave
+their name...
+In what country is
+Normandy...?
+{
+  "answer": "cause",
+  "effect": "",
+  "cause": "",
+  "mechanism": ""
+}
+\end{verbatim}
+\end{minipage}
+
+\caption{The six conditions for a single question. The question is \textit{``In what country is Normandy located?''} and the passage is its SQuAD source, which states that Normandy is ``a region in France'' (both abbreviated above). The matched schema (C3, C4) is the location structure for the question's class; the random schema (C5, C6) is drawn from a non-matching class, here the causal structure. Each condition supplies the question with some combination of the passage and a schema.}
+\label{fig:six_conditions}
+\end{figure}
 
 Each model is evaluated on the six conditions using a fixed stratified sample of 1,000 questions drawn class-proportionally from the SQuAD development set. All conditions use identical decoding parameters, with temperature set to 0 for deterministic output, so that differences are attributable only to the scaffold configuration. Prediction length is recorded alongside accuracy as a measure of verbosity.
 
