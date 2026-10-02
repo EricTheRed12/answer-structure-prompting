@@ -67,9 +67,37 @@ Small language models are limited by capacity, and prompting is one way to compe
 % Acknowledgements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO: fill in acknowledgements.
 \acknowledgements{%
-Acknowledgements go here.
+Thank you to my advisor, Nikhil Krishnaswamy, for his guidance and help.
+}
+
+% Use of Generative AI disclosure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\aidisclosure}{%
+This thesis made use of generative AI tools, disclosed here in accordance with Colorado State University policy.
+
+\vspace{1em}
+
+Claude Haiku 4.5 was used as an automated annotator to label questions during the derivation of the answer-structure taxonomy, as described in the Methodology.
+
+\vspace{1em}
+
+Kiro, an AI coding assistant, implemented the experiment code from the author's design and assisted in revising and drafting portions of the text. It was also used to help verify citations and to check reported results against the underlying data. All edits, changes, and additions were directed and reviewed by the author. The research design, analysis, results, and conclusions are the author's own, and no data, experimental results, or citations were fabricated.
+}
+
+\newcommand{\makeaidisclosure}{%
+    \prelimtocentry{Use of Generative AI}
+
+    \begin{flatcenter}
+        USE OF GENERATIVE AI
+
+        \vspace{3em}
+    \end{flatcenter}
+
+    \aidisclosure \par
+
+    \newpage
 }
 
 \begin{document}
@@ -80,6 +108,7 @@ Acknowledgements go here.
 \makemycopyright
 \makeabstract
 \makeacknowledgements
+\makeaidisclosure
 
 \tableofcontents
 \listoftables
