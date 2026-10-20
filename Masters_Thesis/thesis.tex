@@ -126,9 +126,11 @@ Kiro, an AI coding assistant, implemented the experiment code from the author's 
 \label{ch:intro}
 % ============================================================
 
+The word \emph{structure} recurs throughout this work in three distinct senses, and separating them at the outset prevents the ambiguity that would otherwise follow. The first is the explicit schema supplied to the model in its input, a template naming the components a valid answer must contain, provided before generation begins; this is the \textbf{answer structure}, the object this work supplies and tests. The second is the organization a model holds internally, the patterns for arranging an answer that are encoded in its parameters during training and retained at a resolution set by scale; this is \textbf{structural encoding}. The third is the relational and syntactic organization already present in well-formed language itself, independent of any schema; this is the \textbf{structure of prose}. Each later use of the term refers to one of these three.
+
 Large language models have proven capable across a broad range of tasks. This capability comes at a cost in scale and resources, which concentrates their development in the hands of a few \cite{eloundou2023gpts, strubell2019energy}. Smaller models are far more accessible, but they are weaker, particularly on general tasks \cite{smalllmsready2024, slm_survey2024}. The usual explanation is scale: with fewer parameters, a model retains less of what it saw in training \cite{kaplan2020scaling, costofdownscaling2023}. Their language abilities still survive the reduction \cite{linguistic_competence_scale2025, emergent_reducedscale2024}. What a small model lacks is therefore something other than language. Whether it can be supplied without adding parameters is the central question of this work.
 
-A small model may lack not language but structure. Structure is the encoded sense of how an answer to a given question should be organized. Such a structure can be supplied at inference time from outside the model, rather than built in through training. This is the possibility the present work investigates. The hypothesis is that an answer structure matched to the question, a schema naming the components a valid answer must contain, narrows the model's prediction space and produces a more accurate answer. The approach would in principle apply to any model and any task whose answer structure is known.
+A small model may lack not language but structure. Such a structure can be supplied at inference time from outside the model, rather than built in through training. This is the possibility the present work investigates. The hypothesis is that an answer structure matched to the question, a schema naming the components a valid answer must contain, narrows the model's prediction space and produces a more accurate answer. The approach would in principle apply to any model and any task whose answer structure is known.
 
 To test this, a taxonomy of answer structures was derived from the Stanford Question Answering Dataset and examined through two studies. A six-model study, spanning 1B to 8B parameters, supplied each model with the matched structure, a random structure, and the source passage across conditions. A fine-tuning study, on a single model, varied how the structure was trained and how it was delivered.
 
@@ -531,7 +533,7 @@ The fine-tuning study uses one of these models, Llama 3.2 3B, in its base (non-i
 \section{Evaluation Metrics}
 \label{sec:metrics}
 
-Model performance is measured by Exact Match (EM) and token-level F1, both standard metrics for SQuAD and directly comparable to published baselines. In the six-model study, results are reported as deltas between conditions: the matched structure against baseline (RQ1), the matched against the random structure (RQ2), and structure against the passage (RQ3), with all deltas compared across models (RQ4).
+Model performance is measured by Exact Match (EM) and token-level F1, both standard metrics for SQuAD and directly comparable to published baselines. In the six-model study, results are reported as deltas between conditions: the matched structure against baseline (RQ1), the matched against the random structure (RQ2), and structure against the passage (RQ3), with all deltas compared across models (RQ4). Each reported per-condition mean carries its standard error of the mean (SEM), computed as the standard deviation of the per-question scores divided by $\sqrt{n}$ with $n = 1{,}000$, shown in parentheses in the corresponding tables.
 
 The model produces free-form text rather than extractive spans. A raw EM comparison between the full output and the gold answer would therefore undercount correct responses: for example, ``Normandy is a region in France'' contains the correct answer ``France'' but fails string-level EM. A max-F1 substring extraction step is therefore applied. For each prediction, every contiguous token subsequence is evaluated against each gold answer and the span that maximizes token-level F1 is selected. EM is then computed on this extracted span. The search window is bounded at twice the length of the longest gold answer for efficiency, since the optimal span is unlikely to exceed this length. Both raw EM and extracted EM (EM\textsubscript{ext}) are reported; EM\textsubscript{ext} serves as the primary exact-match metric. This approach is prompt-agnostic: it does not alter experimental conditions or introduce confounding instruction tokens.
 
@@ -554,37 +556,41 @@ On extractive QA a matched answer structure does not improve accuracy for any mo
 
 \begin{table}[h]
 \centering
+\small
+\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lcccccc}
 \toprule
 Model & C1 base & C2 pass & C3 match & C4 p+m & C5 rand & C6 p+r \\
 \midrule
-Llama 3.2 1B & 0.335 & 0.791 & 0.299 & 0.738 & 0.300 & 0.730 \\
-Gemma 2 2B   & 0.388 & 0.919 & 0.337 & 0.865 & 0.327 & 0.804 \\
-Llama 3.2 3B & 0.369 & 0.906 & 0.343 & 0.891 & 0.360 & 0.874 \\
-Phi-3 Mini   & 0.415 & 0.834 & 0.388 & 0.808 & 0.372 & 0.767 \\
-Llama 3 8B   & 0.441 & 0.930 & 0.403 & 0.915 & 0.397 & 0.892 \\
-Qwen 3 8B    & 0.482 & 0.952 & 0.384 & 0.902 & 0.357 & 0.882 \\
+Llama 3.2 1B & 0.335 (0.012) & 0.791 (0.011) & 0.299 (0.011) & 0.738 (0.012) & 0.300 (0.011) & 0.730 (0.012) \\
+Gemma 2 2B   & 0.388 (0.012) & 0.919 (0.007) & 0.337 (0.012) & 0.865 (0.009) & 0.327 (0.012) & 0.804 (0.011) \\
+Llama 3.2 3B & 0.369 (0.012) & 0.906 (0.008) & 0.343 (0.012) & 0.891 (0.008) & 0.360 (0.012) & 0.874 (0.009) \\
+Phi-3 Mini   & 0.415 (0.012) & 0.834 (0.009) & 0.388 (0.012) & 0.808 (0.010) & 0.372 (0.012) & 0.767 (0.011) \\
+Llama 3 8B   & 0.441 (0.012) & 0.930 (0.006) & 0.403 (0.012) & 0.915 (0.007) & 0.397 (0.012) & 0.892 (0.009) \\
+Qwen 3 8B    & 0.482 (0.012) & 0.952 (0.005) & 0.384 (0.012) & 0.902 (0.008) & 0.357 (0.012) & 0.882 (0.009) \\
 \bottomrule
 \end{tabular}
-\caption{F1\textsubscript{ext} by model and condition (1,000 questions). Token-level F1 computed on the max-F1 extracted span. C1--C6 correspond to the conditions in \sref{sec:sixmodel-method}.}
+\caption{F1\textsubscript{ext} by model and condition (1,000 questions). Token-level F1 computed on the max-F1 extracted span. Standard error of the mean (SEM) is shown in parentheses, computed over the per-question scores ($n = 1{,}000$). C1--C6 correspond to the conditions in \sref{sec:sixmodel-method}.}
 \label{tab:f1ext}
 \end{table}
 
 \begin{table}[h]
 \centering
+\small
+\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lcccccc}
 \toprule
 Model & C1 base & C2 pass & C3 match & C4 p+m & C5 rand & C6 p+r \\
 \midrule
-Llama 3.2 1B & 0.122 & 0.646 & 0.109 & 0.594 & 0.111 & 0.589 \\
-Gemma 2 2B   & 0.166 & 0.818 & 0.121 & 0.758 & 0.123 & 0.700 \\
-Llama 3.2 3B & 0.160 & 0.801 & 0.142 & 0.785 & 0.151 & 0.766 \\
-Phi-3 Mini   & 0.195 & 0.668 & 0.160 & 0.657 & 0.160 & 0.614 \\
-Llama 3 8B   & 0.215 & 0.839 & 0.183 & 0.816 & 0.187 & 0.800 \\
-Qwen 3 8B    & 0.240 & 0.868 & 0.178 & 0.823 & 0.168 & 0.820 \\
+Llama 3.2 1B & 0.122 (0.010) & 0.646 (0.015) & 0.109 (0.010) & 0.594 (0.016) & 0.111 (0.010) & 0.589 (0.016) \\
+Gemma 2 2B   & 0.166 (0.012) & 0.818 (0.012) & 0.121 (0.010) & 0.758 (0.014) & 0.123 (0.010) & 0.700 (0.014) \\
+Llama 3.2 3B & 0.160 (0.012) & 0.801 (0.013) & 0.142 (0.011) & 0.785 (0.013) & 0.151 (0.011) & 0.766 (0.013) \\
+Phi-3 Mini   & 0.195 (0.013) & 0.668 (0.015) & 0.160 (0.012) & 0.657 (0.015) & 0.160 (0.012) & 0.614 (0.015) \\
+Llama 3 8B   & 0.215 (0.013) & 0.839 (0.012) & 0.183 (0.012) & 0.816 (0.012) & 0.187 (0.012) & 0.800 (0.013) \\
+Qwen 3 8B    & 0.240 (0.014) & 0.868 (0.011) & 0.178 (0.012) & 0.823 (0.012) & 0.168 (0.012) & 0.820 (0.013) \\
 \bottomrule
 \end{tabular}
-\caption{EM\textsubscript{ext} by model and condition (1,000 questions). Exact match computed on the extracted span. C1--C6 correspond to the conditions in \sref{sec:sixmodel-method}.}
+\caption{EM\textsubscript{ext} by model and condition (1,000 questions). Exact match computed on the extracted span. Standard error of the mean (SEM) is shown in parentheses, computed over the per-question scores ($n = 1{,}000$). C1--C6 correspond to the conditions in \sref{sec:sixmodel-method}.}
 \label{tab:emext}
 \end{table}
 
@@ -729,6 +735,8 @@ Two conditions show that the obstacle is form rather than content. Delivered as 
 
 This points to what the base model already holds. A pretrained model with no instruction tuning has learned the statistical regularities of ordinary text. It reads a passage fluently because a passage is ordinary text, and it stumbles on a schema because a schema is not. Fine-tuning can teach the model to tolerate the unfamiliar form, which is why the penalty disappears. Tolerance is not comprehension. The model learns to stop being hurt by the schema, not to draw anything from it. The bias toward prose is not a preference the model acquires but the shape of what it learned to begin with.
 
+Read this way, the passage does more than supply the answer's content; it acts as in-context material the model conditions on. In-context learning operates over ordinary text (\sref{sec:prompt}). A well-formed passage is therefore not only a source of the answer but context the model can read directly. A schema offers the same information, but not in a form the mechanism can use.
+
 \section{The Taxonomy}
 
 The scaffold rested on the assumption, set out in \sref{sec:taxhyp}, that a finite set of answer-structure types exists and is distinguishable to the model. The results give this assumption only weak support, and less than the six-model study alone would suggest. In the six-model study a matched structure did score higher than a random one, which appeared to show the model responding to the correctness of the structure rather than to its mere presence. The fine-tuning study did not reproduce this. Without training, the matched schema scored marginally lower than the random one, by 0.022 [95\% CI 0.006, 0.037], and training left the two level. The apparent signal from the six-model study does not survive as a reliable effect.
@@ -776,7 +784,7 @@ Several limitations bound the scope of these conclusions. The evaluation uses SQ
 
 The clearest extension is to tasks whose answers are composite rather than extractive. A SQuAD answer is a short span already present in the passage. It has little internal structure of its own, so an imposed structure had little to organize (\cref{ch:limitations}). This is the setting least favorable to the method, and the negative result should be read against it. Tasks whose answers must be composed rather than located might change that balance. Multi-step reasoning, causal explanation, and long-form generation all produce answers with several parts standing in a definite relation, which is what an answer structure is meant to describe. Applying the method to these tasks would test whether a matched structure helps where form carries real weight, and would show whether the failure seen here is specific to extractive answers or general to prompt-supplied structure.
 
-A second direction concerns the form in which structure is delivered. The results locate the failure in the schema rather than in the structure it carries. Rendered as prose, the same structure improved accuracy where the schema did not (\sref{sec:teaches}). The question this leaves open is how prose delivery should be composed. It is not yet clear how much detail a prose structure needs, which cues carry the guidance, or how much surrounding context helps before it begins to distract. Studying these factors would shift the focus from whether delivery form matters, which the results establish, to how a structured prose delivery is best written. Broadening the taxonomy beyond a single extractive dataset would run alongside this, showing whether one set of answer structures serves across tasks or each task calls for its own.
+A second direction concerns the form in which structure is delivered. The results locate the failure in the schema rather than in the structure it carries. Rendered as prose, the same structure improved accuracy where the schema did not (\sref{sec:teaches}). The question this leaves open is how prose delivery should be composed. It is not yet clear how much detail a prose structure needs, which cues carry the guidance, or how much surrounding context helps before it begins to distract. Studying these factors would shift the focus from whether delivery form matters, which the results establish, to how a structured prose delivery is best written. One concrete form this question takes is specialized syntactic structure, where the schema's dimensions are carried in the grammatical relations of well-formed language rather than in keys and braces. Such a delivery would sit between the rigid schema that failed here and free prose, keeping the explicit dimensions while presenting them in the form the model reads most readily. Broadening the taxonomy beyond a single extractive dataset would run alongside this, showing whether one set of answer structures serves across tasks or each task calls for its own.
 
 % ============================================================
 \chapter{Conclusion}
@@ -802,5 +810,14 @@ Whether inference-time structure can help a small model generalize more broadly 
 % CSU template default is unsrt; the pre-migration draft used alpha.
 \bibliographystyle{unsrt}
 \bibliography{sample}
+
+% ============================================================
+\appendix
+% ============================================================
+
+\chapter{Code and Data Availability}
+\label{app:code}
+
+The experiment code and data supporting this work are available in a public repository at \url{https://github.com/EricTheRed12/rational-thinking}. The repository contains the evaluation pipeline, the prompt scaffold builder, the answer-structure taxonomy and its classification scripts, the fine-tuning notebook, and the saved results for both studies, together with a README describing how to reproduce each study. The committed result files include the per-question scores from which the confidence intervals and standard errors reported in \cref{ch:results} are computed.
 
 \end{document}
