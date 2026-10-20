@@ -433,3 +433,26 @@ FodyWeavers.xsd
 *.bbl
 *.blg
 .DS_Store
+
+# ---------------------------------------------------------------------------
+# Project-specific hardening (added for public release)
+# ---------------------------------------------------------------------------
+
+# Secrets: the existing "*.env" above does NOT match a bare ".env" file.
+# API keys (e.g. ANTHROPIC_API_KEY) must never be committed.
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+
+# Experiment runtime artifacts (checkpoints are resume state, not results)
+study1_main/checkpoints/
+**/checkpoints/
+
+# Python environments / caches
+.venv/
+venv/
+.python-version
+.pytest_cache/
+.ipynb_checkpoints/

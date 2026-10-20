@@ -5,9 +5,8 @@ Setup:
   pip install anthropic
   export ANTHROPIC_API_KEY="sk-ant-..."
 
-Run:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 taxonomy_classification/classify_all.py
+Run (from the repository root):
+  python3 taxonomy/classify_all.py
 
 Outputs:
   - all_results.json: full classification results for all questions
@@ -26,8 +25,10 @@ import anthropic
 # CONFIG
 # ============================================================
 
-SQUAD_PATH = '/Users/core/Documents/GradSchool/CS699/rational-thinking/squad_dev.json'
-OUTPUT_DIR = '/Users/core/Documents/GradSchool/CS699/rational-thinking/taxonomy_classification'
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.dirname(_HERE)
+SQUAD_PATH = os.path.join(_ROOT, 'data', 'squad_dev.json')
+OUTPUT_DIR = _HERE
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, 'all_results.json')
 PARTIAL_FILE = os.path.join(OUTPUT_DIR, 'all_results_partial.json')
 

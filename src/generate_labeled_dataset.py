@@ -7,9 +7,8 @@ experiment reproducibility.
 
 Output: taxonomy_classification/labeled_dataset.json
 
-Run:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 experiments/generate_labeled_dataset.py
+Run (from the repository root):
+  python3 src/generate_labeled_dataset.py
 """
 
 import json
@@ -21,13 +20,13 @@ sys.path.insert(0, str(Path(__file__).parent))
 from eval_pipeline import map_to_class, load_classified_questions, load_squad_passages
 
 PROJECT_ROOT = Path(__file__).parent.parent
-OUTPUT_PATH = PROJECT_ROOT / "taxonomy_classification" / "labeled_dataset.json"
-SCHEMAS_PATH = PROJECT_ROOT / "taxonomy_classification" / "schemas.json"
+OUTPUT_PATH = PROJECT_ROOT / "taxonomy" / "labeled_dataset.json"
+SCHEMAS_PATH = PROJECT_ROOT / "taxonomy" / "schemas.json"
 
 
 def _get_question_from_squad(qid: str) -> str:
     """Look up question text directly from squad_dev.json by ID."""
-    squad_path = PROJECT_ROOT / "squad_dev.json"
+    squad_path = PROJECT_ROOT / "data" / "squad_dev.json"
     with open(squad_path) as f:
         data = json.load(f)
     for article in data["data"]:

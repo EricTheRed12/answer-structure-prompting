@@ -14,7 +14,7 @@ import random
 from pathlib import Path
 from typing import Optional
 
-SCHEMAS_PATH = Path(__file__).parent.parent / "taxonomy_classification" / "schemas.json"
+SCHEMAS_PATH = Path(__file__).parent.parent / "taxonomy" / "schemas.json"
 
 
 def load_schemas(path: Optional[Path] = None) -> dict:

@@ -5,11 +5,10 @@ Produces a sample of N questions (default 1000) stratified by class ID
 so that class proportions are preserved. The same sample is used across
 all models and conditions for fair comparison.
 
-Output: experiments/sample_1000.json
+Output: data/sample_1000.json
 
-Run:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 experiments/generate_sample.py --size 1000
+Run (from the repository root):
+  python3 src/generate_sample.py --size 1000
 """
 
 import argparse
@@ -22,7 +21,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from eval_pipeline import build_dataset
 
-OUTPUT_DIR = Path(__file__).parent
+OUTPUT_DIR = Path(__file__).parent.parent / "data"
 
 
 def generate_stratified_sample(dataset: list, size: int, seed: int = 42) -> list:

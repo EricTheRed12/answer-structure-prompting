@@ -19,9 +19,8 @@ user message. Everything else matches the original main experiment:
 Output files are tagged `qwen3_8b_fixed_*` so the original (artifact-affected)
 `qwen3_8b_*` files are preserved unchanged.
 
-Usage:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  caffeinate -i python3 experiments/run_qwen_fixed.py
+Usage (run from the repository root):
+  caffeinate -i python3 study1_main/run_qwen_fixed.py
 """
 
 import json
@@ -32,7 +31,8 @@ from pathlib import Path
 import requests
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent))
+PROJECT_ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
 from scaffold_builder import build_scaffold, condition_name
 from run_condition import (
     normalize_answer,
@@ -49,10 +49,10 @@ NUM_PREDICT = 512
 SEED = 42
 SAVE_EVERY = 25
 
-EXPERIMENTS_DIR = Path(__file__).parent
-RESULTS_DIR = EXPERIMENTS_DIR / "results"
-CHECKPOINTS_DIR = EXPERIMENTS_DIR / "checkpoints"
-SAMPLE_PATH = EXPERIMENTS_DIR / "sample_1000.json"
+STUDY_DIR = Path(__file__).parent
+RESULTS_DIR = STUDY_DIR / "results"
+CHECKPOINTS_DIR = STUDY_DIR / "checkpoints"
+SAMPLE_PATH = PROJECT_ROOT / "data" / "sample_1000.json"
 
 TAG = "qwen3_8b_fixed"
 

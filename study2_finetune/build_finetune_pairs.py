@@ -27,7 +27,7 @@ from that via build_scaffold with the appropriate condition.
 Leakage control: the 1,000-question eval sample (sample_1000.json) is EXCLUDED from all
 training arms. Eval is built on the fly in the notebook from sample_1000.json.
 
-Outputs (experiments/finetune/):
+Outputs (study2_finetune/):
   arm1_train.jsonl / arm1_val.jsonl
   arm2_train.jsonl / arm2_val.jsonl
   arm4_train.jsonl / arm4_val.jsonl
@@ -35,9 +35,8 @@ Outputs (experiments/finetune/):
   eval_pairs.jsonl                       (reference: eval sample as C3 pairs)
   build_manifest.json
 
-Run:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 experiments/build_finetune_pairs.py
+Run (from the repository root):
+  python3 study2_finetune/build_finetune_pairs.py
 """
 
 import json
@@ -46,15 +45,15 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+PROJECT_ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
 from scaffold_builder import build_scaffold  # noqa: E402
 from eval_pipeline import map_to_class  # noqa: E402
 
-PROJECT_ROOT = Path(__file__).parent.parent
-ALL_RESULTS = PROJECT_ROOT / "taxonomy_classification" / "all_results.json"
-SAMPLE_1000 = PROJECT_ROOT / "experiments" / "sample_1000.json"
-SQUAD = PROJECT_ROOT / "squad_dev.json"
-OUT_DIR = PROJECT_ROOT / "experiments" / "finetune"
+ALL_RESULTS = PROJECT_ROOT / "taxonomy" / "all_results.json"
+SAMPLE_1000 = PROJECT_ROOT / "data" / "sample_1000.json"
+SQUAD = PROJECT_ROOT / "data" / "squad_dev.json"
+OUT_DIR = PROJECT_ROOT / "study2_finetune"
 
 VAL_FRACTION = 0.1
 SEED = 42

@@ -1,0 +1,21 @@
+# Dependencies for the local evaluation and classification pipeline.
+# Python 3.9+.
+#
+# Install with:
+#   pip install -r requirements.txt
+
+# Main study (study1_main): calls a locally running Ollama server over HTTP.
+requests>=2.28
+
+# Taxonomy classification + Claude data-build scripts (taxonomy/).
+# Reads the API key from the ANTHROPIC_API_KEY environment variable.
+anthropic>=0.39
+
+# ---------------------------------------------------------------------------
+# Fine-tuning study (study2_finetune/answer_structure_finetune.ipynb)
+# was run on Google Colab (A100) and is NOT installed by this file.
+# That notebook uses: torch, transformers, peft, datasets, huggingface_hub,
+# pandas. It was run against transformers 5.x on Python 3.13 with no version
+# pins by design (see the notebook header and the thesis for the exact runtime
+# environment). Re-run it in Colab rather than locally.
+# ---------------------------------------------------------------------------

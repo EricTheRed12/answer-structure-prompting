@@ -1,25 +1,25 @@
 """
-Run conditions 1-6 on the base model (llama3:text) using raw mode.
+Run conditions 1-6 on an INSTRUCTION-TUNED model using raw mode.
 
-Raw mode skips the chat template entirely — no system prompt injection,
-no <|start_header_id|> wrapping. The model sees exactly the tokens we send.
+Raw mode strips the chat template, so the instruction-tuned model sees the bare
+scaffold without <|start_header_id|>user<|end_header_id|> wrapping. This isolates
+whether the scaffold damage comes from the chat-template framing (model treats input
+as a message to respond to) or from something more fundamental (scaffold tokens dilute
+prediction regardless of framing).
 
-Prompts are formatted as completion-style:
-  "Q: {question}\nA:" (baseline)
-  "Context: {passage}\n\nQ: {question}\nA:" (with passage)
-  "{schema}\n\nQ: {question}\nA:" (with structure)
+Compare these results against:
+  - llama3_8b_*.json (same model, normal chat template) — the original main experiment
+  - llama3_text_*.json (base model, raw mode) — the base model baseline
 
-Uses the same 1000-question stratified sample as the main experiment.
-Checkpoint/resume every 25 questions.
+Uses the same 1000-question stratified sample. Checkpoint/resume every 25 questions.
+Output files prefixed with the model name + "_raw" to distinguish from templated runs.
 
-Usage:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  caffeinate -i python3 experiments/run_base_model.py
+Usage (run from the repository root):
+  caffeinate -i python3 study1_main/run_instruct_raw.py --model llama3:8b
 """
 
+import argparse
 import json
-import re
-import string
 import time
 from collections import defaultdict
 from pathlib import Path
@@ -27,29 +27,34 @@ from pathlib import Path
 import requests
 
 import sys
-sys.path.insert(0, str(Path(__file__).parent))
+PROJECT_ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
 from scaffold_builder import get_answer_structure, get_random_class_id, condition_name
 from eval_pipeline import normalize_answer, _token_f1, best_span_extraction
 
-MODEL = "llama3:text"
 BASE_URL = "http://localhost:11434"
-EXPERIMENTS_DIR = Path(__file__).parent
-RESULTS_DIR = EXPERIMENTS_DIR / "results"
-CHECKPOINTS_DIR = EXPERIMENTS_DIR / "checkpoints"
-SAMPLE_PATH = EXPERIMENTS_DIR / "sample_1000.json"
+STUDY_DIR = Path(__file__).parent
+RESULTS_DIR = STUDY_DIR / "results"
+CHECKPOINTS_DIR = STUDY_DIR / "checkpoints"
+SAMPLE_PATH = PROJECT_ROOT / "data" / "sample_1000.json"
 SAVE_EVERY = 25
 SEED = 42
 
 
+def model_tag(model: str) -> str:
+    """File-safe model tag with _raw suffix."""
+    return model.replace(":", "_").replace("/", "_").replace(".", "") + "_raw"
+
+
 # ============================================================
-# INFERENCE
+# INFERENCE (raw mode)
 # ============================================================
 
 
-def query_ollama(prompt: str, max_tokens: int = 64) -> str:
-    """Send prompt in raw mode — no chat template."""
+def query_ollama(prompt: str, model: str, max_tokens: int = 64) -> str:
+    """Send prompt in raw mode — no chat template applied."""
     payload = {
-        "model": MODEL,
+        "model": model,
         "prompt": prompt,
         "raw": True,
         "stream": False,
@@ -59,7 +64,6 @@ def query_ollama(prompt: str, max_tokens: int = 64) -> str:
         resp = requests.post(f"{BASE_URL}/api/generate", json=payload, timeout=120)
         resp.raise_for_status()
         response = resp.json().get("response", "").strip()
-        # Take only first line (base models tend to keep generating)
         first_line = response.split("\n")[0].strip()
         return first_line
     except requests.exceptions.Timeout:
@@ -92,23 +96,12 @@ def f1_ext(prediction: str, gold_answers: list) -> float:
 
 
 # ============================================================
-# PROMPT BUILDERS (completion-style for base model)
+# PROMPT BUILDER (completion-style, since no chat template)
 # ============================================================
 
 
 def build_prompt(question: str, condition: int, passage: str = None,
                  class_id: int = None, random_seed: int = None) -> str:
-    """
-    Build a completion-style prompt for the base model.
-
-    Conditions:
-      1: Q: {question}\nA:
-      2: Context: {passage}\n\nQ: {question}\nA:
-      3: {schema}\n\nQ: {question}\nA:
-      4: {schema}\n\nContext: {passage}\n\nQ: {question}\nA:
-      5: {random_schema}\n\nQ: {question}\nA:
-      6: {random_schema}\n\nContext: {passage}\n\nQ: {question}\nA:
-    """
     import random
 
     schema_str = ""
@@ -123,21 +116,14 @@ def build_prompt(question: str, condition: int, passage: str = None,
         schema_str = json.dumps(schema)
 
     parts = []
-
-    # Add schema if applicable
     if condition in (3, 4, 5, 6):
         parts.append(f"Answer structure: {schema_str}")
         parts.append("")
-
-    # Add passage if applicable
     if condition in (2, 4, 6):
         parts.append(f"Context: {passage}")
         parts.append("")
-
-    # Always end with Q/A format
     parts.append(f"Q: {question}")
     parts.append("A:")
-
     return "\n".join(parts)
 
 
@@ -146,24 +132,25 @@ def build_prompt(question: str, condition: int, passage: str = None,
 # ============================================================
 
 
-def checkpoint_path(condition: int) -> Path:
+def checkpoint_path(model: str, condition: int) -> Path:
+    tag = model_tag(model)
     cond_label = condition_name(condition)
-    return CHECKPOINTS_DIR / f"llama3_text_{cond_label}_checkpoint.json"
+    return CHECKPOINTS_DIR / f"{tag}_{cond_label}_checkpoint.json"
 
 
-def load_checkpoint(condition: int) -> list:
-    path = checkpoint_path(condition)
+def load_checkpoint(model: str, condition: int) -> list:
+    path = checkpoint_path(model, condition)
     if path.exists():
         with open(path) as f:
             return json.load(f).get("results", [])
     return []
 
 
-def save_checkpoint(condition: int, results: list):
+def save_checkpoint(model: str, condition: int, results: list):
     CHECKPOINTS_DIR.mkdir(parents=True, exist_ok=True)
-    path = checkpoint_path(condition)
+    path = checkpoint_path(model, condition)
     with open(path, "w") as f:
-        json.dump({"model": MODEL, "condition": condition, "results": results}, f)
+        json.dump({"model": model, "condition": condition, "results": results}, f)
 
 
 # ============================================================
@@ -199,23 +186,21 @@ def compute_aggregates(results: list) -> dict:
 
 
 # ============================================================
-# MAIN
+# RUN
 # ============================================================
 
 
-def run_condition(condition: int, questions: list):
-    """Run one condition with checkpoint/resume."""
+def run_condition(model: str, condition: int, questions: list):
+    tag = model_tag(model)
     cond_label = condition_name(condition)
 
-    # Check if already complete
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = RESULTS_DIR / f"llama3_text_{cond_label}.json"
+    output_path = RESULTS_DIR / f"{tag}_{cond_label}.json"
     if output_path.exists():
         print(f"SKIPPED: {output_path.name} already exists")
         return
 
-    # Load checkpoint
-    existing = load_checkpoint(condition)
+    existing = load_checkpoint(model, condition)
     sample_ids = {q["id"] for q in questions}
     existing = [r for r in existing if r["id"] in sample_ids]
     completed_ids = {r["id"] for r in existing}
@@ -226,7 +211,7 @@ def run_condition(condition: int, questions: list):
     remaining = [q for q in questions if q["id"] not in completed_ids]
 
     print(f"\n{'='*60}")
-    print(f"Model: {MODEL} (raw mode)")
+    print(f"Model: {model} (RAW mode — no chat template)")
     print(f"Condition {condition}: {cond_label}")
     print(f"Remaining: {len(remaining)}/{len(questions)}")
     print(f"{'='*60}")
@@ -236,7 +221,6 @@ def run_condition(condition: int, questions: list):
         results = existing
     else:
         results = existing.copy()
-
         for i, item in enumerate(remaining):
             prompt = build_prompt(
                 question=item["question"],
@@ -245,9 +229,8 @@ def run_condition(condition: int, questions: list):
                 class_id=item["class_id"] if condition >= 3 else None,
                 random_seed=SEED + questions.index(item) if condition in (5, 6) else None,
             )
-
             t0 = time.time()
-            prediction = query_ollama(prompt)
+            prediction = query_ollama(prompt, model)
             latency = time.time() - t0
 
             em = exact_match_extracted(prediction, item["gold_answers"])
@@ -274,15 +257,14 @@ def run_condition(condition: int, questions: list):
                 print(f"  [{done}/{len(questions)}] EM_ext={avg_em:.3f} F1_ext={avg_f1:.3f} tokens={avg_tok:.0f}")
 
             if done % SAVE_EVERY == 0:
-                save_checkpoint(condition, results)
+                save_checkpoint(model, condition, results)
 
-        save_checkpoint(condition, results)
+        save_checkpoint(model, condition, results)
 
-    # Save final
     aggregates = compute_aggregates(results)
     with open(output_path, "w") as f:
         json.dump({
-            "model": MODEL,
+            "model": model,
             "condition": condition,
             "condition_name": cond_label,
             "raw_mode": True,
@@ -294,53 +276,46 @@ def run_condition(condition: int, questions: list):
     print(f"\n  DONE: {output_path.name}")
     print(f"  EM_ext={aggregates['em_ext']:.4f}  F1_ext={aggregates['f1_ext']:.4f}  tokens={aggregates['avg_prediction_tokens']:.0f}")
 
-    # Clean checkpoint
-    cp = checkpoint_path(condition)
+    cp = checkpoint_path(model, condition)
     if cp.exists():
         cp.unlink()
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Run instruct model in raw mode")
+    parser.add_argument("--model", type=str, default="llama3:8b", help="Ollama model name")
+    args = parser.parse_args()
+    model = args.model
+
     print(f"Loading sample from: {SAMPLE_PATH}")
     with open(SAMPLE_PATH) as f:
         sample_data = json.load(f)
     questions = sample_data["questions"]
-    print(f"Sample size: {len(questions)}")
 
-    # Need passage and class_id — load full dataset and merge
     from eval_pipeline import build_dataset
     dataset = build_dataset()
     ds_map = {d["id"]: d for d in dataset}
-
-    # Enrich sample with passage/class_id
-    enriched = []
-    for q in questions:
-        if q["id"] in ds_map:
-            enriched.append(ds_map[q["id"]])
-        else:
-            enriched.append(q)
-    questions = enriched
+    questions = [ds_map.get(q["id"], q) for q in questions]
 
     print(f"\n{'='*60}")
-    print(f"BASE MODEL EXPERIMENT")
-    print(f"Model: {MODEL} (raw mode, no chat template)")
-    print(f"Conditions: 1-6")
-    print(f"Questions: {len(questions)}")
+    print(f"INSTRUCT MODEL RAW-MODE EXPERIMENT")
+    print(f"Model: {model} (raw=True, no chat template)")
+    print(f"Conditions: 1-6 | Questions: {len(questions)}")
     print(f"{'='*60}")
 
     for condition in [1, 2, 3, 4, 5, 6]:
-        run_condition(condition, questions)
+        run_condition(model, condition, questions)
 
-    # Print summary
+    # Summary
+    tag = model_tag(model)
     print(f"\n\n{'='*60}")
-    print(f"SUMMARY: {MODEL}")
+    print(f"SUMMARY: {model} (RAW mode)")
     print(f"{'='*60}")
     print(f"{'Condition':<30s} {'EM_ext':>8s} {'F1_ext':>8s} {'Tokens':>8s}")
     print("-" * 55)
-
     for condition in [1, 2, 3, 4, 5, 6]:
         cond_label = condition_name(condition)
-        path = RESULTS_DIR / f"llama3_text_{cond_label}.json"
+        path = RESULTS_DIR / f"{tag}_{cond_label}.json"
         if path.exists():
             with open(path) as f:
                 data = json.load(f)

@@ -3,9 +3,8 @@ Interpret multiarm_results.json against the 7 validations (V1-V7) with paired
 bootstrap 95% CIs on F1_ext deltas. Reads per-question F1_ext lists so every claim
 gets an interval, not a bare number.
 
-Run (after downloading multiarm_results.json from Drive into this folder):
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 experiments/finetune/analyze_results.py
+Run (from the repository root):
+  python3 study2_finetune/analyze_results.py
 """
 import json
 import random

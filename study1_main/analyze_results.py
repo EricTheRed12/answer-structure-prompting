@@ -7,12 +7,23 @@ RESULTS_DIR = Path(__file__).parent / "results"
 
 # Load all results for a model
 def load_model_results(model_prefix):
-    """Load all conditions for a model."""
+    """Load all conditions for a model.
+
+    Only accept files named exactly ``{model_prefix}_{condition_name}.json``.
+    A plain glob of ``{model_prefix}_*`` would also match sibling variants whose
+    names start with the same prefix (e.g. ``llama3_8b`` matching the base-model
+    ``llama3_8b_raw_*`` files), which would overwrite the real entries with
+    differently-processed runs. Anchoring on the condition name keeps each model's
+    runs separate.
+    """
     conditions = {}
     for f in sorted(RESULTS_DIR.glob(f"{model_prefix}_*.json")):
         with open(f) as fh:
             data = json.load(fh)
         cond_name = data["condition_name"]
+        # Reject prefix collisions: the stem must be exactly prefix + condition.
+        if f.stem != f"{model_prefix}_{cond_name}":
+            continue
         conditions[cond_name] = data
     return conditions
 

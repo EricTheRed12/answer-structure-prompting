@@ -5,8 +5,8 @@ Runs SQuAD questions through Ollama with scaffold prompts across
 8 experimental conditions, computes EM/F1 scores.
 
 Usage:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 experiments/eval_pipeline.py --model llama3.2 --conditions 1 2 3 4 --limit 50
+  python3 src/eval_pipeline.py --model llama3.2 --conditions 1 2 3 4 --limit 50
+  (run from the repository root)
 
 Requirements:
   - Ollama running locally (default: http://localhost:11434)
@@ -31,9 +31,9 @@ from scaffold_builder import build_scaffold, condition_name
 # ============================================================
 
 PROJECT_ROOT = Path(__file__).parent.parent
-SQUAD_PATH = PROJECT_ROOT / "squad_dev.json"
-CLASSIFIED_PATH = PROJECT_ROOT / "taxonomy_classification" / "all_results.json"
-RESULTS_DIR = PROJECT_ROOT / "experiments" / "results"
+SQUAD_PATH = PROJECT_ROOT / "data" / "squad_dev.json"
+CLASSIFIED_PATH = PROJECT_ROOT / "taxonomy" / "all_results.json"
+RESULTS_DIR = PROJECT_ROOT / "study1_main" / "results"
 
 # ============================================================
 # FEATURE → 10-CLASS MAPPING

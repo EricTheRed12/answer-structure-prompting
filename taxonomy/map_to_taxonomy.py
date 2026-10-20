@@ -5,9 +5,11 @@ Shows the distribution to identify imbalances.
 
 import json
 from collections import Counter
+from pathlib import Path
 
 # Load results
-with open('/Users/core/Documents/GradSchool/CS699/rational-thinking/taxonomy_classification/all_results.json') as f:
+_RESULTS_PATH = Path(__file__).parent / "all_results.json"
+with open(_RESULTS_PATH) as f:
     data = json.load(f)
 
 print(f'Total questions: {len(data)}')

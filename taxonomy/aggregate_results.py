@@ -14,7 +14,7 @@ import json
 import os
 from collections import Counter
 
-results_dir = '/Users/core/Documents/GradSchool/CS699/rational-thinking/taxonomy_classification'
+results_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Load all batch results
 all_classified = []

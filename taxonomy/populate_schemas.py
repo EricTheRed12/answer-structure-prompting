@@ -17,10 +17,9 @@ Setup:
   pip install anthropic
   export ANTHROPIC_API_KEY="sk-ant-..."
 
-Run:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 taxonomy_classification/populate_schemas.py            # both splits
-  python3 taxonomy_classification/populate_schemas.py --split eval   # just the eval sample
+Run (from the repository root):
+  python3 taxonomy/populate_schemas.py            # both splits
+  python3 taxonomy/populate_schemas.py --split eval   # just the eval sample
 
 Outputs (experiments/finetune/):
   filled_train_pairs.jsonl   filled-schema pairs, training pool (excludes eval sample)
@@ -38,15 +37,15 @@ from pathlib import Path
 import anthropic
 
 PROJECT_ROOT = Path(__file__).parent.parent
-# scaffold_builder / eval_pipeline live in experiments/
-sys.path.insert(0, str(PROJECT_ROOT / "experiments"))
+# scaffold_builder / eval_pipeline live in src/
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
 from scaffold_builder import get_answer_structure  # noqa: E402
 from eval_pipeline import map_to_class  # noqa: E402
 
-ALL_RESULTS = PROJECT_ROOT / "taxonomy_classification" / "all_results.json"
-SAMPLE_1000 = PROJECT_ROOT / "experiments" / "sample_1000.json"
-SQUAD = PROJECT_ROOT / "squad_dev.json"
-OUT_DIR = PROJECT_ROOT / "experiments" / "finetune"
+ALL_RESULTS = PROJECT_ROOT / "taxonomy" / "all_results.json"
+SAMPLE_1000 = PROJECT_ROOT / "data" / "sample_1000.json"
+SQUAD = PROJECT_ROOT / "data" / "squad_dev.json"
+OUT_DIR = PROJECT_ROOT / "study2_finetune"
 
 MODEL = "claude-haiku-4-5-20251001"
 BATCH_SIZE = 10          # smaller than classify: each item carries a passage

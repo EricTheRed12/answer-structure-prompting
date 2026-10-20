@@ -1,6 +1,9 @@
 import json
+from pathlib import Path
 
-with open('/Users/core/Documents/GradSchool/CS699/rational-thinking/squad_dev.json') as f:
+SQUAD_PATH = Path(__file__).parent.parent / "data" / "squad_dev.json"
+
+with open(SQUAD_PATH) as f:
     data = json.load(f)
 
 print(f'Version: {data["version"]}')

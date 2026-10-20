@@ -21,9 +21,8 @@ Setup:
   pip install anthropic
   export ANTHROPIC_API_KEY="sk-ant-..."
 
-Run:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 taxonomy_classification/restructure_passages.py
+Run (from the repository root):
+  python3 taxonomy/restructure_passages.py
 
 Output (experiments/finetune/):
   restructured_passages.json   {passage_hash: {"original": ..., "structured": ...}}
@@ -39,8 +38,8 @@ from pathlib import Path
 import anthropic
 
 PROJECT_ROOT = Path(__file__).parent.parent
-SAMPLE_1000 = PROJECT_ROOT / "experiments" / "sample_1000.json"
-OUT_DIR = PROJECT_ROOT / "experiments" / "finetune"
+SAMPLE_1000 = PROJECT_ROOT / "data" / "sample_1000.json"
+OUT_DIR = PROJECT_ROOT / "study2_finetune"
 OUT_FILE = OUT_DIR / "restructured_passages.json"
 PARTIAL_FILE = OUT_DIR / "restructured_passages_partial.json"
 

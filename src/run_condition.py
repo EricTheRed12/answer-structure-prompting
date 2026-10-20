@@ -4,10 +4,9 @@ Run a single experimental condition for a single model with checkpoint/resume.
 This is the production experiment runner. It processes one condition at a time,
 saves progress every 25 questions, and can resume from where it left off.
 
-Usage:
-  cd /Users/core/Documents/GradSchool/CS699/rational-thinking
-  python3 experiments/run_condition.py --model llama3.2:3b --condition 1
-  python3 experiments/run_condition.py --model llama3:8b --condition 4 --sample experiments/sample_1000.json
+Usage (run from the repository root):
+  python3 src/run_condition.py --model llama3.2:3b --condition 1
+  python3 src/run_condition.py --model llama3:8b --condition 4 --sample data/sample_1000.json
 
 Features:
   - Checkpoint/resume: saves every 25 questions, resumes automatically
@@ -35,9 +34,9 @@ from scaffold_builder import build_scaffold, condition_name
 # PATHS
 # ============================================================
 
-EXPERIMENTS_DIR = Path(__file__).parent
-RESULTS_DIR = EXPERIMENTS_DIR / "results"
-CHECKPOINTS_DIR = EXPERIMENTS_DIR / "checkpoints"
+PROJECT_ROOT = Path(__file__).parent.parent
+RESULTS_DIR = PROJECT_ROOT / "study1_main" / "results"
+CHECKPOINTS_DIR = PROJECT_ROOT / "study1_main" / "checkpoints"
 
 # ============================================================
 # METRICS
@@ -405,7 +404,7 @@ def main():
         help="Condition number (1-8)"
     )
     parser.add_argument(
-        "--sample", type=str, default="experiments/sample_1000.json",
+        "--sample", type=str, default="data/sample_1000.json",
         help="Path to sample JSON file"
     )
     parser.add_argument(
