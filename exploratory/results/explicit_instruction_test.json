@@ -1,0 +1,43 @@
+{
+  "model": "llama3.2:3b",
+  "n": 100,
+  "instruction": "Use the following answer structure to organize your response.",
+  "summary": {
+    "C1": {
+      "n": 100,
+      "em_ext": 0.14,
+      "f1_ext": 0.3836,
+      "avg_tokens": 111.0
+    },
+    "C2": {
+      "n": 100,
+      "em_ext": 0.8,
+      "f1_ext": 0.8966,
+      "avg_tokens": 28.6
+    },
+    "C3": {
+      "n": 100,
+      "em_ext": 0.15,
+      "f1_ext": 0.3713,
+      "avg_tokens": 67.8
+    },
+    "C3i": {
+      "n": 100,
+      "em_ext": 0.14,
+      "f1_ext": 0.3521,
+      "avg_tokens": 39.8
+    },
+    "C4": {
+      "n": 100,
+      "em_ext": 0.78,
+      "f1_ext": 0.8757,
+      "avg_tokens": 26.8
+    },
+    "C4i": {
+      "n": 100,
+      "em_ext": 0.95,
+      "f1_ext": 0.9762,
+      "avg_tokens": 136.4
+    }
+  }
+}
