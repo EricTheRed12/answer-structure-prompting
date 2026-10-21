@@ -697,6 +697,23 @@ C6 passage + random & 0.892 & 0.801 & 0.734 \\
 
 Removing the chat template changes little on the passage condition, from 0.930 to 0.943, so the template is not the source of the passage's advantage. Removing instruction tuning changes it substantially, from 0.943 to 0.776 under the same raw prompt. The scaffold reduces accuracy in all three configurations; the instruction-tuned model in raw mode falls from 0.943 to 0.811 once the matched schema is added, in the same direction as the templated runs. The two models also differ in their response to a correct schema. The instruction-tuned model scores the matched schema above the random one in raw mode as it does with the template, while the base model reverses this, scoring the random schema higher. These results are interpreted in \cref{ch:discussion}.
 
+\paragraph{Frontier model, zero-shot.}
+The six conditions were also run against a frontier model, Claude Opus 5.5, zero-shot, on a 100-question subsample of the evaluation set. Table~\ref{tab:frontier} reports F1\textsubscript{ext} and EM\textsubscript{ext}. Without a passage, the matched structure scored 0.627 against a question-only baseline of 0.644, and the matched and random structures scored 0.627 and 0.608. With a passage, every condition exceeded 0.96, and adding structure to the passage did not raise accuracy beyond the passage alone. The model answered in fluent prose rather than terse spans, which depresses raw F1 and makes F1\textsubscript{ext} and EM\textsubscript{ext} the appropriate measures, as elsewhere. This run uses a different model family and runtime, a smaller sample, and the model's default sampling, since Opus 5.5 does not accept a fixed temperature; its values are not comparable in magnitude to the earlier tables.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+Metric & C1 base & C2 pass & C3 match & C4 p+m & C5 rand & C6 p+r \\
+\midrule
+F1\textsubscript{ext} & 0.644 & 0.963 & 0.627 & 0.983 & 0.608 & 0.967 \\
+EM\textsubscript{ext} & 0.470 & 0.910 & 0.470 & 0.940 & 0.450 & 0.940 \\
+\bottomrule
+\end{tabular}
+\caption{Claude Opus 5.5, zero-shot, on a 100-question subsample (F1\textsubscript{ext} and EM\textsubscript{ext}). The same six conditions and prompts as the six-model study. Values are not comparable in magnitude to the earlier tables, which use different models, a 1,000-question sample, and a fixed temperature. C1--C6 correspond to the conditions in \sref{sec:sixmodel-method}.}
+\label{tab:frontier}
+\end{table}
+
 \section{Comparison with Reference Performance}
 
 No directly comparable evaluation of significantly larger models exists for this setting. SQuAD 1.1 predates current large language models and is widely treated as saturated, and the extraction-based scoring used here (\sref{sec:metrics}) is not identical to the official metric, so a like-for-like comparison against larger models cannot be drawn from published results.
@@ -726,6 +743,8 @@ The size of the passage effect confirms the negative is genuine. When a passage 
 Model size did not change this. The structure penalty was negative for every model, but its magnitude did not track parameter count. The two 8B models sat at opposite ends of the range. Were capacity the limiting factor, the penalty would ease as models grew, and it did not. This runs against the original motivation for the scaffold. Smaller models, being more limited, were expected to gain the most from external structure, yet if anything they were harmed slightly more. The study found no systematic size trend. The range tested reaches only to 8B, so the conclusion extends no further. Within that range, the scaffold's failure is not a matter of scale.
 
 The scaffold's effect on output length tells the same story from another angle. Adding the structure changed how much the model produced, shortening answers without a passage and lengthening them with one, but neither change improved accuracy. The scaffold reshaped the form of the output without improving its content, which is the pattern that runs through every result.
+
+The frontier-model probe is consistent with this. Run zero-shot on Claude Opus 5.5 (\sref{sec:exploratory}), the matched structure failed to beat the question-only baseline, and the passage dominated as before. That a frontier model shows the same behavior strengthens the central finding. The obstacle lies in how the structure is delivered rather than in the capacity of the model that receives it. This remains a single small probe and does not extend the thesis beyond the small models it concerns. It does close off the easiest objection. The schema did not fail only because the models tested were too small to use it.
 
 \section{The Fine-Tuning Study}
 

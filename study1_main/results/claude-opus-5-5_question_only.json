@@ -1,0 +1,1850 @@
+{
+  "model": "claude-opus-5-5",
+  "condition": 1,
+  "condition_name": "question_only",
+  "sample_size": 100,
+  "aggregates": {
+    "n": 100,
+    "em": 0.0,
+    "em_extracted": 0.47,
+    "f1": 0.0618,
+    "f1_extracted": 0.644,
+    "avg_latency_s": 5.05,
+    "avg_prediction_tokens": 71.5,
+    "by_class": {
+      "1": {
+        "n": 15,
+        "em": 0.0,
+        "em_extracted": 0.4667,
+        "f1": 0.0701,
+        "f1_extracted": 0.6381,
+        "avg_tokens": 75.1
+      },
+      "2": {
+        "n": 12,
+        "em": 0.0,
+        "em_extracted": 0.5833,
+        "f1": 0.0916,
+        "f1_extracted": 0.8997,
+        "avg_tokens": 88.5
+      },
+      "3": {
+        "n": 6,
+        "em": 0.0,
+        "em_extracted": 0.0,
+        "f1": 0.0557,
+        "f1_extracted": 0.2577,
+        "avg_tokens": 89.8
+      },
+      "4": {
+        "n": 13,
+        "em": 0.0,
+        "em_extracted": 0.4615,
+        "f1": 0.0357,
+        "f1_extracted": 0.5949,
+        "avg_tokens": 68.3
+      },
+      "5": {
+        "n": 7,
+        "em": 0.0,
+        "em_extracted": 0.4286,
+        "f1": 0.0365,
+        "f1_extracted": 0.5646,
+        "avg_tokens": 64.9
+      },
+      "6": {
+        "n": 10,
+        "em": 0.0,
+        "em_extracted": 0.7,
+        "f1": 0.0649,
+        "f1_extracted": 0.7667,
+        "avg_tokens": 40.0
+      },
+      "7": {
+        "n": 8,
+        "em": 0.0,
+        "em_extracted": 0.75,
+        "f1": 0.1371,
+        "f1_extracted": 0.9269,
+        "avg_tokens": 78.8
+      },
+      "8": {
+        "n": 20,
+        "em": 0.0,
+        "em_extracted": 0.4,
+        "f1": 0.034,
+        "f1_extracted": 0.53,
+        "avg_tokens": 61.7
+      },
+      "9": {
+        "n": 3,
+        "em": 0.0,
+        "em_extracted": 0.0,
+        "f1": 0.1212,
+        "f1_extracted": 0.5,
+        "avg_tokens": 99.3
+      },
+      "10": {
+        "n": 6,
+        "em": 0.0,
+        "em_extracted": 0.5,
+        "f1": 0.0316,
+        "f1_extracted": 0.6032,
+        "avg_tokens": 86.5
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "57293e983f37b3190047818f",
+      "question": "How much did the statement predict global surface temperature would increase by 2100?",
+      "gold_answers": [
+        "between 1.4 and 5.8 \u00b0C above 1990 levels",
+        "1.4 and 5.8 \u00b0C",
+        "between 1.4 and 5.8 \u00b0C"
+      ],
+      "prediction": "I don't have the statement you're referring to. If you share the text or tell me its source and year, I can pinpoint the figure.\n\nIn the meantime, here is what the major IPCC assessments projected for warming by about 2100:\n\n| Report | Projected warming by ~2100 | Notes |\n|---|---|---|\n| **IPCC AR6 (2021)** | ~1.4\u00b0C to 4.4\u00b0C (very likely range ~1.0\u20135.7\u00b0C) | For 2081\u20132100 relative to 1850\u20131900, across low to very high emissions scenarios |\n| **IPCC AR5 (2013)** | ~0.3\u00b0C to 4.8\u00b0C | For 2081\u20132100 relative to 1986\u20132005 |\n| **IPCC A",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.025,
+      "f1_extracted": 0.4,
+      "prediction_tokens": 96,
+      "latency_s": 6.69
+    },
+    {
+      "id": "57293f8a6aef051400154be1",
+      "question": "Why were the 2011 Special Reports issued?",
+      "gold_answers": [
+        "requested by governments",
+        "requested by governments",
+        "requested by governments."
+      ],
+      "prediction": "The question doesn't say which organization's reports it means, but \"2011 Special Reports\" most likely refers to the two **Intergovernmental Panel on Climate Change (IPCC)** reports published that year. If you meant a different set, let me know.\n\n**General purpose**\n\nThe IPCC's main Assessment Reports cover climate science broadly. Between those cycles, member governments ask the IPCC to produce Special Reports that look in depth at specific topics. The goal is to give policymakers, including those in the UN climate negotiations, an up-to-date synthesis of the scientific literature on issues that need focused attention.\n\n**The two 2011 reports**\n\n1. **Special Report on Renewable Energy Sources and Climate Change Mitigation (SRREN)**, May 2011\n   - Assessed how much renewable energ",
+      "class_id": 9,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.01818181818181818,
+      "f1_extracted": 0.5,
+      "prediction_tokens": 118,
+      "latency_s": 5.68
+    },
+    {
+      "id": "572a20816aef0514001552e8",
+      "question": "When are inequalities in wealth justified, according to John Rawls?",
+      "gold_answers": [
+        "when they improve society as a whole",
+        "when they improve society as a whole",
+        "when they improve society as a whole"
+      ],
+      "prediction": "# Rawls on Justified Inequalities\n\nAccording to John Rawls, especially in *A Theory of Justice* (1971), **social and economic inequalities are justified only if they satisfy two conditions**, which together form his **Second Principle of Justice**:\n\n1. **The Difference Principle**: Inequalities must be arranged so that they are **to the greatest benefit of the least advantaged** members of society.\n2. **Fair Equality of Opportunity**: Inequalities must be attached to offices and positions **open to all** under conditions of genuinely fair equality of opportunity, not merely formal legal openness.\n\n## Key Points\n\n**What the difference principle requires**\n-",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.042105263157894736,
+      "f1_extracted": 0.2857142857142857,
+      "prediction_tokens": 97,
+      "latency_s": 6.48
+    },
+    {
+      "id": "57092322efce8f15003a7db0",
+      "question": "What company was formed by the merger of Sky Television and British Satellite Broadcasting?",
+      "gold_answers": [
+        "BSkyB",
+        "BSkyB",
+        "BSkyB"
+      ],
+      "prediction": "The merger of Sky Television and British Satellite Broadcasting in November 1990 formed **British Sky Broadcasting (BSkyB)**. The company was later renamed **Sky** (Sky UK / Sky Group) in 2014 and is now owned by Comcast.",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.05882352941176471,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 36,
+      "latency_s": 1.96
+    },
+    {
+      "id": "57267ebfdd62a815002e872f",
+      "question": "What does critically tapered mean? ",
+      "gold_answers": [
+        "all angles remain the same",
+        "all angles remain the same",
+        "all angles remain the same"
+      ],
+      "prediction": "# Critically Tapered\n\n**Critically tapered** is a term from structural geology and tectonics, from **critical taper theory** (Davis, Suppe & Dahlen, 1983). It describes a wedge-shaped mass of rock or sediment that has re",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 34,
+      "latency_s": 6.33
+    },
+    {
+      "id": "5729de24af94a219006aa68c",
+      "question": "What motivation is opportunity-based entrepreneurship driven by?",
+      "gold_answers": [
+        "achievement-oriented",
+        "achievement-oriented motivations (\"pull\")",
+        "achievement-oriented motivations"
+      ],
+      "prediction": "Opportunity-based entrepreneurship is driven by **\"pull\" motivation**. People start businesses by choice because they have spotted a promising market opportunity they want to pursue, not because they lack other ways to earn a living.\n\nThe motivations typically include:\n\n- **Exploiting a perceived opportunity**: an unmet need, a gap in the market, or a new idea, technology, or innovation.\n- **Desire for independence and autonomy**: wanting to be one's own boss.\n- **Wealth creation**: seeking higher income or financial gain than employment would provide.\n- **Personal fulfillment and self-realization**: achievement, creativity, and pursuing a passion.\n\nIt is usually contrasted with **necessity-based entrepreneurship**, which is driven by \"push\" factors. Necessity entrepreneurs start businesses because they have no better employment options, for example because of unemployment, job insecurity, or poverty. The Global Entrepreneurship Monitor (GEM) popularized this distinction. Opportunity-driven ventures tend to be more growth-oriented and innovative, and they are more common in higher-income economies.",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.028368794326241138,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 152,
+      "latency_s": 5.08
+    },
+    {
+      "id": "571cd11add7acb1400e4c16e",
+      "question": "As a euphoric how is oxygen used in bars?",
+      "gold_answers": [
+        "recreational",
+        "recreational",
+        "recreational"
+      ],
+      "prediction": "# Oxygen Bars: How Oxygen Is Used Recreationally\n\nOxygen bars serve concentrated oxygen to customers as a recreational \"pick-me-up.\" Calling it a *euphoric* is mostly a marketing description rather than a scientifically supported effect.\n\n## How It Works\n\n- **Delivery:** Customers breathe through a **nasal cannula**, a thin plastic tube with two prongs that sit in the nostrils.\n- **Concentration:** Machines called **oxygen concentrators",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.037037037037037035,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 64,
+      "latency_s": 6.72
+    },
+    {
+      "id": "5728fd206aef05140015494f",
+      "question": "Commensal flora can change what specific conditions of their environment in the gastrointestinal tract?",
+      "gold_answers": [
+        "pH or available iron",
+        "pH or available iron",
+        "balance of microbial populations"
+      ],
+      "prediction": "",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 1.48
+    },
+    {
+      "id": "57302faa04bcaa1900d77311",
+      "question": "How many Muslims are in Greater London?",
+      "gold_answers": [
+        "over 900,000",
+        "900,000",
+        "over 900,000"
+      ],
+      "prediction": "According to the **2021 UK Census**, about **1.32 million** people in Greater London identified as Muslim, roughly **15%** of the city's population of about 8.8 million. That makes Islam the second-largest religion in London after Christianity.\n\n**Context:**\n- **Growth:** In the 2011 Census, London had about 1.01 million Muslims (12.4%), so the population grew by roughly 300,000 over the decade.\n- **Share of UK Muslims:** London is home to roughly a third of the approximately 3.9 million Muslims in England and Wales.\n- **Highest concentrations by borough (2021):**\n  - Tower Hamlets: ~40%\n  - Newham: ~35%\n  - Redbridge: ~31%\n- **Diversity:** London's Muslim community is very diverse, with large populations of Bangladeshi, Pakistani, Somali, Arab, Turkish, and other heritage.\n\nNote that the census religion question was voluntary, and about 7% of Londoners did not answer it, so the true figure could be slightly different.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.015625,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 143,
+      "latency_s": 5.03
+    },
+    {
+      "id": "57261f9f271a42140099d4ac",
+      "question": "Interest groups and government agencies that were concerned with energy were no match for who?",
+      "gold_answers": [
+        "Kissinger",
+        "Kissinger",
+        "Kissinger",
+        "Kissinger's",
+        "Kissinger"
+      ],
+      "prediction": "They were no match for **Henry Kissinger**, who served as U.S. Secretary of State during the 1973 oil crisis. His dominance over the policy response sidelined interest groups and agencies focused specifically on energy.",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.06060606060606061,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 34,
+      "latency_s": 3.99
+    },
+    {
+      "id": "571144d1a58dae1900cd6d70",
+      "question": "Along with nuclear, geothermal and internal combustion engine waste heat, what sort of energy might supply the heat for a steam engine?",
+      "gold_answers": [
+        "solar",
+        "solar",
+        "solar"
+      ],
+      "prediction": "**Solar energy.** Steam engines are external heat engines, so the heat can come from non-combustion sources such as solar, nuclear, or geothermal energy, or from an internal combustion engine's waste heat. Burning fuel (coal, wood, oil) is the conventional source.",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.052631578947368425,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 40,
+      "latency_s": 3.17
+    },
+    {
+      "id": "571156152419e3140095559d",
+      "question": "What is the weight of a bushel of coal in pounds?",
+      "gold_answers": [
+        "94",
+        "94 pounds",
+        "94 pounds"
+      ],
+      "prediction": "A bushel of coal is generally reckoned at **80 pounds** in the United States. This is the figure most state laws set for legal weights and measures.\n\nBecause the bushel is a unit of volume, the actual weight depends on the type and size of the coal. Some states and historical sources therefore used other figures, typically around **70\u201384 pounds**. Older British usage, for example, was often about 84 lb.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.03125,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 70,
+      "latency_s": 5.73
+    },
+    {
+      "id": "5730285a04bcaa1900d7726e",
+      "question": "Where was the FIS formed?",
+      "gold_answers": [
+        "Algeria",
+        "Algeria",
+        "Afghanistan"
+      ],
+      "prediction": "**FIS** most commonly refers to one of two organizations:\n\n- **Islamic Salvation Front (Front Islamique du Salut)**: This Algerian Islamist party was formed in **Algiers, Algeria**, in early 1989. It was launched at the Al-Sunna mosque in the Bab El Oued district, after constitutional reforms allowed opposition parties.\n\n- **International Ski Federation (F\u00e9d\u00e9ration Internationale de Ski)**: This body was founded in **Chamonix, France**, on 2 February 1924, during the first Winter Olympic Games.\n\nIf you meant a different FIS, let me know.",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.025974025974025976,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 82,
+      "latency_s": 4.91
+    },
+    {
+      "id": "571cd703dd7acb1400e4c184",
+      "question": "What is the mineral wustite?",
+      "gold_answers": [
+        "FeO",
+        "FeO",
+        "FeO",
+        "FeO",
+        "FeO"
+      ],
+      "prediction": "# W\u00fcstite\n\n**W\u00fcstite** is a mineral form of **iron(II) oxide (FeO)**. It is named after the German metallurgist **Fritz W\u00fcst** (1860\u20131938).\n\n## Composition\n- Its ideal formula is FeO, but natural and synthetic w\u00fcstite is almost always **non-stoichiometric**: it is slightly iron-deficient, usually written **Fe\u2081\u208b\u2093O** (often about F",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.04545454545454545,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 48,
+      "latency_s": 6.04
+    },
+    {
+      "id": "57261f9f271a42140099d4aa",
+      "question": "US is concerned about confrontation of the Middle East with which other country?",
+      "gold_answers": [
+        "USSR",
+        "USSR",
+        "USSR",
+        "USSR",
+        "USSR"
+      ],
+      "prediction": "",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.42
+    },
+    {
+      "id": "5727afa82ca10214002d93c4",
+      "question": "What year was North America's first printing press started?",
+      "gold_answers": [
+        "1638",
+        "1638",
+        "1638"
+      ],
+      "prediction": "North America's first printing press began operating in **1539** in **Mexico City**. Juan Pablos, working for the Seville printer Juan Cromberger, set it up with the backing of Bishop Juan de Zum\u00e1rraga and Viceroy Antonio de Mendoza.\n\nIf you mean the first press in what became the United States (British North America), that was established in **1638** in **Cambridge, Massachusetts**. Stephen Daye began printing on it in 1639, and it produced the *Bay Psalm Book* in 1640.",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.0273972602739726,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 77,
+      "latency_s": 3.73
+    },
+    {
+      "id": "570611c475f01819005e793e",
+      "question": "The Port of Long Beach belongs to which region of California?",
+      "gold_answers": [
+        "Southern",
+        "Southern California",
+        "Southern"
+      ],
+      "prediction": "The **Port of Long Beach** is in **Southern California**. It sits in the city of Long Beach in **Los Angeles County**, part of the Greater Los Angeles area, and lies on **San Pedro Bay** next to the Port of Los Angeles. Together the two form the San Pedro Bay Port Complex, the busiest container port complex in the United States.",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.07407407407407407,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 60,
+      "latency_s": 2.06
+    },
+    {
+      "id": "572f5875947a6a140053c89b",
+      "question": "What is the lower canal regulation of the Rhine?",
+      "gold_answers": [
+        "Fu\u00dfach",
+        "Fu\u00dfach",
+        "Fu\u00dfach",
+        "Fu\u00dfach"
+      ],
+      "prediction": "",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.28
+    },
+    {
+      "id": "57293d6d1d046914007791bb",
+      "question": "Who do coordinating lead authors report to?",
+      "gold_answers": [
+        "the Working Group chairs",
+        "Working Group chairs",
+        "Working Group chairs"
+      ],
+      "prediction": "The term \"Coordinating Lead Author\" (CLA) is most closely associated with the **Intergovernmental Panel on Climate Change (IPCC)**, so this answer assumes that context. Other organizations sometimes borrow the title, and their reporting lines may differ.\n\n**In the IPCC, Coordinating Lead Authors report to the Co-Chairs of their Working Group (or Task Force), who act under the IPCC Bureau.**\n\n- **CLAs** lead the writing of a specific chapter. They coordinate the Lead Authors and Contributing Authors and make sure the chapter is completed on time, meets quality standards, and is consistent with the rest of the report.\n- **Working Group / Task Force Co-Chairs** select the authors (with the Bureau) and oversee the assessment. CLAs answer to them for their chapter's content, schedule, and coordination with other chapters.\n- **Technical Support Units (TSUs)** support the Co-Chairs and handle day-to-day logistics and communication with authors. They facilitate the",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.031007751937984492,
+      "f1_extracted": 0.8,
+      "prediction_tokens": 147,
+      "latency_s": 5.35
+    },
+    {
+      "id": "5730bd00069b5314008322d9",
+      "question": "Who did the Ottoman empire ally with in WW I?",
+      "gold_answers": [
+        "Germany",
+        "Germany",
+        "Germany",
+        "Germany",
+        "Germany"
+      ],
+      "prediction": "In World War I the **Ottoman Empire allied with the Central Powers**:\n\n- **Germany**: The Ottomans signed a secret alliance with Germany on 2 August 1914.\n- **Austria-Hungary**: Germany's principal ally.\n- **Bulgaria**: Joined the Central Powers in October 1915.\n\nThe Ottomans entered the war in late October 1914, when their fleet, including two recently acquired German warships (the *Goeben* and *Breslau*), bombarded Russian Black Sea ports. Russia, Britain, and France declared war on the empire in early November 1914.\n\nThey fought the **Allied Powers** (chiefly Britain, France, and Russia) on several fronts, including Gallipoli, the Caucasus, Mesopotamia, and Sinai\u2013Palestine, until the Armistice of Mudros in October 1918.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.021276595744680854,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 108,
+      "latency_s": 4.1
+    },
+    {
+      "id": "57109180a58dae1900cd6a42",
+      "question": "Where is D'Olier Street?",
+      "gold_answers": [
+        "Dublin",
+        "Dublin",
+        "Dublin"
+      ],
+      "prediction": "**D'Olier Street** is in **Dublin, Ireland**, on the south side of the River Liffey in the city centre.\n\n- **Route:** It runs from **O'Connell Bridge** southeast to the junction with **College Street and Pearse Street**, near **Trinity College Dublin**. It",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.05555555555555556,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 40,
+      "latency_s": 6.4
+    },
+    {
+      "id": "57274046dd62a815002e9a15",
+      "question": "What are some examples of undesirable end results of a project?",
+      "gold_answers": [
+        "structural collapse, cost overruns, and/or litigation",
+        "structural collapse, cost overruns, and/or litigation",
+        "structural collapse, cost overruns, and/or litigation"
+      ],
+      "prediction": "# Examples of Undesirable Project Outcomes\n\n## Scope and Quality Failures\n- **Unmet requirements**: The deliverable doesn't do what stakeholders actually needed.\n- **Scope creep fallout**: The final product is bloated, unfocused, or incomplete because requirements kept expanding.\n- **Poor quality or defects**: Bugs, structural flaws, or errors that require costly rework.\n- **Gold plating**: Features no one asked for, adding cost without value.\n- **Unusable product**: Technically complete but too complex, inaccessible, or impractical for end users.\n\n## Schedule and Budget Problems\n- **Missed deadlines**: Late delivery that causes lost market opportunities or contract penalties.\n- **Cost overruns**: Spending far beyond the approved budget.\n- **Abandoned or cancelled project**: Resources consumed with nothing delivered.\n- **Negative ROI**: The project costs more than the value it generates.\n\n## Stakeholder and Business Impacts\n- **Customer dissatisfaction**: Clients reject the deliverable or end the relationship.\n- **Damaged reputation**: Public failures that erode trust in the organization or brand.\n- **Strategic misalignment**: The result no longer fits business goals, often because priorities changed mid-project.\n- **Legal or regulatory issues**: Non-compliance, lawsuits, fines, or",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.037500000000000006,
+      "f1_extracted": 0.5,
+      "prediction_tokens": 180,
+      "latency_s": 6.55
+    },
+    {
+      "id": "5711619950c2381900b54ab0",
+      "question": "What did Watt add to Newcomen's engine between 1763 and 1775?",
+      "gold_answers": [
+        "condenser",
+        "a separate condenser",
+        "condenser",
+        "a separate condenser"
+      ],
+      "prediction": "Between 1763 and 1775, James Watt's main addition to the Newcomen engine was the **separate condenser**.\n\n**Background:** In 1763\u201364 Watt was asked to repair a model Newcomen engine at the University of Glasgow. He saw that the engine wasted most of its fuel because the single cylinder was alternately heated by steam and cooled by a jet of cold water to condense it. Each cycle, much of the new steam was spent just reheating the cylinder.\n\n**His solution (conceived in 1765, patented in 1769):** Steam was condensed in a separate vessel connected to the cylinder, so the cylinder itself could stay hot all the time. This roughly doubled or tripled fuel efficiency compared with the Newcomen engine.\n\n**Related improvements he added:**\n- **An air pump** to draw condensed water and air out of the condenser and maintain the vacuum.\n- **A steam jacket** around the cylinder to keep it h",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.030534351145038167,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 150,
+      "latency_s": 5.93
+    },
+    {
+      "id": "5733cff84776f419006612b6",
+      "question": "When did violence start in war?",
+      "gold_answers": [
+        "Battle of Jumonville Glen in May 1754,",
+        "May 1754",
+        "May 1754",
+        "May 1754",
+        "May 1754"
+      ],
+      "prediction": "# When Did Violence in War Begin?\n\nViolence is part of what defines war, so there was never a nonviolent war that later turned violent. The real question is **when humans first began organized, group-on-group violence**. Here is what the evidence shows.\n\n## Violence Before War\nIndividual violence is very old. A skull from Sima de los Huesos in Spain, about 430,000 years old, shows two deliberate blows to the head, possibly one of the earliest known homicides. Our close relatives, chimpanzees, also carry out coordinated lethal raids on neighboring groups, which suggests intergroup aggression may have deep evol",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.061224489795918366,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 99,
+      "latency_s": 6.25
+    },
+    {
+      "id": "572a0b101d046914007796ec",
+      "question": "Along with drought, what is one other factor that is pushing the Amazon rainforest towards a tipping point?",
+      "gold_answers": [
+        "deforestation",
+        "deforestation on regional climate",
+        "deforestation"
+      ],
+      "prediction": "**Deforestation** is the main other factor. Clearing land for cattle ranching, soy farming, logging, and mining removes trees that recycle moisture into the atmosphere. Much of the Amazon's rainfall is generated by the forest itself, so losing trees means less rain. That in turn worsens drought and can push parts of the forest to shift irreversibly toward a drier, savanna-like state.\n\nRising temperatures from climate change and more frequent fires (often set to clear land) are also major contributors.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.051948051948051945,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 79,
+      "latency_s": 3.55
+    },
+    {
+      "id": "5726385e271a42140099d798",
+      "question": "How are the packets routed ",
+      "gold_answers": [
+        "individually, sometimes resulting in different paths and out-of-order delivery",
+        "individually",
+        "individually"
+      ],
+      "prediction": "# How Packets Are Routed\n\nWithout more context, I'll assume you mean **IP packet routing on the Internet or a typical network**. If you meant a specific system (Kubernetes, a VPN, an SDN controller, a certain router config), tell me and I can focus on that.\n\n## 1. Data is broken into packets\nData is split into packets. Each packet has a **header** with:\n- **Source IP address**\n- **Destination IP address**\n- **TTL (Time To Live)**, which prevents endless loops\n- Protocol info (TCP, UDP, etc.)\n\n## 2. The host decides where to send it\nYour computer checks whether the destination is:\n- **On the local network** (same subnet): it sends the packet directly, using **ARP** to find the destination's MAC address.\n- **On another network**: it sends the packet to its **default gateway** (usually your router).\n\n## 3. Routers forward the packet hop by hop\nEach router:\n1. Reads the destination IP.\n2. Looks it up in its **routing table**.\n3. Chooses the best match using **longest prefix match**. For example, `192.168.1.0/24` beats `192.168.0.0/16`.\n4. Decrements the TTL. If it reaches 0, the packet is dropped and an ICMP message is sent back.\n5. Forwards",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.022598870056497175,
+      "f1_extracted": 0.19999999999999998,
+      "prediction_tokens": 197,
+      "latency_s": 5.95
+    },
+    {
+      "id": "572a0ecb1d04691400779718",
+      "question": "What does increasing inequality harm?",
+      "gold_answers": [
+        "economic growth",
+        "economic growth",
+        "economic growth"
+      ],
+      "prediction": "Research across economics, public health, and political science links rising inequality, especially of income and wealth, to harm in several areas. The strength of the evidence varies, and some findings are actively debated.\n\n**1. Economic growth**\n- IMF and OECD studies (e.g., Ostry, Berg & Tsangarides 2014; Cingano 2014) found that higher inequality is associated with slower and less durable growth.\n- A key mechanism is underinvestment in education by lower-income households, which wastes human capital.\n- Weaker aggregate demand can follow because wealthier people spend a smaller share of their income.\n\n**2. Social mobility and equality of opportunity**\n- The \"Great Gatsby Curve\" (Corak; Krueger) shows that more unequal countries tend to have lower intergenerational mobility, so a child's prospects depend more on their parents' income.\n\n**3. Health and well-being**\n- Wilkinson & Pickett (*The Spirit Level*) linked inequality to lower life expectancy, higher infant m",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.029629629629629624,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 147,
+      "latency_s": 6.31
+    },
+    {
+      "id": "572fc043a23a5019007fc961",
+      "question": "What can faith groups ask the Presiding Officer to do for them?",
+      "gold_answers": [
+        "nominate speakers",
+        "nominate speakers",
+        "nominate speakers"
+      ],
+      "prediction": "",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 7.08
+    },
+    {
+      "id": "5725fcbe271a42140099d3b0",
+      "question": "State Route 180 comes from which direction via Mendota?",
+      "gold_answers": [
+        "west",
+        "west",
+        "west"
+      ],
+      "prediction": "State Route 180 comes from the **west** via Mendota. It runs east through Fresno toward Kings Canyon National Park.",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.10526315789473684,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 19,
+      "latency_s": 2.49
+    },
+    {
+      "id": "57265200708984140094c237",
+      "question": "Which country was thinking about going to war to forcibly take Middle Eastern oil fields?",
+      "gold_answers": [
+        "U.S",
+        "U.S.",
+        "U.S.",
+        "U.S",
+        "the U.S."
+      ],
+      "prediction": "The most widely cited case is the **United States** during the **1973\u201374 Arab oil embargo**.\n\n- **What happened:** After Arab members of OPEC imposed an oil embargo in response to US support for Israel in the Yom Kippur War, the Nixon administration considered using military force to seize oil fields.\n- **Evidence:** British government documents declassified in January 2004 showed that Defense Secretary James Schlesinger told the British ambassador the US might take the oil fields by force. A British Joint Intelligence Committee assessment titled *\"Middle East \u2013 Possible Use of Force by the United States\"* outlined a scenario in which US airborne troops would seize fields in **Saudi Arabia, Kuwait, and Abu Dhabi**. Secretary of State Henry Kissinger also publicly hinted at military action in early 1975, and articles such as \"Seizing Arab Oil\" (*Harper's*, 1975) discussed the idea openly.\n- **Outcome:** The plan was never carried out. The embargo ended in March 1974.\n\n**A related earlier case:** In 1951, after Iran nationalized the Anglo-Iranian Oil Company, **Brit",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.013333333333333332,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 169,
+      "latency_s": 5.99
+    },
+    {
+      "id": "572686fc708984140094c8e6",
+      "question": "When do bathyctena chuni, euplokamis stationis and eurhamphaea vexilligera  excrete secretions?",
+      "gold_answers": [
+        "are disturbed,",
+        "disturbed",
+        "are disturbed"
+      ],
+      "prediction": "They excrete secretions **when they are disturbed**. These ctenophores (comb jellies) release a luminescent \"ink\" that glows at roughly the same wavelengths as their own bodies. This likely serves as a defense, distracting or confusing a predator while the animal escapes.",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.10526315789473684,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 41,
+      "latency_s": 2.56
+    },
+    {
+      "id": "571cd3b55efbb31900334e03",
+      "question": "What device is used to treat various conditions such as carbon monoxide poisoning?",
+      "gold_answers": [
+        "Hyperbaric (high-pressure) medicine",
+        "special oxygen chambers",
+        "oxygen chambers",
+        "oxygen chambers",
+        "oxygen chambers"
+      ],
+      "prediction": "**A hyperbaric oxygen chamber** is used to treat carbon monoxide poisoning and several other conditions. This is called hyperbaric oxygen therapy (HBOT).\n\n**How it works:**\nThe patient breathes 100% oxygen while the chamber is pressurized above normal atmospheric pressure, typically 2 to 3 times higher. The extra pressure lets far more oxygen dissolve into the blood plasma. In carbon monoxide poisoning, this speeds the removal of CO from hemoglobin and delivers oxygen to tissues even when hemoglobin is still impaired.\n\n**Other conditions it treats:**\n- Decompression sickness (\"the bends\") in divers\n- Air or gas embolism\n- Non-healing wounds, such as diabetic foot ulcers\n- Gas gangrene and some severe soft-tissue infections\n- Radiation injury to tissue or bone\n- Crush injuries and compromised skin grafts or flaps\n- Some cases of sudden sensorineural hearing loss\n- Severe anemia when blood transfusion isn't possible\n\n**Types of chambers:**\n- **Monoplace:** a single-person clear acrylic tube filled with pure oxygen.\n- **Multiplace:** a larger room-sized chamber for several patients, who breathe oxygen through masks or hoods.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.025477707006369425,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 174,
+      "latency_s": 5.11
+    },
+    {
+      "id": "5728848cff5b5019007da299",
+      "question": "What did Mote think the Yuan class system really represented?",
+      "gold_answers": [
+        "degrees of privilege",
+        "degrees of privilege",
+        "degrees of privilege"
+      ],
+      "prediction": "Historian **Frederick W. Mote** argued that calling the Yuan dynasty's four-tier division (Mongols, Semu/\"various sorts\" of Central and West Asians, Han/northern Chinese, and Southerners) a system of **\"social classes\" is misleading**.\n\nIn his view, the ran",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.05555555555555555,
+      "f1_extracted": 0.5,
+      "prediction_tokens": 36,
+      "latency_s": 6.2
+    },
+    {
+      "id": "57269cc3dd62a815002e8b13",
+      "question": "How many paid holiday days does the Working Time directive require workers to have each year?",
+      "gold_answers": [
+        "4 weeks",
+        "4 weeks paid holidays each year",
+        "4 weeks paid"
+      ],
+      "prediction": "The **EU Working Time Directive (2003/88/EC)** requires **at least four weeks of paid annual leave** each year.\n\nThe Directive sets this in weeks, not days, so the number of days depends on how many days a person works each week:\n\n- **5 days a week:** 4 weeks = **20 days**\n- **6 days a week:** 4 weeks = 24 days\n- **Part-time workers** get a pro-rata amount (e.g., 3 days a week = 12 days).\n\nOther key points:\n\n- This is a **minimum**. Member states can, and often do, give more.\n- The leave **cannot be replaced by payment** except when employment ends.\n- Public holidays are not separately required. Whether they count toward the 4 weeks depends on national law.\n\n**UK note:** The UK's Working Time Regulations go further, giving **5.6 weeks** (28 days for a 5-day week). Employers can include bank holidays in that total.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.0916030534351145,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 147,
+      "latency_s": 5.15
+    },
+    {
+      "id": "571cc3dedd7acb1400e4c149",
+      "question": "What kind of field is necessary to produce a magnet effect in oxygen molecules?",
+      "gold_answers": [
+        "magnetic field",
+        "magnetic",
+        "magnetic",
+        "magnetic field",
+        "magnetic"
+      ],
+      "prediction": "**An external (applied) magnetic field.**\n\nOxygen (O\u2082) is **paramagnetic**. Each molecule has two unpaired electrons in its \u03c0* antibonding orbitals, so it carries a small permanent magnetic moment. Normally these moments point in random directions and cancel out, so bulk oxygen shows no net magnetism.\n\nWhen an external magnetic field is applied, the moments tend to line up with it. This produces a net magnetization, and the oxygen is attracted toward the stronger part of the field. The effect:\n\n- exists **only while the field is present**, and disappears when the field is removed, since oxygen is not ferromagnetic and cannot become a permanent magnet;\n- is weak, so a **strong** field, such as from a powerful electromagnet or neodymium magnet, is needed to see it clearly;\n- is easiest to observe with **liquid oxygen**. Its high density makes the attraction visible: poured between the poles of a strong magnet, it sticks there and bridges the gap.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.028985507246376812,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 157,
+      "latency_s": 4.8
+    },
+    {
+      "id": "5727d1c93acd2414000ded3f",
+      "question": "What is the applicant admission rate for class of 2019?",
+      "gold_answers": [
+        "accepted 5.3% of applicants",
+        "5.3%",
+        "5.3%"
+      ],
+      "prediction": "**Which school do you mean?** Admission rates vary widely by institution, and your question doesn't name one. If this comes from a specific table",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 24,
+      "latency_s": 6.2
+    },
+    {
+      "id": "5725db98ec44d21400f3d6c6",
+      "question": "What are the two major thoroughfares of Sunnyside?",
+      "gold_answers": [
+        "Kings Canyon Avenue and Clovis Avenue",
+        "Kings Canyon Avenue and Clovis Avenue",
+        "Kings Canyon Avenue and Clovis Avenue"
+      ],
+      "prediction": "",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.77
+    },
+    {
+      "id": "5727de862ca10214002d9862",
+      "question": "Who is the Costa Rican President that went to Harvard?",
+      "gold_answers": [
+        "Jos\u00e9 Mar\u00eda Figueres",
+        "Jos\u00e9 Mar\u00eda Figueres",
+        "Jos\u00e9 Mar\u00eda Figueres"
+      ],
+      "prediction": "The Costa Rican president best known for attending Harvard is **Jos\u00e9 Mar\u00eda Figueres Olsen**, who served from **1994 to 1998**. He earned a **Master of Public Administration from Harvard's John F. Kennedy School of Government**. He had earlier graduated from the U.S. Military Academy at West Point",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.1276595744680851,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 47,
+      "latency_s": 5.52
+    },
+    {
+      "id": "573020f7b2c2fd14005688fb",
+      "question": "What have Muslims praised Hamas for doing?",
+      "gold_answers": [
+        "driving Israel out of the Gaza Strip",
+        "driving Israel out of the Gaza Strip",
+        "driving Israel out of the Gaza Strip"
+      ],
+      "prediction": "Muslims hold a wide range of views on Hamas. Many condemn it, and several Muslim-majority governments, including Egypt, the UAE, and Saudi Arabia, regard it with hostility. Among those who have expressed support, the praise has tended to center on these themes:\n\n**Resistance to Israeli occupation**\n- Supporters frame Hamas as one of the few groups actively confronting Israel at a time when many Arab governments normalized relations or stayed passive.\n- Some view its armed activity as legitimate resistance under international law's recognition of the right of occupied peoples to resist, though critics point out that deliberately targeting civilians is never legal.\n- Its endurance against a far stronger military is sometimes cited as a symbol of steadfastness (*sumud*).\n\n**Social services and charity**\n- Since its founding in 1987, and through its roots in the Muslim Brotherhood, Hamas built networks of schools, clinics, mosques, orphan support, and food aid. These earned it grassroots goodwill in Gaza and the West Bank, especially among the poor.\n\n**Perceived integrity comp",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.05031446540880503,
+      "f1_extracted": 0.3333333333333333,
+      "prediction_tokens": 168,
+      "latency_s": 8.19
+    },
+    {
+      "id": "572863363acd2414000df987",
+      "question": "In the fall quarter of 2014, how many students signed up for the university's professional schools?",
+      "gold_answers": [
+        "5,984",
+        "5,984",
+        "5,984"
+      ],
+      "prediction": "**About 5,984 students**, assuming this refers to the University of Chicago. The question doesn't name the university, but the wording matches UChicago's reported fall 2014 figures, and UChicago runs on a quarter system.\n\nFor context, that quarter UChicago enrolled:\n- 5,792 students in the College\n- 3,468 in its four graduate divisions\n- 5,984 in its professional schools\n- 15,244 overall\n\nIf you meant a different university, let me know which one.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.03225806451612903,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 72,
+      "latency_s": 4.19
+    },
+    {
+      "id": "5733ea04d058e614000b6594",
+      "question": "Who took command of French in spring of 1753?",
+      "gold_answers": [
+        "Paul Marin de la Malgue",
+        "Paul Marin de la Malgue",
+        "Paul Marin de la Malgue",
+        "Paul Marin de la Malgue",
+        "Paul Marin de la Malgue"
+      ],
+      "prediction": "In the spring of 1753, **Paul Marin de la Malgue** was given command of the French expedition: about 2,000 Troupes de la Marine and Native allies. His orders were to secure the Ohio Country for New France by building a chain of forts.\n\nUnder his command the French built Fort Presque Isle (at present-day Erie, Pennsylvania) and Fort Le Boeuf (at present-day Waterford, Pennsylvania). Marin died of illness in October 1753, and Jacques Legardeur de Saint-Pierre replaced him.",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.1282051282051282,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 78,
+      "latency_s": 3.99
+    },
+    {
+      "id": "57284142ff5b5019007da00d",
+      "question": "How much did Silas B. Cobb pledge to the university?",
+      "gold_answers": [
+        "$100,000",
+        "$100,000",
+        "$100,000",
+        "$100,000"
+      ],
+      "prediction": "Silas B. Cobb pledged **$100,000** to the University of Chicago, matching Marshall Field's pledge. His gift funded the campus's first building, Cobb Lecture Hall.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.08695652173913045,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 24,
+      "latency_s": 4.48
+    },
+    {
+      "id": "572900f73f37b31900477f6a",
+      "question": "What causes the symptoms of inflammation?",
+      "gold_answers": [
+        "increased blood flow into tissue",
+        "increased blood flow into tissue",
+        "increased blood flow into tissue"
+      ],
+      "prediction": "# What Causes the Symptoms of Inflammation\n\nInflammation is the body's protective response to injury, infection, or irritation. Its classic symptoms are not caused directly by the damage. They are produced by **the body's own defensive chemicals and blood vessel changes**, which deliver immune cells and repair materials to the affected area.\n\n## The Trigger\n\nWhen tissue is damaged or invaded by pathogens, resident cells such as **mast cells, macrophages, and damaged tissue cells** detect the threat and release chemical signals called **inflammatory mediators**. Key mediators include:\n\n- **Histamine**, released by mast cells, which acts within seconds\n- **Prostaglandins and leukotrienes**, made from fatty acids in cell membranes\n- **Bradykinin**, a peptide generated in the blood\n- **Cytokines** such as TNF-\u03b1, IL-1, and IL-6, which are signaling proteins from immune cells\n- **Complement proteins**, part of the blood's immune system\n\n## The Five Cardinal Signs and Their Causes\n\n| Sym",
+      "class_id": 9,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.02962962962962963,
+      "f1_extracted": 0.33333333333333337,
+      "prediction_tokens": 150,
+      "latency_s": 5.12
+    },
+    {
+      "id": "572677e7708984140094c725",
+      "question": "What is structural geology?",
+      "gold_answers": [
+        "the study of positions of rock units and their deformation",
+        "study of positions of rock units and their deformation",
+        "the study of positions of rock units and their deformation"
+      ],
+      "prediction": "# Structural Geology\n\n**Structural geology** is the branch of geology that studies how rocks deform. It examines the three-dimensional arrangement of rock units and the forces that have bent, broken, stretched, or squeezed them over geologic time.\n\n## Core Focus\n\nStructural geologists try to answer three main questions:\n1. **What** structures are present in the rocks (geometry)?\n2. **How** did the rocks move to form them (kinematics)?\n3. **Why** did they deform, meaning what stresses and forces were involved (dynamics)?\n\n## Key Structures Studied\n\n- **Folds**: bends in rock layers, such as anticlines (arch-shaped) and synclines (trough-shaped)\n- **Faults**: fractures along which rocks have moved, including normal, reverse/thrust, and strike-slip faults\n- **Joints**: fractures with no significant movement\n- **Foliation and cleavage**: planar fabrics formed by pressure, common in metamorphic rocks\n- **Lineations**: linear features showing the direction of stretching or movement\n- **Shear zones**: zones of intense, often ductile, deformation\n\n## Fundamental Concepts\n\n- **Stress**: the force applied to rocks (compression, tension, shear)\n- **Strain**: the resulting change in shape or volume\n- **Brittle vs. duct",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.07272727272727274,
+      "f1_extracted": 0.6153846153846153,
+      "prediction_tokens": 177,
+      "latency_s": 5.81
+    },
+    {
+      "id": "572ff673b2c2fd140056866b",
+      "question": "What is the nickname for the Delta in the Netherlands?",
+      "gold_answers": [
+        "Rhine Delta",
+        "Rhine Delta",
+        "Rhine Delta"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.13
+    },
+    {
+      "id": "5706094b52bb8914006897de",
+      "question": "What resource is the economy of southern California depedent on?",
+      "gold_answers": [
+        "petroleum",
+        "petroleum",
+        "petroleum"
+      ],
+      "prediction": "**Petroleum** is the resource most commonly cited. Southern California's car-centered sprawl means the vast majority of transportation, and with it much of the regional economy, runs on petroleum-based fuel. The region also has a long history of oil production, notably in the Los Angeles Basin.\n\n**Imported water** is another critical dependency. Southern California is semi-arid, and its agriculture, industry, and population rely heavily on water brought in through the Colorado River Aqueduct, the California State Water Project, and the Los Angeles Aqueduct.",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.027027027027027025,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 82,
+      "latency_s": 4.61
+    },
+    {
+      "id": "5726d8bd708984140094d35d",
+      "question": "What did the Greek root pharmakos imply?",
+      "gold_answers": [
+        "sorcery or even poison",
+        "sorcery or even poison",
+        "sorcery",
+        "sorcery"
+      ],
+      "prediction": "## *Pharmakos* (\u03c6\u03b1\u03c1\u03bc\u03b1\u03ba\u03cc\u03c2)\n\nThe Greek word **pharmakos** had two main implications.\n\n### 1. The scapegoat (ritual sense)\nIn ancient Greek religion, a *pharmakos* was a human scapegoat. In times of crisis such as plague, famine, or invasion, or during annual festivals like the **Thargelia** in Athens and Ionia, the community chose a person, often a criminal, slave, beggar, or someone considered ugly or worthless. That person was:\n- fed and sometimes treated ceremonially,\n- paraded through the",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.029411764705882353,
+      "f1_extracted": 0.4,
+      "prediction_tokens": 77,
+      "latency_s": 5.53
+    },
+    {
+      "id": "57265746dd62a815002e821b",
+      "question": "The long tentacles on the pleurbrachia are protected by what?",
+      "gold_answers": [
+        "a sheath",
+        "a sheath",
+        "a sheath into which it can be withdrawn"
+      ],
+      "prediction": "The long tentacles of *Pleurobrachia* (the sea gooseberry) are protected by **sheaths**, which are pouch-like cavities in the body into which each tentacle can be fully retracted.",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.25806451612903225,
+      "f1_extracted": 0.6153846153846153,
+      "prediction_tokens": 27,
+      "latency_s": 3.78
+    },
+    {
+      "id": "570d2c20fed7b91900d45ca7",
+      "question": "What is the term for the original Aboriginal people of Victoria?",
+      "gold_answers": [
+        "Koori",
+        "Koori",
+        "Koori"
+      ],
+      "prediction": "The Aboriginal people of Victoria are commonly called **Koori** (also spelled **Koorie**). The term is also used for Aboriginal people of New South Wales.\n\nWithin Victoria there are many distinct nations and language groups. Examples include the Wurundjeri, Boon Wurrung, Wathaurong (Wadawurrung) and Dja Dja Wurrung, which form part of the Kulin alliance, as well as the Gunditjmara, Yorta Yorta and Gunaikurnai.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.034482758620689655,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 62,
+      "latency_s": 3.59
+    },
+    {
+      "id": "5726431aec44d21400f3dd13",
+      "question": "What was Tymnet",
+      "gold_answers": [
+        "an international data communications network headquartered in San Jose, CA",
+        "an international data communications network",
+        "international data communications network"
+      ],
+      "prediction": "# Tymnet\n\n**Tymnet** was one of the earliest and largest commercial data communications networks, operating from the early 1970s until the mid-2000s. It let users with terminals connect to remote computers over long distances, usually",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.1142857142857143,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 35,
+      "latency_s": 6.35
+    },
+    {
+      "id": "57309ef18ab72b1400f9c600",
+      "question": "some debate that there is a correlation between capitalism, imperialism, and what?",
+      "gold_answers": [
+        "aristocracy",
+        "aristocracy",
+        "aristocracy",
+        "aristocracy",
+        "aristocracy"
+      ],
+      "prediction": "**Aristocracy.** Historians and political theorists have long debated the relationship between capitalism, aristocracy, and imperialism.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.13333333333333333,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 15,
+      "latency_s": 3.48
+    },
+    {
+      "id": "57115c7450c2381900b54aa1",
+      "question": "About how many cubic meters of make-up water is used by a 700-megawatt coal-fired power plant for evaporative cooling hourly?",
+      "gold_answers": [
+        "3600",
+        "3600",
+        "3600"
+      ],
+      "prediction": "**About 3,600 cubic meters per hour.**\n\nThis is the commonly cited illustrative figure, as given in Wikipedia's cooling-tower article. A typical 700 MW coal-f",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.08695652173913045,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 24,
+      "latency_s": 5.89
+    },
+    {
+      "id": "57300f8504bcaa1900d770d3",
+      "question": "Up until 1990, Saudi Arabia played an important role in restraining what groups?",
+      "gold_answers": [
+        "Islamist",
+        "Islamist",
+        "Islamist"
+      ],
+      "prediction": "Up until 1990, Saudi Arabia played an important role in restraining **the many Islamist groups that received its aid**.\n\nThat changed after Iraq invaded Kuwait in 1990. Saudi Arabia invited U.S. and other foreign troops onto its soil, and many of the Islamist groups it had funded turned against the kingdom.",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.04166666666666667,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 51,
+      "latency_s": 4.81
+    },
+    {
+      "id": "5726da89dd62a815002e92b2",
+      "question": "Who oversees a Pharmacy Technician in the UK?",
+      "gold_answers": [
+        "other senior pharmacy technicians",
+        "senior pharmacy technicians",
+        "other senior pharmacy technicians"
+      ],
+      "prediction": "# Who Oversees Pharmacy Technicians in the UK\n\n## 1. Professional regulation\n**General",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.30769230769230765,
+      "f1_extracted": 0.8,
+      "prediction_tokens": 13,
+      "latency_s": 5.97
+    },
+    {
+      "id": "57288428ff5b5019007da291",
+      "question": "What was the second meaning of a Chinese word for 'barracks'?",
+      "gold_answers": [
+        "thanks",
+        "thanks",
+        "thanks"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.88
+    },
+    {
+      "id": "5729081d3f37b31900477faf",
+      "question": "What is a regulatory factor produced by macrophages?",
+      "gold_answers": [
+        "interleukin 1",
+        "interleukin 1",
+        "interleukin 1"
+      ],
+      "prediction": "A key regulatory factor produced by macrophages is **interleukin\u20111 (IL\u20111)**, a cytokine that helps activate T lymphocytes and promotes inflammation and fever.\n\nMacrophages also secrete other regulatory factors:\n\n- **Pro\u2011inflammatory:** TNF\u2011\u03b1, IL\u20116, IL\u201112 (which drives Th1 responses), and chemokines such as IL\u20118\n- **Anti\u2011inflammatory:** IL\u201110 and TGF\u2011\u03b2, which dampen immune responses and support tissue repair\n- **Other mediators:** prostaglandins, interferons (IFN\u2011\u03b1/\u03b2), and growth factors such as PDGF and VEGF",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 69,
+      "latency_s": 4.18
+    },
+    {
+      "id": "572fac17947a6a140053cb56",
+      "question": "The legislative competence of the Parliament species what areas?",
+      "gold_answers": [
+        "in which it can make laws",
+        "the areas in which it can make laws",
+        "powers that are \"reserved\" to the Parliament of the United Kingdom"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.85
+    },
+    {
+      "id": "57377aac1c4567190057447d",
+      "question": "What notion keeps it's meaning through both Netonian and Schrodinger physics equations?",
+      "gold_answers": [
+        "force",
+        "force",
+        "force",
+        "force",
+        "The notion \"force\""
+      ],
+      "prediction": "**Force.** In quantum mechanics the notion of \"force\" keeps its meaning, even though physics is described by the Schr\u00f6dinger equation instead of Newton's equations, and one works with operators rather than classical variables.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.12121212121212122,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 33,
+      "latency_s": 3.17
+    },
+    {
+      "id": "573361404776f41900660940",
+      "question": "What is the Royal Castle the most interesting example of?",
+      "gold_answers": [
+        "mannerist architecture",
+        "mannerist architecture",
+        "mannerist"
+      ],
+      "prediction": "The Royal Castle in Warsaw (1596\u20131619) is described as one of the most interesting examples of **mannerist architecture**. The Jesuit Church in the Old Town (1609\u20131626) is the other example usually cited.\n\nYour question doesn't name the castle or give a source. This answer assumes the common description of Warsaw's architecture; if you meant a different Royal Castle or text, the answer may differ.",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.07142857142857142,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 64,
+      "latency_s": 4.91
+    },
+    {
+      "id": "572fe9b3947a6a140053cde4",
+      "question": "There's a rough border between Switzerland and what other country formed by the Rhine?",
+      "gold_answers": [
+        "German",
+        "German-Swiss border",
+        "German"
+      ],
+      "prediction": "**Germany.** Along its High Rhine section, from Lake Constance west to Basel, the Rhine roughly forms the border between Switzerland and Germany.\n\nFurther upstream, the Alpine Rhine also separates Switzerland from Liechtenstein and Austria.",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.06060606060606061,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 34,
+      "latency_s": 4.81
+    },
+    {
+      "id": "571a4d1a4faf5e1900b8a95a",
+      "question": "By sunlight, what compound did  Priestley concentrate on to make the gas he called \"dephlogisticated air\"?",
+      "gold_answers": [
+        "mercuric oxide (HgO)",
+        "mercuric oxide",
+        "mercuric oxide",
+        "mercuric oxide (HgO)",
+        "mercuric oxide"
+      ],
+      "prediction": "Joseph Priestley used a large burning lens to concentrate sunlight on **mercuric oxide (HgO)**, which he called *mercurius calcinatus per se* (red calx of mercury). This was in August 1774.\n\nThe heat decomposed the compound into mercury and a gas that made a candle burn far more vigorously and kept a mouse alive longer than ordinary air. Priestley called it \"dephlogisticated air.\" We now know it as **oxygen**:\n\n2HgO \u2192 2Hg + O\u2082",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.08695652173913045,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 73,
+      "latency_s": 2.95
+    },
+    {
+      "id": "57297781af94a219006aa4a6",
+      "question": "What is another function that primes have that the number 1 does not?",
+      "gold_answers": [
+        "Euler's totient function",
+        "sum of divisors function",
+        "sum of divisors function",
+        "the sum of divisors function",
+        "sum of divisors"
+      ],
+      "prediction": "A commonly cited one is the **sum of divisors function**, \u03c3(n), alongside **Euler's totient function**, \u03c6(n). Primes follow patterns under these functions that 1 does not:\n\n- **Sum of divisors:** For any prime p, \u03c3(p) = p + 1, since its only divisors are 1 and p. But \u03c3(1) = 1, not 2.\n- **Euler's totient:** For any prime p, \u03c6(p) = p \u2212 1, since every number from 1 to p \u2212 1 is coprime to p. But \u03c6(1) = 1, not 0.\n\nBecause 1 breaks these patterns, it is excluded from the primes. Another reason is **unique factorization**: if 1 were prime, you could add any number of factors of",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.07547169811320754,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 112,
+      "latency_s": 6.37
+    },
+    {
+      "id": "5725c337271a42140099d163",
+      "question": "How many species of Ctenophora have been validated?",
+      "gold_answers": [
+        "100\u2013150 species",
+        "100\u2013150",
+        "100\u2013150"
+      ],
+      "prediction": "Roughly **100\u2013150 species** of Ctenophora (comb jellies) have been validated, and perhaps another 25 or so are known but not yet fully described and named.\n\nCounts vary by source. Some recent catalogues, such as the World Register of Marine Species, list closer to 200 accepted species. Many more probably remain undiscovered, because these animals are so fragile and hard to collect, especially in the deep sea.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.06060606060606061,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 66,
+      "latency_s": 3.86
+    },
+    {
+      "id": "5726f0e35951b619008f82fb",
+      "question": "What is there a push for in the U.S. to reduce consumer drug costs?",
+      "gold_answers": [
+        "to legalize importation of medications from Canada and other countries",
+        "legalize importation of medications",
+        "legalize importation of medications from Canada and other countries"
+      ],
+      "prediction": "The main push has been to **legalize the importation of prescription drugs from Canada and other countries**, where the same medications are often sold at much lower prices.\n\nOther efforts toward the same goal include:\n\n- **Medicare drug price negotiation**, authorized by the Inflation Reduction Act of 2022.\n- **Caps on out-of-pocket costs**, such as the $35/month insulin cap for Medicare enrollees.\n- **Greater use of generics and biosimilars.**\n- **Price transparency and regulation of pharmacy benefit managers (PBMs).**",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.25316455696202533,
+      "f1_extracted": 0.8571428571428572,
+      "prediction_tokens": 79,
+      "latency_s": 5.1
+    },
+    {
+      "id": "5730876a396df9190009617a",
+      "question": "what is the most controversial aspect of imperialism?",
+      "gold_answers": [
+        "empire-building",
+        "defense and justification of empire-building",
+        "is the defense and justification of empire-building based on seemingly rational grounds",
+        "defense and justification of empire-building based on seemingly rational grounds",
+        "defense and justification of empire-building"
+      ],
+      "prediction": "The most controversial aspect of imperialism today is probably **the question of its legacy: whether it did any net good, and who bears responsibility for its long-term effects.**\n\n## Why the \"balance sheet\" debate is so heated\n\nFew serious people defend massacres, forced labor, or famines. The f",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.11111111111111109,
+      "f1_extracted": 0.33333333333333337,
+      "prediction_tokens": 48,
+      "latency_s": 6.4
+    },
+    {
+      "id": "5725c28a271a42140099d14e",
+      "question": "What effect does European Union law have on laws of member states?",
+      "gold_answers": [
+        "direct effect or indirect effect",
+        "direct effect or indirect effect on the laws of European Union member states",
+        "direct effect or indirect effect",
+        "direct effect or indirect effect"
+      ],
+      "prediction": "# Effect of EU Law on Member State Law\n\nEU law has a powerful and distinctive effect on national law. Unlike most international treaties, which bind states only at the international level, EU law is part of each member state's legal order and can be enforced directly in national courts. Its effect rests on several core principles, most developed by the Court of Justice of the European Union (CJEU).\n\n## 1. Supremacy (Primacy)\n\nWhere EU law and national law conflict, **EU law prevails**.\n\n- **Costa v ENEL (1964):** The CJEU held that member states had created a new legal order and limited their sovereign rights, so later national laws cannot override EU law.\n- **Internationale Handels",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.15254237288135594,
+      "f1_extracted": 0.4444444444444444,
+      "prediction_tokens": 116,
+      "latency_s": 5.91
+    },
+    {
+      "id": "5726415bec44d21400f3dcd1",
+      "question": "What is a hermaphrodite?",
+      "gold_answers": [
+        "a single animal can produce both eggs and sperm",
+        "a single animal can produce both eggs and sperm",
+        "a single animal can produce both eggs and sperm"
+      ],
+      "prediction": "A **hermaphrodite** is an organism that has both male and female reproductive organs, so it can produce both sperm and eggs.\n\n## In Biology\n\nHermaphroditism is common in many plants and invertebrates, and occurs in some fish. There are two main types:\n\n**1. Simultaneous hermaphrodites** have functional male and female organs at the same time.\n- **Earthworms:** Two worms mate and exchange sperm, so both get fertilized.\n- **Snails and slugs:** Many land snails are simultaneous hermaphrodites.\n- **Most flowering plants:** \"Perfect\" flowers contain both stamens (male) and pistils (female).\n- Some species can self-fertilize, though many avoid it to keep genetic diversity.\n\n**2. Sequential hermaphrodites** change sex at some point in their lives.\n- **Protandry (male first, then female):** Clownfish. If the dominant female in a group dies, the largest male becomes female.\n- **Protogyny (female first, then male):** Many wrasses and parrotfish.\n\n## Origin of the Word\n\nThe term comes from Greek mythology. **Hermaphroditus**, the son of Hermes and Aphrodite, was merged with the nymph Salmacis into a single body with both male and female characteristics.\n\n## Regarding Humans\n\nThe word was historically applied to people born with variations in sex characteristics, but it is now considered **outdated, inaccurate, and often offensive** for humans.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.07253886010362694,
+      "f1_extracted": 0.8571428571428571,
+      "prediction_tokens": 206,
+      "latency_s": 5.47
+    },
+    {
+      "id": "572807802ca10214002d9bfc",
+      "question": "Le grand concludes that an author's words offer only what they intended for them to imply regarding this type of terminology?",
+      "gold_answers": [
+        "specific",
+        "civil disobedience",
+        "specific",
+        "specific"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.12
+    },
+    {
+      "id": "572ffa79a23a5019007fcbea",
+      "question": "What period opened the Tethys Ocean?",
+      "gold_answers": [
+        "Mesozoic Era",
+        "Triassic Period",
+        "Triassic Period"
+      ],
+      "prediction": "The answer depends on which \"Tethys\" you mean, since geologists recognize several successive Tethyan oceans:\n\n- **Paleo-Tethys** opened in the",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 20,
+      "latency_s": 5.58
+    },
+    {
+      "id": "5728f3724b864d1900165118",
+      "question": "What virus did Walter Reed discover?",
+      "gold_answers": [
+        "yellow fever virus",
+        "yellow fever",
+        "yellow fever virus"
+      ],
+      "prediction": "Walter Reed is linked to **yellow fever**, but strictly speaking he didn't discover the virus itself.\n\n**What Reed and his team did:**\n- In 1900, Reed led the U.S. Army Yellow Fever Commission in Cuba, which included James Carroll, Jesse Lazear, and Aristides Agramonte.\n- Through controlled human experiments, they confirmed that yellow fever is transmitted by mosquitoes (*Aedes aegypti*), not by contact with contaminated objects. Cuban physician Carlos Finlay had first proposed this in 1881.\n- In 1901\u20131902, Reed and Carroll showed that the disease agent could pass through filters that trapped bacteria. This made yellow fever the first human disease shown to be caused by a \"filterable agent,\" what we now call a virus.\n\n**Who actually isolated the virus:**\n- The yellow fever virus was first isolated in 1927 by a Rockefeller Foundation team in West Africa,",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.046511627906976744,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 139,
+      "latency_s": 5.79
+    },
+    {
+      "id": "572856beff5b5019007da190",
+      "question": "The University of Chicago Library system has how many libraries in total?",
+      "gold_answers": [
+        "six",
+        "six",
+        "six"
+      ],
+      "prediction": "**Six libraries.** The University of Chicago Library system is usually described as having six libraries, which together hold more than 11 million volumes:\n\n1. Joseph Regenstein Library\n2. Joe and Rika Mansueto Library\n3. John Crerar Library (science and medicine)\n4. D'Angelo Law Library\n5. Eckhart Library (mathematics, physics and computer science)\n6. Social Work Library (Crown Family School)",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.03389830508474576,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 59,
+      "latency_s": 5.62
+    },
+    {
+      "id": "5726a00cf1498d1400e8e551",
+      "question": "What are some of the accepted general principles of European Union law?",
+      "gold_answers": [
+        "fundamental rights (see human rights), proportionality, legal certainty, equality before the law and subsidiarity",
+        "fundamental rights (see human rights), proportionality, legal certainty, equality before the law and subsidiarity",
+        "fundamental rights (see human rights), proportionality, legal certainty, equality before the law and subsidiarity"
+      ],
+      "prediction": "# General Principles of European Union Law\n\nGeneral principles are unwritten sources of EU law developed mainly by the **Court of Justice of the European Union (CJEU)**. They draw on the constitutional traditions common to the Member States, international human rights instruments (especially the ECHR), and the Treaties themselves. They rank as **primary law**. EU institutions and Member States must respect them when acting within the scope of EU law, and the Court uses them to interpret EU law and to review the validity of EU acts. **Article 6(3) TEU** confirms that fundamental rights form part of EU law \"as general princip",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.1142857142857143,
+      "f1_extracted": 0.3157894736842105,
+      "prediction_tokens": 102,
+      "latency_s": 6.17
+    },
+    {
+      "id": "5733fc6ed058e614000b6710",
+      "question": "What was the attack on the British weakness?",
+      "gold_answers": [
+        "Battle of Fort Bull",
+        "Battle of Fort Bull",
+        "Battle of Fort Bull",
+        "Battle of Fort Bull",
+        "March Battle of Fort Bull"
+      ],
+      "prediction": "",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.93
+    },
+    {
+      "id": "5730ab63396df91900096264",
+      "question": "Germany referred to which area more so than an actual country?",
+      "gold_answers": [
+        "central Europe",
+        "amorphous area of central Europe",
+        "an amorphous area of central Europe",
+        "central Europe",
+        "amorphous area of central Europe."
+      ],
+      "prediction": "Before unification in 1871, **\"Germany\" mainly named a region rather than a single country**. It meant the German-speaking lands of Central Europe, a patchwork of independent states, many of them within the Holy Roman Empire.\n\nThe usage goes back to the Roman name *Germania*. It referred to the territory east of the R",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.1224489795918367,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 53,
+      "latency_s": 6.49
+    },
+    {
+      "id": "572f5703a23a5019007fc577",
+      "question": "What is the other country the Rhine separates Switzerland to? ",
+      "gold_answers": [
+        "Austria",
+        "Liechtenstein",
+        "Austria to the East.",
+        "Austria",
+        "Austria"
+      ],
+      "prediction": "The Rhine separates Switzerland from **Austria**. Along the Alpine Rhine, Switzerland lies to the west, with Liechtenstein and then Austria to the east. Further downstream, the High Rhine also forms much of Switzerland's border with Germany.",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.17647058823529413,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 36,
+      "latency_s": 4.61
+    },
+    {
+      "id": "57265c10f1498d1400e8dd38",
+      "question": "The movements of the lobates combs are controlled by what?",
+      "gold_answers": [
+        "nerves",
+        "nerves rather than by water disturbances created by the cilia",
+        "nerves"
+      ],
+      "prediction": "The movements of the lobates' combs are controlled by **nerves**, not by the water disturbances created by the cilia. Even so, combs in the same row still beat in a sequential \"Mexican wave\" pattern, like the mechanically coordinated comb rows of cydippids and beroids.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.30434782608695654,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 44,
+      "latency_s": 3.76
+    },
+    {
+      "id": "57309ef18ab72b1400f9c604",
+      "question": "How did Hobson argue to rid the world of imperialism?",
+      "gold_answers": [
+        "taxation",
+        "removing its economic foundation",
+        "domestic social reforms",
+        "removing its economic foundation",
+        "removing its economic foundation."
+      ],
+      "prediction": "# Hobson's Argument for Ending Imperialism\n\nIn *Imperialism: A Study* (1902), the English economist J.A. Hobson argued that imperialism could be eliminated through **domestic economic and social reform** rather than revolution. His case had two parts: a diagnosis and a cure.\n\n## The Diagnosis: Underconsumption as the \"Taproot\"\n\nHobson argued that imperialism was driven mainly by economic forces inside the imperial nations, not by national glory or a \"civiliz",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.06451612903225806,
+      "f1_extracted": 0.5714285714285715,
+      "prediction_tokens": 69,
+      "latency_s": 6.63
+    },
+    {
+      "id": "57271c235951b619008f860f",
+      "question": "Where was the location of the 2003 Rose revolution?",
+      "gold_answers": [
+        "Georgia",
+        "Georgia",
+        "Georgia",
+        "Georgia",
+        "Georgia"
+      ],
+      "prediction": "The **Rose Revolution** of November 2003 took place in **Georgia**, the country in the South Caucasus. It was centered in the capital, **Tbilisi**, where mass protests gathered outside the Parliament building.\n\nThe protests were sparked by widely disputed parliamentary elections. They culminated when opposition leader **Mikheil Saakashvili** and supporters burst into Parliament carrying roses, which gave the revolution its name. President **Eduard Shevardnadze** resigned on November 23, 2003, and Saakashvili was elected president in January 2004.",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.02857142857142857,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 76,
+      "latency_s": 3.35
+    },
+    {
+      "id": "572fd1c4947a6a140053cd04",
+      "question": "What vote on a bill takes place in Stage 3?",
+      "gold_answers": [
+        "final",
+        "final",
+        "final vote"
+      ],
+      "prediction": "In the **Scottish Parliament**, Stage 3 ends with the **final vote on whether to pass the bill**.\n\nAt this stage the whole Parliament meets in plenary. Members first consider and vote on any further amendments. They then debate the bill as a whole and hold the decisive vote on whether it should be passed. If the bill passes, it goes forward for Royal Assent and becomes an Act.\n\nOther legislatures use different stage numbering. In the Welsh Senedd, for example, Stage 3 covers amendments and the final passing vote happens at Stage 4.",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.047619047619047616,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 93,
+      "latency_s": 5.54
+    },
+    {
+      "id": "570d50a5fed7b91900d45e7d",
+      "question": "How much did the gross agricultural product increase from 2003-04?",
+      "gold_answers": [
+        "$8.7 billion",
+        "24%",
+        "$8.7 billion"
+      ],
+      "prediction": "I can't answer this without knowing **which country or region** you mean. \"Gross agricultural product\" figures for 2003\u201304 vary widely between countries, and the question seems to come from a specific passage or dataset that wasn't included.\n\nIf you share the country or the source text, I can find the fig",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 51,
+      "latency_s": 5.79
+    },
+    {
+      "id": "5733fc6ed058e614000b6711",
+      "question": "How much gun powder was destroyed in attack?",
+      "gold_answers": [
+        "45,000 pounds",
+        "45,000 pounds",
+        "45,000 pounds",
+        "45,000 pounds",
+        "45,000 pounds"
+      ],
+      "prediction": "",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.73
+    },
+    {
+      "id": "57108c95b654c5140001f97b",
+      "question": "What Huguenot area is designated as a historical landmark?",
+      "gold_answers": [
+        "\"Huguenot Street Historic District\" in New Paltz",
+        "Huguenot Street Historic District",
+        "The \"Huguenot Street Historic District\" in New Paltz"
+      ],
+      "prediction": "The **Huguenot Street Historic District** in New Paltz, New York, is designated a **National Historic Landmark**. Huguenot settlers founded the village in 1678, and the district preserves several of their original stone houses from the late 17th and early 18th centuries. It is also known as **Historic Huguenot Street**.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.2745098039215686,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 49,
+      "latency_s": 3.03
+    },
+    {
+      "id": "571c7d55dd7acb1400e4c0c8",
+      "question": "What theory was arrived at in 1811 that presented the assumption of diatomic molecules?",
+      "gold_answers": [
+        "Avogadro's law",
+        "Avogadro's law",
+        "Avogadro's law",
+        "the correct interpretation of water's composition",
+        "Avogadro's law"
+      ],
+      "prediction": "The theory was **Avogadro's hypothesis**, now known as **Avogadro's law**. Amedeo Avogadro proposed it in 1811.\n\nIt states that equal volumes of gases at the same temperature and pressure contain equal numbers of molecules. To make this agree with Gay-Lussac's observed combining volumes, Avogadro assumed that elementary gases such as hydrogen and oxygen are made of **diatomic molecules** (H\u2082 and O\u2082), not single atoms. This explained, for example, why two volumes of hydrogen combine with one volume of oxygen to give two volumes of water vapor.\n\nThe idea was largely ignored until Stanislao Cannizzaro promoted it in 1860. It then became central to establishing correct atomic and molecular weights.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.037037037037037035,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 109,
+      "latency_s": 3.91
+    },
+    {
+      "id": "572648d1708984140094c15f",
+      "question": "Who operated the vBSN network ",
+      "gold_answers": [
+        "The network was engineered and operated by MCI Telecommunications under a cooperative agreement with the NSF",
+        "MCI Telecommunications",
+        "National Science Foundation"
+      ],
+      "prediction": "You're likely referring to the **vBNS (very high-speed Backbone Network Service)**. It was **operated by MCI** (MCI Telecommunications, later MCI WorldCom) under a cooperative agreement with the **U.S. National Science Foundation (NSF)**.\n\nKey details:\n\n- **Launch:** It went into service in 1995, after the NSFNET backbone was retired.\n- **Purpose:** It provided a high-speed research network linking NSF supercomputing centers and, later, many research universities. It was a forerunner of Internet2-era research networking.\n- **Speeds:** It started at OC-3 (155 Mbps) and was later upgraded to OC-12 (622 Mbps) and OC-48 (2.5 Gbps).\n- **After NSF support:** When NSF funding ended around 2000, MCI WorldCom continued it as a commercial service called **vBNS+**.",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.20869565217391303,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 113,
+      "latency_s": 4.51
+    },
+    {
+      "id": "572a1dbb3f37b319004786f9",
+      "question": "When people take on debt, it leads potentially to what?",
+      "gold_answers": [
+        "economic instability",
+        "greater inequality and potential economic instability",
+        "greater inequality and potential economic instability"
+      ],
+      "prediction": "Taking on debt can potentially lead to **bankruptcy**, along with related consequences such as:\n\n- **Financial stress and anxiety** from ongoing repayment obligations\n- **Accumulating interest**, so you end up paying back much more than you borrowed\n- **Damaged credit scores** if payments are missed, making future borrowing harder or more expensive\n- **Collections, wage garnishment, or loss of assets** (e.g., foreclosure or repossession) if the debt goes unpaid\n\nDebt isn't inherently bad, though. When managed responsibly, it can also lead to positive outcomes like **homeownership, education, business growth, or a stronger credit history**.",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.021276595744680854,
+      "f1_extracted": 0.2857142857142857,
+      "prediction_tokens": 94,
+      "latency_s": 5.34
+    },
+    {
+      "id": "571c3a685efbb31900334db3",
+      "question": "Of what group in the periodic table is oxygen a member?",
+      "gold_answers": [
+        "chalcogen",
+        "chalcogen",
+        "chalcogen",
+        "chalcogen",
+        "the chalcogen group"
+      ],
+      "prediction": "Oxygen is a member of **Group 16** of the periodic table, also known as the **chalcogens** or the oxygen family. In older numbering systems it is called **Group VIA**. The group also includes sulfur, selenium, tellurium, polonium, and livermorium.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.05555555555555555,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 39,
+      "latency_s": 2.71
+    },
+    {
+      "id": "571097baa58dae1900cd6a98",
+      "question": "What Revolutionary War midnight rider was a Huguenot descendant?",
+      "gold_answers": [
+        "Paul Revere",
+        "Paul Revere",
+        "Paul Revere"
+      ],
+      "prediction": "**Paul Revere** was of Huguenot descent. His father, Apollos Rivoire, was a French Protestant (Huguenot) born in Riaucaud, France, who was sent to Boston as a boy in 1715 to escape religious persecution. He apprenticed with a silversmith, anglicized his name to Paul Revere, and later passed both the name and the silversmith's trade to his son, who made the famous midnight ride on April 18, 1775.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.06349206349206349,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 67,
+      "latency_s": 3.66
+    },
+    {
+      "id": "572fcb6da23a5019007fc9f3",
+      "question": "Why do police and fire services fall under the purview of the Scottish Parliament?",
+      "gold_answers": [
+        "automatically devolved",
+        "not specifically reserved",
+        "All matters that are not specifically reserved are automatically devolved to the Scottish Parliament"
+      ],
+      "prediction": "Police and fire services are devolved to the Scottish Parliament for a mix of legal-constitutional and historical reasons.\n\n**1. The reserved powers model of the Scotland Act 1998**\nThe Scot",
+      "class_id": 9,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.3157894736842105,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 30,
+      "latency_s": 5.37
+    },
+    {
+      "id": "5725c41eec44d21400f3d50e",
+      "question": "How has this debate been proven?",
+      "gold_answers": [
+        "This debate has proved difficult",
+        "difficult to resolve"
+      ],
+      "prediction": "I don't see which debate you're referring to. Could you tell me which one you mean? For example, it could be a scientific question (like nature vs. nurture or the origins of the universe), a historical or philosophical one, or a specific argument from an article, class, or conversation.\n\nIt may also help to know that debates themselves usually aren't \"proven.\" Instead, the **claims** within a debate are supported or undermined in a few ways:\n\n- **Empirical evidence:** experiments, observations, and data (common in science)\n- **Replication and consensus:** repeated findings that lead experts to broadly agree\n- **Logical argument:** showing that a conclusion follows from accepted premises (common in philosophy and math)\n- **Historical sources:** documents, artifacts, and corroborating accounts\n- **Formal proof:** in mathematics, a claim can be definitively proven\n\nOnce you tell me the topic, I can explain what evidence exists, whether the question is considered settled, and where disagreement remains.",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.014388489208633096,
+      "f1_extracted": 0.5,
+      "prediction_tokens": 154,
+      "latency_s": 4.7
+    },
+    {
+      "id": "56e1ec83cd28a01900c67c0c",
+      "question": "That there currently exists no known integer factorization problem underpins what commonly used system?",
+      "gold_answers": [
+        "modern cryptographic systems",
+        "modern cryptographic systems",
+        "RSA algorithm"
+      ],
+      "prediction": "The **RSA public-key cryptosystem**. Its security rests on the fact that no efficient algorithm is known for factoring very large integers, specifically the product of two large primes. RSA is widely used to secure communications, including internet traffic such as HTTPS/TLS.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.1,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 41,
+      "latency_s": 3.29
+    },
+    {
+      "id": "5728501aff5b5019007da167",
+      "question": "How many people belong to the university's Board of Trustees?",
+      "gold_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "prediction": "I can't answer that without knowing **which university** you mean. Your question refers to \"the university,\" but no specific institution or source text was included.\n\nBoard size varies widely. For example:\n- **Harvard**'s Board of Overseers has 30 elected members, while its senior governing board, the Harvard Corporation, has 13 members.\n- **Cornell**'s Board of Trustees has around 60 voting members.\n- Many smaller colleges have boards of roughly 15 to 40 trustees.\n\nIf you tell me the university's name, or paste the passage you're working from, I can give you a specific answer. Board sizes change over time, so the university's official website is the best source for the current number.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 112,
+      "latency_s": 3.55
+    },
+    {
+      "id": "573020f7b2c2fd14005688fa",
+      "question": "When did Hamas drive the PLO out of Gaza?",
+      "gold_answers": [
+        "2007",
+        "2007",
+        "2007"
+      ],
+      "prediction": "Hamas took control of the Gaza Strip in **June 2007**, after about a week of intense fighting (roughly June 10\u201315) known as the Battle of Gaza.\n\nStrictly speaking, Hamas fought **Fatah** and the Fatah-dominated security forces of the **Palestinian Authority (PA)**, not the PLO as a whole. Fatah is the largest faction within the PLO, so the event is often loosely described this way.\n\n**Background and aftermath:**\n- **January 2006:** Hamas won the Palestinian legislative elections, which created a power struggle with Fatah and President Mahmoud Abbas.\n- **2006\u2013early 2007:** Tensions and sporadic violence between the factions escalated. The Saudi-brokered Mecca Agreement (February 2007) produced a short-lived unity government.\n- **June 2007:** Hamas fighters overran Fatah and PA security positions",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.01941747572815534,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 120,
+      "latency_s": 5.78
+    },
+    {
+      "id": "573004bf947a6a140053cf56",
+      "question": "What status has the Brotherhood obtained in the Islamic world?",
+      "gold_answers": [
+        "one of the most influential movements",
+        "one of the most influential movements",
+        "one of the most influential"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.57
+    },
+    {
+      "id": "5729f1c13f37b319004785ea",
+      "question": "Who is the author of the book, \"Knowledge and Decisions\"?",
+      "gold_answers": [
+        "Thomas Sowell",
+        "Thomas Sowell",
+        "Thomas Sowell"
+      ],
+      "prediction": "The author of **\"Knowledge and Decisions\"** is **Thomas Sowell**, the American economist and social theorist. Published in 1980, the book examines how knowledge is spread across a society and how different institutions, such as markets, governments, and families, use that knowledge to make decisions. It draws heavily on Friedrich Hayek's ideas about the dispersed nature of knowledge.",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.07407407407407407,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 57,
+      "latency_s": 2.56
+    },
+    {
+      "id": "57335fcad058e614000b5973",
+      "question": "What building from the 19th century was destroyed between the 1950s and 1960s?",
+      "gold_answers": [
+        "Leopold Kronenberg Palace",
+        "Leopold Kronenberg Palace",
+        "Leopold Kronenberg Palace"
+      ],
+      "prediction": "This question is ambiguous because many 19th-century buildings were demolished in the 1950s and 1960s, a period of heavy urban redevelopment. The most commonly cited example is:\n\n**The Euston Arch (London)**\n- Built in 1837 as the grand entrance to Euston railway station, designed by Philip Hardwick.\n- Demolished in 1961\u201362 during the station's rebuilding, despite major public protest.\n- Its loss is often credited with galvanizing Britain's architectural conservation movement.\n\nOther well-known 19th-century buildings demolished in that era include:\n- **The Old Metropolitan Opera House, New York** (opened 1883, demolished 1967)\n- **The Coal Exchange, London** (1849, demolished 1962)\n- **Garrick Theater / Schiller Building, Chicago** (1892, by Adler & Sullivan,",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 112,
+      "latency_s": 6.14
+    },
+    {
+      "id": "572754fff1498d1400e8f662",
+      "question": "What are some existing facilities?",
+      "gold_answers": [
+        "electrical, water, sewage, phone, and cable facilities",
+        "electrical, water, sewage, phone, and cable",
+        "electrical, water, sewage, phone, and cable facilities"
+      ],
+      "prediction": "Could you clarify what kind of facilities you mean? The answer depends a lot on context. For example:\n\n- **Research facilities**, like CERN (particle physics), the International Space Station, or national labs such as Los Alamos or Argonne\n- **Energy facilities**, like nuclear plants, solar farms (e.g., Bhadla Solar Park in India), or hydroelectric dams (e.g., Three Gorges Dam)\n- **Healthcare facilities**, such as hospitals, clinics, or rehabilitation centers in a particular area\n- **Sports or recreation facilities**, like stadiums, gyms, parks, or community centers\n- **Industrial or manufacturing facilities**, such as factories, data centers, or semiconductor fabs\n- **Educational facilities**, like schools, universities, or libraries\n- **Something specific to a document, project, or organization** you're working with\n\nIf this question comes from a particular document, dataset, or conversation, please share that context and I can give you a precise answer.",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.02985074626865672,
+      "f1_extracted": 0.2857142857142857,
+      "prediction_tokens": 141,
+      "latency_s": 4.41
+    },
+    {
+      "id": "56e1c720e3433e140042316b",
+      "question": "In what expression can one expect to find DTIME(n)",
+      "gold_answers": [
+        "DTIME(n2)",
+        "DTIME(n2)",
+        "DTIME(n2)"
+      ],
+      "prediction": "",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.37
+    },
+    {
+      "id": "5730ac782461fd1900a9cf73",
+      "question": "Germany doesn't have an imperialistic past until when?",
+      "gold_answers": [
+        "late 19th century",
+        "late 19th century",
+        "19th century",
+        "late 19th century",
+        "late 19th century."
+      ],
+      "prediction": "",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.66
+    },
+    {
+      "id": "5729f39a6aef05140015514f",
+      "question": "When an activated killer T cell finds cells where the MHC 1 receptor has specific antigens, it releases cytotoxins such as what?",
+      "gold_answers": [
+        "perforin",
+        "perforin",
+        "perforin"
+      ],
+      "prediction": "When an activated killer (cytotoxic, CD8\u207a) T cell recognizes a specific antigen presented on MHC class I, it releases cytotoxins such as **perforin**, along with **granzymes** and **granulysin**.\n\n- **Perforin** forms pores in the target cell's plasma membrane, letting ions, water and toxins enter.\n- **Granzymes** are serine proteases that enter through these pores and trigger apoptosis.\n- **Granulysin** also helps damage the target cell membrane.\n\nTogether these kill the infected or abnormal cell.",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.02985074626865672,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 74,
+      "latency_s": 3.42
+    },
+    {
+      "id": "57287d4a2ca10214002da3e7",
+      "question": "What kind of division of power did Kublai's government have?",
+      "gold_answers": [
+        "tripartite",
+        "tripartite division",
+        "tripartite"
+      ],
+      "prediction": "Kublai Khan's Yuan government was a **centralized, tripartite (three-part) system** modeled on traditional Chinese imperial institutions and adapted to Mongol rule. Authority was divided along functional lines:\n\n1. **Central Secretari",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.06666666666666667,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 30,
+      "latency_s": 6.45
+    }
+  ]
+}

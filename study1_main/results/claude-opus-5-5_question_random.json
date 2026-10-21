@@ -1,0 +1,1850 @@
+{
+  "model": "claude-opus-5-5",
+  "condition": 5,
+  "condition_name": "question_random",
+  "sample_size": 100,
+  "aggregates": {
+    "n": 100,
+    "em": 0.0,
+    "em_extracted": 0.45,
+    "f1": 0.0653,
+    "f1_extracted": 0.6075,
+    "avg_latency_s": 5.6,
+    "avg_prediction_tokens": 62.6,
+    "by_class": {
+      "1": {
+        "n": 15,
+        "em": 0.0,
+        "em_extracted": 0.4667,
+        "f1": 0.0682,
+        "f1_extracted": 0.6794,
+        "avg_tokens": 69.7
+      },
+      "2": {
+        "n": 12,
+        "em": 0.0,
+        "em_extracted": 0.75,
+        "f1": 0.1314,
+        "f1_extracted": 0.9289,
+        "avg_tokens": 74.8
+      },
+      "3": {
+        "n": 6,
+        "em": 0.0,
+        "em_extracted": 0.0,
+        "f1": 0.0758,
+        "f1_extracted": 0.4644,
+        "avg_tokens": 98.5
+      },
+      "4": {
+        "n": 13,
+        "em": 0.0,
+        "em_extracted": 0.5385,
+        "f1": 0.0437,
+        "f1_extracted": 0.6489,
+        "avg_tokens": 81.6
+      },
+      "5": {
+        "n": 7,
+        "em": 0.0,
+        "em_extracted": 0.2857,
+        "f1": 0.0465,
+        "f1_extracted": 0.4524,
+        "avg_tokens": 30.0
+      },
+      "6": {
+        "n": 10,
+        "em": 0.0,
+        "em_extracted": 0.4,
+        "f1": 0.0216,
+        "f1_extracted": 0.4667,
+        "avg_tokens": 43.8
+      },
+      "7": {
+        "n": 8,
+        "em": 0.0,
+        "em_extracted": 0.75,
+        "f1": 0.1264,
+        "f1_extracted": 0.85,
+        "avg_tokens": 60.9
+      },
+      "8": {
+        "n": 20,
+        "em": 0.0,
+        "em_extracted": 0.4,
+        "f1": 0.0526,
+        "f1_extracted": 0.516,
+        "avg_tokens": 55.0
+      },
+      "9": {
+        "n": 3,
+        "em": 0.0,
+        "em_extracted": 0.0,
+        "f1": 0.0838,
+        "f1_extracted": 0.4127,
+        "avg_tokens": 63.0
+      },
+      "10": {
+        "n": 6,
+        "em": 0.0,
+        "em_extracted": 0.3333,
+        "f1": 0.008,
+        "f1_extracted": 0.3333,
+        "avg_tokens": 40.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "57293e983f37b3190047818f",
+      "question": "How much did the statement predict global surface temperature would increase by 2100?",
+      "gold_answers": [
+        "between 1.4 and 5.8 \u00b0C above 1990 levels",
+        "1.4 and 5.8 \u00b0C",
+        "between 1.4 and 5.8 \u00b0C"
+      ],
+      "prediction": "The question doesn't say which statement it means, so I can't give a single definitive figure. The most likely candidate is the **2005 Joint Science Academies' Statement**, issued by the national science academies of the G8 and other countries ahead of the Gleneagles summit. Citing the IPCC, it said that average global surface temperatures would rise by about **1.4 \u00b0C to 5.8 \u00b0C above 1990 levels by 2100**.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.20588235294117646,
+      "f1_extracted": 0.7692307692307693,
+      "prediction_tokens": 68,
+      "latency_s": 6.66
+    },
+    {
+      "id": "57293f8a6aef051400154be1",
+      "question": "Why were the 2011 Special Reports issued?",
+      "gold_answers": [
+        "requested by governments",
+        "requested by governments",
+        "requested by governments."
+      ],
+      "prediction": "",
+      "class_id": 9,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.58
+    },
+    {
+      "id": "572a20816aef0514001552e8",
+      "question": "When are inequalities in wealth justified, according to John Rawls?",
+      "gold_answers": [
+        "when they improve society as a whole",
+        "when they improve society as a whole",
+        "when they improve society as a whole"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"When are inequalities in wealth justified, according to John Rawls?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Only when they work to the greatest benefit of the least advantaged members of society (the difference principle), and when they are attached to positions open to all under fair equality of opportunity.\",\n    \"quality\": \"Conditional justification: inequalities are permissible only if they improve the position of the worst-off compared with a more equal arrangement.\",\n    \"description_domain\": \"Political philosophy /",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.10958904109589042,
+      "f1_extracted": 0.5,
+      "prediction_tokens": 76,
+      "latency_s": 5.12
+    },
+    {
+      "id": "57092322efce8f15003a7db0",
+      "question": "What company was formed by the merger of Sky Television and British Satellite Broadcasting?",
+      "gold_answers": [
+        "BSkyB",
+        "BSkyB",
+        "BSkyB"
+      ],
+      "prediction": "The merger of Sky Television and British Satellite Broadcasting formed **British Sky Broadcasting (BSkyB)**, announced on 2 November 1990.\n\nThe provided `answer_structure` has some problems. The `\"answer\"` field says `\"time\"`, but the question asks for a company, not a time. The temporal fields are empty. Here is a corrected version:\n\n```json\n{\n  \"question\": \"What company was formed by the merger of Sky Television and British Satellite Broadcasting?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"British Sky Broadcasting (BSkyB)\",\n    \"event\": \"Merger of Sky Television and British Satellite Broadcasting\",\n    \"time_expression\": \"2 November 1990\",\n    \"temporal_type\": \"point (date)\"\n  }\n}\n```\n\nBSkyB was later renamed **Sky UK** in 2014 and is now owned by Comcast.",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.020833333333333332,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 109,
+      "latency_s": 4.46
+    },
+    {
+      "id": "57267ebfdd62a815002e872f",
+      "question": "What does critically tapered mean? ",
+      "gold_answers": [
+        "all angles remain the same",
+        "all angles remain the same",
+        "all angles remain the same"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What does critically tapered mean?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"concept\",\n    \"identity\": \"Critical taper (critically tapered wedge), a concept in structural geology and tectonics\",\n    \"defining_property\": \"A wedge of rock or sediment, such as an accretionary prism or fold-and-thrust belt, is critically tapered when its taper angle (surface slope plus basal d\u00e9collement dip) equals the critical value at which the wedge is everywhere on the verge of Coulomb failure. At that angle it can slide along its basal detachment without further internal deformation.\"\n  }\n}\n```\n\n**In more detail:**\n\nA material pushed from behind, like snow or sand in front of a bulldozer, deforms internally until it builds up a characteristic wedge shape. The ang",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 117,
+      "latency_s": 7.2
+    },
+    {
+      "id": "5729de24af94a219006aa68c",
+      "question": "What motivation is opportunity-based entrepreneurship driven by?",
+      "gold_answers": [
+        "achievement-oriented",
+        "achievement-oriented motivations (\"pull\")",
+        "achievement-oriented motivations"
+      ],
+      "prediction": "Opportunity-based entrepreneurship is driven by **\"pull\" motivation**. People choose to start a business because they see a market opportunity they want to pursue. Common drivers include:\n\n- A desire for independence and autonomy\n- The prospect of higher income or wealth\n- Personal fulfillment or self-realization\n- Applying an innovative idea or unmet market need\n\nThis differs from **necessity-based entrepreneurship**, which is driven by **\"push\" motivation**. In that case, people start businesses because they lack other options, such as after unemployment or when no suitable jobs are available.\n\nYour answer structure expects a \"location,\" but the answer to this question is a type of motivation, not a place. Here is a corrected version:\n\n```json\n{\n  \"question\": \"What motivation is opportunity-based entrepreneurship driven by?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Pull motivation: the voluntary pursuit of a",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.016666666666666666,
+      "f1_extracted": 0.5,
+      "prediction_tokens": 135,
+      "latency_s": 5.83
+    },
+    {
+      "id": "571cd11add7acb1400e4c16e",
+      "question": "As a euphoric how is oxygen used in bars?",
+      "gold_answers": [
+        "recreational",
+        "recreational",
+        "recreational"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"As a euphoric how is oxygen used in bars?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"outcome\",\n    \"action\": \"offer customers higher-than-normal O2 exposure, typically inhaled through a nasal cannula, for a fee\",\n    \"actor\": \"oxygen bars (establishments found in Japan, California, and Las Vegas, Nevada since the late 1990s)\",\n    \"outcome\": \"recreational use: patrons breathe oxygen-enriched air for its supposed mild euphoric effect\"\n  }\n}",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.03508771929824561,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 64,
+      "latency_s": 7.53
+    },
+    {
+      "id": "5728fd206aef05140015494f",
+      "question": "Commensal flora can change what specific conditions of their environment in the gastrointestinal tract?",
+      "gold_answers": [
+        "pH or available iron",
+        "pH or available iron",
+        "balance of microbial populations"
+      ],
+      "prediction": "Commensal flora can change the **pH** and the amount of **available iron** in the gastrointestinal tract.\n\nIn the gastrointestinal and genitourinary tracts they act as a biological barrier. They compete with pathogenic bacteria for food and space, and in some cases alter these environmental conditions, which makes the environment less hospitable to pathogens.",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.11764705882352941,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 53,
+      "latency_s": 10.49
+    },
+    {
+      "id": "57302faa04bcaa1900d77311",
+      "question": "How many Muslims are in Greater London?",
+      "gold_answers": [
+        "over 900,000",
+        "900,000",
+        "over 900,000"
+      ],
+      "prediction": "According to the **2021 Census**, about **1.32 million Muslims** (1,318,754) lived in Greater London, roughly **15%** of the city's population. That makes Islam London's second-largest religion after Christianity.\n\nThis was up from about 1.01 million (12.4%) in the 2011 Census.\n\nYour template appears mismatched. It sets `\"answer\"` to `\"cause\"` and includes cause, effect and mechanism fields, which don't fit a factual count. Here it is filled in a way that fits the question:\n\n```json\n{\n  \"question\": \"How many Muslims are in Greater London?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Approximately 1.32 million (1,318,754), about 15% of Greater London's population, per the 2021 Census.\",\n    \"effect\": \"\",\n    \"cause\": \"\",\n    \"mechanism\": \"\"\n  }\n}\n```\n\nIf you meant to ask a cause-and-effect question, such as what drove the growth of London's Muslim population, I can",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 131,
+      "latency_s": 8.9
+    },
+    {
+      "id": "57261f9f271a42140099d4ac",
+      "question": "Interest groups and government agencies that were concerned with energy were no match for who?",
+      "gold_answers": [
+        "Kissinger",
+        "Kissinger",
+        "Kissinger",
+        "Kissinger's",
+        "Kissinger"
+      ],
+      "prediction": "**Henry Kissinger.** In discussions of the 1973 oil crisis, interest groups and government agencies concerned with energy are described as being \"no match for Kissinger's",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.07999999999999999,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 25,
+      "latency_s": 6.01
+    },
+    {
+      "id": "571144d1a58dae1900cd6d70",
+      "question": "Along with nuclear, geothermal and internal combustion engine waste heat, what sort of energy might supply the heat for a steam engine?",
+      "gold_answers": [
+        "solar",
+        "solar",
+        "solar"
+      ],
+      "prediction": "**Solar energy.**\n\nSteam engines need only a heat source to boil water. Besides burning combustible materials, the heat can come from nuclear, solar, or geothermal energy, or from waste heat recovered from internal combustion engines.\n\nThe `answer_structure` you provided doesn't fit this question. It lists the answer as \"time\" with empty temporal fields, but the question isn't temporal. If you need it in the same format, a corrected version would be:\n\n```json\n{\n  \"question\": \"Along with nuclear, geothermal and internal combustion engine waste heat, what sort of energy might supply the heat for a steam engine?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"solar\",\n    \"event\": \"\",\n    \"time_expression\": \"\",\n    \"temporal_type\": \"\"\n  }\n}\n```",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.021052631578947368,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 111,
+      "latency_s": 12.21
+    },
+    {
+      "id": "571156152419e3140095559d",
+      "question": "What is the weight of a bushel of coal in pounds?",
+      "gold_answers": [
+        "94",
+        "94 pounds",
+        "94 pounds"
+      ],
+      "prediction": "A bushel of coal is generally taken to weigh **80 pounds**. This was the common legal standard in many U.S. states. Some jurisdictions used slightly different values, such as 76 lb in parts of Pennsylvania and Kentucky.\n\nThe provided answer structure doesn't fit this question. The answer is a quantity, not a time, and no event or temporal expression is involved. A corrected version:\n\n```json\n{\n  \"question\": \"What is the weight of a bushel of coal in pounds?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"80 pounds\",\n    \"event\": \"\",\n    \"time_expression\":",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.025641025641025637,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 88,
+      "latency_s": 6.61
+    },
+    {
+      "id": "5730285a04bcaa1900d7726e",
+      "question": "Where was the FIS formed?",
+      "gold_answers": [
+        "Algeria",
+        "Algeria",
+        "Afghanistan"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Where was the FIS formed?\",\n  \"answer_structure\": {\n    \"answer_type\": \"multiple\",\n    \"answer\": \"list\",\n    \"components\": [\n      {\n        \"interpretation\": \"FIS \u2013 International Ski and Snowboard Federation (F\u00e9d\u00e9ration Internationale de Ski)\",\n        \"answer",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 30,
+      "latency_s": 5.36
+    },
+    {
+      "id": "571cd703dd7acb1400e4c184",
+      "question": "What is the mineral wustite?",
+      "gold_answers": [
+        "FeO",
+        "FeO",
+        "FeO",
+        "FeO",
+        "FeO"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What is the mineral wustite?\",\n  \"answer_structure\": {\n    \"answer_type\": \"multiple\",\n    \"answer\": \"list\",\n    \"components\": [\n      \"Iron(II) oxide: the natural mineral form of FeO\",\n      \"Non-stoichiometric: it is always iron-deficient, with a typical compos",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.07142857142857142,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 33,
+      "latency_s": 5.33
+    },
+    {
+      "id": "57261f9f271a42140099d4aa",
+      "question": "US is concerned about confrontation of the Middle East with which other country?",
+      "gold_answers": [
+        "USSR",
+        "USSR",
+        "USSR",
+        "USSR",
+        "USSR"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"US is concerned about confrontation of the Middle East with which other country?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"outcome\",\n    \"action\": \"is concerned about a confrontation with\",\n    \"actor\": \"United States\",\n    \"outcome\": \"Iran\"\n  }\n}\n```\n\n**Note:** The question gives no date or source, so this answer is an inference. In most recent U.S. policy coverage, the main worry about a wider Middle East confrontation centers on Iran, often involving Israel and Iran-backed groups such as Hezbollah and the Houthis. If the question comes from a specific article or period, the answer could be different.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 96,
+      "latency_s": 4.81
+    },
+    {
+      "id": "5727afa82ca10214002d93c4",
+      "question": "What year was North America's first printing press started?",
+      "gold_answers": [
+        "1638",
+        "1638",
+        "1638"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What year was North America's first printing press started?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"object\",\n    \"object\": \"1539\",\n    \"relation\": \"year North America's first printing press began operating (Mexico City, run by Juan Pablos)\"\n  }\n}\n```\n\nThe first printing press in English-speaking North America started later, in 1638 in Cambridge, Massachusetts.",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.04166666666666667,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 53,
+      "latency_s": 3.47
+    },
+    {
+      "id": "570611c475f01819005e793e",
+      "question": "The Port of Long Beach belongs to which region of California?",
+      "gold_answers": [
+        "Southern",
+        "Southern California",
+        "Southern"
+      ],
+      "prediction": "The Port of Long Beach is in **Southern California**. It sits in Los Angeles County on San Pedro Bay, next to the Port of Los Angeles.\n\nYour answer structure expects a quantity, but the answer to this question is a place name. Here is a corrected version:\n\n```json\n{\n  \"question\": \"The Port of Long Beach belongs to which region of California?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Southern California\",\n    \"quantity\": null,\n    \"unit\": null,\n    \"measurement_context\": \"Located in Long Beach, Los Angeles County, on San Pedro Bay\"\n  }\n}\n```",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.05194805194805195,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 87,
+      "latency_s": 4.51
+    },
+    {
+      "id": "572f5875947a6a140053c89b",
+      "question": "What is the lower canal regulation of the Rhine?",
+      "gold_answers": [
+        "Fu\u00dfach",
+        "Fu\u00dfach",
+        "Fu\u00dfach",
+        "Fu\u00dfach"
+      ],
+      "prediction": "",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.24
+    },
+    {
+      "id": "57293d6d1d046914007791bb",
+      "question": "Who do coordinating lead authors report to?",
+      "gold_answers": [
+        "the Working Group chairs",
+        "Working Group chairs",
+        "Working Group chairs"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Who do coordinating lead authors report to?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"the Working Group chairs\",\n    \"location\": \"",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.3,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 21,
+      "latency_s": 6.25
+    },
+    {
+      "id": "5730bd00069b5314008322d9",
+      "question": "Who did the Ottoman empire ally with in WW I?",
+      "gold_answers": [
+        "Germany",
+        "Germany",
+        "Germany",
+        "Germany",
+        "Germany"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Who did the Ottoman empire ally with in WW I?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"The Central Powers: Germany and Austria-Hungary, later joined by Bulgaria (October 1915).\",\n    \"effect\": \"The Ottoman Empire entered WWI on the side of the Central Powers in late October/November 1914, after its fleet, including German-crewed ships, bombarded Russian Black Sea ports. Russia, Britain, and France then declared war on it.\",\n    \"cause\": \"Fear of Russ",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.03076923076923077,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 71,
+      "latency_s": 6.01
+    },
+    {
+      "id": "57109180a58dae1900cd6a42",
+      "question": "Where is D'Olier Street?",
+      "gold_answers": [
+        "Dublin",
+        "Dublin",
+        "Dublin"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Where is D'Olier Street?\",\n  \"answer_structure\": {\n    \"answer_type\": \"multiple\",\n    \"answer\": \"list\",\n    \"components\": [\n      \"Dublin 2, Dublin city centre\",\n      \"Dublin\",\n      \"Ireland\"\n    ],\n    \"shared_category\": \"location (from local area to country)\"\n  },\n  \"details\": \"D'Olier Street is on the south side of the River Liffey. It",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.052631578947368425,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 44,
+      "latency_s": 5.73
+    },
+    {
+      "id": "57274046dd62a815002e9a15",
+      "question": "What are some examples of undesirable end results of a project?",
+      "gold_answers": [
+        "structural collapse, cost overruns, and/or litigation",
+        "structural collapse, cost overruns, and/or litigation",
+        "structural collapse, cost overruns, and/or litigation"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What are some examples of undesirable end results of a project?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Undesirable end results include cost overruns, missed deadlines, reduced scope or quality, a deliverable that doesn't meet stakeholder needs, failure to deliver the expected business benefits, team burnout, damaged client relationships or reputation, and outright project cancellation.\",\n    \"effect\": \"Wasted money and resources, lost market opportunities, unhappy customers or stakeholders, rework or ongoing maintenance problems, low team morale, and possible legal, contractual, or reputational damage.\",\n    \"cause\": \"Common causes are poorly defined requirements, scope creep, unrealistic estimates of time and budget, weak planning and risk management, poor communication, lack of stakeholder involvement, inadequate resources or skills, and weak leadership or governance.\",\n    \"mechanism\": \"Early weaknesses such as vague goals or optimistic estim",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0310077519379845,
+      "f1_extracted": 0.5,
+      "prediction_tokens": 128,
+      "latency_s": 5.77
+    },
+    {
+      "id": "5711619950c2381900b54ab0",
+      "question": "What did Watt add to Newcomen's engine between 1763 and 1775?",
+      "gold_answers": [
+        "condenser",
+        "a separate condenser",
+        "condenser",
+        "a separate condenser"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What did Watt add to Newcomen's engine between 1763 and 1775?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"a separate condenser\",\n    \"effect\": \"A large gain in fuel efficiency. Watt's engine used roughly 75% less coal than a Newcomen engine of comparable output, which made steam power economical well beyond coal mines.\",\n    \"cause\": \"James Watt added a separate condenser to the Newcomen atmospheric engine. He conceived the",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.06557377049180328,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 67,
+      "latency_s": 5.41
+    },
+    {
+      "id": "5733cff84776f419006612b6",
+      "question": "When did violence start in war?",
+      "gold_answers": [
+        "Battle of Jumonville Glen in May 1754,",
+        "May 1754",
+        "May 1754",
+        "May 1754",
+        "May 1754"
+      ],
+      "prediction": "",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.66
+    },
+    {
+      "id": "572a0b101d046914007796ec",
+      "question": "Along with drought, what is one other factor that is pushing the Amazon rainforest towards a tipping point?",
+      "gold_answers": [
+        "deforestation",
+        "deforestation on regional climate",
+        "deforestation"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Along with drought, what is one other factor that is pushing the Amazon rainforest towards a tipping point?\",\n  \"answer_structure\": {\n    \"answer_type\": \"multiple\",\n    \"answer\": \"list\",\n    \"components\": [\n      \"Deforestation (forest clearing for cattle ranching, agriculture, logging, and mining)\",\n      \"Wildfires (often set to clear land, and worsened by drier conditions)\",\n      \"Climate change / rising temperatures (global warming increasing heat stress)\"\n    ],\n    \"shared_category\": \"Stressors driving the Amazon toward a tipping point where rainforest could shift to degraded forest or savanna\"\n  }\n}\n```\n\nThe most commonly cited answer is **deforestation**. Clearing trees reduces the forest's ability to recycle moisture through transpiration. This weakens rainfall, which in turn intensifies drought. Fires and global warming are also major contributing factors.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.037383177570093455,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 117,
+      "latency_s": 4.93
+    },
+    {
+      "id": "5726385e271a42140099d798",
+      "question": "How are the packets routed ",
+      "gold_answers": [
+        "individually, sometimes resulting in different paths and out-of-order delivery",
+        "individually",
+        "individually"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"How are the packets routed\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"concept\",\n    \"identity\": \"Hop-by-hop packet routing (packet switching) in IP networks\",\n    \"defining_property\": \"Each packet is forwarded independently, router by router, based on its destination IP address. At each hop, the router looks up the destination in its routing table and sends the packet to the best next hop. The routing tables are built and updated by routing protocols such as RIP, OSPF and BGP.\"\n  }\n}\n```\n\n**How the routing works:**\n\n1. **Encapsulation:** Data is split into packets. Each packet carries a header with its source and destination IP addresses.\n2. **Forwarding at each router:** When a router receives a packet, it reads the destination address. It then performs a *longest-prefix match* against its routing table to choose the outgoing inter",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.03225806451612903,
+      "f1_extracted": 0.2857142857142857,
+      "prediction_tokens": 133,
+      "latency_s": 5.71
+    },
+    {
+      "id": "572a0ecb1d04691400779718",
+      "question": "What does increasing inequality harm?",
+      "gold_answers": [
+        "economic growth",
+        "economic growth",
+        "economic growth"
+      ],
+      "prediction": "",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.84
+    },
+    {
+      "id": "572fc043a23a5019007fc961",
+      "question": "What can faith groups ask the Presiding Officer to do for them?",
+      "gold_answers": [
+        "nominate speakers",
+        "nominate speakers",
+        "nominate speakers"
+      ],
+      "prediction": "",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.93
+    },
+    {
+      "id": "5725fcbe271a42140099d3b0",
+      "question": "State Route 180 comes from which direction via Mendota?",
+      "gold_answers": [
+        "west",
+        "west",
+        "west"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"State Route 180 comes from which direction via Mendota?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"West\",\n    \"identity\": \"Cardinal direction\",\n    \"defining_property\": \"California State Route 180 approaches Fresno from the west by way of Mendota. From the east, it comes from Kings Canyon National Park.\"\n  }\n}\n```",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.047619047619047616,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 48,
+      "latency_s": 3.69
+    },
+    {
+      "id": "57265200708984140094c237",
+      "question": "Which country was thinking about going to war to forcibly take Middle Eastern oil fields?",
+      "gold_answers": [
+        "U.S",
+        "U.S.",
+        "U.S.",
+        "U.S",
+        "the U.S."
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Which country was thinking about going to war to forcibly take Middle Eastern oil fields?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"location\",\n    \"location\": \"United States\",\n    \"relation\": \"During the 1973\u201374 Arab oil embargo, the Nixon administration considered military action to seize Middle Eastern oil fields (e.g., in Saudi Arabia, Kuwait, and Abu Dhabi), according to declassified British documents.\"\n  }\n}\n```",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 62,
+      "latency_s": 4.63
+    },
+    {
+      "id": "572686fc708984140094c8e6",
+      "question": "When do bathyctena chuni, euplokamis stationis and eurhamphaea vexilligera  excrete secretions?",
+      "gold_answers": [
+        "are disturbed,",
+        "disturbed",
+        "are disturbed"
+      ],
+      "prediction": "They excrete secretions **when they are disturbed**. These ctenophores (comb jellies) release an ink-like secretion that luminesces at roughly the same wavelengths as their own bioluminescent bodies. It is thought to serve as a defense that distracts or confuses predators.",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.10256410256410257,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 40,
+      "latency_s": 3.46
+    },
+    {
+      "id": "571cd3b55efbb31900334e03",
+      "question": "What device is used to treat various conditions such as carbon monoxide poisoning?",
+      "gold_answers": [
+        "Hyperbaric (high-pressure) medicine",
+        "special oxygen chambers",
+        "oxygen chambers",
+        "oxygen chambers",
+        "oxygen chambers"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What device is used to treat various conditions such as carbon monoxide poisoning?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"location\",\n    \"location\": \"Hyperbaric chamber\",\n    \"relation\": \"used to treat carbon monoxide poisoning (via hyperbaric oxygen therapy)\"\n  }\n}\n```\n\n**Answer: A hyperbaric chamber.** It is a pressurized enclosure where patients breathe 100% oxygen at higher-than-normal atmospheric pressure. This is called hyperbaric oxygen therapy. Besides carbon monoxide poisoning, it is used for decompression sickness, arterial gas embolism, non-healing wounds such as diabetic foot ulcers, severe infections like gas gangrene, radiation injury, and certain burns and crush injuries.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.021978021978021976,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 96,
+      "latency_s": 4.41
+    },
+    {
+      "id": "5728848cff5b5019007da299",
+      "question": "What did Mote think the Yuan class system really represented?",
+      "gold_answers": [
+        "degrees of privilege",
+        "degrees of privilege",
+        "degrees of privilege"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What did Mote think the Yuan class system really represented?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"outcome\",\n    \"action\": \"\",\n    \"actor\": \"\",\n    \"outcome\": \"Degrees of institutional and legal privilege, not true social classes reflecting actual wealth or social power\"\n  }\n}\n```\n\nFrederick W. Mote argued that calling the Yuan's four-tier system (Mongols, Semu, Han/northern Chinese, Southerners) \"social classes\" was misleading. A person's place in the hierarchy only determined the legal and institutional privileges they were entit",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.08695652173913045,
+      "f1_extracted": 0.8,
+      "prediction_tokens": 78,
+      "latency_s": 5.01
+    },
+    {
+      "id": "57269cc3dd62a815002e8b13",
+      "question": "How many paid holiday days does the Working Time directive require workers to have each year?",
+      "gold_answers": [
+        "4 weeks",
+        "4 weeks paid holidays each year",
+        "4 weeks paid"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"How many paid holiday days does the Working Time directive require workers to have each year?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"At least 4 weeks of paid annual leave per year (equivalent to 20 days for someone working a 5-day week)\",\n    \"effect\": \"\",\n    \"cause\": \"\",\n    \"mechanism\": \"\"\n  }\n}\n```\n\n**Notes:**\n- **Source:** Article 7 of the EU Working Time Directive (2003/88/EC) sets the minimum as **four weeks**, not a fixed number of days. The number of days depends on how many days a week a person works. For example, 4 weeks equals 20 days for a 5-day week or 24 days for a 6-day week.\n- **B",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.10309278350515463,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 111,
+      "latency_s": 5.36
+    },
+    {
+      "id": "571cc3dedd7acb1400e4c149",
+      "question": "What kind of field is necessary to produce a magnet effect in oxygen molecules?",
+      "gold_answers": [
+        "magnetic field",
+        "magnetic",
+        "magnetic",
+        "magnetic field",
+        "magnetic"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What kind of field is necessary to produce a magnet effect in oxygen molecules?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"A magnetic field\",\n    \"agent\": \"An externally applied magnetic field\",\n    \"action_performed\": \"Makes the oxygen magnetic by aligning the spins of its two unpaired electrons (paramagnetism)\",\n    \"object_of_action\": \"Oxygen (O\u2082) molecules in the triplet ground state\"\n  }\n}\n```\n\nOxygen in its triplet ground state is paramagnetic because each molecule has two unpaired electrons. It shows magnetic behavior only when a magnetic field is present. For example, li",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.05194805194805195,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 87,
+      "latency_s": 5.38
+    },
+    {
+      "id": "5727d1c93acd2414000ded3f",
+      "question": "What is the applicant admission rate for class of 2019?",
+      "gold_answers": [
+        "accepted 5.3% of applicants",
+        "5.3%",
+        "5.3%"
+      ],
+      "prediction": "## The School Isn't Specified\n\nI can't answer this as written because the question doesn't say which institution it refers to, and no source table",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 25,
+      "latency_s": 6.2
+    },
+    {
+      "id": "5725db98ec44d21400f3d6c6",
+      "question": "What are the two major thoroughfares of Sunnyside?",
+      "gold_answers": [
+        "Kings Canyon Avenue and Clovis Avenue",
+        "Kings Canyon Avenue and Clovis Avenue",
+        "Kings Canyon Avenue and Clovis Avenue"
+      ],
+      "prediction": "",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.78
+    },
+    {
+      "id": "5727de862ca10214002d9862",
+      "question": "Who is the Costa Rican President that went to Harvard?",
+      "gold_answers": [
+        "Jos\u00e9 Mar\u00eda Figueres",
+        "Jos\u00e9 Mar\u00eda Figueres",
+        "Jos\u00e9 Mar\u00eda Figueres"
+      ],
+      "prediction": "The Costa Rican president who attended Harvard is **Jos\u00e9 Mar\u00eda Figueres Olsen**, president from **1994 to 1998**. He earned a Master of Public Administration from Harvard's John F. Kennedy School of Government, after earning an engineering degree from the U.S. Military Academy at West Point",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.13636363636363635,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 45,
+      "latency_s": 5.7
+    },
+    {
+      "id": "573020f7b2c2fd14005688fb",
+      "question": "What have Muslims praised Hamas for doing?",
+      "gold_answers": [
+        "driving Israel out of the Gaza Strip",
+        "driving Israel out of the Gaza Strip",
+        "driving Israel out of the Gaza Strip"
+      ],
+      "prediction": "# Answering the Question\n\nThe question generalizes about \"Muslims",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 9,
+      "latency_s": 5.92
+    },
+    {
+      "id": "572863363acd2414000df987",
+      "question": "In the fall quarter of 2014, how many students signed up for the university's professional schools?",
+      "gold_answers": [
+        "5,984",
+        "5,984",
+        "5,984"
+      ],
+      "prediction": "This appears to refer to the University of Chicago. Recalling from memory its reported fall 2014 enrollment, about **5,984 students** enrolled in its professional schools. The other recalled figures were 5,792 in the College, 3,468 in the four graduate divisions, and 15,244 overall.\n\n```json\n{\n  \"answer_type\": \"single\",\n  \"answer\": \"outcome\",\n  \"action\": \"\",\n  \"actor\": \"\",\n  \"outcome\": \"5,984\"\n}\n```",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.04081632653061225,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 57,
+      "latency_s": 4.77
+    },
+    {
+      "id": "5733ea04d058e614000b6594",
+      "question": "Who took command of French in spring of 1753?",
+      "gold_answers": [
+        "Paul Marin de la Malgue",
+        "Paul Marin de la Malgue",
+        "Paul Marin de la Malgue",
+        "Paul Marin de la Malgue",
+        "Paul Marin de la Malgue"
+      ],
+      "prediction": "**Paul Marin de la Malgue** took command in spring 1753. He led a force of about 2,000 Troupes de la Marine and Native allies, with orders to protect the King's land in the Ohio Valley from the British.\n\nOnly one person fits this question, so the \"list\" contains a single name:\n\n- Paul Marin de la Malgue",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.18181818181818182,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 57,
+      "latency_s": 3.46
+    },
+    {
+      "id": "57284142ff5b5019007da00d",
+      "question": "How much did Silas B. Cobb pledge to the university?",
+      "gold_answers": [
+        "$100,000",
+        "$100,000",
+        "$100,000",
+        "$100,000"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"How much did Silas B. Cobb pledge to the university?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"$100,000\",\n    \"effect\": \"His pledge helped fund Cobb Lecture Hall, the first building on the University of Chicago campus.\",",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.0625,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 36,
+      "latency_s": 5.72
+    },
+    {
+      "id": "572900f73f37b31900477f6a",
+      "question": "What causes the symptoms of inflammation?",
+      "gold_answers": [
+        "increased blood flow into tissue",
+        "increased blood flow into tissue",
+        "increased blood flow into tissue"
+      ],
+      "prediction": "# What Causes the Symptoms of Inflammation?\n\nThe symptoms of inflammation come from the body's **immune response to injury or infection**. Damaged tissue and immune cells (such as mast cells and macrophages) release **chemical mediators**, including histamine, prostaglandins, bradykinin, leukotrienes, and cytokines such as IL-1, IL-6, and TNF-\u03b1. These chemicals change blood vessels and nerves in ways that produce the classic signs.\n\n| Symptom | Cause |\n|---|---|\n| **Redness (rubor)** | Blood vessels widen (vasodilation), increasing blood flow to the area |\n| **",
+      "class_id": 9,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.08,
+      "f1_extracted": 0.5714285714285715,
+      "prediction_tokens": 85,
+      "latency_s": 5.37
+    },
+    {
+      "id": "572677e7708984140094c725",
+      "question": "What is structural geology?",
+      "gold_answers": [
+        "the study of positions of rock units and their deformation",
+        "study of positions of rock units and their deformation",
+        "the study of positions of rock units and their deformation"
+      ],
+      "prediction": "## Answer\n\n**Structural geology** is the branch of geology that studies how rocks deform and the three-dimensional arrangement of rock units that results. It examines structures such as **folds, faults, joints (fractures), foliations, and lineations** to reconstruct the stresses, strains, and deformation history of the Earth's crust.\n\nIt is applied in:\n- Plate tectonics and mountain-building studies\n- Petroleum and mineral exploration, since structures often trap oil and gas or host ore deposits\n- Engineering geology, such as slope stability, tunnels, and dams\n- Earthquake hazard assessment\n- Groundwater studies\n\n## Note on the answer structure\n\nThe template doesn't fit this question. \"What is structural geology?\" asks for a definition, not a time, so `\"answer\": \"time\"` is incorrect. No event or time expression is involved.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.10084033613445378,
+      "f1_extracted": 0.5333333333333333,
+      "prediction_tokens": 125,
+      "latency_s": 5.88
+    },
+    {
+      "id": "572ff673b2c2fd140056866b",
+      "question": "What is the nickname for the Delta in the Netherlands?",
+      "gold_answers": [
+        "Rhine Delta",
+        "Rhine Delta",
+        "Rhine Delta"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.93
+    },
+    {
+      "id": "5706094b52bb8914006897de",
+      "question": "What resource is the economy of southern California depedent on?",
+      "gold_answers": [
+        "petroleum",
+        "petroleum",
+        "petroleum"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What resource is the economy of southern California depedent on?\",\n  \"answer_structure\": {\n    \"answer_type\": \"multiple\",\n    \"answer\": \"list\",\n    \"components\": [\"petroleum\"],\n    \"shared_category\": \"natural resource / fuel\"\n  }\n}\n```\n\nSouthern California's economy depends heavily on **petroleum**. Much of the region's transportation runs on petroleum-based fuel, so cars and trucks dominate how people and goods move.\n\nYour template exp",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.0392156862745098,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 58,
+      "latency_s": 5.52
+    },
+    {
+      "id": "5726d8bd708984140094d35d",
+      "question": "What did the Greek root pharmakos imply?",
+      "gold_answers": [
+        "sorcery or even poison",
+        "sorcery or even poison",
+        "sorcery",
+        "sorcery"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What did the Greek root pharmakos imply?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"agent\",\n    \"agent\": \"a sorcerer, poisoner, or magician (one who works",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.08,
+      "f1_extracted": 0.4,
+      "prediction_tokens": 25,
+      "latency_s": 5.93
+    },
+    {
+      "id": "57265746dd62a815002e821b",
+      "question": "The long tentacles on the pleurbrachia are protected by what?",
+      "gold_answers": [
+        "a sheath",
+        "a sheath",
+        "a sheath into which it can be withdrawn"
+      ],
+      "prediction": "**Sheaths.** Each of Pleurobrachia's two long tentacles sits in a sheath, a pouch it can pull the tentacle back into.",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.3333333333333333,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 20,
+      "latency_s": 3.39
+    },
+    {
+      "id": "570d2c20fed7b91900d45ca7",
+      "question": "What is the term for the original Aboriginal people of Victoria?",
+      "gold_answers": [
+        "Koori",
+        "Koori",
+        "Koori"
+      ],
+      "prediction": "The answer field `\"time\"` is incorrect, and this isn't a temporal question, so the temporal fields don't apply. The Aboriginal people of Victoria (and parts of southern New South Wales) are commonly called **Koori** (also spelled **Koorie**).\n\nCorrected structure:\n\n```json\n{\n  \"question\": \"What is the term for the original Aboriginal people of Victoria?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Koori (also spelled Koorie)\",\n    \"event\": \"\",\n    \"time_expression\": \"\",\n    \"temporal_type\": \"none\"\n  }\n}\n```\n\n\"Koori\" is a collective term. Victoria's Aboriginal people belong to many distinct nations, including the Wurundjeri, Boon Wurrung, Wathaurong (Wadawurrung), Gunditjmara, Yorta Yorta, and Gunai/Kurnai. If your dataset expects a specific nation rather than the collective term, the question may need rewording.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.020833333333333332,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 113,
+      "latency_s": 5.3
+    },
+    {
+      "id": "5726431aec44d21400f3dd13",
+      "question": "What was Tymnet",
+      "gold_answers": [
+        "an international data communications network headquartered in San Jose, CA",
+        "an international data communications network",
+        "international data communications network"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What was Tymnet\",\n  \"answer_structure\": {\n    \"answer_type\": \"multiple\",\n    \"answer\": \"list\",\n    \"components\": [\n      \"A commercial packet-switched data communications network that ran from about 1971 into the early 2000s\",\n      \"Created by Tymsh",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.19354838709677416,
+      "f1_extracted": 0.8571428571428571,
+      "prediction_tokens": 32,
+      "latency_s": 6.08
+    },
+    {
+      "id": "57309ef18ab72b1400f9c600",
+      "question": "some debate that there is a correlation between capitalism, imperialism, and what?",
+      "gold_answers": [
+        "aristocracy",
+        "aristocracy",
+        "aristocracy",
+        "aristocracy",
+        "aristocracy"
+      ],
+      "prediction": "The answer is **aristocracy**. Historians and political theorists have long debated the correlation between capitalism, aristocracy, and imperialism.",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.11764705882352941,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 18,
+      "latency_s": 3.96
+    },
+    {
+      "id": "57115c7450c2381900b54aa1",
+      "question": "About how many cubic meters of make-up water is used by a 700-megawatt coal-fired power plant for evaporative cooling hourly?",
+      "gold_answers": [
+        "3600",
+        "3600",
+        "3600"
+      ],
+      "prediction": "**About 3,600 cubic meters per hour.**\n\nThis is a commonly cited example, for instance in Wikipedia's article on cooling towers, rather than a measurement from a specific plant. A typical 700 MW coal-fired plant circulates roughly 71,600 m\u00b3 of cooling water per hour. It needs make-up water equal to about 5% of that flow to replace what is lost to evaporation, drift and blowdown. That works out to roughly 3,600 m\u00b3/h, or about 950,000 US gallons per hour.\n\nThe answer structure you included lists \"cause\" as the answer, but that field doesn't fit a numerical question, so I've given the figure directly.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.021052631578947368,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 102,
+      "latency_s": 5.41
+    },
+    {
+      "id": "57300f8504bcaa1900d770d3",
+      "question": "Up until 1990, Saudi Arabia played an important role in restraining what groups?",
+      "gold_answers": [
+        "Islamist",
+        "Islamist",
+        "Islamist"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Up until 1990, Saudi Arabia played an important role in restraining what groups?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"the many Islamist groups that received its aid\",\n    \"action\": \"restraining\",\n    \"actor\": \"Saudi Arabia\",\n    \"outcome\": \"the many Islamist groups that received its aid\"\n  }\n}\n```",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.05128205128205127,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 46,
+      "latency_s": 3.81
+    },
+    {
+      "id": "5726da89dd62a815002e92b2",
+      "question": "Who oversees a Pharmacy Technician in the UK?",
+      "gold_answers": [
+        "other senior pharmacy technicians",
+        "senior pharmacy technicians",
+        "other senior pharmacy technicians"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Who oversees a Pharmacy Technician in the UK?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"A registered pharmacist oversees a Pharmacy Technician in the UK.\",\n    \"action\": \"Supervises the pharmacy technician's day-to-day work, such as dispensing medicines, preparing medications and advising patients.\",\n    \"actor\": \"Registered pharmacist\",\n    \"outcome\": \"In the UK, pharmacy technicians work under the supervision of a registered pharmacist. As a profession, they are regulated by the General Pharmaceutical Council (GPhC), with which they must be registered to practise.\"\n  }\n}\n```",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.057971014492753624,
+      "f1_extracted": 0.8,
+      "prediction_tokens": 82,
+      "latency_s": 4.78
+    },
+    {
+      "id": "57288428ff5b5019007da291",
+      "question": "What was the second meaning of a Chinese word for 'barracks'?",
+      "gold_answers": [
+        "thanks",
+        "thanks",
+        "thanks"
+      ],
+      "prediction": "The Chinese word **\u71df (y\u00ed",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 5,
+      "latency_s": 7.41
+    },
+    {
+      "id": "5729081d3f37b31900477faf",
+      "question": "What is a regulatory factor produced by macrophages?",
+      "gold_answers": [
+        "interleukin 1",
+        "interleukin 1",
+        "interleukin 1"
+      ],
+      "prediction": "## Answer\n\nA key regulatory factor produced by macrophages is **interleukin-1 (IL-1)**. This cytokine helps activate T cells and promotes inflammation and fever.\n\nOther macrophage-derived regulatory factors include:\n- **TNF-\u03b1** (tumor necrosis factor-alpha)\n- **IL-6**\n- **IL-12**, which drives Th1 differentiation\n- **IL-10** and **TGF-\u03b2**, which are anti-inflammatory and immunosuppressive\n- **Interferon-\u03b1/\u03b2**\n- **GM-CSF / M-CSF** (colony-stimulating factors)\n\n## Note on the Answer Structure\n\nThe provided `answer_structure` doesn't fit this question. The `answer` field contains `\"time\"`, but the question asks about a biological molecule, not a temporal concept. The temporal fields (`event`, `time_expression`, `temporal_type`) don't apply here. A corrected version would be:\n\n```json\n{\n  \"",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 105,
+      "latency_s": 5.53
+    },
+    {
+      "id": "572fac17947a6a140053cb56",
+      "question": "The legislative competence of the Parliament species what areas?",
+      "gold_answers": [
+        "in which it can make laws",
+        "the areas in which it can make laws",
+        "powers that are \"reserved\" to the Parliament of the United Kingdom"
+      ],
+      "prediction": "The question appears to come from a passage about the **Scottish Parliament and the Scotland Act 1998**. That Act defines the Parliament's \"legislative competence\" as **the areas in which it can make laws**. Here is the filled-in structure:\n\n```json\n{\n  \"question\": \"The legislative competence of the Parliament species what areas?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"location\",\n    \"location\": \"the areas in which it can make laws\",\n    \"relation\": \"legislative competence specifies\"\n  }\n}\n```\n\n**Context:** The",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.21538461538461542,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 74,
+      "latency_s": 5.66
+    },
+    {
+      "id": "57377aac1c4567190057447d",
+      "question": "What notion keeps it's meaning through both Netonian and Schrodinger physics equations?",
+      "gold_answers": [
+        "force",
+        "force",
+        "force",
+        "force",
+        "The notion \"force\""
+      ],
+      "prediction": "**Answer: Force**\n\nIn quantum mechanics, the notion of \"force\" keeps its meaning even though the Schr\u00f6dinger equation replaces Newton's equations of motion. What changes is not the concept of force but the description of the particles it acts on: they are treated as quantum states (wave functions) rather than classical point masses with definite trajectories.\n\n```json\n{\n  \"question\": \"What notion keeps its meaning through both Newtonian and Schrodinger physics equations?\",\n  \"answer_structure\": {",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.059701492537313446,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 72,
+      "latency_s": 5.79
+    },
+    {
+      "id": "573361404776f41900660940",
+      "question": "What is the Royal Castle the most interesting example of?",
+      "gold_answers": [
+        "mannerist architecture",
+        "mannerist architecture",
+        "mannerist"
+      ],
+      "prediction": "The Royal Castle in Warsaw (built 1596\u20131619) is one of the **most interesting examples of Mannerist architecture**.\n\n- **Category:** Mannerist architecture\n- **Other example named alongside it:** the Jesuit Church in Warsaw's Old Town (1609\u20131626)",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.125,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 35,
+      "latency_s": 3.89
+    },
+    {
+      "id": "572fe9b3947a6a140053cde4",
+      "question": "There's a rough border between Switzerland and what other country formed by the Rhine?",
+      "gold_answers": [
+        "German",
+        "German-Swiss border",
+        "German"
+      ],
+      "prediction": "The answer is **Germany**. Below Lake Constance, the Rhine flows west as the High Rhine (Hochrhein) and forms much of the border between Switzerland and Germany.\n\nYour answer structure labels the answer type as \"quantity,\" but the answer is a place name, not a number, so the quantity, unit and measurement_context fields don't apply. A better fit would be:\n\n```json\n{\n  \"answer_type\": \"single\",\n  \"answer\": \"Germany\"\n}\n```",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.03571428571428571,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 67,
+      "latency_s": 4.1
+    },
+    {
+      "id": "571a4d1a4faf5e1900b8a95a",
+      "question": "By sunlight, what compound did  Priestley concentrate on to make the gas he called \"dephlogisticated air\"?",
+      "gold_answers": [
+        "mercuric oxide (HgO)",
+        "mercuric oxide",
+        "mercuric oxide",
+        "mercuric oxide (HgO)",
+        "mercuric oxide"
+      ],
+      "prediction": "**Mercuric oxide (HgO)**, which Priestley called *mercurius calcinatus per se*, the red calx of mercury.\n\nOn 1 August 1774 he used a large burning lens to focus sunlight onto the mercuric oxide in a closed vessel. Heating it released a gas that made a candle burn far more brightly and kept a mouse alive longer than ordinary air. He named this gas \"dephlogisticated air\"; it is now known as oxygen. The reaction is:\n\n2HgO \u2192 2Hg + O\u2082\n\nThe answer template expected a quantity, but the question asks for a compound, so no numerical value or unit applies.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.06818181818181818,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 98,
+      "latency_s": 4.21
+    },
+    {
+      "id": "57297781af94a219006aa4a6",
+      "question": "What is another function that primes have that the number 1 does not?",
+      "gold_answers": [
+        "Euler's totient function",
+        "sum of divisors function",
+        "sum of divisors function",
+        "the sum of divisors function",
+        "sum of divisors"
+      ],
+      "prediction": "**Answer: the sum of divisors function, \u03c3(n).**\n\nThe question appears to come from the Wikipedia passage on primality, which notes that primes satisfy properties that 1 does not, *\"such as the relationship of the number to its corresponding value of Euler's totient function or the sum of divisors function.\"* If the totient function is the one already mentioned, the \"other\" function is the s",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.13793103448275862,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 64,
+      "latency_s": 7.45
+    },
+    {
+      "id": "5725c337271a42140099d163",
+      "question": "How many species of Ctenophora have been validated?",
+      "gold_answers": [
+        "100\u2013150 species",
+        "100\u2013150",
+        "100\u2013150"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"How many species of Ctenophora have been validated?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"object\",\n    \"object\": \"100\u2013150 species\",\n    \"relation\": \"number of validated species of Ctenophora\"\n  }\n}\n```\n\nThis is the commonly cited estimate, with perhaps about 25 more species not yet fully described or named. Some more recent counts of described ctenophore species are higher, closer to about 200.",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.0689655172413793,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 62,
+      "latency_s": 5.62
+    },
+    {
+      "id": "5726f0e35951b619008f82fb",
+      "question": "What is there a push for in the U.S. to reduce consumer drug costs?",
+      "gold_answers": [
+        "to legalize importation of medications from Canada and other countries",
+        "legalize importation of medications",
+        "legalize importation of medications from Canada and other countries"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What is there a push for in the U.S. to reduce consumer drug costs?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"agent\",\n    \"agent\": \"legalizing the importation of medications from Canada and other countries\",\n    \"action_performed\": \"legalize importation\",\n    \"object_of_action\": \"medications from Canada and",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.4255319148936171,
+      "f1_extracted": 0.9473684210526316,
+      "prediction_tokens": 42,
+      "latency_s": 5.12
+    },
+    {
+      "id": "5730876a396df9190009617a",
+      "question": "what is the most controversial aspect of imperialism?",
+      "gold_answers": [
+        "empire-building",
+        "defense and justification of empire-building",
+        "is the defense and justification of empire-building based on seemingly rational grounds",
+        "defense and justification of empire-building based on seemingly rational grounds",
+        "defense and justification of empire-building"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"what is the most controversial aspect of imperialism?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Whether imperialism's claimed benefits (infrastructure, modernization, education, legal institutions) can justify",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.1142857142857143,
+      "f1_extracted": 0.33333333333333337,
+      "prediction_tokens": 27,
+      "latency_s": 5.66
+    },
+    {
+      "id": "5725c28a271a42140099d14e",
+      "question": "What effect does European Union law have on laws of member states?",
+      "gold_answers": [
+        "direct effect or indirect effect",
+        "direct effect or indirect effect on the laws of European Union member states",
+        "direct effect or indirect effect",
+        "direct effect or indirect effect"
+      ],
+      "prediction": "The `answer_structure` you supplied doesn't fit this question. Its answer is `\"time\"`, but the event, time expression and temporal type fields are all empty. The question asks about a legal effect, not a time or date, so it isn't a temporal question.\n\n## Answer\n\n**EU law takes precedence over conflicting national laws of member states.** This is the **principle of primacy (supremacy)**. Where a national law conflicts with EU law, national courts and authorities must set the national law aside and apply EU law.\n\n### Key doctrines\n\n| Doctrine | Meaning | Leading case |\n|---|---|---|\n| **Primacy / Supremacy** | EU law overrides conflicting national law, including later national legislation and even national constitutions (per the Court of Justice). | *",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.10714285714285712,
+      "f1_extracted": 0.5,
+      "prediction_tokens": 122,
+      "latency_s": 6.2
+    },
+    {
+      "id": "5726415bec44d21400f3dcd1",
+      "question": "What is a hermaphrodite?",
+      "gold_answers": [
+        "a single animal can produce both eggs and sperm",
+        "a single animal can produce both eggs and sperm",
+        "a single animal can produce both eggs and sperm"
+      ],
+      "prediction": "# What Is a Hermaphrodite?\n\n**Note on the answer format:** Your template asks for a quantity with a unit and measurement context, but this is a definitional question with no numerical answer. Here is the answer in the form that fits:\n\n```json\n{\n  \"answer_type\": \"single\",\n  \"answer\": \"definition\",\n  \"quantity\": null,\n  \"unit\": null,\n  \"measurement_context\": \"Not applicable; the question asks for a definition, not a measurement.\"\n}\n```\n\n## Definition\n\nA **hermaphrodite** is an organism that has both male and female reproductive organs, or can produce both male and female gametes (sperm and eggs), either at the same time or at different stages of its life.\n\n## Types\n\n- **",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.14893617021276595,
+      "f1_extracted": 0.6666666666666665,
+      "prediction_tokens": 107,
+      "latency_s": 7.14
+    },
+    {
+      "id": "572807802ca10214002d9bfc",
+      "question": "Le grand concludes that an author's words offer only what they intended for them to imply regarding this type of terminology?",
+      "gold_answers": [
+        "specific",
+        "civil disobedience",
+        "specific",
+        "specific"
+      ],
+      "prediction": "**Answer: Time**, meaning temporal terminology.\n\nThe claim is that time-related words in a text (expressions for duration, sequence, or dating) convey only the temporal meaning the author intended, not meanings a reader later imposes on them. The interpretive point is that temporal language should be read in light of authorial intent rather than taken at face value or read anachronistically.\n\nI can't confirm which Le Grand this refers to or locate the original passage, so check the source before citing it.",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 81,
+      "latency_s": 6.76
+    },
+    {
+      "id": "572ffa79a23a5019007fcbea",
+      "question": "What period opened the Tethys Ocean?",
+      "gold_answers": [
+        "Mesozoic Era",
+        "Triassic Period",
+        "Triassic Period"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What period opened the Tethys Ocean?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Permian\",\n    \"quality\": \"Moderate confidence. The (Neo-)Tethys Ocean opened during the Permian, beginning around the Early to Middle Permian",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.07142857142857144,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 32,
+      "latency_s": 5.71
+    },
+    {
+      "id": "5728f3724b864d1900165118",
+      "question": "What virus did Walter Reed discover?",
+      "gold_answers": [
+        "yellow fever virus",
+        "yellow fever",
+        "yellow fever virus"
+      ],
+      "prediction": "The answer is not a quantity, so the `quantity`, `unit`, and `measurement_context` fields don't apply. Here is a corrected structure:\n\n```json\n{\n  \"question\": \"What virus did Walter Reed discover?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Yellow fever virus (with caveats; see notes)\",\n    \"notes\": \"Walter Reed did not discover or isolate the yellow fever virus. In 1900\u20131901 he led the U.S. Army Yellow Fever Commission, which confirmed Carlos Finlay's hypothesis that the Aedes aegypti mosquito transmits yellow fever. In 1901 Reed and James Carroll",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.07894736842105263,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 82,
+      "latency_s": 5.94
+    },
+    {
+      "id": "572856beff5b5019007da190",
+      "question": "The University of Chicago Library system has how many libraries in total?",
+      "gold_answers": [
+        "six",
+        "six",
+        "six"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"The University of Chicago Library system has how many libraries in total?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"6\",\n    \"effect\": \"\",\n    \"cause\": \"\",\n    \"mechanism\": \"\"\n  }\n}\n```\n\nThe University of Chicago Library system is most commonly described as having **six libraries**. These include the Joseph Regenstein Library, the Joe and Rika Mansueto Library, the John Crerar Library, the D'Angelo Law Library, and the Eckhart Library. Together they hold roughly 11 million or more volumes. The count has shifted over time as branches have opened, merged, or",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.027027027027027025,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 89,
+      "latency_s": 5.86
+    },
+    {
+      "id": "5726a00cf1498d1400e8e551",
+      "question": "What are some of the accepted general principles of European Union law?",
+      "gold_answers": [
+        "fundamental rights (see human rights), proportionality, legal certainty, equality before the law and subsidiarity",
+        "fundamental rights (see human rights), proportionality, legal certainty, equality before the law and subsidiarity",
+        "fundamental rights (see human rights), proportionality, legal certainty, equality before the law and subsidiarity"
+      ],
+      "prediction": "**Answer:** The accepted general principles of European Union law include:\n\n- **Fundamental rights** (human rights)\n- **Proportionality**: EU measures must not go beyond what is necessary to achieve their aims.\n- **Legal certainty**: laws must be clear and predictable, with no unfair retroactive effect.\n- **Equality before the law**: comparable situations must be treated alike (non-discrimination).\n- **Subsidiarity**: the EU acts only when objectives cannot be adequately achieved by Member States.\n\nOther recognised principles include the protection of legitimate expectations, the right to be heard (rights of defence), and effective judicial protection.\n\n```json\n{\n  \"question\": \"What are some of the accepted general principles of European Union law?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"fundamental rights, proportionality, legal certainty, equality before the law, and subsidiarity\",\n    \"object\": \"general principles of European Union law\",\n    \"relation\": \"include\"\n  }\n}\n```",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.18320610687022904,
+      "f1_extracted": 0.8695652173913044,
+      "prediction_tokens": 135,
+      "latency_s": 5.29
+    },
+    {
+      "id": "5733fc6ed058e614000b6710",
+      "question": "What was the attack on the British weakness?",
+      "gold_answers": [
+        "Battle of Fort Bull",
+        "Battle of Fort Bull",
+        "Battle of Fort Bull",
+        "Battle of Fort Bull",
+        "March Battle of Fort Bull"
+      ],
+      "prediction": "I can't complete this annotation reliably as it stands. The record has a few problems:\n\n1. **No source passage.** The question refers to a specific \"attack on the British weakness,\" but there's no context to identify which attack or when it happened.\n2. **The answer field looks like a placeholder.** `\"",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 51,
+      "latency_s": 6.2
+    },
+    {
+      "id": "5730ab63396df91900096264",
+      "question": "Germany referred to which area more so than an actual country?",
+      "gold_answers": [
+        "central Europe",
+        "amorphous area of central Europe",
+        "an amorphous area of central Europe",
+        "central Europe",
+        "amorphous area of central Europe."
+      ],
+      "prediction": "**Answer:** Historically, \"Germany\" referred to a **cult",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 7,
+      "latency_s": 7.27
+    },
+    {
+      "id": "572f5703a23a5019007fc577",
+      "question": "What is the other country the Rhine separates Switzerland to? ",
+      "gold_answers": [
+        "Austria",
+        "Liechtenstein",
+        "Austria to the East.",
+        "Austria",
+        "Austria"
+      ],
+      "prediction": "",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.14
+    },
+    {
+      "id": "57265c10f1498d1400e8dd38",
+      "question": "The movements of the lobates combs are controlled by what?",
+      "gold_answers": [
+        "nerves",
+        "nerves rather than by water disturbances created by the cilia",
+        "nerves"
+      ],
+      "prediction": "The movements of the lobates' combs are controlled by **nerves**, not by water disturbances created by the cilia. Even so, combs on the same row beat in the \"Mexican wave\" style typical of the mechanically coordinated comb rows of cydippids and beroids.\n\nThe `\"answer\": \"time\"` field in your structure is incorrect. This question isn't temporal, so the time-related fields should stay empty:\n\n```json\n{\n  \"question\": \"The movements of the lobates combs are controlled by what?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"nerves\",\n    \"event\": \"\",\n    \"time_expression\": \"\",\n    \"temporal_type\": \"\"\n  }\n}\n```",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.17283950617283952,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 90,
+      "latency_s": 5.63
+    },
+    {
+      "id": "57309ef18ab72b1400f9c604",
+      "question": "How did Hobson argue to rid the world of imperialism?",
+      "gold_answers": [
+        "taxation",
+        "removing its economic foundation",
+        "domestic social reforms",
+        "removing its economic foundation",
+        "removing its economic foundation."
+      ],
+      "prediction": "**Answer:** J. A. Hobson argued that **domestic social reform** could cure the \"international disease\" of imperialism by **removing its economic foundation**.\n\nIn *Imperialism: A Study* (1902), he explained the reasoning:\n\n- **The cause:** Wealth was concentrated in a small class, so ordinary people could not afford to buy what the economy produced. This underconsumption left the rich with surplus capital that could not be profitably invested at home.\n- **The result:** Financiers and investors pushed governments to acquire colonies and spheres of influence abroad as outlets for that capital and surplus goods.\n- **The remedy:** Redistribute income through higher wages, progressive taxation and social",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.08421052631578947,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 104,
+      "latency_s": 6.03
+    },
+    {
+      "id": "57271c235951b619008f860f",
+      "question": "Where was the location of the 2003 Rose revolution?",
+      "gold_answers": [
+        "Georgia",
+        "Georgia",
+        "Georgia",
+        "Georgia",
+        "Georgia"
+      ],
+      "prediction": "The Rose Revolution took place in **Georgia**, centered in the capital **Tbilisi**. It began after the disputed parliamentary elections of 2 November 2003 and ended with President Eduard Shevardnadze's resignation on 23 November 2003.\n\nThe provided `answer_structure` lists `\"answer\": \"time\"`, but the question asks *where*, so the answer should be a location. A corrected structure:\n\n```json\n{\n  \"question\": \"Where was the location of the 2003 Rose revolution?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Georgia (Tbilisi)\",\n    \"event\": \"Rose Revolution\",\n    \"time_expression\": \"2003\",\n    \"temporal_type\": \"explicit\"\n  }\n}\n```",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.02857142857142857,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 84,
+      "latency_s": 4.8
+    },
+    {
+      "id": "572fd1c4947a6a140053cd04",
+      "question": "What vote on a bill takes place in Stage 3?",
+      "gold_answers": [
+        "final",
+        "final",
+        "final vote"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"What vote on a bill takes place in Stage 3?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"outcome\",\n    \"action\": \"Parliament considers final amendments to the bill and then holds a vote on it\",\n    \"actor\": \"The whole Parliament (all Members, meeting in plenary in the chamber)",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.09756097560975609,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 46,
+      "latency_s": 5.73
+    },
+    {
+      "id": "570d50a5fed7b91900d45e7d",
+      "question": "How much did the gross agricultural product increase from 2003-04?",
+      "gold_answers": [
+        "$8.7 billion",
+        "24%",
+        "$8.7 billion"
+      ],
+      "prediction": "I can't give a reliable figure because the question doesn't say which country, region or economy it refers to. \"Gross agricultural product\" growth for 2003\u201304 varies widely by place, and I don't want to guess a number.\n\nThe answer structure also has a type mismatch. The question asks \"how much,\" so the answer is a quantity (a percentage or monetary amount), not a \"concept or person.\" A",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 67,
+      "latency_s": 6.35
+    },
+    {
+      "id": "5733fc6ed058e614000b6711",
+      "question": "How much gun powder was destroyed in attack?",
+      "gold_answers": [
+        "45,000 pounds",
+        "45,000 pounds",
+        "45,000 pounds",
+        "45,000 pounds",
+        "45,000 pounds"
+      ],
+      "prediction": "The question gives no source passage, so I'm assuming it refers to the March 1756 French raid on Fort Bull during the French and Indian War.\n\n```json\n{\n  \"question\": \"How much gun powder was destroyed in attack?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"outcome\",\n    \"action\": \"Raid on Fort Bull (March 1",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 50,
+      "latency_s": 5.49
+    },
+    {
+      "id": "57108c95b654c5140001f97b",
+      "question": "What Huguenot area is designated as a historical landmark?",
+      "gold_answers": [
+        "\"Huguenot Street Historic District\" in New Paltz",
+        "Huguenot Street Historic District",
+        "The \"Huguenot Street Historic District\" in New Paltz"
+      ],
+      "prediction": "The **Historic Huguenot Street** district in New Paltz, New York, is designated a **National Historic Landmark**.\n\nHuguenot refugees from France founded New Paltz in 1678. The district preserves several of their original stone houses from the late 1600s and early 1700s, along with a reconstructed French church. It was named a National Historic Landmark District in 1960 and is now run as a museum.",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.21875,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 64,
+      "latency_s": 3.51
+    },
+    {
+      "id": "571c7d55dd7acb1400e4c0c8",
+      "question": "What theory was arrived at in 1811 that presented the assumption of diatomic molecules?",
+      "gold_answers": [
+        "Avogadro's law",
+        "Avogadro's law",
+        "Avogadro's law",
+        "the correct interpretation of water's composition",
+        "Avogadro's law"
+      ],
+      "prediction": "The theory is **Avogadro's law** (Avogadro's hypothesis), proposed by Amedeo Avogadro in 1811. It states that equal volumes of gases at the same temperature and pressure contain equal numbers of molecules. Together with the assumption that elements such as hydrogen and oxygen exist as diatomic molecules (H\u2082, O\u2082), it explained water's composition correctly as H\u2082O.\n\n```json\n{\n  \"answer_type\": \"single\",\n  \"answer\": \"Avogadro's law\",\n  \"location\": \"\",\n  \"relation\": \"\"\n}\n```\n\nI placed the answer in the \"answer\" field. Your template had \"location",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.08,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 80,
+      "latency_s": 6.03
+    },
+    {
+      "id": "572648d1708984140094c15f",
+      "question": "Who operated the vBSN network ",
+      "gold_answers": [
+        "The network was engineered and operated by MCI Telecommunications under a cooperative agreement with the NSF",
+        "MCI Telecommunications",
+        "National Science Foundation"
+      ],
+      "prediction": "The vBNS (very high-speed Backbone Network Service; \"vBSN\" appears to be a typo) was operated by **MCI**, later MCI WorldCom, under a cooperative agreement with the U.S. National Science Foundation. It launched in 1995.\n\nThe answer is an organization, not a quantity, so the quantity fields don't apply. Here is the template with the answer type adjusted:\n\n```json\n{\n  \"question\": \"Who operated the vBNS network\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"entity\",\n    \"entity\": \"MCI (later MCI WorldCom), under a cooperative agreement with the National Science Foundation\",\n    \"quantity\": null,\n    \"unit\": null,\n    \"measurement_context\": null\n  }\n}\n```",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.20224719101123595,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 94,
+      "latency_s": 5.42
+    },
+    {
+      "id": "572a1dbb3f37b319004786f9",
+      "question": "When people take on debt, it leads potentially to what?",
+      "gold_answers": [
+        "economic instability",
+        "greater inequality and potential economic instability",
+        "greater inequality and potential economic instability"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"When people take on debt, it leads potentially to what?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"bankruptcy\",\n    \"object\": \"bankruptcy\",\n    \"relation\": \"causes\"\n  }\n}\n```\n\nTaking on debt can lead to **bankruptcy** if the borrower cannot repay what they owe.",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 41,
+      "latency_s": 3.57
+    },
+    {
+      "id": "571c3a685efbb31900334db3",
+      "question": "Of what group in the periodic table is oxygen a member?",
+      "gold_answers": [
+        "chalcogen",
+        "chalcogen",
+        "chalcogen",
+        "chalcogen",
+        "the chalcogen group"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Of what group in the periodic table is oxygen a member?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"concept\",\n    \"identity\": \"Group 16 (the chalcogens, or oxygen family; formerly Group VIA)\",\n    \"defining_property\": \"Elements with six valence electrons (ns\u00b2np\u2074 configuration). The group includes oxygen, sulfur, selenium, tellurium, polonium, and livermorium.\"\n  }\n}\n```",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.04444444444444444,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 52,
+      "latency_s": 2.86
+    },
+    {
+      "id": "571097baa58dae1900cd6a98",
+      "question": "What Revolutionary War midnight rider was a Huguenot descendant?",
+      "gold_answers": [
+        "Paul Revere",
+        "Paul Revere",
+        "Paul Revere"
+      ],
+      "prediction": "The answer is **Paul Revere**. His father, Apollos Rivoire, was a French Huguenot who emigrated to Boston as a boy and later anglicized the family name to \"Revere.\"\n\nThe provided `answer_structure` doesn't fit this question. The question asks for a **person**, not a time, so `\"answer\": \"time\"` is incorrect. Here is a corrected version:\n\n```json\n{\n  \"question\": \"What Revolutionary War midnight rider was a Huguenot descendant?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Paul Revere\",\n    \"event\": \"Midnight ride warning of British troop movements before the Battles of Lexington and Concord\",\n    \"time_expression\": \"Night of April",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.04938271604938272,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 92,
+      "latency_s": 5.38
+    },
+    {
+      "id": "572fcb6da23a5019007fc9f3",
+      "question": "Why do police and fire services fall under the purview of the Scottish Parliament?",
+      "gold_answers": [
+        "automatically devolved",
+        "not specifically reserved",
+        "All matters that are not specifically reserved are automatically devolved to the Scottish Parliament"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"Why do police and fire services fall under the purview of the Scottish Parliament?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"outcome\",\n    \"action\": \"Passed the Scotland Act 1998, which created the Scottish Parliament and listed the matters reserved to Westminster (e.g., defence, foreign affairs, national security, immigration). Policing and fire services were not on that list.\",\n    \"actor\": \"The UK Parliament at Westminster\",\n    \"outcome\": \"Police and fire services are devolved matters because the Scotland Act 1998 gives the Scottish Parliament power over any subject not expressly reserved to Westminster. The Scottish Parliament has used this power, for example in the Police and Fire Re",
+      "class_id": 9,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.17142857142857143,
+      "f1_extracted": 0.6666666666666666,
+      "prediction_tokens": 104,
+      "latency_s": 4.96
+    },
+    {
+      "id": "5725c41eec44d21400f3d50e",
+      "question": "How has this debate been proven?",
+      "gold_answers": [
+        "This debate has proved difficult",
+        "difficult to resolve"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 3.04
+    },
+    {
+      "id": "56e1ec83cd28a01900c67c0c",
+      "question": "That there currently exists no known integer factorization problem underpins what commonly used system?",
+      "gold_answers": [
+        "modern cryptographic systems",
+        "modern cryptographic systems",
+        "RSA algorithm"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"That there currently exists no known integer factorization problem underpins what commonly used system?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"agent\",\n    \"agent\": \"Modern cryptographic systems, such as the RSA algorithm\",\n    \"action_performed\": \"rely on (are underpinned by) the assumed hardness of\",\n    \"object_of_action\": \"integer factorization, since no efficient classical algorithm for factoring large integers is currently known\"\n  }\n}\n```\n\n**Note on the question's wording:**",
+      "class_id": 2,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.1,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 65,
+      "latency_s": 5.32
+    },
+    {
+      "id": "5728501aff5b5019007da167",
+      "question": "How many people belong to the university's Board of Trustees?",
+      "gold_answers": [
+        "50",
+        "50",
+        "50"
+      ],
+      "prediction": "I can't answer this as written, for two reasons.\n\n**1. The university isn't identified.**\nBoard sizes vary widely. For example:\n- Harvard's Board of Overseers has 30 elected members. Its smaller governing board, the President and Fellows (the Harvard Corporation), has 13 members including the president.\n- Many U.S. private universities have boards of roughly 20 to 50 trustees.\n- Some public universities have small boards of regents, often about 8 to 15 members, frequently appointed by the governor.\n\nBoard sizes also change over time, so the answer depends on when the question is asked.\n\n**2. The `answer_structure` looks incomplete or malformed.**\n- `\"answer\": \"quality\"` seems to be a field name or placeholder rather than an actual answer.\n- `\"quality\"` and `\"description_domain\"` are empty strings.\n- The question asks \"how many,\" so the answer type would normally be a number, not a quality.\n\n**A possible corrected structure** (once the university is known):\n\n```json\n{\n  \"question\": \"How many people belong to [University Name]'s Board of Trustees?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"number\",\n    \"quantity\": <integer>,\n    \"description_domain\": \"",
+      "class_id": 4,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.013245033112582783,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 175,
+      "latency_s": 6.51
+    },
+    {
+      "id": "573020f7b2c2fd14005688fa",
+      "question": "When did Hamas drive the PLO out of Gaza?",
+      "gold_answers": [
+        "2007",
+        "2007",
+        "2007"
+      ],
+      "prediction": "```json\n{\n  \"question\": \"When did Hamas drive the P",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 9,
+      "latency_s": 6.09
+    },
+    {
+      "id": "573004bf947a6a140053cf56",
+      "question": "What status has the Brotherhood obtained in the Islamic world?",
+      "gold_answers": [
+        "one of the most influential movements",
+        "one of the most influential movements",
+        "one of the most influential"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.73
+    },
+    {
+      "id": "5729f1c13f37b319004785ea",
+      "question": "Who is the author of the book, \"Knowledge and Decisions\"?",
+      "gold_answers": [
+        "Thomas Sowell",
+        "Thomas Sowell",
+        "Thomas Sowell"
+      ],
+      "prediction": "The author of *Knowledge and Decisions* (1980) is **Thomas Sowell**, the American economist and social theorist.\n\nYour template labels the answer as a \"location,\" but the answer is a person. Here is the structure filled in accordingly:\n\n```json\n{\n  \"question\": \"Who is the author of the book, \\\"Knowledge and Decisions\\\"?\",\n  \"answer_structure\": {\n    \"answer_type\": \"single\",\n    \"answer\": \"Thomas Sowell\",\n    \"location\": \"\",\n    \"relation\": \"author of\"\n  }\n}\n```",
+      "class_id": 7,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.07692307692307693,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 65,
+      "latency_s": 3.27
+    },
+    {
+      "id": "57335fcad058e614000b5973",
+      "question": "What building from the 19th century was destroyed between the 1950s and 1960s?",
+      "gold_answers": [
+        "Leopold Kronenberg Palace",
+        "Leopold Kronenberg Palace",
+        "Leopold Kronenberg Palace"
+      ],
+      "prediction": "",
+      "class_id": 1,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.45
+    },
+    {
+      "id": "572754fff1498d1400e8f662",
+      "question": "What are some existing facilities?",
+      "gold_answers": [
+        "electrical, water, sewage, phone, and cable facilities",
+        "electrical, water, sewage, phone, and cable",
+        "electrical, water, sewage, phone, and cable facilities"
+      ],
+      "prediction": "The question is too underspecified to answer as written. There is no context saying what kind of facilities, where, or for what purpose. The current `answer_structure` also conflicts with the question.\n\n## Issues with the current structure\n\n| Field | Current value | Problem |\n|---|---|---|\n| `answer_type` | `\"single\"` | \"What are **some**\u2026\" asks for multiple items, so it should be a list. |\n| `answer` | `\"concept or person\"` | Facilities are physical places or institutions, not people. \"Location\" or \"entity/organization\" fits better. |\n| `identity` | empty | Can't be filled without knowing the domain (e.g., research, healthcare, sports, nuclear). |\n| `defining_property` | empty | \"Existing\" is the only constraint given, meaning currently operational or already built, as opposed to planned or proposed. |\n\n## Suggested revised structure\n\n```json\n{\n  \"question\": \"What are some existing facilities?\",\n  \"answer_structure\": {\n    \"answer_type\": \"list\",\n    \"answer\": \"entity (facility / location / institution)\",\n    \"identity\": \"",
+      "class_id": 3,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.015999999999999997,
+      "f1_extracted": 0.25,
+      "prediction_tokens": 153,
+      "latency_s": 5.63
+    },
+    {
+      "id": "56e1c720e3433e140042316b",
+      "question": "In what expression can one expect to find DTIME(n)",
+      "gold_answers": [
+        "DTIME(n2)",
+        "DTIME(n2)",
+        "DTIME(n2)"
+      ],
+      "prediction": "DTIME(n) is contained in **DTIME(n\u00b2)**.\n\nThis follows from the definitions. Any problem a deterministic Turing machine can solve in O(n) time can also be solved within an O(n\u00b2) time bound, since n \u2264 n\u00b2 for n \u2265 1. So DTIME(n) \u2286 DTIME(n\u00b2).\n\nThe time hierarchy theorem goes further and shows the inclusion is strict: DTIME(n) \u228a DTIME(n\u00b2). In other words, allowing more computation time really does let you solve more problems.",
+      "class_id": 6,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 71,
+      "latency_s": 5.55
+    },
+    {
+      "id": "5730ac782461fd1900a9cf73",
+      "question": "Germany doesn't have an imperialistic past until when?",
+      "gold_answers": [
+        "late 19th century",
+        "late 19th century",
+        "19th century",
+        "late 19th century",
+        "late 19th century."
+      ],
+      "prediction": "",
+      "class_id": 5,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 6.22
+    },
+    {
+      "id": "5729f39a6aef05140015514f",
+      "question": "When an activated killer T cell finds cells where the MHC 1 receptor has specific antigens, it releases cytotoxins such as what?",
+      "gold_answers": [
+        "perforin",
+        "perforin",
+        "perforin"
+      ],
+      "prediction": "The answer is **perforin**.\n\nWhen an activated killer (cytotoxic CD8\u207a) T cell recognizes its specific antigen presented on MHC class I molecules on a target cell, it releases **perforin**. Perforin forms pores in the target cell's plasma membrane. These pores let ions, water and toxins enter the cell.\n\nTwo other cytotoxins enter through the pores:\n\n- **Granzymes** are serine proteases that trigger apoptosis.\n- **Granulysin** is another cytotoxic protein.\n\nTogether these cause the infected or abnormal cell to die by apoptosis.",
+      "class_id": 10,
+      "exact_match": 0.0,
+      "exact_match_extracted": 1.0,
+      "f1": 0.0273972602739726,
+      "f1_extracted": 1.0,
+      "prediction_tokens": 81,
+      "latency_s": 4.3
+    },
+    {
+      "id": "57287d4a2ca10214002da3e7",
+      "question": "What kind of division of power did Kublai's government have?",
+      "gold_answers": [
+        "tripartite",
+        "tripartite division",
+        "tripartite"
+      ],
+      "prediction": "",
+      "class_id": 8,
+      "exact_match": 0.0,
+      "exact_match_extracted": 0.0,
+      "f1": 0.0,
+      "f1_extracted": 0.0,
+      "prediction_tokens": 0,
+      "latency_s": 5.43
+    }
+  ]
+}
