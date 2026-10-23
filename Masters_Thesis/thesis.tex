@@ -795,25 +795,23 @@ It is tempting to extend the finding further, to the claim that these models int
 This is raised to place the result, not to diminish it. Content is most likely to dominate form precisely in an extractive setting. A generative task, in which the model must compose rather than locate an answer, would test the role of structure more directly, and is left to future work.
 
 % ============================================================
-\chapter{Limitations}
-\label{ch:limitations}
+\chapter{Conclusion}
+\label{ch:conclusion}
 % ============================================================
+
+\section{Limitations}
+\label{ch:limitations}
 
 Several limitations bound the scope of these conclusions. The evaluation uses SQuAD, whose answers are short factual spans. Without the passage the model must generate the answer from memory rather than locate it, ideally still resulting in a brief span. Such answers have little internal structure, so a scaffold meant to lay out the form of an answer has little to organize. Whether the result holds for tasks with composite answers, where form carries more weight, remains untested. The model sample is also narrow. The six-model study spans open-weight decoders between 1B and 8B, and the fine-tuning study rests on a single 3B model. Together these cover only a small part of the space of models, and no large-scale models were included. Whether the relationship between structure and capacity changes at that scale is therefore left open. The taxonomy was not derived from an existing framework but induced from a single dataset by an LLM annotator applying a fixed rule set. A taxonomy built differently might capture a different signal. The study establishes that such a taxonomy can exist, not what its ideal form is. A final limitation is an extraction-based F1 that recovers the best-matching span from the model output. Being more forgiving than the official SQuAD metric, it inflates the absolute numbers, so the figures here support comparison across conditions more than comparison with published results.
 
-% ============================================================
-\chapter{Future Work}
+\section{Future Work}
 \label{ch:future}
-% ============================================================
 
 The clearest extension is to tasks whose answers are composite rather than extractive. A SQuAD answer is a short span already present in the passage. It has little internal structure of its own, so an imposed structure had little to organize (\cref{ch:limitations}). This is the setting least favorable to the method, and the negative result should be read against it. Tasks whose answers must be composed rather than located might change that balance. Multi-step reasoning, causal explanation, and long-form generation all produce answers with several parts standing in a definite relation, which is what an answer structure is meant to describe. Applying the method to these tasks would test whether a matched structure helps where form carries real weight, and would show whether the failure seen here is specific to extractive answers or general to prompt-supplied structure.
 
 A second direction concerns the form in which structure is delivered. The results locate the failure in the schema rather than in the structure it carries. Rendered as prose, the same structure improved accuracy where the schema did not (\sref{sec:teaches}). The question this leaves open is how prose delivery should be composed. It is not yet clear how much detail a prose structure needs, which cues carry the guidance, or how much surrounding context helps before it begins to distract. Studying these factors would shift the focus from whether delivery form matters, which the results establish, to how a structured prose delivery is best written. One concrete form this question takes is specialized syntactic structure, where the schema's dimensions are carried in the grammatical relations of well-formed language rather than in keys and braces. Such a delivery would sit between the rigid schema that failed here and free prose, keeping the explicit dimensions while presenting them in the form the model reads most readily. Broadening the taxonomy beyond a single extractive dataset would run alongside this, showing whether one set of answer structures serves across tasks or each task calls for its own.
 
-% ============================================================
-\chapter{Conclusion}
-\label{ch:conclusion}
-% ============================================================
+\section{Summary}
 
 This work asked whether a small language model benefits from an answer structure matched to the question before generation. Underlying this was the expectation that an explicit description of the answer's form would narrow the model's prediction space, and that a model constrained in capacity would benefit most. A taxonomy of answer structures was derived from SQuAD and examined through two studies. A six-model study, spanning 1B to 8B parameters, varied the matched structure, a random structure, and the source passage across conditions. A fine-tuning study, on a single model, varied how the structure was trained and delivered.
 
